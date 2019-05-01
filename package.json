@@ -10,5 +10,9 @@
     "url": "git+https://github.com/kripple/calling-card.git"
   },
   "author": "Kelly Ripple",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "4.0.0",
+    "gulp-rev": "9.0.0"
+  }
 }
