@@ -12,7 +12,5 @@
   "author": "Kelly Ripple",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "4.0.0",
-    "gulp-rev": "9.0.0"
   }
 }
