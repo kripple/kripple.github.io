@@ -1,55 +1,95 @@
 * {
   background-color:  #272822;
   /* border: 1px solid white; */
+  padding: 0;
+  margin: 0;
 }
+
+
 
 .grid {
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "headshot"
+    "blurb"
+    "footer ";
+    /* width: 100vh; */
+    height: 100vh;
+    grid-gap: 10px;
+    /* margin: 10px; */
+    box-sizing: border-box;
+    border: 5px solid #A6E22E;
 }
 
-.grid-item {
-  margin: 0.3rem;
-}
 
 .headshot {
+  grid-area: headshot;
   opacity: 0.8;
-  border-radius: 0.9rem;
-  background-color: black;
-  max-height: 300px;
-  max-width: 100%;
+  border-radius: 300px;
+  background-color: #FD971F;
+  height: 300px;
+  border: 2px solid #FD971F;
+  justify-self: center;
+  align-self:center;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
-@media(min-width: 400px) {
+.monokai {
+  color: #66D9EF;
+  color: #F92672;
+  color: #272822;
+  color: #FD971F;
+  color: #A6E22E;
+}
+
+
+/* @media(min-width: 400px) {
   .headshot {
     max-width: 370px;
   }
+} */
+
+.blurb {
+  grid-area: blurb;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  color: gray;
+  opacity: 0.8;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  line-height: 20px;
 }
 
-.about-me-blurb {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: white;
-  opacity: 0.5;
-  text-align: left;
+.blurb-item {
+  margin-bottom: 10px;
 }
 
 .footer {
+  grid-area: footer;
   align-self: flex-end;
   text-align: center;
+  /* height: 100%; */
+  margin-bottom: 10px;
 }
 
 .social-icon {
-  width: 2rem;
-  padding: 0 0.2rem 0 0.2rem;
+  width: 50px;
+  margin: 0 10px 0 10px;
   opacity: 0.5;
-  align-self: flex-end;
+  border: 2px solid #66D9EF;
+  border-radius: 50px;
+  /* align-self: flex-end; */
 }
 
-@media(max-width: 400px) {
+/* @media(max-width: 400px) {
   .social-icon {
     width: 10%;
   }
-}
+} */
 
 .social-link {
   text-decoration: none;
