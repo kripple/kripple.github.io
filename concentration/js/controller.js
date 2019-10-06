@@ -7,8 +7,6 @@ class Controller {
     this.deck = new Deck(this.cards);
     this.deck.shuffle();
     this.updateView();
-
-
   }
 
   updateView() {

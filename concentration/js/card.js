@@ -11,6 +11,7 @@ class Card {
 
   match() {
     this.matched = true;
+    this.faceUp = false;
   }
 
   toString(index) {
