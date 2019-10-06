@@ -12,3 +12,4 @@ const SYMBOLS_LIST = [
   "&#9831;" // clubs
 ];
 ONE_SECOND = 600;
+FACE_DOWN = "face-down";

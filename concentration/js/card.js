@@ -15,11 +15,11 @@ class Card {
 
   toString(index) {
     if (this.matched) {
-      return "<div class=\"aspect-ratio-wrapper\"><div id=\"" + index + "\" class=\"" + SYMBOL_CONTAINER + " hidden\"><div class=\"" + SYMBOL + "\"></div></div></div>"
+      return `<div class=\"aspect-ratio-wrapper\"><div id=\"${index}\" class=\"${SYMBOL_CONTAINER} hidden\"><div class=\"${SYMBOL}\"></div></div></div>`
     } else if (!this.faceUp) {
-      return "<div class=\"aspect-ratio-wrapper\"><div id=\"" + index + "\" class=\"" + SYMBOL_CONTAINER + " face-down\"><div class=\"" + SYMBOL + "\"></div></div></div>"
+      return `<div class=\"aspect-ratio-wrapper\"><div id=\"${index}\" class=\"${SYMBOL_CONTAINER} ${FACE_DOWN}\"><div class=\"${SYMBOL}\"></div></div></div>`
     } else {
-      return "<div class=\"aspect-ratio-wrapper\"><div id=\"" + index + "\" class=\"" + SYMBOL_CONTAINER + "\"><div class=\"" + SYMBOL + "\">" + this.symbol + "</div></div></div>"
+      return `<div class=\"aspect-ratio-wrapper\"><div id=\"${index}\" class=\"${SYMBOL_CONTAINER}\"><div class=\"${SYMBOL}\">${this.symbol}</div></div></div>`
     }
   }
 

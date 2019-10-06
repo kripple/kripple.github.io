@@ -27,7 +27,9 @@ class Controller {
 
   addEventListeners() {
     for (let i = 0; i < this.containers.length; i++) {
-      this.containers[i].addEventListener('click', (event) => this.onClick(event.target.id));
+      if (this.isFaceDown(this.containers[i])) {
+        this.containers[i].addEventListener('click', (event) => this.onClick(event.target.id));
+      }
     }
   }
 
@@ -48,7 +50,6 @@ class Controller {
   flipCard(cardId) {
     this.deck.cards[cardId].flip();
     this.updateView();
-
   }
 
   isMatch(cards) {
@@ -68,6 +69,15 @@ class Controller {
       cards[i].flip();
     }
     this.updateView();
+  }
+
+  isFaceDown(container) {
+    for (let i = 0; i < container.classList.length; i++) {
+      if (container.classList[i] === FACE_DOWN) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }

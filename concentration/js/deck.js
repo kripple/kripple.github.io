@@ -22,7 +22,7 @@ class Deck {
   numCardsFaceUp() {
     let count = 0;
     for (let i = 0; i < this.cards.length; i++) {
-      if (this.cards[i].faceUp) {
+      if (this.cards[i].faceUp && !this.cards[i].matched) {
         count++;
       }
     }
