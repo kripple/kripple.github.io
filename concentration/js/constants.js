@@ -11,3 +11,4 @@ const SYMBOLS_LIST = [
   "&#9828;", // spades
   "&#9831;" // clubs
 ];
+ONE_SECOND = 600;

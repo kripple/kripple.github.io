@@ -36,13 +36,19 @@ class Controller {
     if (this.deck.onlyOneCardIsFaceUp()) { return }
 
     let cards = this.deck.getFaceUpCards();
+    setTimeout(() => {
+      this.checkForMatch(cards);
+    }, ONE_SECOND);
+  }
+
+  checkForMatch(cards) {
     this.isMatch(cards) ? this.setMatched(cards) : this.setFaceDown(cards);
   }
 
   flipCard(cardId) {
     this.deck.cards[cardId].flip();
     this.updateView();
-    
+
   }
 
   isMatch(cards) {
