@@ -1,7 +1,8 @@
 function shuffle(array) {
-  let shuffledArray = array
-  for (let i = array.length - 1; i > 0; i--) {
+  let clone = array.slice(0);
+  for (let i = clone.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [clone[i], clone[j]] = [clone[j], clone[i]];
   }
+  return clone;
 }
