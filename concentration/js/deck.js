@@ -1,7 +1,7 @@
 class Deck {
 
   constructor(cards) {
-    this.cards = cards.concat(cards);
+    this.cards = cards;
   }
 
   shuffle() {
@@ -13,9 +13,33 @@ class Deck {
 
   toString() {
     let displayStrings = []
-    this.cards.forEach(card => {
-      displayStrings.push(card.toString());
+    this.cards.forEach((card, index) => {
+      displayStrings.push(card.toString(index));
     });
     return displayStrings.join("\n");
+  }
+
+  numCardsFaceUp() {
+    let count = 0;
+    for (let i = 0; i < this.cards.length; i++) {
+      if (this.cards[i].faceUp) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  onlyOneCardIsFaceUp() {
+    return this.numCardsFaceUp() === 1;
+  }
+
+  getFaceUpCards() {
+    let faceUpCards = [];
+    for (let i = 0; i < this.cards.length; i++) {
+      if (this.cards[i].faceUp) {
+        faceUpCards.push(this.cards[i]);
+      }
+    }
+    return faceUpCards;
   }
 }

@@ -13,13 +13,17 @@ class Card {
     this.matched = true;
   }
 
-  toString() {
+  toString(index) {
     if (this.matched) {
-      return "<div class=\"aspect-ratio-wrapper\"><div class=\"symbol-container hidden\"><div class=\"" + SYMBOL_ID + "\"></div></div></div>"
+      return "<div class=\"aspect-ratio-wrapper\"><div id=\"" + index + "\" class=\"" + SYMBOL_CONTAINER + " hidden\"><div class=\"" + SYMBOL + "\"></div></div></div>"
     } else if (!this.faceUp) {
-      return "<div class=\"aspect-ratio-wrapper\"><div class=\"symbol-container face-down\"><div class=\"" + SYMBOL_ID + "\"></div></div></div>"
+      return "<div class=\"aspect-ratio-wrapper\"><div id=\"" + index + "\" class=\"" + SYMBOL_CONTAINER + " face-down\"><div class=\"" + SYMBOL + "\"></div></div></div>"
     } else {
-      return "<div class=\"aspect-ratio-wrapper\"><div class=\"symbol-container\"><div class=\"" + SYMBOL_ID + "\">" + this.symbol + "</div></div></div>"
+      return "<div class=\"aspect-ratio-wrapper\"><div id=\"" + index + "\" class=\"" + SYMBOL_CONTAINER + "\"><div class=\"" + SYMBOL + "\">" + this.symbol + "</div></div></div>"
     }
+  }
+
+  isMatch(card) {
+    return this.symbol === card.symbol;
   }
 }

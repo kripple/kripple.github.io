@@ -9,7 +9,7 @@
 // them, then they are flipped back over face down.
 // Obviously, card symbols all come in pairs.
 
-let symbolsContainer = document.getElementById(SYMBOLS_ID);
-symbolsContainer.innerHTML = deck;
-
-console.log(deck);
+let controller = new Controller(
+  document.getElementById(SYMBOLS),
+  document.getElementsByClassName(SYMBOL_CONTAINER)
+);

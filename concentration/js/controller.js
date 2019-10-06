@@ -1,12 +1,68 @@
-let cards = createCards(SYMBOLS);
-let deck = new Deck(cards);
+class Controller {
 
-deck.shuffle();
+  constructor(container, containers) {
+    this.container = container;
+    this.containers = containers;
+    this.cards = this.createCards(SYMBOLS_LIST);
+    this.deck = new Deck(this.cards);
+    this.deck.shuffle();
+    this.updateView();
 
-function createCards(symbols) {
-  let cards = []
-  for (i = 0; i < symbols.length; i++) {
-    cards[i] = new Card(symbols[i])
+
   }
-  return cards;
+
+  updateView() {
+    this.container.innerHTML = this.deck;
+    this.addEventListeners();
+  }
+
+  createCards(symbols) {
+    let cards = []
+    for (let i = 0; i < symbols.length; i++) {
+      cards[i] = new Card(symbols[i])
+      cards[i + symbols.length] = new Card(symbols[i])
+    }
+    return cards;
+  }
+
+  addEventListeners() {
+    for (let i = 0; i < this.containers.length; i++) {
+      this.containers[i].addEventListener('click', (event) => this.onClick(event.target.id));
+    }
+  }
+
+  onClick(cardId) {
+    this.flipCard(cardId);
+    if (this.deck.onlyOneCardIsFaceUp()) { return }
+
+    let cards = this.deck.getFaceUpCards();
+    this.isMatch(cards) ? this.setMatched(cards) : this.setFaceDown(cards);
+  }
+
+  flipCard(cardId) {
+    this.deck.cards[cardId].flip();
+    this.updateView();
+    
+  }
+
+  isMatch(cards) {
+    if (cards.length !== 2) { return false }
+    return cards[0].isMatch(cards[1])
+  }
+
+  setMatched(cards) {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].match();
+    }
+    this.updateView();
+  }
+
+  setFaceDown(cards) {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].flip();
+    }
+    this.updateView();
+  }
+
 }
+
