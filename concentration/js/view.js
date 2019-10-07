@@ -13,3 +13,8 @@ let controller = new Controller(
   document.getElementById(SYMBOLS),
   document.getElementsByClassName(SYMBOL_CONTAINER)
 );
+
+
+// let htmlStyles = window.getComputedStyle(document.querySelector("html"));
+// let rowNum = parseInt(htmlStyles.getPropertyValue("--rowNum"));
+// document.documentElement.style.setProperty("--rowNum", 6);

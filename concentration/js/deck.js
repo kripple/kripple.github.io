@@ -29,8 +29,12 @@ class Deck {
     return count;
   }
 
-  onlyOneCardIsFaceUp() {
+  oneCardIsFaceUp() {
     return this.numCardsFaceUp() === 1;
+  }
+
+  twoCardsAreFaceUp() {
+    return this.numCardsFaceUp() === 2;
   }
 
   getFaceUpCards() {

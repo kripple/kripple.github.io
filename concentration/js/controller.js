@@ -32,9 +32,10 @@ class Controller {
   }
 
   onClick(cardId) {
+    if (this.deck.twoCardsAreFaceUp()) { return }
     this.flipCard(cardId);
-    if (this.deck.onlyOneCardIsFaceUp()) { return }
 
+    if (this.deck.oneCardIsFaceUp()) { return }
     let cards = this.deck.getFaceUpCards();
     setTimeout(() => {
       this.checkForMatch(cards);

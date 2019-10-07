@@ -13,3 +13,4 @@ const SYMBOLS_LIST = [
 ];
 ONE_SECOND = 600;
 FACE_DOWN = "face-down";
+HIDDEN = "hidden";

@@ -1,51 +1,50 @@
+:root {
+  --rowNum: 4;
+  --colNum: 4;
+  /* --background-color: white; */
+  --background-color: #272822;
+  /* --accent-color: gray;; */
+  --accent-color: #66D9EF;
+  --container-size-vw: 18vw;
+  --container-size-vh: 18vh;
+  --font-size-vw: 12vw;
+  --font-size-vh: 12vh;
+}
+
 .container {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: var(--background-color);
+  display: grid;  
 }
 
 #symbols {
-  width: 100%;
-  max-width: 100vh;
-  text-align: center; 
-  position: relative;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.aspect-ratio-wrapper {
-  position: relative;
-  width: 20%;
-  display: inline-block;
-} 
-
-.aspect-ratio-wrapper:before {
-  content: "";
   display: grid;
-  padding-top: 100%;  /* initial ratio of 1:1*/
+  align-self: center;
+  justify-self: center;
+  grid-template-rows: repeat(var(--rowNum), var(--container-size-vw));
+  grid-template-columns: repeat(var(--colNum), var(--container-size-vw));
+  align-items: center;
+  justify-items: center;
 }
 
 .symbol-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 1%;
-  border: 2px solid gray;
+  width: var(--container-size-vw);
+  height: var(--container-size-vw);
+  line-height: var(--container-size-vw);
+  border: 2px solid var(--accent-color);
   border-radius: 5px;
   text-align: center;
-  background-color: white;
+  background-color: var(--background-color);
+  grid-column-start: auto;
+  grid-row-start: auto;
 }
 
 .face-down {
-  background-color: gray;
+  background-color: var(--accent-color);
   cursor: pointer;
 }
 
@@ -54,18 +53,19 @@
 }
 
 .symbol {
-  color: gray;
-  font-size: 12vw;
-  position: relative;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  color: var(--accent-color);
+  font-size: var(--font-size-vw);
 }
 
 @media screen and (min-width: 100vh) {
+  .symbol-container {
+    width: var(--container-size-vh);
+    height: var(--container-size-vh);
+    line-height: var(--container-size-vh);
+  }
+
   .symbol {
-    font-size: 12vh;
+    font-size: var(--font-size-vh);
   }
 }
  
