@@ -5,10 +5,10 @@
   --background-color: #272822;
   /* --accent-color: gray;; */
   --accent-color: #66D9EF;
-  --container-size-vw: 18vw;
-  --container-size-vh: 18vh;
-  --font-size-vw: 12vw;
-  --font-size-vh: 12vh;
+  --container-size-vw: 80px;
+  --container-size-vh: 80px;
+  --font-size-vw: 42px;
+  --font-size-vh: 42px;
 }
 
 .container {
@@ -29,6 +29,7 @@
   grid-template-columns: repeat(var(--colNum), var(--container-size-vw));
   align-items: center;
   justify-items: center;
+  grid-gap: 10px;
 }
 
 .symbol-container {
@@ -39,17 +40,11 @@
   border-radius: 5px;
   text-align: center;
   background-color: var(--background-color);
-  grid-column-start: auto;
-  grid-row-start: auto;
 }
 
 .face-down {
   background-color: var(--accent-color);
   cursor: pointer;
-}
-
-.hidden {
-  border: none;
 }
 
 .symbol {
