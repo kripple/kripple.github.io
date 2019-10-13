@@ -3,7 +3,7 @@ class Controller {
   constructor(container, containers) {
     this.container = container;
     this.containers = containers;
-    this.cards = this.createCards(SYMBOLS_LIST);
+    this.cards = this.createCards(POKEMON);
     this.deck = new Deck(this.cards);
     this.deck.shuffle();
     this.updateView();
@@ -39,7 +39,12 @@ class Controller {
     let cards = this.deck.getFaceUpCards();
     setTimeout(() => {
       this.checkForMatch(cards);
+      this.checkForWin();
     }, ONE_SECOND);
+  }
+
+  checkForWin() {
+    
   }
 
   checkForMatch(cards) {

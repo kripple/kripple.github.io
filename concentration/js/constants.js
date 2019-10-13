@@ -11,6 +11,26 @@ const SYMBOLS_LIST = [
   "&#9828;", // spades
   "&#9831;" // clubs
 ];
-ONE_SECOND = 600;
-FACE_DOWN = "face-down";
-HIDDEN = "hidden";
+const ONE_SECOND = 600;
+const FACE_DOWN = "face-down";
+const HIDDEN = "hidden";
+const POKEMON = [
+  "bellsprout",
+  "bulbasaur",
+  "caterpie",
+  "charmander",
+  "dratini",
+  "eevee",
+  "jigglypuff",
+  "mankey",
+  "meowth",
+  "pidgey",
+  "pikachu",
+  "psyduck",
+  "rattata",
+  "snorlax",
+  "squirtle",
+  "venonat",
+  "weedle",
+  "zubat"
+]
