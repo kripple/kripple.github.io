@@ -12,9 +12,13 @@ class Deck {
   }
 
   toString() {
+
     let displayStrings = []
     this.cards.forEach((card, index) => {
       displayStrings.push(card.toString(index));
+      if (this.isLastCardInRow(index)) {
+        displayStrings.push(NEWLINE);
+      }
     });
     return displayStrings.join("\n");
   }
@@ -45,5 +49,15 @@ class Deck {
       }
     }
     return faceUpCards;
+  }
+
+  isLastCardInRow(index) {
+    let position = index + 1;
+    let numRows = this.getNumRows();
+    return (position % numRows) === 0;
+  }
+
+  getNumRows() {
+    return 4;
   }
 }

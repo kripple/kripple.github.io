@@ -16,21 +16,20 @@ const FACE_DOWN = "face-down";
 const HIDDEN = "hidden";
 const POKEMON = [
   "bellsprout",
-  "bulbasaur",
-  "caterpie",
+  // "bulbasaur",
   "charmander",
-  "dratini",
-  "eevee",
+  // "dratini",
+  // "eevee",
   "jigglypuff",
-  "mankey",
-  "meowth",
+  // "mankey",
+  // "meowth",
   "pidgey",
-  "pikachu",
+  // "pikachu",
   "psyduck",
   "rattata",
-  "snorlax",
-  "squirtle",
+  // "squirtle",
   "venonat",
-  "weedle",
+  // "weedle",
   "zubat"
 ]
+const NEWLINE = "<br>";

@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   position: absolute;
   top: 0;
@@ -10,25 +15,21 @@
 .centered-container {
   position: relative;
   margin: 0 auto;
-  text-align: center;
-}
-
-#symbols {
-  display: block;
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  text-align: center; 
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .symbol-container {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 0.5vw;
   display: inline-block;
   vertical-align: top;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
+  width: 20vw;
+  height: 20vw;
+  line-height: 20vw;
   border: 2px solid #fa3c00;
   border-radius: 5px;
   text-align: center;
@@ -40,22 +41,32 @@
   cursor: pointer;
 }
 
-.symbol {
-  /* display: inline-block; */
-}
-
 img.symbol {
   display: inline-block;
-  height: 70px;
-  width: 70px;
+  height: 18vw;
+  width: 18vw;
   vertical-align: middle;
 }
 
-/* unit tests, you win message/popup, new game button, image icons */
+@media(min-width: 100vh) {
+  .symbol-container {
+    margin: 0.5vh;
+    width: 20vh;
+    height: 20vh;
+    line-height: 20vh;
+  }
+  
+  img.symbol {
+    height: 18vh;
+    width: 18vh;
+  }
+}
 
-.attribution {
-  display: block;
-  margin-bottom: 8px;
+.author-credit {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
   font-size: 11px;
   font-family: 'Courier New', Courier, monospace;
 }
