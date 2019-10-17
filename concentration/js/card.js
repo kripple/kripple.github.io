@@ -18,9 +18,9 @@ class Card {
     if (this.matched) {
       return `<div id="${index}" class="${SYMBOL_CONTAINER} ${HIDDEN}"><div class="${SYMBOL}"></div></div>`
     } else if (!this.faceUp) {
-      return `<div id="${index}" class="${SYMBOL_CONTAINER} ${FACE_DOWN}"><img class="${SYMBOL}" src="images/${this.symbol}.png"></div>`
+      return `<div id="${index}" class="${SYMBOL_CONTAINER} ${FACE_DOWN}"><img class="${SYMBOL}" src="images/${this.symbol}.png" nopin="nopin"></div>`
     } else {
-      return `<div id="${index}" class="${SYMBOL_CONTAINER}"><img class="${SYMBOL}" src="images/${this.symbol}.png"></div>`
+      return `<div id="${index}" class="${SYMBOL_CONTAINER}"><img class="${SYMBOL}" src="images/${this.symbol}.png" nopin="nopin"></div>`
     }
   }
 
