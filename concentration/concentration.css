@@ -71,6 +71,18 @@ img.symbol {
   bottom: 8px;
   width: 100%;
   text-align: center;
-  font-size: 11px;
-  font-family: 'Courier New', Courier, monospace;
+  font-size: 9px;
+  line-height: 20px;
+  font-family: 'pokemon_gbregular', 'Courier New', Courier, monospace;
+}
+
+.title {
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  text-align: center;
+  font-size: 42px;
+  color: #444444;
+  font-family: 'pocket_monkregular', Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 10px;
 }
