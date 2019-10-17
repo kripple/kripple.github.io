@@ -48,6 +48,10 @@ img.symbol {
   vertical-align: middle;
 }
 
+.face-down img {
+  display: none;
+}
+
 @media(min-width: 100vh) {
   .symbol-container {
     margin: 0.5vh;
