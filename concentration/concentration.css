@@ -119,3 +119,12 @@ img.card {
   top: 50%;
   margin-top: 50px;
 }
+
+#new-game-element {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 1px solid darkred;
+  height: 20px;
+  font-family: 'pokemon_gbregular', 'Courier New', Courier, monospace;
+}
