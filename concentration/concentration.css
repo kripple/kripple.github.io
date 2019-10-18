@@ -23,7 +23,7 @@
   transform: translateY(-50%);
 }
 
-.symbol-container {
+.card-container {
   margin: 0.5vw;
   display: inline-block;
   vertical-align: top;
@@ -41,7 +41,7 @@
   cursor: pointer;
 }
 
-img.symbol {
+img.card {
   display: inline-block;
   height: 18vw;
   width: 18vw;
@@ -53,14 +53,14 @@ img.symbol {
 }
 
 @media(min-width: 100vh) {
-  .symbol-container {
+  .card-container {
     margin: 0.5vh;
     width: 20vh;
     height: 20vh;
     line-height: 20vh;
   }
   
-  img.symbol {
+  img.card {
     height: 18vh;
     width: 18vh;
   }

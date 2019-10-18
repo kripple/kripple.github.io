@@ -16,11 +16,11 @@ class Card {
 
   toString(index) {
     if (this.matched) {
-      return `<div id="${index}" class="${CONTAINER} ${HIDDEN}"><div class="${SYMBOL}"></div></div>`
+      return `<div id="${index}" class="${CONTAINER} ${HIDDEN}"><div class="${CARD}"></div></div>`
     } else if (!this.faceUp) {
-      return `<div id="${index}" class="${CONTAINER} ${FACE_DOWN}"><img class="${SYMBOL}" src="images/${this.symbol}.png" nopin="nopin"></div>`
+      return `<div id="${index}" class="${CONTAINER} ${FACE_DOWN}"><img class="${CARD}" src="images/${this.symbol}.png" nopin="nopin"></div>`
     } else {
-      return `<div id="${index}" class="${CONTAINER}"><img class="${SYMBOL}" src="images/${this.symbol}.png" nopin="nopin"></div>`
+      return `<div id="${index}" class="${CONTAINER}"><img class="${CARD}" src="images/${this.symbol}.png" nopin="nopin"></div>`
     }
   }
 
