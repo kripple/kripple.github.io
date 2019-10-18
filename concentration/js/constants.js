@@ -1,6 +1,6 @@
-const SYMBOLS = "symbols";
+const GAME_BOARD = "game-board";
 const SYMBOL = "symbol";
-const SYMBOL_CONTAINER = "symbol-container"
+const CONTAINER = "symbol-container"
 const SYMBOLS_LIST = [
   "&spades;",
   "&clubs;",

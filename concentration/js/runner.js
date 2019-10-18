@@ -9,12 +9,7 @@
 // them, then they are flipped back over face down.
 // Obviously, card symbols all come in pairs.
 
-let controller = new Controller(
-  document.getElementById(SYMBOLS),
-  document.getElementsByClassName(SYMBOL_CONTAINER)
+let controller = new GameController(
+  document.getElementById(GAME_BOARD),
+  document.getElementsByClassName(CONTAINER)
 );
-
-
-// let htmlStyles = window.getComputedStyle(document.querySelector("html"));
-// let rowNum = parseInt(htmlStyles.getPropertyValue("--rowNum"));
-// document.documentElement.style.setProperty("--rowNum", 6);

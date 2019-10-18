@@ -1,4 +1,4 @@
-class Controller {
+class GameController {
 
   constructor(container, containers) {
     this.container = container;
