@@ -3,6 +3,10 @@ class Controller {
   constructor(container, containers) {
     this.container = container;
     this.containers = containers;
+    this.newGame();
+  }
+
+  newGame() {
     this.cards = this.createCards(POKEMON);
     this.deck = new Deck(this.cards);
     this.deck.shuffle();
@@ -44,7 +48,9 @@ class Controller {
   }
 
   checkForWin() {
-    
+    if (this.deck.allCardsMatched()) {
+      this.displayWinMessage();
+    }
   }
 
   checkForMatch(cards) {
@@ -84,5 +90,13 @@ class Controller {
     return false;
   }
 
+  displayWinMessage() {
+    this.container.innerHTML = `
+      ${this.container.innerHTML} 
+      <div class="win-message">You Win!</div>
+      <button id="new-game-button" type="button">New Game</button>
+    `;
+    document.getElementById("new-game-button").addEventListener('click', (event) => this.newGame());
+  }
 }
 

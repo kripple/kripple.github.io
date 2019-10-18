@@ -78,11 +78,44 @@ img.symbol {
 
 .title {
   position: absolute;
-  top: 8px;
+  top: 10px;
   width: 100%;
   text-align: center;
   font-size: 42px;
   color: #444444;
   font-family: 'pocket_monkregular', Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 10px;
+}
+
+.win-message {
+  position: absolute;
+  border: 2px solid #444444;
+  border-radius: 5px;
+  background-color: #fa3c00;
+  color: white;
+  font-family: 'pokemon_gbregular', 'Courier New', Courier, monospace;
+  height: 200px;
+  line-height: 150px;
+  width: 300px;
+  left: 50%;
+  margin-left: -150px;
+  top: 50%;
+  margin-top: -75px;
+}
+
+#new-game-button {
+  cursor: pointer;
+  position: absolute;
+  background-color: white;
+  border: 2px solid #444444;
+  border-radius: 5px;
+  color: #444444;
+  font-family: 'pokemon_gbregular', 'Courier New', Courier, monospace;
+  height: 50px;
+  line-height: 50px;
+  width: 120px;
+  left: 50%;
+  margin-left: -60px;
+  top: 50%;
+  margin-top: 50px;
 }

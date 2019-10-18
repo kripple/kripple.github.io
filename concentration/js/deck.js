@@ -11,8 +11,17 @@ class Deck {
     }
   }
 
-  toString() {
+  allCardsMatched() {
+    let allMatched = true;
+    this.cards.forEach((card) => {
+      if (!card.matched) {
+        allMatched = false;
+      }
+    });
+    return allMatched;
+  }
 
+  toString() {
     let displayStrings = []
     this.cards.forEach((card, index) => {
       displayStrings.push(card.toString(index));
