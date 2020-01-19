@@ -16,3 +16,10 @@
 .purple {
     background-color: #5709B8;
 }
+
+.token {
+    height: 40vmin;
+    width: 40vmin;
+    border-radius: 40vmin;
+    pointer-events: none;
+}

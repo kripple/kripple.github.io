@@ -1,20 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import Token from './components/token';
-import './App.css';
-import './components/token.css';
 
-let token = new Token();
-token.randomize();
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className={`App-logo ${token.color.className}`}></div>
+        <Token></Token>
       </header>
     </div>
   );
 }
 
 export default App;
+
+// Step 1: Generate random color token, make into react component
+// Step 2: Create button to randlomly generate color token
+// Step 3: Generate random sequence of 4 tokens

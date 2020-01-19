@@ -1,14 +1,18 @@
-// import './token.css';
+import React from 'react';
+import { getRandomObjectElement } from '../classes/random.js';
 
-class Token {
-    constructor(color = Token.COLORS.DEFAULT) {
-        this.color = color;
+import './token.css';
+
+class Token extends React.Component {
+    constructor(props) {
+        super();
+        this.color = props.color || getRandomObjectElement(Token.COLORS);
     }
 
-    randomize() {
-        let keys = Object.keys(Token.COLORS);
-        let randomKey = keys[Math.floor(Math.random()*keys.length)];
-        this.color = Token.COLORS[randomKey];
+    render() {
+        return (
+            <div className={`token ${this.color.className}`}></div>
+        );
     }
 }
 
@@ -38,7 +42,5 @@ Token.COLORS = {
         className: "purple"
     }
 }
-
-Token.COLORS.DEFAULT = Token.COLORS.RED;
 
 export default Token;
