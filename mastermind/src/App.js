@@ -1,5 +1,6 @@
 import React from 'react';
 import Token from './components/token';
+import NewGameButton from './components/newGameButton';
 
 import './App.css';
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Token></Token>
+        <NewGameButton></NewGameButton>
       </header>
     </div>
   );
