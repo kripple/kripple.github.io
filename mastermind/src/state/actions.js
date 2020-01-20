@@ -1,6 +1,5 @@
-export const TEST = 'TEST';
+export const NEW_GAME = 'NEW_GAME';
 
-export const doTheAction = (payload) => ({
-  type: TEST,
-  payload
+export const newGame = () => ({
+    type: NEW_GAME
 });

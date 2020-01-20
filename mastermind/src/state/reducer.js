@@ -1,13 +1,20 @@
-import { TEST } from './actions';
+import { getRandomArrayElement } from '../components/random';
+import Token from '../components/token';
+import { NEW_GAME } from './actions';
 
-export const reducer = (state = {}, action) => {
+const initialState = {
+  color: getRandomArrayElement(Token.COLORS)
+}
+
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case TEST:
+    case NEW_GAME:
       return {
-          ...state,
-          test: action.payload
+        ...state,
+        color: getRandomArrayElement(Token.COLORS)
       }
     default:
       return state;
   }
 };
+ 

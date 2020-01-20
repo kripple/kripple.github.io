@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
-import { getRandomArrayElement } from './random.js';
+// import { getRandomArrayElement } from './random.js';
+import { NEW_GAME, newGame } from '../state/actions';
+
+import { store } from '../state/store.js';
 
 import './token.css';
-import { doTheAction } from '../state/actions.js';
-import { store } from '../state/store.js';
 
 class Token extends React.Component {
     static COLORS = [ "red", "orange", "yellow", "green", "blue", "purple" ];
@@ -12,7 +13,7 @@ class Token extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            color: props.color || getRandomArrayElement(Token.COLORS)
+            color: store.getState().color
         }
     }
 
@@ -23,11 +24,9 @@ class Token extends React.Component {
             <div 
                 className={className}
                 onClick={() => {
-                    store.getState();
-                    const action = doTheAction('testing');
-                    store.dispatch(action);
-                    store.getState();
-                    return this.setState({color: getRandomArrayElement(Token.COLORS)});
+                    store.dispatch({type: NEW_GAME});
+                    console.log(this.props)
+                    console.log(store.getState());
                 }
             } // FIXME remove when done testing
             ></div>
