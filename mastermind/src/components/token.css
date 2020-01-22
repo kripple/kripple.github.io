@@ -18,7 +18,9 @@
 }
 
 .token {
-    height: 40vmin;
-    width: 40vmin;
-    border-radius: 40vmin;
+    height: 10vmin;
+    width: 10vmin;
+    border-radius: 10vmin;
+    margin: 1vmin;
+    display: inline-block;
 }

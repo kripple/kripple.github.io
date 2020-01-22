@@ -1,18 +1,17 @@
 import React from 'react';
-import Token from './token';
+import Sequence from './sequence';
 import NewGameButton from './newGameButton';
 import { connect } from 'react-redux'
-import { newGame, NEW_GAME } from '../state/actions'
+import { newGame } from '../state/actions'
 
 import './game.css';
 
 function Game(props) {
-  console.log(props);
   return (
     <div className="game">
       <header className="game-header">
-        <Token 
-          color={props.color}
+        <Sequence
+          sequence={props.sequence}
         />
         <NewGameButton
           onClick={props.newGame}
@@ -24,14 +23,14 @@ function Game(props) {
 
 const mapStateToProps = (state) => {
   return {
-    color: state.color
+    sequence: state.sequence
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     newGame() {
-      dispatch({type: NEW_GAME});
+      dispatch(newGame());
     }
   }
 }

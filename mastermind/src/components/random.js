@@ -12,3 +12,11 @@ export const getRandomArrayElement = (array) => {
     }
     return arrayCopy.pop();
 }
+
+export const getRandomSequence = (array,count = 4) => {
+    let sequence = [];
+    while (sequence.length < count) {
+        sequence.push(getRandomArrayElement(array));
+    }
+    return sequence;
+}

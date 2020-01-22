@@ -7,6 +7,7 @@ import { store } from './state/store'
 import Game from './components/game';
 import * as serviceWorker from './serviceWorker';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 ReactDOM.render(

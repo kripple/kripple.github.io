@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Button } from 'react-bootstrap';
 
 import './newGameButton.css';
 
@@ -8,12 +9,12 @@ class NewGameButton extends React.Component {
         let className = classNames('button', 'button-new-game');
         
         return (
-            <button 
+            <Button 
                 className={className}
                 onClick={this.props.onClick}
             >
                 {this.props.displayText || 'New Game'}
-            </button>
+            </Button>
         );
     }
 }
