@@ -2,28 +2,39 @@ import React from 'react';
 import Token from './token';
 import NewGameButton from './newGameButton';
 import { connect } from 'react-redux'
-import { newGame } from '../state/actions'
+import { newGame, NEW_GAME } from '../state/actions'
 
 import './game.css';
 
-function Game() {
+function Game(props) {
+  console.log(props);
   return (
     <div className="game">
       <header className="game-header">
-        <Token />
-        <NewGameButton />
+        <Token 
+          color={props.color}
+        />
+        <NewGameButton
+          onClick={props.newGame}
+        />
       </header>
     </div>
   );
 }
 
-const mapStateToProps = (state /*, ownProps*/) => {
+const mapStateToProps = (state) => {
   return {
     color: state.color
   }
 }
 
-const mapDispatchToProps = { newGame }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    newGame() {
+      dispatch({type: NEW_GAME});
+    }
+  }
+}
 
 export default connect(
   mapStateToProps,
