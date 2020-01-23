@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import './token.css';
 
 class Token extends React.Component {
-    static COLORS = [ "red", "orange", "yellow", "green", "blue", "purple" ];
+    static COLORS = [ "red", "orange", "yellow", "green", "blue", "purple", "transparent" ];
 
     render() {
         let className = classNames('token', this.props.color);

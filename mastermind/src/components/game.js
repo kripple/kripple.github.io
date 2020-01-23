@@ -1,4 +1,5 @@
 import React from 'react';
+import Token from './token';
 import Sequence from './sequence';
 import NewGameButton from './newGameButton';
 import { connect } from 'react-redux'
@@ -13,6 +14,20 @@ function Game(props) {
         <Sequence
           sequence={props.sequence}
         />
+    
+        <Token 
+            color="transparent"
+        />
+        <Token 
+            color="transparent"
+        />
+        <Token 
+            color="transparent"
+        />
+        <Token 
+            color="transparent"
+        />
+     
         <NewGameButton
           onClick={props.newGame}
         />

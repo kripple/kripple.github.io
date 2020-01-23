@@ -16,6 +16,10 @@
 .purple {
     background-color: #5709B8;
 }
+.transparent {
+    background-color: #282c34;
+    border: 2px solid white;
+}
 
 .token {
     height: 10vmin;
