@@ -1,6 +1,6 @@
-import { getRandomArrayElement, getRandomSequence } from '../components/random';
-import Token from '../components/token';
-import { NEW_GAME } from './actions';
+import { getRandomArrayElement, getRandomSequence } from 'components/random';
+import Token from 'components/token';
+import { NEW_GAME } from 'state/actions';
 
 const initialState = {
   color: getRandomArrayElement(Token.COLORS),

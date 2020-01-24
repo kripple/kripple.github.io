@@ -1,10 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
+import { GameState } from 'components/game/game.state';
+import { NewGameButtonProps } from 'components/newGameButton/newGameButton.props';
+import 'components/newGameButton.css';
 
-import './newGameButton.css';
 
-class NewGameButton extends React.Component {
+class NewGameButton extends React.Component<NewGameButtonProps, GameState> {
     render() {
         let className = classNames('button', 'button-new-game');
         
@@ -20,3 +22,5 @@ class NewGameButton extends React.Component {
 }
 
 export default NewGameButton;
+
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import Token from './token';
+import Token from 'components/token/token';
 
 class Sequence extends React.Component {
     
