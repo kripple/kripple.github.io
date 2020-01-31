@@ -1,58 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Token from 'components/token/token';
 import Sequence from 'components/sequence/sequence';
 import NewGameButton from 'components/newGameButton/newGameButton';
 import { connect } from 'react-redux'
 import { newGame } from 'config/actions'
 
-import 'component/game/game.css';
+import 'components/game/game.css';
 import { GameState } from 'components/game/game.state';
-import { GameProps } from 'components/game/game.props';
+import { Dispatch } from 'redux';
 
-function Game(props: GameProps) {
-  return (
-    <div className="game">
-      <header className="game-header">
-        <Sequence
-          sequence={props.sequence}
-        />
-    
-        <Token 
-            color="transparent"
-        />
-        <Token 
-            color="transparent"
-        />
-        <Token 
-            color="transparent"
-        />
-        <Token 
-            color="transparent"
-        />
-     
-        <NewGameButton
-          onClick={props.newGame}
-        />
-      </header>
-    </div>
-  );
+type GameProps = StateProps & DispatchProps;
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = ReturnType<typeof mapDispatchToProps>;
+
+class Game extends Component<GameProps, never> {
+  render() {
+    return (
+      <div className="game">
+        <header className="game-header">
+          <Sequence
+            sequence={this.props.sequence}
+          />
+      
+          <Token 
+              color="transparent"
+          />
+          <Token 
+              color="transparent"
+          />
+          <Token 
+              color="transparent"
+          />
+          <Token 
+              color="transparent"
+          />
+      
+          <NewGameButton
+            onClick={this.props.newGame}
+          />
+        </header>
+      </div>
+    )
+  };
 }
-
+ 
 const mapStateToProps = (state: GameState) => {
   return {
     sequence: state.sequence
   }
 }
-
-const mapDispatchToProps = (dispatch: Function) => {
+ 
+function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    newGame() {
-      dispatch(newGame());
-    }
+    newGame: () => { dispatch(newGame()) }
   }
 }
 
-export default connect(
+export default connect<StateProps, DispatchProps, GameProps, GameState>(
   mapStateToProps,
   mapDispatchToProps
 )(Game)

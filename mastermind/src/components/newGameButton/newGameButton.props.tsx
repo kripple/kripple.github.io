@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type NewGameButtonProps = { 
+export interface NewGameButtonProps { 
     onClick: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void), 
     displayText?: string 
 };

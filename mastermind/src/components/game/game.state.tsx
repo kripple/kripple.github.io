@@ -1,5 +1,6 @@
 import Sequence from 'components/sequence/sequence';
 
 export type GameState = {
-    sequence: Sequence;
+    sequence: Array<string>;
+    newGame: () => void;
 }
