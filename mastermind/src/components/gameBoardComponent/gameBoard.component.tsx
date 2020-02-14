@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import 'components/gameBoardComponent/gameBoard.component.css';
 import { GameState } from 'state/game.state';
 import { Dispatch } from 'redux';
+import { initialSequence } from  'util/sequence';
+import { NUM_GUESSES } from 'util/settings';
 
 // type GameProps = StateProps & DispatchProps;
 type StateProps = ReturnType<typeof mapStateToProps>;
@@ -20,20 +22,12 @@ class Game extends Component<GameState, never> {
           <SequenceComponent
             sequence={this.props.solution}
           />
-      
-          {/* <Token 
-              color="transparent"
-          />
-          <Token 
-              color="transparent"
-          />
-          <Token 
-              color="transparent"
-          />
-          <Token 
-              color="transparent"
-          /> */}
-      
+
+          {[...Array(NUM_GUESSES)].map((value: undefined, index: number) => {
+            return (<SequenceComponent key={index} sequence={initialSequence()} />);
+          })}
+
+          
           <ButtonComponent
             displayText={"New Game"}
           />
