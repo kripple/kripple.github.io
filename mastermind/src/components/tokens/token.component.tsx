@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import 'components/tokenComponent/token.component.css';
-import { GameState } from 'state/game.state';
+import 'components/tokens/token.component.css';
+import { GameState } from 'components/game/game.state';
 
 export interface TokenProps { 
     color: string 

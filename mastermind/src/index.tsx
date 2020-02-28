@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { store } from 'state/store'
 
-import Game from 'components/gameBoardComponent/gameBoard.component';
+import Game from 'components/game/game.component';
 import * as serviceWorker from 'serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';

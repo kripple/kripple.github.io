@@ -1,0 +1,40 @@
+.red {
+    background-color: var(--redCode);
+    border: 1px solid var(--redCode);
+}
+.orange {
+    background-color: var(--orangeCode);
+    border: 1px solid var(--orangeCode);
+}
+.yellow {
+    background-color: var(--yellowCode);
+    border: 1px solid var(--yellowCode);
+}
+.green {
+    background-color: var(--greenCode);
+    border: 1px solid var(--greenCode);
+}
+.blue {
+    background-color: var(--blueCode);
+    border: 1px solid var(--blueCode);
+}
+.purple {
+    background-color: var(--purpleCode);
+    border: 1px solid var(--purpleCode);
+}
+.empty {
+    background-color: var(--backgroundColor);
+    border: 1px solid white;
+}
+.white {
+    background-color: white;
+    border: 1px solid white;
+}
+.black {
+    background-color: black;
+    border: 1px solid black;
+}
+
+.token {
+    border-radius: 100%;
+}

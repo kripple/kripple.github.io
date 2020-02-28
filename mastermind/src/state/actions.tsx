@@ -22,3 +22,7 @@ export type Types =
   | newGame
   | submitGuess
   | winGame
+
+export type PayloadTypes =
+    | newGame["payload"]
+    | submitGuess["payload"]

@@ -1,0 +1,29 @@
+:root {
+  --viewWidth: 100vw;
+  --veiwHeight: 100vh;
+  --numCols: 5;
+  --numRows: 12;
+  --colGap: 0.5vh;
+  --rowGap: 2vh;
+  --topPadding: calc(var(--rowGap) * 2);
+  --rowHeight: calc((var(--veiwHeight) - var(--topPadding)) / var(--numRows) - var(--rowGap));
+  --redCode: #ff6188;
+  --orangeCode: #fc9867;
+  --yellowCode: #ffd866;
+  --greenCode: #a9dc76;
+  --blueCode: #78dce8;
+  --purpleCode: #ab9df2;
+  --backgroundColor: #282c34;
+}
+
+.game {
+  background-color: var(--backgroundColor);
+  height: var(--veiwHeight);
+  width: var(--viewWidth);
+  display: grid;
+  justify-content: center;
+  grid-gap: var(--rowGap);
+  grid-template-columns: 1 var(--veiwHeight);
+  grid-template-rows: repeat(var(--numRows), var(--rowHeight));
+  padding-top: var(--topPadding);
+}

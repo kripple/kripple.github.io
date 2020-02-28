@@ -1,0 +1,6 @@
+.game-row {
+    display: grid;
+    grid-gap: var(--colGap);
+    grid-template-columns: repeat(var(--numCols), var(--rowHeight));
+    grid-template-rows: 1, var(--rowHeight);
+}

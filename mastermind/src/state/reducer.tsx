@@ -1,10 +1,10 @@
 import * as GameActions from 'state/actions';
-import { COLORS, getRandomColors } from 'util/colors';
+import { TOKEN_COLORS, createSolution } from 'util/colors';
 import { NUM_TOKENS_IN_SEQUENCE } from 'util/settings';
-import { GameState } from 'state/game.state';
+import { GameState } from 'components/game/game.state';
 
 const initialState: GameState = {
-  solution: getRandomColors(COLORS, NUM_TOKENS_IN_SEQUENCE),
+  solution: createSolution(TOKEN_COLORS, NUM_TOKENS_IN_SEQUENCE),
   guesses: [],
   gameIsWon: false
 }
