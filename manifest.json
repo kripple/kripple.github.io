@@ -23,6 +23,6 @@
   ],
   "background_color": "lightgray",
   "theme_color": "lightgray",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/"
 }
