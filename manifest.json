@@ -1,0 +1,23 @@
+{
+  "short_name": "Kelly",
+  "name": "Kelly Ripple",
+  "description": "Personal website",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/images/sparkles_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/sparkles_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  
+  "background_color": "lightgray",
+  "theme_color": "lightgray",
+  "display": "browser",
+  "scope": "/"
+}
