@@ -28,17 +28,22 @@
       }
       .text {
         text-align: center;
-        color: gray;
         opacity: 0.8;
       }
       @media (prefers-color-scheme: light) {
         .container {
           background-color:  unset;
         }
+        .text {
+          color: gray;
+        }
       }
       @media (prefers-color-scheme: dark) {
         .container {
           background-color:  #272822;
+        }
+        .text {
+          color: white;
         }
       }
       .title {
