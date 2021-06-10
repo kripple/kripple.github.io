@@ -5,9 +5,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Kelly Ripple's personal website">
 
     <title>Kelly Ripple</title>
     <link rel="icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/images/sparkles_192x192.png">
 
     <style>
       html, body {
@@ -28,17 +30,22 @@
       }
       .text {
         text-align: center;
-        color: gray;
         opacity: 0.8;
       }
       @media (prefers-color-scheme: light) {
         .container {
           background-color:  unset;
         }
+        .text {
+          color: gray;
+        }
       }
       @media (prefers-color-scheme: dark) {
         .container {
           background-color:  #272822;
+        }
+        .text {
+          color: white;
         }
       }
       .title {
@@ -87,23 +94,23 @@
   </head>
 
   <body>
-    <div class="container">
+    <main class="container">
       
       <div class="text title">Kelly Ripple</div><br>
       <div class="text subtitle">Web Developer Extraordinaire</div>
       <img class="headshot" src="images/headshot_240x320.png" aria-label="picture of kelly">
     
       <div class="social-buttons">
-        <a class="social-link" href="https://www.linkedin.com/in/kellymripple" target="_blank">
+        <a class="social-link" href="https://www.linkedin.com/in/kellymripple" target="_blank" rel="noreferrer">
           <img class="social-icon" title="linkedIn" src="images/linkedin_logo_50x50.png">
         </a>
-        <a class="social-link" href="https://twitter.com/krippleffect" target="_blank">
+        <a class="social-link" href="https://twitter.com/krippleffect" target="_blank" rel="noreferrer">
           <img class="social-icon" title="twitter" src="images/twitter_logo_50x50.png">
         </a>
-        <a class="social-link" href="https://medium.com/@kelly.m.ripple" target="_blank">
+        <a class="social-link" href="https://medium.com/@kelly.m.ripple" target="_blank" rel="noreferrer">
           <img class="social-icon" title="medium" src="images/medium_logo_50x50.png">
         </a>
       </div>
-    </div>
+    </main>
   </body>
 </html>
