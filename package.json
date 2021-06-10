@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"test\""
+    "test": "echo \"test\"",
+    "build": "inline-css -i index.draft.html -o index.html"
   },
   "repository": {
     "type": "git",
@@ -12,5 +13,6 @@
   "author": "Kelly Ripple",
   "license": "MIT",
   "devDependencies": {
+    "inline-css-cli": "0.0.1"
   }
 }
