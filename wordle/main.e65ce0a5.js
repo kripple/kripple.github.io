@@ -29,6 +29,8 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
     return goodWords;
   }
 
+  /* utility functions, probably */
+
   function a(e) {
     return (a = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
       return typeof e
@@ -199,8 +201,12 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
     for (var s = 0, t = new Array(a); s < a; s++) t[s] = e[s];
     return t
   }
-  var k = document.createElement("template");
-  k.innerHTML = "\n<style>\n  :host {\n    display: inline-block;\n  }\n  .tile {\n    width: 100%;\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    line-height: 2rem;\n    font-weight: bold;\n    vertical-align: middle;\n    box-sizing: border-box;\n    color: var(--tile-text-color);\n    text-transform: uppercase;\n    user-select: none;\n  }\n  .tile::before {\n    content: '';\n    display: inline-block;\n    padding-bottom: 100%;\n  }\n\n  /* Allow tiles to be smaller on small screens */\n  @media (max-height: 600px) {\n    .tile {\n      font-size: 1em;\n      line-height: 1em;\n    }\n  }\n\n  .tile[data-state='empty'] {\n    border: 2px solid var(--color-tone-4);\n  }\n  .tile[data-state='tbd'] {\n    background-color: var(--color-tone-7);\n    border: 2px solid var(--color-tone-3);\n    color: var(--color-tone-1);\n  }\n  .tile[data-state='correct'] {\n    background-color: var(--color-correct);\n  }\n  .tile[data-state='present'] {\n    background-color: var(--color-present);\n  }\n  .tile[data-state='absent'] {\n    background-color: var(--color-absent);\n  }\n\n  .tile[data-animation='pop'] {\n    animation-name: PopIn;\n    animation-duration: 100ms;\n  }\n\n  @keyframes PopIn {\n    from {\n      transform: scale(0.8);\n      opacity: 0;\n    }\n\n    40% {\n      transform: scale(1.1);\n      opacity: 1;\n    }\n  }\n  .tile[data-animation='flip-in'] {\n    animation-name: FlipIn;\n    animation-duration: 250ms;\n    animation-timing-function: ease-in;\n  }\n  @keyframes FlipIn {\n    0% {\n      transform: rotateX(0);\n    }\n    100% {\n      transform: rotateX(-90deg);\n    }\n  }\n  .tile[data-animation='flip-out'] {\n    animation-name: FlipOut;\n    animation-duration: 250ms;\n    animation-timing-function: ease-in;\n  }\n  @keyframes FlipOut {\n    0% {\n      transform: rotateX(-90deg);\n    }\n    100% {\n      transform: rotateX(0);\n    }\n  }\n</style>\n<div class=\"tile\" data-state=\"empty\" data-animation=\"idle\"></div>\n";
+
+  /* app code, maybe */
+
+  var titleStyles = document.createElement("template");
+  titleStyles.innerHTML = "\n<style>\n  :host {\n    display: inline-block;\n  }\n  .tile {\n    width: 100%;\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    line-height: 2rem;\n    font-weight: bold;\n    vertical-align: middle;\n    box-sizing: border-box;\n    color: var(--tile-text-color);\n    text-transform: uppercase;\n    user-select: none;\n  }\n  .tile::before {\n    content: '';\n    display: inline-block;\n    padding-bottom: 100%;\n  }\n\n  /* Allow tiles to be smaller on small screens */\n  @media (max-height: 600px) {\n    .tile {\n      font-size: 1em;\n      line-height: 1em;\n    }\n  }\n\n  .tile[data-state='empty'] {\n    border: 2px solid var(--color-tone-4);\n  }\n  .tile[data-state='tbd'] {\n    background-color: var(--color-tone-7);\n    border: 2px solid var(--color-tone-3);\n    color: var(--color-tone-1);\n  }\n  .tile[data-state='correct'] {\n    background-color: var(--color-correct);\n  }\n  .tile[data-state='present'] {\n    background-color: var(--color-present);\n  }\n  .tile[data-state='absent'] {\n    background-color: var(--color-absent);\n  }\n\n  .tile[data-animation='pop'] {\n    animation-name: PopIn;\n    animation-duration: 100ms;\n  }\n\n  @keyframes PopIn {\n    from {\n      transform: scale(0.8);\n      opacity: 0;\n    }\n\n    40% {\n      transform: scale(1.1);\n      opacity: 1;\n    }\n  }\n  .tile[data-animation='flip-in'] {\n    animation-name: FlipIn;\n    animation-duration: 250ms;\n    animation-timing-function: ease-in;\n  }\n  @keyframes FlipIn {\n    0% {\n      transform: rotateX(0);\n    }\n    100% {\n      transform: rotateX(-90deg);\n    }\n  }\n  .tile[data-animation='flip-out'] {\n    animation-name: FlipOut;\n    animation-duration: 250ms;\n    animation-timing-function: ease-in;\n  }\n  @keyframes FlipOut {\n    0% {\n      transform: rotateX(-90deg);\n    }\n    100% {\n      transform: rotateX(0);\n    }\n  }\n</style>\n<div class=\"tile\" data-state=\"empty\" data-animation=\"idle\"></div>\n";
+
   var v = function(e) {
     r(t, e);
     var a = h(t);
@@ -220,7 +226,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       key: "connectedCallback",
       value: function() {
         var e = this;
-        this.shadowRoot.appendChild(k.content.cloneNode(!0)), this.$tile = this.shadowRoot.querySelector(".tile"), this.$tile.addEventListener("animationend", (function(a) {
+        this.shadowRoot.appendChild(titleStyles.content.cloneNode(!0)), this.$tile = this.shadowRoot.querySelector(".tile"), this.$tile.addEventListener("animationend", (function(a) {
           "PopIn" === a.animationName && (e._animation = "idle"), "FlipIn" === a.animationName && (e.$tile.dataset.state = e._state, e._animation = "flip-out"), "FlipOut" === a.animationName && (e._animation = "idle", e._last && e.dispatchEvent(new CustomEvent("game-last-tile-revealed-in-row", {
             bubbles: !0,
             composed: !0
@@ -257,9 +263,11 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       }
     }]), t
   }(c(HTMLElement));
+
   customElements.define("game-tile", v);
-  var w = document.createElement("template");
-  w.innerHTML = '\n  <style>\n    :host {\n      display: block;\n    }\n    :host([invalid]){\n      animation-name: Shake;\n      animation-duration: 600ms;\n    }\n    .row {\n      display: grid;\n      grid-template-columns: repeat(5, 1fr);\n      grid-gap: 5px;\n    }\n    .win {\n      animation-name: Bounce;\n      animation-duration: 1000ms;\n    }\n\n    @keyframes Bounce {\n      0%, 20% {\n        transform: translateY(0);\n      }\n      40% {\n        transform: translateY(-30px);\n      }\n      50% {\n        transform: translateY(5px);\n      }\n      60% {\n        transform: translateY(-15px);\n      }\n      80% {\n        transform: translateY(2px);\n      }\n      100% {\n        transform: translateY(0);\n      }\n    }\n\n    @keyframes Shake {\n      10%,\n      90% {\n        transform: translateX(-1px);\n      }\n\n      20%,\n      80% {\n        transform: translateX(2px);\n      }\n\n      30%,\n      50%,\n      70% {\n        transform: translateX(-4px);\n      }\n\n      40%,\n      60% {\n        transform: translateX(4px);\n      }\n    }\n  </style>\n  <div class="row"></div>\n';
+  var rowStyles = document.createElement("template");
+  rowStyles.innerHTML = '\n  <style>\n    :host {\n      display: block;\n    }\n    :host([invalid]){\n      animation-name: Shake;\n      animation-duration: 600ms;\n    }\n    .row {\n      display: grid;\n      grid-template-columns: repeat(5, 1fr);\n      grid-gap: 5px;\n    }\n    .win {\n      animation-name: Bounce;\n      animation-duration: 1000ms;\n    }\n\n    @keyframes Bounce {\n      0%, 20% {\n        transform: translateY(0);\n      }\n      40% {\n        transform: translateY(-30px);\n      }\n      50% {\n        transform: translateY(5px);\n      }\n      60% {\n        transform: translateY(-15px);\n      }\n      80% {\n        transform: translateY(2px);\n      }\n      100% {\n        transform: translateY(0);\n      }\n    }\n\n    @keyframes Shake {\n      10%,\n      90% {\n        transform: translateX(-1px);\n      }\n\n      20%,\n      80% {\n        transform: translateX(2px);\n      }\n\n      30%,\n      50%,\n      70% {\n        transform: translateX(-4px);\n      }\n\n      40%,\n      60% {\n        transform: translateX(4px);\n      }\n    }\n  </style>\n  <div class="row"></div>\n';
+
   var x = function(e) {
     r(t, e);
     var a = h(t);
@@ -287,7 +295,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       key: "connectedCallback",
       value: function() {
         var e = this;
-        this.shadowRoot.appendChild(w.content.cloneNode(!0)), this.$row = this.shadowRoot.querySelector(".row");
+        this.shadowRoot.appendChild(rowStyles.content.cloneNode(!0)), this.$row = this.shadowRoot.querySelector(".row");
         for (var a = function(a) {
             var s = document.createElement("game-tile"),
               t = e._letters[a];
@@ -831,6 +839,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       var s
     } : pa,
     ga = Date.now;
+    console.log('2/14', ga);
   var ba = function(e) {
     var a = 0,
       s = 0;
@@ -971,6 +980,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
     dataLayer.push(arguments)
   }
   customElements.define("game-toast", Aa), window.dataLayer = window.dataLayer || [], Ca("js", new Date);
+  console.log('3/14', new Date);
   Ca("config", "G-2SSGMHY3NP", {
     app_version: null === (Ea = window.wordle) || void 0 === Ea ? void 0 : Ea.hash,
     debug_mode: !1
@@ -1011,30 +1021,33 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
   function Na(e, a) {
     var s = new Date(e),
       t = new Date(a).setHours(0, 0, 0, 0) - s.setHours(0, 0, 0, 0);
+    console.log('5/14', s);
+    console.log('6/14', t);
     return Math.round(t / daysMS)
   }
 
   function Da(e) {
-    var a, s = Ga(e);
+    var a, s = getDayOffset(e);
+    console.log('Da', s % solutions.length, solutions[a]);
     return a = s % solutions.length, solutions[a]
   }
 
-  function Ga(e) {
+  function getDayOffset(e) {
     return Na(Ha, e)
   }
-  var Ba = "abcdefghijklmnopqrstuvwxyz",
-    Fa = [].concat(g(Ba.split("").slice(13)), g(Ba.split("").slice(0, 13)));
+  var alphabet = "abcdefghijklmnopqrstuvwxyz",
+    Fa = [].concat(g(alphabet.split("").slice(13)), g(alphabet.split("").slice(0, 13)));
 
   function Wa(e) {
     for (var a = "", s = 0; s < e.length; s++) {
-      var t = Ba.indexOf(e[s]);
+      var t = alphabet.indexOf(e[s]);
       a += t >= 0 ? Fa[t] : "_"
     }
     return a
   }
-  var Ya = "statistics",
-    Ja = "fail",
-    Ua = {
+  var statistics = "statistics",
+    fail = "fail",
+    results = {
       currentStreak: 0,
       maxStreak: 0,
       guesses: n({
@@ -1044,52 +1057,59 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
         4: 0,
         5: 0,
         6: 0
-      }, Ja, 0),
+      }, fail, 0),
       winPercentage: 0,
       gamesPlayed: 0,
       gamesWon: 0,
       averageGuesses: 0
     };
 
-  function Xa() {
-    var e = window.localStorage.getItem(Ya) || JSON.stringify(Ua);
-    return JSON.parse(e)
+  function getStatistics() {
+    var json = window.localStorage.getItem(statistics) || JSON.stringify(results);
+    return JSON.parse(json)
   }
 
   function Va(e) {
     var a = e.isWin,
       s = e.isStreak,
       t = e.numGuesses,
-      o = Xa();
+      o = getStatistics();
     a ? (o.guesses[t] += 1, s ? o.currentStreak += 1 : o.currentStreak = 1) : (o.currentStreak = 0, o.guesses.fail += 1), o.maxStreak = Math.max(o.currentStreak, o.maxStreak), o.gamesPlayed += 1, o.gamesWon += a ? 1 : 0, o.winPercentage = Math.round(o.gamesWon / o.gamesPlayed * 100), o.averageGuesses = Math.round(Object.entries(o.guesses).reduce((function(e, a) {
         var s = y(a, 2),
           t = s[0],
           o = s[1];
-        return t !== Ja ? e += t * o : e
+        return t !== fail ? e += t * o : e
       }), 0) / o.gamesWon),
       function(e) {
-        window.localStorage.setItem(Ya, JSON.stringify(e))
+        window.localStorage.setItem(statistics, JSON.stringify(e))
       }(o)
   }
-  var Ka = document.createElement("template");
-  Ka.innerHTML = "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: ".concat(secondsMS, ";\n  }\n  #system-toaster {\n    z-index: ").concat((4*secondsMS), ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         WORDLE\n        </div>\n        <div class="menu">\n          <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n');
-  var Qa = document.createElement("template");
-  Qa.innerHTML = '\n<button id="reveal">reveal</button>\n<button id="shake">shake</button>\n<button id="bounce">bounce</button>\n<button id="toast">toast</button>\n<button id="modal">modal</button>\n';
-  var Za = "IN_PROGRESS",
-    es = "WIN",
-    as = "FAIL",
-    ss = ["Genius", "Magnificent", "Impressive", "Splendid", "Great", "Phew"],
+  var gameThemeManagerStyles = document.createElement("template");
+  gameThemeManagerStyles.innerHTML = "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: ".concat(secondsMS, ";\n  }\n  #system-toaster {\n    z-index: ").concat((4*secondsMS), ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         WORDLE\n        </div>\n        <div class="menu">\n          <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n');
+
+  var buttonStyles = document.createElement("template");
+  buttonStyles.innerHTML = '\n<button id="reveal">reveal</button>\n<button id="shake">shake</button>\n<button id="bounce">bounce</button>\n<button id="toast">toast</button>\n<button id="modal">modal</button>\n';
+
+  var inProgress = "IN_PROGRESS",
+    winStatus = "WIN",
+    failStatus = "FAIL",
+    successMessage = ["Genius", "Magnificent", "Impressive", "Splendid", "Great", "Phew"],
     ts = function(e) {
       r(t, e);
       var a = h(t);
 
+      /* I think this function decides whether or not to show a new word */
+      /* not sure yet what the day offset is for, but maybe it can be used to reset the game board */
+
       function t() {
         var e;
-        s(this, t), n(p(e = a.call(this)), "tileIndex", 0), n(p(e), "rowIndex", 0), n(p(e), "solution", void 0), n(p(e), "boardState", void 0), n(p(e), "evaluations", void 0), n(p(e), "canInput", !0), n(p(e), "gameStatus", Za), n(p(e), "letterEvaluations", {}), n(p(e), "$board", void 0), n(p(e), "$keyboard", void 0), n(p(e), "$game", void 0), n(p(e), "today", void 0), n(p(e), "lastPlayedTs", void 0), n(p(e), "lastCompletedTs", void 0), n(p(e), "hardMode", void 0), n(p(e), "dayOffset", void 0), e.attachShadow({
+        s(this, t), n(p(e = a.call(this)), "tileIndex", 0), n(p(e), "rowIndex", 0), n(p(e), "solution", void 0), n(p(e), "boardState", void 0), n(p(e), "evaluations", void 0), n(p(e), "canInput", !0), n(p(e), "gameStatus", inProgress), n(p(e), "letterEvaluations", {}), n(p(e), "$board", void 0), n(p(e), "$keyboard", void 0), n(p(e), "$game", void 0), n(p(e), "today", void 0), n(p(e), "lastPlayedTs", void 0), n(p(e), "lastCompletedTs", void 0), n(p(e), "hardMode", void 0), n(p(e), "dayOffset", void 0), e.attachShadow({
           mode: "open"
         }), e.today = new Date;
+        console.log('7/14', new Date);
         var o = za();
-        return e.lastPlayedTs = o.lastPlayedTs, !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1 ? (e.boardState = new Array(6).fill(""), e.evaluations = new Array(6).fill(null), e.solution = Da(e.today), e.dayOffset = Ga(e.today), e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.restoringFromLocalStorage = !1, ja({
+        console.log('8/14', new Date(e.lastPlayedTs));
+        return e.lastPlayedTs = o.lastPlayedTs, !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1 ? (e.boardState = new Array(6).fill(""), e.evaluations = new Array(6).fill(null), e.solution = Da(e.today), e.dayOffset = getDayOffset(e.today), e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.restoringFromLocalStorage = !1, ja({
           rowIndex: e.rowIndex,
           boardState: e.boardState,
           evaluations: e.evaluations,
@@ -1097,8 +1117,9 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
           gameStatus: e.gameStatus
         }), Ca("event", "level_start", {
           level_name: Wa(e.solution)
-        })) : (e.boardState = o.boardState, e.evaluations = o.evaluations, e.rowIndex = o.rowIndex, e.solution = o.solution, e.dayOffset = Ga(e.today), e.letterEvaluations = Pa(e.boardState, e.evaluations), e.gameStatus = o.gameStatus, e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.gameStatus !== Za && (e.canInput = !1), e.restoringFromLocalStorage = !0), e
+        })) : (e.boardState = o.boardState, e.evaluations = o.evaluations, e.rowIndex = o.rowIndex, e.solution = o.solution, e.dayOffset = getDayOffset(e.today), e.letterEvaluations = Pa(e.boardState, e.evaluations), e.gameStatus = o.gameStatus, e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.gameStatus !== inProgress && (e.canInput = !1), e.restoringFromLocalStorage = !0), e
       }
+
       return o(t, [{
         key: "evaluateRow",
         value: function() {
@@ -1153,13 +1174,17 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
               l = r.every((function(e) {
                 return "correct" === e
               }));
+              console.log('9/14', new Date(this.lastCompletedTs));
+              console.log('10/14', new Date);
+              console.log('11/14', Date.now());
+              console.log('12/14', Date.now());
             if (i || l) Va({
               isWin: l,
               isStreak: !!this.lastCompletedTs && 1 === Na(new Date(this.lastCompletedTs), new Date),
               numGuesses: this.rowIndex
             }), ja({
               lastCompletedTs: Date.now()
-            }), this.gameStatus = l ? es : as, Ca("event", "level_end", {
+            }), this.gameStatus = l ? winStatus : failStatus, Ca("event", "level_end", {
               level_name: Wa(this.solution),
               num_guesses: this.rowIndex,
               success: l
@@ -1177,12 +1202,12 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       }, {
         key: "addLetter",
         value: function(e) {
-          this.gameStatus === Za && (this.canInput && (this.tileIndex >= 5 || (this.boardState[this.rowIndex] += e, this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("letters", this.boardState[this.rowIndex]), this.tileIndex += 1)))
+          this.gameStatus === inProgress && (this.canInput && (this.tileIndex >= 5 || (this.boardState[this.rowIndex] += e, this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("letters", this.boardState[this.rowIndex]), this.tileIndex += 1)))
         }
       }, {
         key: "removeLetter",
         value: function() {
-          if (this.gameStatus === Za && this.canInput && !(this.tileIndex <= 0)) {
+          if (this.gameStatus === inProgress && this.canInput && !(this.tileIndex <= 0)) {
             this.boardState[this.rowIndex] = this.boardState[this.rowIndex].slice(0, this.boardState[this.rowIndex].length - 1);
             var e = this.$board.querySelectorAll("game-row")[this.rowIndex];
             this.boardState[this.rowIndex] ? e.setAttribute("letters", this.boardState[this.rowIndex]) : e.removeAttribute("letters"), e.removeAttribute("invalid"), this.tileIndex -= 1
@@ -1191,7 +1216,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       }, {
         key: "submitGuess",
         value: function() {
-          if (this.gameStatus === Za && this.canInput) {
+          if (this.gameStatus === inProgress && this.canInput) {
             if (5 !== this.tileIndex) return this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("invalid", ""), void this.addToast("Not enough letters");
             this.evaluateRow()
           }
@@ -1216,7 +1241,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
         value: function() {
           var e = this.$game.querySelector("game-modal"),
             a = document.createElement("game-stats");
-          this.gameStatus === es && this.rowIndex <= 6 && a.setAttribute("highlight-guess", this.rowIndex), a.gameApp = this, e.appendChild(a), e.setAttribute("open", "")
+          this.gameStatus === winStatus && this.rowIndex <= 6 && a.setAttribute("highlight-guess", this.rowIndex), a.gameApp = this, e.appendChild(a), e.setAttribute("open", "")
         }
       }, {
         key: "showHelpModal",
@@ -1228,7 +1253,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
         key: "connectedCallback",
         value: function() {
           var e = this;
-          this.shadowRoot.appendChild(Ka.content.cloneNode(!0)), this.$game = this.shadowRoot.querySelector("#game"), this.$board = this.shadowRoot.querySelector("#board"), this.$keyboard = this.shadowRoot.querySelector("game-keyboard"), this.sizeBoard(), this.lastPlayedTs || setTimeout((function() {
+          this.shadowRoot.appendChild(gameThemeManagerStyles.content.cloneNode(!0)), this.$game = this.shadowRoot.querySelector("#game"), this.$board = this.shadowRoot.querySelector("#board"), this.$keyboard = this.shadowRoot.querySelector("game-keyboard"), this.sizeBoard(), this.lastPlayedTs || setTimeout((function() {
             return e.showHelpModal()
           }), 100);
           for (var a = 0; a < 6; a++) {
@@ -1237,11 +1262,11 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
           }
           this.$game.addEventListener("game-key-press", (function(a) {
             var s = a.detail.key;
-            "â†" === s || "Backspace" === s ? e.removeLetter() : "â†µ" === s || "Enter" === s ? e.submitGuess() : Ba.includes(s.toLowerCase()) && e.addLetter(s.toLowerCase())
+            "â†" === s || "Backspace" === s ? e.removeLetter() : "â†µ" === s || "Enter" === s ? e.submitGuess() : alphabet.includes(s.toLowerCase()) && e.addLetter(s.toLowerCase())
           })), this.$game.addEventListener("game-last-tile-revealed-in-row", (function(a) {
             e.$keyboard.letterEvaluations = e.letterEvaluations, e.rowIndex < 6 && (e.canInput = !0);
             var s = e.$board.querySelectorAll("game-row")[e.rowIndex - 1];
-            (a.path || a.composedPath && a.composedPath()).includes(s) && ([es, as].includes(e.gameStatus) && (e.restoringFromLocalStorage ? e.showStatsModal() : (e.gameStatus === es && (s.setAttribute("win", ""), e.addToast(ss[e.rowIndex - 1], (2*secondsMS))), e.gameStatus === as && e.addToast(e.solution.toUpperCase(), 1 / 0), setTimeout((function() {
+            (a.path || a.composedPath && a.composedPath()).includes(s) && ([winStatus, failStatus].includes(e.gameStatus) && (e.restoringFromLocalStorage ? e.showStatsModal() : (e.gameStatus === winStatus && (s.setAttribute("win", ""), e.addToast(successMessage[e.rowIndex - 1], (2*secondsMS))), e.gameStatus === failStatus && e.addToast(e.solution.toUpperCase(), 1 / 0), setTimeout((function() {
               e.showStatsModal()
             }), 2500))), e.restoringFromLocalStorage = !1)
           })), this.shadowRoot.addEventListener("game-setting-change", (function(a) {
@@ -1278,7 +1303,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
         key: "debugTools",
         value: function() {
           var e = this;
-          this.shadowRoot.getElementById("debug-tools").appendChild(Qa.content.cloneNode(!0)), this.shadowRoot.getElementById("toast").addEventListener("click", (function(a) {
+          this.shadowRoot.getElementById("debug-tools").appendChild(buttonStyles.content.cloneNode(!0)), this.shadowRoot.getElementById("toast").addEventListener("click", (function(a) {
             e.addToast("hello world")
           })), this.shadowRoot.getElementById("modal").addEventListener("click", (function(a) {
             var s = e.$game.querySelector("game-modal");
@@ -1369,7 +1394,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
               var s = a.key,
                 t = a.metaKey,
                 o = a.ctrlKey;
-              t || o || (Ba.includes(s.toLowerCase()) || "Backspace" === s || "Enter" === s) && e.dispatchKeyPressEvent(s)
+              t || o || (alphabet.includes(s.toLowerCase()) || "Backspace" === s || "Enter" === s) && e.dispatchKeyPressEvent(s)
             }
           })), this.$keyboard.addEventListener("transitionend", (function(a) {
             var s = a.target.closest("button");
@@ -1644,7 +1669,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
         var e;
         return s(this, t), n(p(e = a.call(this)), "stats", {}), n(p(e), "gameApp", void 0), e.attachShadow({
           mode: "open"
-        }), e.stats = Xa(), e
+        }), e.stats = getStatistics(), e
       }
       return o(t, [{
         key: "connectedCallback",
@@ -1679,7 +1704,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                 o = e.stats[s],
                 n = statisticContainer.content.cloneNode(!0);
               n.querySelector(".label").textContent = t, n.querySelector(".statistic").textContent = o, a.appendChild(n)
-            })), this.gameApp.gameStatus !== Za) {
+            })), this.gameApp.gameStatus !== inProgress) {
             var p = this.shadowRoot.querySelector(".footer"),
               m = countdownTimer.content.cloneNode(!0);
             p.appendChild(m), this.shadowRoot.querySelector("button#share-button").addEventListener("click", (function(a) {
@@ -1726,7 +1751,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                 dayOffset: e.gameApp.dayOffset,
                 rowIndex: e.gameApp.rowIndex,
                 isHardMode: e.gameApp.hardMode,
-                isWin: e.gameApp.gameStatus === es
+                isWin: e.gameApp.gameStatus === winStatus
               }), (function() {
                 e.gameApp.addToast("Copied results to clipboard", (2*secondsMS), !0)
               }), (function() {
@@ -1865,6 +1890,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
           mode: "open"
         });
         var o = new Date;
+        console.log('13/14', o);
         return o.setDate(o.getDate() + 1), o.setHours(0, 0, 0, 0), e.targetEpochMS = o.getTime(), e
       }
       return o(t, [{
@@ -1877,6 +1903,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
         value: function() {
           var e, a = (new Date).getTime(),
             s = Math.floor(this.targetEpochMS - a);
+          // console.log('14/14', e,a);
           if (s <= 0) e = "00:00:00";
           else {
             var t = Math.floor(s % daysMS / Js),
