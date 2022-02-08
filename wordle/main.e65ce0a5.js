@@ -1,6 +1,22 @@
 this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
   "use strict";
 
+  function uniquenessFilter(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  
+  function onlyGoodWords(wordlist) {
+    let goodWords = [];
+  
+    wordlist.forEach(word => {
+      let goodWord = word.split('').filter(uniquenessFilter);
+      if (goodWord.length === 5) {
+        goodWords.push(goodWord.join(''));
+      }
+    })
+    return goodWords;
+  }
+
   function a(e) {
     return (a = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
       return typeof e
@@ -987,7 +1003,10 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
 
   function Da(e) {
     var a, s = Ga(e);
-    return a = s % La.length, La[a]
+    var solutions = onlyGoodWords(La);
+    var puzzleNumber = Math.floor((Math.random() * solutions.length));
+    console.log(solutions[puzzleNumber])
+    return a = s % solutions.length, solutions[puzzleNumber]
   }
 
   function Ga(e) {
@@ -1060,7 +1079,11 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
           mode: "open"
         }), e.today = new Date;
         var o = za();
-        return e.lastPlayedTs = o.lastPlayedTs, !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1 ? (e.boardState = new Array(6).fill(""), e.evaluations = new Array(6).fill(null), e.solution = Da(e.today), e.dayOffset = Ga(e.today), e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.restoringFromLocalStorage = !1, ja({
+
+        var newGame = !o.lastPlayedTs || Na(new Date(o.lastPlayedTs), e.today) >= 1;
+        newGame = true;
+        
+        return e.lastPlayedTs = o.lastPlayedTs, newGame ? (e.boardState = new Array(6).fill(""), e.evaluations = new Array(6).fill(null), e.solution = Da(e.today), e.dayOffset = Ga(e.today), e.lastCompletedTs = o.lastCompletedTs, e.hardMode = o.hardMode, e.restoringFromLocalStorage = !1, ja({
           rowIndex: e.rowIndex,
           boardState: e.boardState,
           evaluations: e.evaluations,
@@ -1598,7 +1621,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
   var Ts = document.createElement("template");
   Ts.innerHTML = '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
   var Is = document.createElement("template");
-  Is.innerHTML = '\n  <div class="countdown">\n    <h1>Next WORDLE</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
+  Is.innerHTML = '\n\n';
   var Ms = {
       currentStreak: "Current Streak",
       maxStreak: "Max Streak",
@@ -1653,57 +1676,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
             })), this.gameApp.gameStatus !== Za) {
             var p = this.shadowRoot.querySelector(".footer"),
               m = Is.content.cloneNode(!0);
-            p.appendChild(m), this.shadowRoot.querySelector("button#share-button").addEventListener("click", (function(a) {
-              a.preventDefault(), a.stopPropagation();
-              As(function(e) {
-                var a = e.evaluations,
-                  s = e.dayOffset,
-                  t = e.rowIndex,
-                  o = e.isHardMode,
-                  n = e.isWin,
-                  r = JSON.parse(window.localStorage.getItem(j)),
-                  i = JSON.parse(window.localStorage.getItem(S)),
-                  l = "Wordle ".concat(s);
-                l += " ".concat(n ? t : "X", "/").concat(6), o && (l += "*");
-                var d = "";
-                return a.forEach((function(e) {
-                  e && (e.forEach((function(e) {
-                    if (e) {
-                      var a = "";
-                      switch (e) {
-                        case Ma:
-                          a = function(e) {
-                            return e ? "ðŸŸ§" : "ðŸŸ©"
-                          }(i);
-                          break;
-                        case Ia:
-                          a = function(e) {
-                            return e ? "ðŸŸ¦" : "ðŸŸ¨"
-                          }(i);
-                          break;
-                        case Oa:
-                          a = function(e) {
-                            return e ? "â¬›" : "â¬œ"
-                          }(r)
-                      }
-                      d += a
-                    }
-                  })), d += "\n")
-                })), {
-                  text: "".concat(l, "\n\n").concat(d.trimEnd())
-                }
-              }({
-                evaluations: e.gameApp.evaluations,
-                dayOffset: e.gameApp.dayOffset,
-                rowIndex: e.gameApp.rowIndex,
-                isHardMode: e.gameApp.hardMode,
-                isWin: e.gameApp.gameStatus === es
-              }), (function() {
-                e.gameApp.addToast("Copied results to clipboard", 2e3, !0)
-              }), (function() {
-                e.gameApp.addToast("Share failed", 2e3, !0)
-              }))
-            }))
+            p.appendChild(m);
           }
         }
       }]), t
@@ -1824,55 +1797,8 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
   customElements.define("game-icon", Fs);
   var Ws = document.createElement("template");
   Ws.innerHTML = '\n  <div id="timer"></div>\n';
-  var Ys = 6e4,
-    Js = 36e5,
-    Us = function(e) {
-      r(t, e);
-      var a = h(t);
-
-      function t() {
-        var e;
-        s(this, t), n(p(e = a.call(this)), "targetEpochMS", void 0), n(p(e), "intervalId", void 0), n(p(e), "$timer", void 0), e.attachShadow({
-          mode: "open"
-        });
-        var o = new Date;
-        return o.setDate(o.getDate() + 1), o.setHours(0, 0, 0, 0), e.targetEpochMS = o.getTime(), e
-      }
-      return o(t, [{
-        key: "padDigit",
-        value: function(e) {
-          return e.toString().padStart(2, "0")
-        }
-      }, {
-        key: "updateTimer",
-        value: function() {
-          var e, a = (new Date).getTime(),
-            s = Math.floor(this.targetEpochMS - a);
-          if (s <= 0) e = "00:00:00";
-          else {
-            var t = Math.floor(s % 864e5 / Js),
-              o = Math.floor(s % Js / Ys),
-              n = Math.floor(s % Ys / 1e3);
-            e = "".concat(this.padDigit(t), ":").concat(this.padDigit(o), ":").concat(this.padDigit(n))
-          }
-          this.$timer.textContent = e
-        }
-      }, {
-        key: "connectedCallback",
-        value: function() {
-          var e = this;
-          this.shadowRoot.appendChild(Ws.content.cloneNode(!0)), this.$timer = this.shadowRoot.querySelector("#timer"), this.intervalId = setInterval((function() {
-            e.updateTimer()
-          }), 200)
-        }
-      }, {
-        key: "disconnectedCallback",
-        value: function() {
-          clearInterval(this.intervalId)
-        }
-      }]), t
-    }(c(HTMLElement));
-  return customElements.define("countdown-timer", Us), e.CountdownTimer = Us, e.GameApp = ts, e.GameHelp = Hs, e.GameIcon = Fs, e.GameKeyboard = us, e.GameModal = ns, e.GamePage = Ds, e.GameRow = x, e.GameSettings = _a, e.GameStats = Os, e.GameSwitch = Ps, e.GameThemeManager = _, e.GameTile = v, e.GameToast = Aa, Object.defineProperty(e, "__esModule", {
+    
+  return e.GameApp = ts, e.GameHelp = Hs, e.GameIcon = Fs, e.GameKeyboard = us, e.GameModal = ns, e.GamePage = Ds, e.GameRow = x, e.GameSettings = _a, e.GameStats = Os, e.GameSwitch = Ps, e.GameThemeManager = _, e.GameTile = v, e.GameToast = Aa, Object.defineProperty(e, "__esModule", {
     value: !0
   }), e
 }({});
