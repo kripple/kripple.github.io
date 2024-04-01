@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://kellyripple.com/sitemap.xml
