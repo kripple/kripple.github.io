@@ -47,7 +47,21 @@
       <link>https://kellyripple.com/flexbox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://kellyripple.com/flexbox/</guid>
-      <description>A flexbox reference, cloned in case the original is ever modified or removed.</description>
+      <description>An unmodified clone of Malven Co.&amp;rsquo;s &amp;lsquo;FLEX: A simple visual cheetsheet for flexbox&amp;rsquo;, available at &lt;a href=&#34;https://flexbox.malven.co/&#34;&gt;https://flexbox.malven.co/&lt;/a&gt;. I&amp;rsquo;ve cloned it and hosted it here in case the original is ever modified or removed.</description>
+    </item>
+    <item>
+      <title>GRID (Clone)</title>
+      <link>https://kellyripple.com/css-grid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kellyripple.com/css-grid/</guid>
+      <description>An unmodified clone of Malven Co.&amp;rsquo;s &amp;lsquo;GRID: A simple visual cheetsheet for CSS Grid Layout&amp;rsquo;, available at &lt;a href=&#34;https://grid.malven.co/&#34;&gt;https://grid.malven.co/&lt;/a&gt;. I&amp;rsquo;ve cloned it and hosted it here in case the original is ever modified or removed.</description>
+    </item>
+    <item>
+      <title>CSS Selectors (Clone)</title>
+      <link>https://kellyripple.com/css-selectors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kellyripple.com/css-selectors/</guid>
+      <description>A slightly modified version of the CSS Selectors Cheatsheet available at &lt;a href=&#34;https://frontend30.com/css-selectors-cheatsheet/&#34;&gt;https://frontend30.com/css-selectors-cheatsheet/&lt;/a&gt;. I&amp;rsquo;ve cloned it and hosted it here in case the original is ever modified or removed.</description>
     </item>
   </channel>
 </rss>
