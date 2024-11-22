@@ -1,0 +1,40 @@
+{
+  // autosave
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 500,
+
+  // lint on save
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+
+  // personal prefs
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "emmet.showExpandedAbbreviation": "never",
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "git.mergeEditor": false,
+  "javascript.suggest.autoImports": false,
+  "javascript.suggest.paths": false,
+  "javascript.suggestionActions.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "npm.fetchOnlinePackageInfo": false,
+  "prettier.requireConfig": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.useEditorConfig": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "typescript.format.insertSpaceAfterTypeAssertion": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "typescript.suggest.autoImports": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 1
+}
