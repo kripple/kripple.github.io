@@ -3,11 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://kellyripple.com/hangman/</loc>
-  </url><url>
+  </url>
+  <url>
     <loc>https://kellyripple.com/concentration/</loc>
-  </url><url>
+  </url>
+  <url>
     <loc>https://kellyripple.com/</loc>
-  </url><url>
+  </url>
+  <url>
     <loc>https://kellyripple.com/map-slicer/</loc>
   </url>
 </urlset>
