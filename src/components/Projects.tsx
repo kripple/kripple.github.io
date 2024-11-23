@@ -26,6 +26,7 @@ export function Projects() {
     blurb: string;
     description?: string;
     link: string;
+    // tags?: // an optional array of Tag types
   };
 
   const projects: { [key in Key]: Project } = {
