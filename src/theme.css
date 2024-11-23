@@ -36,16 +36,18 @@
 }
 
 .theme-container {
-  color: var(--color);
   background-color: var(--bg-color);
 }
 
 .theme-container,
 #sun,
 #moon,
-.theme-toggle-label {
-  transition-duration: 300ms;
-  transition-property: color, background-color, transform, opacity;
+.theme-toggle-label,
+.header,
+.footer,
+.card {
+  transition-duration: 333ms;
+  transition-property: background-color, transform, opacity;
   transition-timing-function: ease-in-out;
 }
 
@@ -54,7 +56,7 @@
   #sun,
   #moon,
   .theme-toggle-label {
-    transition-property: color, background-color;
+    transition-property: background-color;
   }
 } */
 

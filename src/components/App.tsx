@@ -1,11 +1,12 @@
 import { Header } from '@/components/Header';
 import { Projects } from '@/components/Projects';
+import { Subtitle } from '@/components/Subtitle';
+import { Title } from '@/components/Title';
 
 import '@/components/App.css';
 
 export function App() {
   const creator = 'Kelly Ripple';
-  const subTitle = 'Web Developer Extraordinaire';
   // const description = '???';
   const currentYear = new Date().getFullYear();
 
@@ -14,8 +15,8 @@ export function App() {
       <Header />
       <main className="main">
         <hgroup className="title-block">
-          <h1 className="title">{creator}</h1>
-          <h2 className="subtitle">{subTitle}</h2>
+          <Title />
+          <Subtitle />
           {/* <p>{description}</p> */}
         </hgroup>
         <Projects />

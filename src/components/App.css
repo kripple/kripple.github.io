@@ -1,7 +1,9 @@
 body {
-  font-family: 'Noto Sans', system-ui, sans-serif;
+  font-family: 'Noto Sans';
+  /* font-family: 'Arial'; */
   font-optical-sizing: auto;
   font-style: normal;
+  font-display: optional;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -47,24 +49,20 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .title {
-  font-size: 56px;
-  font-family: 'Cormorant', serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
+  fill: var(--color);
+  height: 56px;
+  margin-top: 32px;
+  margin-bottom: 12px;
 }
-
 .subtitle {
-  font-family: 'Tangerine', cursive;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 44px;
-  color: var(--magenta);
+  fill: var(--magenta);
+  height: 44px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-
 .copyright {
+  color: var(--color);
   text-align: center;
   white-space: nowrap;
   font-weight: 300;
@@ -72,6 +70,8 @@ body {
 }
 
 .title-block {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
   padding: var(--page-margin);
-  text-align: center;
 }
