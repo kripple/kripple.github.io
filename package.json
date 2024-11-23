@@ -5,6 +5,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
+    "postbuild": "cp dist/index.html dist/404.html",
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write src",
