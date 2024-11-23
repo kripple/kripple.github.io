@@ -1,0 +1,15 @@
+.header {
+  grid-template-columns: repeat(auto-fit, var(--icon-size));
+  justify-content: end;
+  gap: 16px;
+}
+
+.theme-icon-placeholder {
+  z-index: -1;
+}
+
+@media screen and (width <= 600px) {
+  .header {
+    justify-content: space-between;
+  }
+}

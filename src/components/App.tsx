@@ -1,3 +1,4 @@
+import { Header } from '@/components/Header';
 import { Projects } from '@/components/Projects';
 
 import '@/components/App.css';
@@ -10,7 +11,7 @@ export function App() {
 
   return (
     <div className="body">
-      <header className="header"></header>
+      <Header />
       <main className="main">
         <hgroup className="title-block">
           <h1 className="title">{creator}</h1>

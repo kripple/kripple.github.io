@@ -5,6 +5,7 @@
   --color: #202127;
   --bg-color: #d7dadc;
   --card-color: #ffffff;
+  --header-footer-color: #a1a5a7;
   --cyan: #00ffff; /* #00b2b2; */
   --magenta: #b200b2;
   --yellow: #ffff00; /* #b2b200; */
@@ -12,6 +13,7 @@
   --dark-color: var(--bg-color);
   --dark-bg-color: var(--color);
   --dark-card-color: #2e2e33;
+  --dark-header-footer-color: #16181d;
   --dark-cyan: #00ffff;
   --dark-magenta: #ff00ff;
   --dark-yellow: #ffff00;
@@ -27,6 +29,7 @@
   --color: var(--dark-color);
   --bg-color: var(--dark-bg-color);
   --card-color: var(--dark-card-color);
+  --header-footer-color: var(--dark-header-footer-color);
   --cyan: var(--dark-cyan);
   --magenta: var(--dark-magenta);
   --yellow: var(--dark-yellow);
