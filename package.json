@@ -1,0 +1,39 @@
+{
+  "name": "kripple.github.io",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "postbuild": "cp docs/index.html docs/404.html",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write src",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@typescript-eslint/eslint-plugin": "7.16.1",
+    "@typescript-eslint/parser": "7.16.1",
+    "@vitejs/plugin-react": "*",
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-react": "7.37.2",
+    "eslint-plugin-react-hooks": "5.0.0",
+    "eslint-plugin-react-refresh": "0.4.14",
+    "prettier": "*",
+    "react": "*",
+    "react-dom": "*",
+    "rollup-plugin-visualizer": "*",
+    "sharp": "*",
+    "typescript": "*",
+    "vite": "*",
+    "vite-plugin-singlefile": "*"
+  },
+  "imports": {
+    "@/*": "./src/*"
+  }
+}

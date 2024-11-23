@@ -1,0 +1,109 @@
+:root {
+  --page-margin: 16px;
+  --icon-size: 28px;
+
+  --color: #202127;
+  --bg-color: #d7dadc;
+  --card-color: #ffffff;
+  --header-footer-color: #a1a5a7;
+  --cyan: #00ffff; /* #00b2b2; */
+  --magenta: #b200b2;
+  --yellow: #ffff00; /* #b2b200; */
+
+  --dark-color: var(--bg-color);
+  --dark-bg-color: var(--color);
+  --dark-card-color: #2e2e33;
+  --dark-header-footer-color: #16181d;
+  --dark-cyan: #00ffff;
+  --dark-magenta: #ff00ff;
+  --dark-yellow: #ffff00;
+}
+
+#theme-toggle {
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+#theme-toggle:checked ~ .theme-container {
+  --color: var(--dark-color);
+  --bg-color: var(--dark-bg-color);
+  --card-color: var(--dark-card-color);
+  --header-footer-color: var(--dark-header-footer-color);
+  --cyan: var(--dark-cyan);
+  --magenta: var(--dark-magenta);
+  --yellow: var(--dark-yellow);
+}
+
+.theme-container {
+  background-color: var(--bg-color);
+}
+
+.theme-container,
+#sun,
+#moon,
+.theme-toggle-label,
+.header,
+.footer,
+.card {
+  transition-duration: 333ms;
+  transition-property: background-color, transform, opacity;
+  transition-timing-function: ease-in-out;
+}
+
+/* @media (prefers-reduced-motion) {
+  .theme-container,
+  #sun,
+  #moon,
+  .theme-toggle-label {
+    transition-property: background-color;
+  }
+} */
+
+#sun,
+#moon,
+.theme-toggle-label {
+  color: var(--color);
+  height: var(--icon-size);
+  width: var(--icon-size);
+  cursor: pointer;
+  box-sizing: border-box;
+  position: fixed;
+  right: var(--page-margin);
+  top: var(--page-margin);
+}
+
+#sun,
+#moon {
+  z-index: 200;
+}
+.theme-toggle-label {
+  z-index: 300;
+}
+
+:is(#sun, #moon):focus {
+  outline: none;
+}
+
+#sun {
+  opacity: 1;
+  transform: rotate(45deg);
+}
+#theme-toggle:checked ~ .theme-container #sun {
+  opacity: 0;
+  transform: rotate(-360deg);
+}
+
+#moon {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+#theme-toggle:checked ~ .theme-container #moon {
+  opacity: 1;
+  transform: rotate(-360deg);
+}
+
+.theme-toggle-label:hover #sun .sun-circle,
+.theme-toggle-label:hover #moon .moon-path {
+  fill: var(--yellow);
+}
