@@ -4,7 +4,7 @@ import { resolve } from 'path';
 
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig, type PluginOption } from 'vite';
+import { type PluginOption, defineConfig } from 'vite';
 
 dns.setDefaultResultOrder('verbatim');
 

@@ -26,7 +26,6 @@ export function ThemeProvider() {
           <SunIcon />
           <MoonIcon />
         </label>
-        
         <App />
       </div>
     </>
