@@ -65,9 +65,31 @@ export function Projects() {
     },
   };
 
+  // Function used to determine the order of the elements. It is expected to return a negative value if the first argument (A) is less than the second argument (B), zero if they're equal, and a positive value otherwise.
+  const sortedKeys = [...keys].sort((keyA, keyB) => {
+    const {
+      title: titleA,
+      date: [monthA, yearA],
+    } = projects[keyA];
+    const {
+      title: titleB,
+      date: [monthB, yearB],
+    } = projects[keyB];
+
+    // most recent first
+    if (yearA > yearB) return -1;
+    if (yearA < yearB) return 1;
+
+    if (monthA > monthB) return -1;
+    if (monthA < monthB) return 1;
+
+    // if month & year are equal, sort alphabetically
+    return titleA.toLowerCase() < titleB.toLowerCase() ? -1 : 1;
+  });
+
   return (
     <section className="card-grid">
-      {keys.map((key) => {
+      {sortedKeys.map((key) => {
         const {
           title,
           date: [month, year],
