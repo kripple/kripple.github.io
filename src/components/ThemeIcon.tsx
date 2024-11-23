@@ -9,6 +9,7 @@ export function ThemeIcon({
 }) {
   return (
     <svg
+      aria-hidden={true}
       fill="none"
       id={id}
       role="button"
