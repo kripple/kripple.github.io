@@ -5,6 +5,7 @@ import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type PluginOption, defineConfig } from 'vite';
+import { viteSingleFile } from 'vite-plugin-singlefile';
 
 dns.setDefaultResultOrder('verbatim');
 
@@ -18,7 +19,7 @@ const gitBranch = childProcess
   .toString()
   .trimEnd();
 
-const plugins: PluginOption[] = [react()];
+const plugins: PluginOption[] = [react(), viteSingleFile({removeViteModuleLoader: true})];
 if (useVisualizer)
   plugins.push(
     visualizer({
@@ -32,6 +33,21 @@ if (useVisualizer)
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
+  build: {
+    chunkSizeWarningLimit: 200,
+    copyPublicDir: true,
+    cssCodeSplit: false,
+    emptyOutDir: true,
+    modulePreload: { polyfill: false },
+    rollupOptions: {
+      output: {
+        compact: true,
+        minifyInternalExports: true,
+        validate: true,
+      },
+    },
+    sourcemap: false,
+  },
   clearScreen: false,
   define: {
     'import.meta.env.APP_VERSION': JSON.stringify(gitHash),
