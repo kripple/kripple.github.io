@@ -39,6 +39,7 @@ export default defineConfig({
     cssCodeSplit: false,
     emptyOutDir: true,
     modulePreload: { polyfill: false },
+    outDir: 'docs',
     rollupOptions: {
       output: {
         compact: true,
