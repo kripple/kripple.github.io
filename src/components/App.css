@@ -14,7 +14,6 @@ body {
   grid-template-rows: var(--height) 1fr var(--height);
 }
 
-.header,
 .main,
 .footer {
   padding: var(--page-margin);
