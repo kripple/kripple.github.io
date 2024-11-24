@@ -6,9 +6,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "postbuild": "cp docs/index.html docs/404.html",
-    "lint": "eslint . && prettier --check .",
-    "lint:fix": "eslint --fix .",
-    "format": "prettier --write src",
+    "lint": "eslint . && stylelint '**/*.css' && prettier --check .",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -29,6 +27,9 @@
     "react-dom": "*",
     "rollup-plugin-visualizer": "*",
     "sharp": "*",
+    "stylelint": "*",
+    "stylelint-order": "*",
+    "stylelint-prettier": "*",
     "typescript": "*",
     "vite": "*",
     "vite-plugin-singlefile": "*"
