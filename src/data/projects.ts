@@ -1,5 +1,3 @@
-import { type Union } from '@/types/utils';
-
 enum Month {
   January,
   February,
@@ -29,11 +27,9 @@ const machineReadableMonths = {
   [Month.December]: '12',
 } as const;
 
-const repos = ['concentration', 'hangman', 'map-slicer', 'web-colors'] as const;
-type Key = Union<typeof repos>;
-
 type ProjectDate = [Month, number];
 type Project = {
+  draft?: boolean;
   title: string;
   date: ProjectDate;
   blurb: string;
@@ -41,7 +37,7 @@ type Project = {
   // tags?: // an optional array of Tag types
 };
 
-export const projects: { [key in Key]: Project } = {
+export const projects: { [key: string]: Project } = {
   concentration: {
     title: 'Concentration',
     date: [Month.October, 2019] as const,
@@ -70,10 +66,19 @@ export const projects: { [key in Key]: Project } = {
     description:
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
   },
-};
+  example: {
+    draft: true,
+    title:
+      'This Project Title Encompasses Several Incontrovertibly and Vocabularically Cumbersome Incomprehensibilities. Hippopotomonstrosesquippedaliophobia.',
+    date: [Month.November, 2024] as const,
+    blurb: `This project card should be listed before 'Web Colors' because it is published in the same month, but its repo url is higher in the alphabet. For purposes of illustration, this blurb is also too long. Hippopotomonstrosesquippedaliophobia.`,
+  },
+} as const;
+
+type ProjectKey = keyof typeof projects;
 
 const toNumber = ([month, year]: ProjectDate) => year * 100 + month;
-const sorted = [...repos].sort((keyA, keyB) => {
+const sorted = (Object.keys(projects) as ProjectKey[]).sort((keyA, keyB) => {
   const showAFirst = -1;
   const showBFirst = 1;
 
@@ -94,6 +99,6 @@ export const toDateTime = ([month, year]: ProjectDate) =>
 export const toDateString = ([month, year]: ProjectDate) =>
   `${Month[month]} ${year}`;
 
-export const toHref = (key: Key) => `https://kellyripple.com/${key}`;
+export const toHref = (key: ProjectKey) => `https://kellyripple.com/${key}`;
 
 export { sorted as projectKeys };

@@ -1,5 +1,8 @@
 body {
+  /* font-display: swap; */
+  font-family: 'Noto Sans', 'Open Sans', sans-serif, system-ui;
   font-optical-sizing: auto;
+  /* font-size-adjust: 0.2; */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

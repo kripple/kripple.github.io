@@ -1,5 +1,5 @@
 import { Icon } from '@/components/Icon';
-import { icons } from '@/utils/icons';
+import { icons } from '@/data/icons';
 
 import '@/components/Header.css';
 

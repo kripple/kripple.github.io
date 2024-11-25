@@ -1,6 +1,6 @@
 import { type RefObject, useEffect } from 'react';
 
-import { isDevEnv } from '@/utils/env';
+import { isDevEnv } from '@/env';
 
 if (!isDevEnv) throw Error('size utilities are for use in development only');
 
