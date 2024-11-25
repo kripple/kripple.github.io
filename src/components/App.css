@@ -75,3 +75,20 @@ body {
   justify-items: center;
   padding: var(--page-margin);
 }
+
+.copyright {
+  align-items: center;
+  color: var(--color);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+}
+.copyright svg {
+  fill: var(--color);
+  height: 16px;
+  width: 16px;
+}
