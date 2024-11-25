@@ -1,10 +1,11 @@
+import { Font } from '@/components/Font';
 import {
   projectKeys,
   projects,
   toDateString,
   toDateTime,
   toHref,
-} from '@/data/projects';
+} from '@/utils/projects';
 
 import '@/components/Projects.css';
 
@@ -29,11 +30,15 @@ export function Projects() {
           >
             <article>
               <hgroup>
-                <h1 className="card-title">{title}</h1>
-                <p className="card-description">{blurb}</p>
+                <h1 className="card-title">
+                  <Font font="title">{title}</Font>
+                </h1>
+                <p className="card-description">
+                  <Font>{blurb}</Font>
+                </p>
               </hgroup>
               <time className="card-date" dateTime={dateTime}>
-                {dateString}
+                <Font font="date">{dateString}</Font>
               </time>
             </article>
           </a>

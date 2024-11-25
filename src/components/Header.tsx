@@ -1,5 +1,5 @@
 import { Icon } from '@/components/Icon';
-import { icons } from '@/data/icons';
+import { icons } from '@/utils/icons';
 
 import '@/components/Header.css';
 
@@ -22,7 +22,7 @@ export function Header() {
         ),
       )}
       <label
-        aria-hidden={true}
+        aria-label="theme"
         className="header-item theme-toggle-label"
         htmlFor="theme-toggle"
         tabIndex={0}

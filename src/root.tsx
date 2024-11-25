@@ -1,9 +1,7 @@
 import { createRoot } from 'react-dom/client';
 
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { Theme } from '@/components/Theme';
 
 import '@/root.css';
 
-createRoot(document.getElementById('root') as HTMLElement).render(
-  <ThemeProvider />,
-);
+createRoot(document.getElementById('root') as HTMLElement).render(<Theme />);
