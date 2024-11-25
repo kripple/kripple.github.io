@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Sans', 'Open Sans', sans-serif, system-ui;
+  font-family: 'Noto Sans', sans-serif, system-ui;
   font-optical-sizing: auto;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -84,6 +84,7 @@ body {
   color: var(--color);
   display: flex;
   flex-wrap: nowrap;
+  font-weight: 400;
   gap: 4px;
   justify-content: center;
   text-align: center;
