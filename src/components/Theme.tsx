@@ -1,9 +1,8 @@
 import { App } from '@/components/App';
 
+import '@/components/Theme.css';
 
-import '@/theme.css';
-
-export function ThemeProvider() {
+export function Theme() {
   const enableDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)',
   ).matches;
@@ -17,7 +16,6 @@ export function ThemeProvider() {
         type="checkbox"
       />
       <div className="theme-container">
-
         <App />
       </div>
     </>

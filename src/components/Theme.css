@@ -20,9 +20,9 @@
 }
 
 #theme-toggle {
-  padding: 0;
-  margin: 0;
   display: none;
+  margin: 0;
+  padding: 0;
 }
 
 #theme-toggle:checked ~ .theme-container {

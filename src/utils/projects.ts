@@ -1,4 +1,4 @@
-import { type Union } from '@/types';
+import { type Union } from '@/types/utils';
 
 enum Month {
   January,
