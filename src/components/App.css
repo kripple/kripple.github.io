@@ -1,11 +1,11 @@
 body {
-  font-family: 'Open Sans';
-  font-weight: 400;
-  font-optical-sizing: auto;
-  font-style: normal;
   font-display: optional;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans';
+  font-optical-sizing: auto;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 
@@ -33,17 +33,17 @@ body {
 }
 
 .header {
+  border-bottom: 1px solid var(--cyan);
   position: sticky;
   top: 0;
-  border-bottom: 1px solid var(--cyan);
 }
 .footer {
   border-top: 1px solid var(--yellow);
 }
 .header,
 .footer {
-  z-index: 100;
   background-color: var(--header-footer-color);
+  z-index: 100;
 }
 .main {
   display: flex;
@@ -52,26 +52,26 @@ body {
 .title {
   fill: var(--color);
   height: 56px;
-  margin-top: 32px;
   margin-bottom: 12px;
+  margin-top: 32px;
 }
 .subtitle {
   fill: var(--magenta);
   height: 44px;
-  margin-top: 20px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 .copyright {
+  align-self: center;
   color: var(--color);
+  font-weight: 300;
   text-align: center;
   white-space: nowrap;
-  font-weight: 300;
-  align-self: center;
 }
 
 .title-block {
   display: grid;
-  justify-items: center;
   justify-content: center;
+  justify-items: center;
   padding: var(--page-margin);
 }

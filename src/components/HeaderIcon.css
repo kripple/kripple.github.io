@@ -1,8 +1,8 @@
 .header-link,
 .header-icon {
+  color: var(--color);
   height: var(--icon-size);
   width: var(--icon-size);
-  color: var(--color);
 }
 .header-icon:hover {
   color: var(--yellow);

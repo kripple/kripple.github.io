@@ -20,9 +20,9 @@
 }
 
 #theme-toggle {
-  padding: 0;
-  margin: 0;
   display: none;
+  margin: 0;
+  padding: 0;
 }
 
 #theme-toggle:checked ~ .theme-container {
@@ -63,14 +63,14 @@
 #sun,
 #moon,
 .theme-toggle-label {
-  color: var(--color);
-  height: var(--icon-size);
-  width: var(--icon-size);
-  cursor: pointer;
   box-sizing: border-box;
+  color: var(--color);
+  cursor: pointer;
+  height: var(--icon-size);
   position: fixed;
   right: var(--page-margin);
   top: var(--page-margin);
+  width: var(--icon-size);
 }
 
 #sun,
