@@ -4,6 +4,4 @@ import { Theme } from '@/components/Theme';
 
 import '@/root.css';
 
-createRoot(document.getElementById('root') as HTMLElement).render(
-  <Theme />,
-);
+createRoot(document.getElementById('root') as HTMLElement).render(<Theme />);

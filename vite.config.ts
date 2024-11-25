@@ -19,7 +19,10 @@ const gitBranch = childProcess
   .toString()
   .trimEnd();
 
-const plugins: PluginOption[] = [react(), viteSingleFile({removeViteModuleLoader: true})];
+const plugins: PluginOption[] = [
+  react(),
+  viteSingleFile({ removeViteModuleLoader: true }),
+];
 if (useVisualizer)
   plugins.push(
     visualizer({
