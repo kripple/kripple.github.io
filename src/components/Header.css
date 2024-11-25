@@ -1,11 +1,11 @@
 .header {
-  grid-template-columns: repeat(4, 60px);
   align-items: center;
+  box-sizing: border-box;
+  grid-template-columns: repeat(4, 60px);
   justify-content: end;
   justify-items: center;
-  box-sizing: border-box;
-  padding-right: 16px;
   padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media screen and (width <= 600px) {
@@ -15,15 +15,13 @@
 }
 
 .header-item {
-  cursor: pointer;
-  height: 44px;
-  width: 44px;
-
-  display: grid;
-  justify-content: center;
   align-content: center;
-
   box-sizing: border-box;
+  cursor: pointer;
+  display: grid;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
 }
 
 .header-item,
@@ -42,8 +40,8 @@ svg.icon:focus {
 }
 
 .header-item:hover svg.icon {
-  stroke: var(--cyan);
   fill: var(--yellow);
+  stroke: var(--cyan);
 }
 
 .theme-toggle-label {
@@ -51,8 +49,6 @@ svg.icon:focus {
 }
 
 .theme-toggle-label > svg.icon {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }

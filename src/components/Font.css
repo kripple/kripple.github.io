@@ -1,0 +1,25 @@
+.font {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.font-title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.font-body {
+  font-size: 14px;
+}
+
+.font-date {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 200;
+}
+
+.font-small {
+  font-size: 13px;
+  font-weight: 300;
+}
