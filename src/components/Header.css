@@ -1,15 +1,54 @@
 .header {
-  grid-template-columns: repeat(auto-fit, var(--icon-size));
+  align-items: center;
+  box-sizing: border-box;
+  grid-template-columns: repeat(4, 60px);
   justify-content: end;
-  gap: 16px;
-}
-
-.theme-icon-placeholder {
-  z-index: -1;
+  justify-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media screen and (width <= 600px) {
   .header {
     justify-content: space-between;
   }
+}
+
+.header-item {
+  align-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: grid;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.header-item,
+svg.icon {
+  overflow: visible; /* our view boxes have no external white space */
+}
+
+svg.icon {
+  box-sizing: border-box;
+  color: var(--color);
+  height: 28px;
+  width: 28px;
+}
+svg.icon:focus {
+  outline: none;
+}
+
+.header-item:hover svg.icon {
+  fill: var(--yellow);
+  stroke: var(--cyan);
+}
+
+.theme-toggle-label {
+  z-index: 300;
+}
+
+.theme-toggle-label > svg.icon {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }

@@ -1,11 +1,10 @@
 body {
-  font-family: 'Open Sans';
-  font-weight: 400;
+  font-family: 'Noto Sans', sans-serif, system-ui;
   font-optical-sizing: auto;
-  font-style: normal;
-  font-display: optional;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 
@@ -14,10 +13,13 @@ body {
   grid-template-rows: var(--height) 1fr var(--height);
 }
 
-.header,
 .main,
-.footer {
+.footer,
+.title-block {
   padding: var(--page-margin);
+}
+.title-block {
+  padding-bottom: 0px;
 }
 
 .header,
@@ -33,45 +35,64 @@ body {
 }
 
 .header {
+  border-bottom: 1px solid var(--cyan);
   position: sticky;
   top: 0;
-  border-bottom: 1px solid var(--cyan);
 }
 .footer {
   border-top: 1px solid var(--yellow);
 }
 .header,
 .footer {
-  z-index: 100;
   background-color: var(--header-footer-color);
+  z-index: 100;
 }
 .main {
-  display: flex;
-  flex-direction: column;
-}
-.title {
-  fill: var(--color);
-  height: 56px;
-  margin-top: 32px;
-  margin-bottom: 12px;
-}
-.subtitle {
-  fill: var(--magenta);
-  height: 44px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.copyright {
-  color: var(--color);
-  text-align: center;
-  white-space: nowrap;
-  font-weight: 300;
-  align-self: center;
+  align-items: start;
+  display: grid;
+  grid-auto-rows: min-content 1fr;
 }
 
-.title-block {
-  display: grid;
-  justify-items: center;
+.title {
+  column-gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: var(--page-margin);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.title svg {
+  fill: var(--color);
+  height: 58px;
+}
+
+.subtitle {
+  column-gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.subtitle svg {
+  fill: var(--magenta);
+  height: 46px;
+}
+
+.copyright {
+  align-items: center;
+  color: var(--color);
+  display: flex;
+  flex-wrap: nowrap;
+  font-weight: 400;
+  gap: 4px;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+}
+.copyright svg {
+  fill: var(--color);
+  height: 16px;
+  width: 16px;
 }
