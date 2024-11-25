@@ -1,10 +1,8 @@
 import { App } from '@/components/App';
-import { MoonIcon } from '@/components/MoonIcon';
-import { SunIcon } from '@/components/SunIcon';
 
-import '@/theme.css';
+import '@/components/Theme.css';
 
-export function ThemeProvider() {
+export function Theme() {
   const enableDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)',
   ).matches;
@@ -18,14 +16,6 @@ export function ThemeProvider() {
         type="checkbox"
       />
       <div className="theme-container">
-        <label
-          aria-hidden={true}
-          className="theme-toggle-label"
-          htmlFor="theme-toggle"
-        >
-          <SunIcon />
-          <MoonIcon />
-        </label>
         <App />
       </div>
     </>

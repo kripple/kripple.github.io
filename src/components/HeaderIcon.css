@@ -1,9 +1,0 @@
-.header-link,
-.header-icon {
-  color: var(--color);
-  height: var(--icon-size);
-  width: var(--icon-size);
-}
-.header-icon:hover {
-  color: var(--yellow);
-}
