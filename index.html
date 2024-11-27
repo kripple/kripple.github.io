@@ -22,23 +22,5 @@
   <body>
     <div id="root"><!--ssg-html--></div>
     <script type="module" src="/src/root.tsx"></script>
-    <script async>
-      const onload = 'onload';
-      const prefersDarkness = window.matchMedia(
-        '(prefers-color-scheme: dark)',
-      ).matches;
-      const toggle = document.getElementById('theme-toggle');
-      if (prefersDarkness && toggle.classList.contains(onload)) {
-        toggle.checked = true;
-        // toggle.classList.remove(onload);
-        toggle.removeAttribute('class');
-      }
-
-      const currentYear = new Date().getFullYear().toString();
-      const span = document.getElementById('current-year');
-      if (currentYear !== span.textContent) {
-        span.textContent = currentYear;
-      }
-    </script>
   </body>
 </html>

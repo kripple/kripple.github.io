@@ -10,7 +10,7 @@ export function Theme({ children }: { children: ReactNode }) {
     <>
       <input
         aria-hidden={true}
-        className="onload"
+        defaultChecked
         id="theme-toggle"
         type="checkbox"
       />
