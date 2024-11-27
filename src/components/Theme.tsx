@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react';
 
-import '@/styles/theme.css';
+import '@/components/theme-font-regular.css';
+import '@/components/theme-font-italic.css';
+import '@/components/theme-font.css';
+import '@/components/theme.css';
 
 export function Theme({ children }: { children: ReactNode }) {
   const enableDarkMode = window.matchMedia(
@@ -15,7 +18,7 @@ export function Theme({ children }: { children: ReactNode }) {
         id="theme-toggle"
         type="checkbox"
       />
-      <div className="theme-container">{children}</div>
+      <div className="theme">{children}</div>
     </>
   );
 }

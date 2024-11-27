@@ -5,10 +5,7 @@ import { Subtitle } from '@/components/Subtitle';
 import { Theme } from '@/components/Theme';
 import { Title } from '@/components/Title';
 
-import '@/styles/noto-sans-regular.css';
-import '@/styles/noto-sans-italic.css';
-import '@/styles/font.css';
-import '@/styles/app.css';
+import '@/components/app.css';
 
 export function App() {
   return (

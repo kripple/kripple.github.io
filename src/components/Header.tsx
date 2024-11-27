@@ -1,7 +1,7 @@
 import { Icon } from '@/components/Icon';
 import { icons } from '@/data/icons';
 
-import '@/styles/header.css';
+import '@/components/header.css';
 
 export function Header() {
   return (

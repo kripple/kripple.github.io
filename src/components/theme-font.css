@@ -1,0 +1,26 @@
+.theme {
+  --font: noto-sans, sans-serif, system-ui;
+  --font-italic: noto-sans-italic, sans-serif, system-ui;
+  font-family: var(--font);
+  font-optical-sizing: auto;
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+.theme .title-font {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.theme .date-font {
+  font-family: var(--font-italic);
+  font-size: 15px;
+}
+
+.theme .font-small {
+  font-size: 15px;
+  font-weight: 300;
+}

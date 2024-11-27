@@ -1,4 +1,4 @@
-import '@/styles/footer.css';
+import '@/components/footer.css';
 
 export function Footer() {
   const creator = 'Kelly Ripple';
@@ -12,7 +12,7 @@ export function Footer() {
 
   return (
     <footer className="footer">
-      <div className="copyright">
+      <div className="copyright font-small">
         {copyrightIcon} {currentYear} {creator}
       </div>
     </footer>

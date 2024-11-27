@@ -43,28 +43,3 @@
   grid-auto-rows: min-content 1fr;
   justify-content: center;
 }
-
-.title,
-.subtitle {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.title {
-  column-gap: 16px;
-}
-.title svg {
-  fill: var(--color);
-  height: 58px;
-}
-
-.subtitle {
-  column-gap: 6px;
-}
-.subtitle svg {
-  fill: var(--magenta);
-  height: 46px;
-}
