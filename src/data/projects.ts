@@ -40,19 +40,19 @@ type Project = {
 export const projects: { [key: string]: Project } = {
   concentration: {
     title: 'Concentration',
-    date: [Month.October, 2019] as const,
+    date: [Month.October, 2019],
     blurb: 'A Pokémon themed memory game.',
   },
   hangman: {
     title: 'Hangman',
-    date: [Month.July, 2015] as const,
+    date: [Month.July, 2015],
     blurb: 'I made this game while I was first learning how to use Javascript.',
     description:
       'I made this game while I was first learning how to use Javascript. This is, in fact, the first JavaScript application I ever completed. Many of the target words were sourced from the Dictionary of Obscure Sorrows.',
   },
   'map-slicer': {
     title: 'Map Slicer',
-    date: [Month.September, 2024] as const,
+    date: [Month.September, 2024],
     blurb:
       'Map Slicer allows you to print images that are too large to fit on a single page.',
     description:
@@ -60,7 +60,7 @@ export const projects: { [key: string]: Project } = {
   },
   'web-colors': {
     title: 'Web Colors',
-    date: [Month.November, 2024] as const,
+    date: [Month.November, 2024],
     blurb:
       'Web Colors showcases all available CSS color names along with their HEX and RGB values.',
     description:
@@ -70,7 +70,7 @@ export const projects: { [key: string]: Project } = {
     draft: true,
     title:
       'This Project Title Encompasses Several Incontrovertibly and Vocabularically Cumbersome Incomprehensibilities. Hippopotomonstrosesquippedaliophobia.',
-    date: [Month.November, 2024] as const,
+    date: [Month.November, 2024],
     blurb: `This project card should be listed before 'Web Colors' because it is published in the same month, but its repo url is higher in the alphabet. For purposes of illustration, this blurb is also too long. Hippopotomonstrosesquippedaliophobia.`,
   },
 } as const;
