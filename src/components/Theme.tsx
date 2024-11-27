@@ -1,8 +1,8 @@
-import { App } from '@/components/App';
+import type { ReactNode } from 'react';
 
-import '@/components/Theme.css';
+import '@/styles/theme.css';
 
-export function Theme() {
+export function Theme({ children }: { children: ReactNode }) {
   const enableDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)',
   ).matches;
@@ -15,9 +15,7 @@ export function Theme() {
         id="theme-toggle"
         type="checkbox"
       />
-      <div className="theme-container">
-        <App />
-      </div>
+      <div className="theme-container">{children}</div>
     </>
   );
 }

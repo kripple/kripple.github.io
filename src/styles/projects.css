@@ -43,10 +43,11 @@
   opacity: 0.85;
 }
 .card-date {
+  font-family: noto-sans-italic, sans-serif, system-ui;
   font-size: 15px;
   /* font-size-adjust: 0.444; */
-  font-style: italic;
-  font-weight: 200;
+  /* font-style: italic; */
+  /* font-weight: 200; */
   /* height: 20.5px; */
   opacity: 0.75;
   /* width: 180px; */

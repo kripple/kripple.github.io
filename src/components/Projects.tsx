@@ -6,7 +6,7 @@ import {
   toHref,
 } from '@/data/projects';
 
-import '@/components/Projects.css';
+import '@/styles/projects.css';
 
 export function Projects() {
   return (

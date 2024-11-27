@@ -1,3 +1,5 @@
+import '@/styles/footer.css';
+
 export function Footer() {
   const creator = 'Kelly Ripple';
   const currentYear = new Date().getFullYear();
