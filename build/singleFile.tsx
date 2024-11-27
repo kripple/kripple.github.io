@@ -34,8 +34,7 @@ export function replaceCss(
   const newCode = scriptCode.replace(`@charset "UTF-8";`, '');
   const inlined = html.replace(
     reStyle,
-    (_, beforeSrc, afterSrc) =>
-      `<style${beforeSrc}${afterSrc}>${newCode.trim()}</style>`,
+    () => `<style rel="stylesheet">${newCode.trim()}</style>`,
   );
   return inlined;
 }
