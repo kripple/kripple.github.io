@@ -1,6 +1,8 @@
 body {
+  font-display: swap;
   font-family: 'Noto Sans', sans-serif, system-ui;
   font-optical-sizing: auto;
+  /* font-size-adjust: 0.451; */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
@@ -51,6 +53,7 @@ body {
   align-items: start;
   display: grid;
   grid-auto-rows: min-content 1fr;
+  justify-content: center;
 }
 
 .title {
