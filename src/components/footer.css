@@ -9,6 +9,13 @@
   white-space: nowrap;
   width: 100%;
 }
+.copyright span {
+  align-items: center;
+  display: flex;
+  height: 10px;
+  padding-top: 2.5px;
+  white-space: nowrap;
+}
 .copyright svg {
   fill: var(--color);
   height: 16px;
