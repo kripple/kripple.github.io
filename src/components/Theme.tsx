@@ -6,15 +6,11 @@ import '@/components/theme-font.css';
 import '@/components/theme.css';
 
 export function Theme({ children }: { children: ReactNode }) {
-  const enableDarkMode = window.matchMedia(
-    '(prefers-color-scheme: dark)',
-  ).matches;
-
   return (
     <>
       <input
         aria-hidden={true}
-        defaultChecked={enableDarkMode}
+        className="onload"
         id="theme-toggle"
         type="checkbox"
       />

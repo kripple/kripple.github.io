@@ -5,7 +5,8 @@ import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type PluginOption, defineConfig } from 'vite';
-import { viteSingleFile } from 'vite-plugin-singlefile';
+import { viteSingleFileSsg } from './build/singleFile';
+import { ssrNoJsPlugin } from './build/ssg';
 
 dns.setDefaultResultOrder('verbatim');
 
@@ -19,9 +20,15 @@ const gitBranch = childProcess
   .toString()
   .trimEnd();
 
+const outDir = 'docs';
 const plugins: PluginOption[] = [
   react(),
-  viteSingleFile({ removeViteModuleLoader: true }),
+  viteSingleFileSsg(),
+  ssrNoJsPlugin({
+    renderModulePath: resolve(__dirname, 'build/render.tsx'),
+    viteOutputPath: resolve(__dirname, outDir),
+    htmlInjectionString: '<!--ssg-html-->',
+  }),
 ];
 if (useVisualizer)
   plugins.push(
@@ -42,7 +49,7 @@ export default defineConfig({
     cssCodeSplit: false,
     emptyOutDir: true,
     modulePreload: { polyfill: false },
-    outDir: 'docs',
+    outDir,
     rollupOptions: {
       output: {
         compact: true,

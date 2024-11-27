@@ -90,3 +90,25 @@
   opacity: 1;
   transform: rotate(-360deg);
 }
+
+@media (prefers-color-scheme: dark) {
+  #theme-toggle.onload ~ .theme {
+    --color: var(--dark-color);
+    --bg-color: var(--dark-bg-color);
+    --card-color: var(--dark-card-color);
+    --header-footer-color: var(--dark-header-footer-color);
+    --cyan: var(--dark-cyan);
+    --magenta: var(--dark-magenta);
+    --yellow: var(--dark-yellow);
+  }
+
+  #theme-toggle.onload ~ .theme #sun {
+    opacity: 0;
+    transform: rotate(-360deg);
+  }
+
+  #theme-toggle.onload ~ .theme #moon {
+    opacity: 1;
+    transform: rotate(-360deg);
+  }
+}
