@@ -15,20 +15,30 @@
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Add font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-
     <title>
       Kelly Ripple | Web Developer | Front-End & Full-Stack Development
     </title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--ssg-html--></div>
     <script type="module" src="/src/root.tsx"></script>
+    <script async>
+      const onload = 'onload';
+      const prefersDarkness = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      ).matches;
+      const toggle = document.getElementById('theme-toggle');
+      if (prefersDarkness && toggle.classList.contains(onload)) {
+        toggle.checked = true;
+        // toggle.classList.remove(onload);
+        toggle.removeAttribute('class');
+      }
+
+      const currentYear = new Date().getFullYear().toString();
+      const span = document.getElementById('current-year');
+      if (currentYear !== span.textContent) {
+        span.textContent = currentYear;
+      }
+    </script>
   </body>
 </html>

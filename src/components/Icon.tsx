@@ -4,7 +4,7 @@ export function Icon({
   viewBox,
 }: {
   id: string;
-  drawPath: string;
+  drawPath: readonly string[];
   viewBox: string;
 }) {
   return (
@@ -17,7 +17,9 @@ export function Icon({
       strokeWidth="0.5px"
       viewBox={viewBox}
     >
-      <path d={drawPath}></path>
+      {drawPath.map((d, index) => (
+        <path d={d} key={index} />
+      ))}
     </svg>
   );
 }

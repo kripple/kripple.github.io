@@ -1,23 +1,22 @@
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Projects } from '@/components/Projects';
-import { Subtitle } from '@/components/Subtitle';
+import { Theme } from '@/components/Theme';
 import { Title } from '@/components/Title';
 
-import '@/components/App.css';
+import '@/components/app.css';
 
 export function App() {
   return (
-    <div className="body">
-      <Header />
-      <main className="main">
-        <hgroup className="title-block">
+    <Theme>
+      <div className="body">
+        <Header />
+        <main className="main">
           <Title />
-          <Subtitle />
-        </hgroup>
-        <Projects />
-      </main>
-      <Footer />
-    </div>
+          <Projects />
+        </main>
+        <Footer />
+      </div>
+    </Theme>
   );
 }

@@ -1,23 +1,20 @@
-import { App } from '@/components/App';
+import type { ReactNode } from 'react';
 
-import '@/components/Theme.css';
+import '@/components/theme-font-regular.css';
+import '@/components/theme-font-italic.css';
+import '@/components/theme-font.css';
+import '@/components/theme.css';
 
-export function Theme() {
-  const enableDarkMode = window.matchMedia(
-    '(prefers-color-scheme: dark)',
-  ).matches;
-
+export function Theme({ children }: { children: ReactNode }) {
   return (
     <>
       <input
         aria-hidden={true}
-        defaultChecked={enableDarkMode}
+        className="onload"
         id="theme-toggle"
         type="checkbox"
       />
-      <div className="theme-container">
-        <App />
-      </div>
+      <div className="theme">{children}</div>
     </>
   );
 }

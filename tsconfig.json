@@ -41,5 +41,5 @@
     "sourceMap": true
     // "composite": true
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["build", "src", "vite.config.ts"]
 }

@@ -6,7 +6,7 @@ import {
   toHref,
 } from '@/data/projects';
 
-import '@/components/Projects.css';
+import '@/components/projects.css';
 
 export function Projects() {
   return (
@@ -28,15 +28,11 @@ export function Projects() {
             tabIndex={0}
             target="_blank"
           >
-            <article>
-              <hgroup>
-                <h1 className="card-title">{title}</h1>
-                <p className="card-description">{blurb}</p>
-              </hgroup>
-              <time className="card-date" dateTime={dateTime}>
-                {dateString}
-              </time>
-            </article>
+            <h1 className="card-title title-font">{title}</h1>
+            <p className="card-description">{blurb}</p>
+            <time className="card-date date-font" dateTime={dateTime}>
+              {dateString}
+            </time>
           </a>
         );
       })}
