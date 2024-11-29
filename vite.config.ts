@@ -7,8 +7,7 @@ import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type PluginOption, defineConfig } from 'vite';
 
-import { viteSingleFileSsg } from './build/singleFile';
-import { ssrNoJsPlugin } from './build/ssg';
+import { viteSsg } from './build/ssg';
 
 dns.setDefaultResultOrder('verbatim');
 
@@ -25,8 +24,7 @@ const gitBranch = childProcess
 const outDir = 'docs';
 const plugins: PluginOption[] = [
   react(),
-  viteSingleFileSsg(),
-  ssrNoJsPlugin({
+  viteSsg({
     renderModulePath: resolve(__dirname, 'build/render.tsx'),
     viteOutputPath: resolve(__dirname, outDir),
     htmlInjectionString: '<!--inject-root-->',
@@ -46,6 +44,7 @@ if (useVisualizer)
 export default defineConfig({
   base: '/',
   build: {
+    assetsDir: '',
     chunkSizeWarningLimit: 200,
     copyPublicDir: true,
     cssCodeSplit: false,
