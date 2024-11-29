@@ -51,7 +51,7 @@ export function ssrNoJsPlugin({
         renderModulePath,
       )) as RenderModule;
 
-      const appHtml = await render();
+      const appHtml = render();
       const routeHtml = templateHtml.replace(htmlInjectionString, appHtml);
       const outputPath = path.join(viteOutputPath, `/${entryPoint}`);
       fs.writeFileSync(outputPath, routeHtml);
