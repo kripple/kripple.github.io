@@ -3,6 +3,8 @@
 import type { OutputAsset, OutputChunk, OutputOptions } from 'rollup';
 import type { PluginOption, UserConfig } from 'vite';
 
+import script from './inject';
+
 export function replaceScript(
   html: string,
   scriptFilename: string,
@@ -19,8 +21,9 @@ export function replaceScript(
     .replace(/<(\/script>|!--)/g, '\\x3C$1');
 
   const inlined = html.replace(reScript, () => '');
+  const injected = injectScriptTag(inlined);
 
-  return removeViteModuleLoader(inlined);
+  return removeViteModuleLoader(injected);
 }
 
 export function replaceCss(
@@ -78,7 +81,6 @@ export function viteSingleFileSsg(): PluginOption {
         for (const filename of files.js) {
           const jsChunk = bundle[filename] as OutputChunk;
           if (jsChunk.code != null) {
-            console.debug(`inlining: ${filename}`);
             bundlesToDelete.push(filename);
             replacedHtml = replaceScript(
               replacedHtml,
@@ -111,6 +113,9 @@ export function viteSingleFileSsg(): PluginOption {
     },
   };
 }
+
+const injectScriptTag = (html: string) =>
+  html.replace('<!--inject-script-->', `<script>(${script})()</script>`);
 
 // Optionally remove the Vite module loader since it's no longer needed because this plugin has inlined all code.
 // This assumes that the Module Loader is (1) the FIRST function declared in the module, (2) an IIFE, (4) is within
