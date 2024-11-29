@@ -119,6 +119,14 @@ module.exports = {
         ...disableForTest,
       },
     },
+    {
+      files: ['build/**/*'],
+      rules: {
+        ...defaultRules,
+        ...disableForTest,
+        '@typescript-eslint/no-restricted-imports': 'off',
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

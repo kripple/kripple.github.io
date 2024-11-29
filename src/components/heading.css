@@ -11,7 +11,7 @@
   column-gap: 16px;
 }
 .h1 svg {
-  fill: var(--color);
+  fill: var(--text-color);
   height: 58px;
 }
 
