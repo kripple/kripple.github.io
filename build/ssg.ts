@@ -20,8 +20,8 @@ interface PluginOptions {
 
   /**
    * The string in your `index.html` file to replace with the SSR'd HTML.
-   * Must be a statically replacable string like `<!--ssg-html-->`. Defaults to
-   * `<!--ssg-html-->`.
+   * Must be a statically replacable string like `<!--inject-root-->`. Defaults to
+   * `<!--inject-root-->`.
    */
   htmlInjectionString?: string;
 }
@@ -34,7 +34,7 @@ const name = 'vite:ssg';
 export function ssrNoJsPlugin({
   renderModulePath,
   viteOutputPath,
-  htmlInjectionString = '<!--ssg-html-->',
+  htmlInjectionString = '<!--inject-root-->',
 }: PluginOptions): Plugin {
   return {
     name,

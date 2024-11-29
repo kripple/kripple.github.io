@@ -29,20 +29,21 @@ html[data-theme='light'],
   padding: 0;
 }
 
-#sun,
-#moon {
-  transform: rotate(-360deg);
-}
-#theme-toggle:checked ~ .theme :is(#sun, #moon) {
+#sun {
+  opacity: 1;
   transform: rotate(45deg);
 }
-#sun,
-#theme-toggle:checked ~ .theme #moon {
+#moon {
   opacity: 0;
+  transform: rotate(45deg);
 }
-#moon,
-#theme-toggle:checked ~ .theme #sun {
+:is(html[data-theme='light'], #theme-toggle:checked ~ .theme) #sun {
+  opacity: 0;
+  transform: rotate(-360deg);
+}
+:is(html[data-theme='light'], #theme-toggle:checked ~ .theme) #moon {
   opacity: 1;
+  transform: rotate(-360deg);
 }
 
 .theme,

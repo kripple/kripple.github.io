@@ -16,33 +16,11 @@
     <title>
       Kelly Ripple | Web Developer | Front-End & Full-Stack Development
     </title>
-    <script>
-      (function () {
-        function storageAvailable(type) {
-          try {
-            const storage = window[type];
-            const testKey = '__temp';
-            storage.setItem(testKey, testKey);
-            storage.removeItem(testKey);
-            return true;
-          } catch (error) {
-            return false;
-          }
-        }
-        function getItem(key) {
-          return storageAvailable('localStorage') && localStorage.getItem(key);
-        }
-        if (getItem('theme') === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      })();
-    </script>
+    <!--inject-script-head-->
   </head>
   <body>
-    <div id="root"><!--ssg-html--></div>
+    <div id="root"><!--inject-root--></div>
     <script type="module" src="/src/root.tsx"></script>
-    <!--inject-script-->
+    <!--inject-script-body-->
   </body>
 </html>

@@ -29,7 +29,7 @@ const plugins: PluginOption[] = [
   ssrNoJsPlugin({
     renderModulePath: resolve(__dirname, 'build/render.tsx'),
     viteOutputPath: resolve(__dirname, outDir),
-    htmlInjectionString: '<!--ssg-html-->',
+    htmlInjectionString: '<!--inject-root-->',
   }),
 ];
 if (useVisualizer)
