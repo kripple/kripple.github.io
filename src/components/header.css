@@ -31,7 +31,7 @@ svg.icon {
 
 svg.icon {
   box-sizing: border-box;
-  color: var(--color);
+  color: var(--text-color);
   height: 28px;
   width: 28px;
 }

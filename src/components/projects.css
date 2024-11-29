@@ -13,7 +13,7 @@
 .card {
   background-color: var(--card-color);
   border-radius: 12px;
-  color: var(--color);
+  color: var(--text-color);
   cursor: pointer;
   display: flex;
   flex-direction: column;

@@ -1,4 +1,6 @@
 .body {
+  --page-margin: 16px;
+  --icon-size: 28px;
   --height: calc(var(--icon-size) + (2 * var(--page-margin)));
   grid-template-rows: var(--height) 1fr var(--height);
 }
