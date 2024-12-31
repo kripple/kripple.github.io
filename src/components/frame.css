@@ -1,0 +1,36 @@
+.iframe-container,
+.iframe-container:after,
+iframe {
+  box-sizing: border-box;
+}
+
+.iframe-container {
+  aspect-ratio: 1440 / 900;
+  background-color: white;
+  border-radius: 1px;
+  height: 93px;
+  overflow: clip;
+  position: relative;
+}
+
+/* overlay */
+.iframe-container:after {
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+iframe {
+  border: none;
+  height: 900px;
+  left: 0;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  transform: scale(calc(93 / 900));
+  transform-origin: top left;
+  width: 1440px;
+}

@@ -1,3 +1,4 @@
+import { Frame } from '@/components/Frame';
 import {
   projectKeys,
   projects,
@@ -12,10 +13,10 @@ export function Projects() {
   return (
     <section className="card-grid">
       {projectKeys.map((key) => {
-        const { title, date, blurb, draft } = projects[key];
+        const { title, date, blurb, draft, external } = projects[key];
         if (draft) return;
 
-        const href = toHref(key);
+        const href = external || toHref(key);
         const dateTime = toDateTime(date);
         const dateString = toDateString(date);
 
@@ -28,11 +29,16 @@ export function Projects() {
             tabIndex={0}
             target="_blank"
           >
-            <h1 className="card-title title-font">{title}</h1>
-            <p className="card-description">{blurb}</p>
-            <time className="card-date date-font" dateTime={dateTime}>
-              {dateString}
-            </time>
+            <div className="card-media">
+              <Frame href={href} />
+            </div>
+            <div className="card-contents">
+              <h1 className="card-title title-font">{title}</h1>
+              <p className="card-description">{blurb}</p>
+              <time className="card-date date-font" dateTime={dateTime}>
+                {dateString}
+              </time>
+            </div>
           </a>
         );
       })}

@@ -13,6 +13,7 @@ const warnings = {
     'warn',
     { argsIgnorePattern: '^_', ignoreRestSiblings: true },
   ],
+
   'react/jsx-sort-props': 'warn',
   'react/jsx-curly-brace-presence': 'warn',
   'react/no-multi-comp': 'warn',
@@ -26,7 +27,6 @@ const errors = {
   'react/jsx-no-leaked-render': 'error',
   'react/no-object-type-as-default-prop': 'error',
   'react/no-unstable-nested-components': 'error',
-  'react/iframe-missing-sandbox': 'error',
 };
 
 const restrictedImports = {
