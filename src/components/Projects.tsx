@@ -29,9 +29,7 @@ export function Projects() {
             tabIndex={0}
             target="_blank"
           >
-            <div className="card-media">
-              <Frame href={href} />
-            </div>
+            <Frame href={href} />
             <div className="card-contents">
               <h1 className="card-title title-font">{title}</h1>
               <p className="card-description">{blurb}</p>

@@ -11,7 +11,6 @@
 }
 
 .card {
-  align-items: center;
   background-color: var(--card-color);
   border-radius: 12px;
   color: var(--text-color);
@@ -20,6 +19,12 @@
   gap: 28px;
   padding: 28px;
   text-decoration: none;
+}
+@media screen and (max-width: 500px) {
+  .card {
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .card-title {
@@ -35,19 +40,4 @@
 
 .card-date {
   opacity: 0.75;
-}
-
-.card-media {
-  background-color: black;
-  border-radius: 5px;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  height: 105px;
-  padding: 5px;
-  position: relative;
-}
-@media screen and (max-width: 650px) {
-  .card {
-    flex-direction: column;
-  }
 }
