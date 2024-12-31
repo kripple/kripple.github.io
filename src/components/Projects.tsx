@@ -21,7 +21,7 @@ export function Projects() {
 
         return (
           <a
-            className="card"
+            className="card fancy-hover-effect"
             href={href}
             key={key}
             rel="noreferrer"
