@@ -42,8 +42,9 @@ export const projects: { [key: string]: Project } = {
   cckb: {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
-    blurb: 'Converted a WordPress website into a static single-page application, reducing annual hosting costs from $100+ to $0.',
-    external: 'https://cckb.net'
+    blurb:
+      'Converted a WordPress website into a static single-page application, reducing annual hosting costs from $100+ to $0.',
+    external: 'https://cckb.net',
   },
   concentration: {
     title: 'Concentration',
