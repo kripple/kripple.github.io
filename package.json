@@ -34,8 +34,5 @@
     "typescript": "*",
     "vite": "*",
     "vite-plugin-singlefile": "*"
-  },
-  "imports": {
-    "@/*": "./src/*"
   }
 }
