@@ -14,7 +14,7 @@ export function Icon({
       id={id}
       role="button"
       stroke="none"
-      strokeWidth="0.5px"
+      strokeWidth="0.25px"
       viewBox={viewBox}
     >
       {drawPath.map((d, index) => (

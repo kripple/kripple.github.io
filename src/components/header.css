@@ -40,8 +40,9 @@ svg.icon:focus {
 }
 
 .header-item:hover svg.icon {
-  fill: var(--yellow);
-  stroke: var(--cyan);
+  fill: var(--cyan);
+  /* filter: drop-shadow(0 0 0.75px var(--yellow)); */
+  stroke: var(--magenta);
 }
 
 .theme-toggle-label {
