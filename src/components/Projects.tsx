@@ -9,6 +9,8 @@ import {
 
 import '@/components/projects.css';
 
+// TODO: add button to view source code on github
+
 export function Projects() {
   return (
     <section className="card-grid">
