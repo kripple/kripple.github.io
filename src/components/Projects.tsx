@@ -31,7 +31,7 @@ export function Projects() {
             tabIndex={0}
             target="_blank"
           >
-            <Frame href={href} />
+            <Frame href={href} title={title} />
             <div className="card-contents">
               <h1 className="card-title title-font">{title}</h1>
               <p className="card-description">{blurb}</p>
