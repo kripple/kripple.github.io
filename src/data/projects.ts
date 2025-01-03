@@ -35,7 +35,9 @@ type Project = {
   blurb: string;
   description?: string;
   // tags?: // an optional array of Tag types
-  external?: string;
+  githubUrl?: string;
+  websiteUrl?: string;
+  altUrl?: string;
 };
 
 export const projects: { [key: string]: Project } = {
@@ -44,12 +46,14 @@ export const projects: { [key: string]: Project } = {
     date: [Month.December, 2024],
     blurb:
       'Converted a WordPress website into a static single-page application, reducing annual hosting costs from $100+ to $0.',
-    external: 'https://cckb.net',
+    githubUrl:
+      'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
+    websiteUrl: 'https://cckb.net',
   },
   concentration: {
     title: 'Concentration',
     date: [Month.October, 2019],
-    blurb: 'A Pokémon themed memory game.',
+    blurb: 'A Pokémon themed memory game. (Pokématch v1)',
   },
   hangman: {
     title: 'Hangman',
@@ -65,6 +69,12 @@ export const projects: { [key: string]: Project } = {
       'Map Slicer allows you to print images that are too large to fit on a single page.',
     description:
       'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
+  },
+  pokematch: {
+    title: 'Pokématch',
+    date: [Month.January, 2025],
+    blurb: 'A Pokémon themed memory game. (Concentration v2)',
+    altUrl: 'https://kellyripple.com/concentration/',
   },
   'web-colors': {
     title: 'Web Colors',

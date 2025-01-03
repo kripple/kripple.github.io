@@ -15,10 +15,10 @@ export function Projects() {
   return (
     <section className="card-grid">
       {projectKeys.map((key) => {
-        const { title, date, blurb, draft, external } = projects[key];
+        const { title, date, blurb, draft, websiteUrl } = projects[key];
         if (draft) return;
 
-        const href = external || toHref(key);
+        const href = websiteUrl || toHref(key);
         const dateTime = toDateTime(date);
         const dateString = toDateString(date);
 
