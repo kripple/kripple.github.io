@@ -46,6 +46,9 @@ function saveThemePreference() {
     return;
   }
 
+  const light = '#ffffff';
+  const dark = '#16181d';
+
   const savedTheme = document.documentElement.getAttribute('data-theme');
   if (savedTheme) {
     if (savedTheme === 'light') {
@@ -53,6 +56,8 @@ function saveThemePreference() {
     }
     document.documentElement.removeAttribute('data-theme');
   }
+  document.documentElement.style.backgroundColor =
+    savedTheme === 'light' ? light : dark;
 
   checkbox.addEventListener('change', (event) => {
     const target = event.target;
@@ -62,6 +67,9 @@ function saveThemePreference() {
     }
 
     setItem('theme', target.checked ? 'light' : 'dark');
+    document.documentElement.style.backgroundColor = target.checked
+      ? light
+      : dark;
   });
 }
 
