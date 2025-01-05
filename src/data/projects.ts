@@ -37,7 +37,6 @@ type Project = {
   // tags?: // an optional array of Tag types
   githubUrl?: string;
   websiteUrl?: string;
-  altUrl?: string;
 };
 
 export const projects: { [key: string]: Project } = {
@@ -53,7 +52,7 @@ export const projects: { [key: string]: Project } = {
   concentration: {
     title: 'Concentration',
     date: [Month.October, 2019],
-    blurb: 'A Pokémon themed memory game. (Pokématch v1)',
+    blurb: 'A Pokémon themed memory game. (Pokéflash v1)',
   },
   hangman: {
     title: 'Hangman',
@@ -71,11 +70,9 @@ export const projects: { [key: string]: Project } = {
       'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
   },
   pokematch: {
-    draft: true,
-    title: 'Pokématch',
+    title: 'Pokéflash',
     date: [Month.January, 2025],
     blurb: 'A Pokémon themed memory game. (Concentration v2)',
-    altUrl: 'https://kellyripple.com/concentration/',
   },
   'web-colors': {
     title: 'Web Colors',
