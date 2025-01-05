@@ -15,8 +15,8 @@ export function Projects() {
   return (
     <section className="card-grid">
       {projectKeys.map((key) => {
-        const { title, date, blurb, draft, websiteUrl } = projects[key];
-        if (draft) return;
+        const { title, date, blurb, hide, websiteUrl } = projects[key];
+        if (hide) return;
 
         const href = websiteUrl || toHref(key);
         const dateTime = toDateTime(date);

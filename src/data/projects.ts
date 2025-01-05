@@ -29,7 +29,7 @@ const machineReadableMonths = {
 
 type ProjectDate = [Month, number];
 type Project = {
-  draft?: boolean;
+  hide?: boolean;
   title: string;
   date: ProjectDate;
   blurb: string;
@@ -50,6 +50,7 @@ export const projects: { [key: string]: Project } = {
     websiteUrl: 'https://cckb.net',
   },
   concentration: {
+    hide: true,
     title: 'Concentration',
     date: [Month.October, 2019],
     blurb: 'A Pokémon themed memory game. (Pokéflash v1)',
@@ -72,7 +73,7 @@ export const projects: { [key: string]: Project } = {
   pokematch: {
     title: 'Pokéflash',
     date: [Month.January, 2025],
-    blurb: 'A Pokémon themed memory game. (Concentration v2)',
+    blurb: 'A Pokémon themed memory game.',
   },
   'web-colors': {
     title: 'Web Colors',
@@ -83,7 +84,7 @@ export const projects: { [key: string]: Project } = {
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
   },
   example: {
-    draft: true,
+    hide: true,
     title:
       'This Project Title Encompasses Several Incontrovertibly and Vocabularically Cumbersome Incomprehensibilities. Hippopotomonstrosesquippedaliophobia.',
     date: [Month.November, 2024],
