@@ -75,6 +75,12 @@ export const projects: { [key: string]: Project } = {
     date: [Month.January, 2025],
     blurb: 'A Pokémon themed memory game.',
   },
+  repos: {
+    title: 'Repo Gallery',
+    date: [Month.January, 2025],
+    blurb:
+      'A gallery page that dynamically displays all publicly accessible GitHub repositories belonging to a specific user (kripple).',
+  },
   'web-colors': {
     title: 'Web Colors',
     date: [Month.November, 2024],
