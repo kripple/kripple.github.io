@@ -76,8 +76,6 @@ export const projects: { [key: string]: Project } = {
     blurb: 'A Pokémon themed memory game.',
   },
   repos: {
-    // on select repo: Uncaught TypeError: Cannot add property highlight, object is not extensible
-    hide: true,
     title: 'Repo Gallery',
     date: [Month.January, 2025],
     blurb:
