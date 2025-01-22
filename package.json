@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "postbuild": "cp docs/index.html docs/404.html",
     "lint": "eslint . && stylelint '**/*.css' && prettier --check .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "g": "tsx src/helpers/generate"
   },
   "devDependencies": {
     "@types/node": "*",
@@ -31,6 +32,8 @@
     "stylelint": "*",
     "stylelint-order": "*",
     "stylelint-prettier": "*",
+    "tinify": "^1.7.1",
+    "tsx": "^4.19.2",
     "typescript": "*",
     "vite": "*",
     "vite-plugin-singlefile": "*"
