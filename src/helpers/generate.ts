@@ -52,3 +52,4 @@ function generateImages() {
 
 compressImages();
 generateImages();
+console.log(fs.readdirSync('src/images'));

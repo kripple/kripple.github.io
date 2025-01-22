@@ -1,3 +1,6 @@
+import type { ImageUrlKeys, ImageUrls } from '@/images';
+import { urls } from '@/images';
+
 enum Month {
   January,
   February,
@@ -28,7 +31,7 @@ const machineReadableMonths = {
 } as const;
 
 type ProjectDate = [Month, number];
-type Project = {
+type Project<K extends ImageUrlKeys> = {
   hide?: boolean;
   title: string;
   date: ProjectDate;
@@ -37,9 +40,10 @@ type Project = {
   // tags?: // an optional array of Tag types
   githubUrl?: string;
   websiteUrl?: string;
+  images?: ImageUrls<K>;
 };
 
-export const projects: { [key: string]: Project } = {
+export const projects: { [key in ImageUrlKeys]: Project<key> } = {
   cckb: {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
@@ -48,6 +52,7 @@ export const projects: { [key: string]: Project } = {
     githubUrl:
       'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
     websiteUrl: 'https://cckb.net',
+    images: urls['cckb'],
   },
   concentration: {
     hide: true,

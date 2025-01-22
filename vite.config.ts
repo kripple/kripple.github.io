@@ -44,7 +44,6 @@ if (useVisualizer)
 export default defineConfig({
   base: '/',
   build: {
-    assetsDir: '',
     chunkSizeWarningLimit: 200,
     copyPublicDir: true,
     cssCodeSplit: false,
