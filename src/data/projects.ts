@@ -1,4 +1,4 @@
-import type { ImageUrlKeys, ImageUrls } from '@/images';
+import type { ProjectKey, ProjectUrls } from '@/images';
 import { urls } from '@/images';
 
 enum Month {
@@ -31,7 +31,7 @@ const machineReadableMonths = {
 } as const;
 
 type ProjectDate = [Month, number];
-type Project<K extends ImageUrlKeys> = {
+type Project = {
   hide?: boolean;
   title: string;
   date: ProjectDate;
@@ -40,10 +40,10 @@ type Project<K extends ImageUrlKeys> = {
   // tags?: // an optional array of Tag types
   githubUrl?: string;
   websiteUrl?: string;
-  images?: ImageUrls<K>;
+  images?: ProjectUrls;
 };
 
-export const projects: { [key in ImageUrlKeys]: Project<key> } = {
+export const projects: { [key in ProjectKey]: Project } = {
   cckb: {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
@@ -66,6 +66,7 @@ export const projects: { [key in ImageUrlKeys]: Project<key> } = {
     blurb: 'I made this game while I was first learning how to use Javascript.',
     description:
       'I made this game while I was first learning how to use Javascript. This is, in fact, the first JavaScript application I ever completed. Many of the target words were sourced from the Dictionary of Obscure Sorrows.',
+    images: urls['hangman'],
   },
   'map-slicer': {
     title: 'Map Slicer',
@@ -74,17 +75,20 @@ export const projects: { [key in ImageUrlKeys]: Project<key> } = {
       'Map Slicer allows you to print images that are too large to fit on a single page.',
     description:
       'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
+    images: urls['map-slicer'],
   },
   pokematch: {
     title: 'Pokéflash',
     date: [Month.January, 2025],
     blurb: 'A Pokémon themed memory game.',
+    images: urls['pokematch'],
   },
   repos: {
     title: 'Repo Gallery',
     date: [Month.January, 2025],
     blurb:
       'A gallery page that dynamically displays all publicly accessible GitHub repositories belonging to a specific user (kripple).',
+    images: urls['repos'],
   },
   'web-colors': {
     title: 'Web Colors',
@@ -93,6 +97,7 @@ export const projects: { [key in ImageUrlKeys]: Project<key> } = {
       'Web Colors showcases all available CSS color names along with their HEX and RGB values.',
     description:
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
+    images: urls['web-colors'],
   },
   example: {
     hide: true,
@@ -102,8 +107,6 @@ export const projects: { [key in ImageUrlKeys]: Project<key> } = {
     blurb: `This project card should be listed before 'Web Colors' because it is published in the same month, but its repo url is higher in the alphabet. For purposes of illustration, this blurb is also too long. Hippopotomonstrosesquippedaliophobia.`,
   },
 } as const;
-
-type ProjectKey = keyof typeof projects;
 
 const toNumber = ([month, year]: ProjectDate) => year * 100 + month;
 const sorted = (Object.keys(projects) as ProjectKey[]).sort((keyA, keyB) => {

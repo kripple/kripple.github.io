@@ -73,7 +73,13 @@ function saveThemePreference() {
   });
 }
 
-type Injected = typeof setDataTheme & typeof saveThemePreference;
+function loadImages() {
+  alert('go!');
+}
+
+type Injected = typeof setDataTheme &
+  typeof saveThemePreference &
+  typeof loadImages;
 
 export function injectScripts(html: string) {
   const toHtml = (injected: Injected) =>
@@ -81,5 +87,8 @@ export function injectScripts(html: string) {
 
   return html
     .replace('<!--inject-script-head-->', toHtml(setDataTheme))
-    .replace('<!--inject-script-body-->', toHtml(saveThemePreference));
+    .replace(
+      '<!--inject-script-body-->',
+      `${toHtml(saveThemePreference)}\n${toHtml(loadImages)}`,
+    );
 }

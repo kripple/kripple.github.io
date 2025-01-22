@@ -25,6 +25,12 @@
     align-items: center;
     flex-direction: column;
   }
+  .card .project-images {
+    align-self: center;
+  }
+  .card .card-contents {
+    align-self: stretch;
+  }
 }
 
 .card-title {

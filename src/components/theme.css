@@ -13,6 +13,7 @@ html,
 }
 
 html {
+  overflow-x: hidden;
   overflow-y: scroll;
   overscroll-behavior-x: none;
 }
@@ -31,6 +32,8 @@ html {
   --text-color: rgb(var(--platinum-rgb));
   --card-color: #2e2e33;
   --header-footer-color: #16181d;
+  --display-image-light: none;
+  --display-image-dark: inherit;
 }
 
 /* light mode */
@@ -41,6 +44,8 @@ html[data-theme='light'],
   --card-color: #ffffff;
   --header-footer-color: #ffffff;
   --magenta: #b200b2;
+  --display-image-light: inherit;
+  --display-image-dark: none;
 }
 
 .theme {

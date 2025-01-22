@@ -48,6 +48,7 @@ export default defineConfig({
     copyPublicDir: true,
     cssCodeSplit: false,
     emptyOutDir: true,
+    assetsInlineLimit: 0,
     modulePreload: { polyfill: false },
     outDir,
     rollupOptions: {

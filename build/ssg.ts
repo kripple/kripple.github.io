@@ -6,11 +6,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import type { renderToStaticMarkup } from 'react-dom/server';
-import type { OutputAsset, OutputChunk } from 'rollup';
+import type { OutputAsset, OutputChunk, OutputOptions } from 'rollup';
 import { createServer } from 'vite';
 import type { Plugin } from 'vite';
 
-import { injectScripts } from '../src/helpers/injected';
+import { injectScripts } from './injectScripts';
 
 interface PluginOptions {
   /**
@@ -76,6 +76,7 @@ const isJsFile = /\.[mc]?js$/;
 const isCssFile = /\.css$/;
 const isHtmlFile = /\.html?$/;
 function warnNotInlined(filename: string) {
+  if (filename.includes('.jpg')) return;
   console.debug(`NOTE: asset not inlined: ${filename}`);
 }
 
@@ -143,7 +144,10 @@ export function viteSsg({
         warnNotInlined(name);
       }
     },
-    async writeBundle() {
+    async writeBundle(
+      _options: OutputOptions,
+      bundle: { [fileName: string]: OutputAsset | OutputChunk },
+    ) {
       const entryPoint = 'index.html';
       const templatePath = path.join(viteOutputPath, entryPoint);
       const templateHtml = fs.readFileSync(templatePath, 'utf-8');
@@ -151,15 +155,20 @@ export function viteSsg({
       const vite = await createServer({
         server: { middlewareMode: true },
       });
-
       const { render } = (await vite.ssrLoadModule(
         renderModulePath,
       )) as RenderModule;
+      const appHtml = templateHtml.replace(htmlInjectionString, render());
 
-      const appHtml = render();
-      const routeHtml = templateHtml.replace(htmlInjectionString, appHtml);
+      const htmlWithAssets = Object.values(bundle).reduce((result, asset) => {
+        if (asset.type === 'chunk' || asset.originalFileNames.length === 0)
+          return result;
+        const target = asset.originalFileNames[0];
+        return result.replace(target, asset.fileName);
+      }, appHtml);
+
       const outputPath = path.join(viteOutputPath, `/${entryPoint}`);
-      fs.writeFileSync(outputPath, routeHtml);
+      fs.writeFileSync(outputPath, htmlWithAssets);
 
       console.debug(`[${name}] injected static html`);
       vite.close();
