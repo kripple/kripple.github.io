@@ -1,4 +1,4 @@
 node_modules
 secret*
-helpers/input
-helpers/output
+src/helpers/input
+src/helpers/output
