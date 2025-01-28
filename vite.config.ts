@@ -9,6 +9,8 @@ import { type PluginOption, defineConfig } from 'vite';
 
 import { viteSsg } from './build/ssg';
 
+// TODO: Add content security policy meta tag
+
 dns.setDefaultResultOrder('verbatim');
 
 const useVisualizer = false;
