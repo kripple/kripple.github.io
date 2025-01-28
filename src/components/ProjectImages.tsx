@@ -23,10 +23,16 @@ export function ProjectImages({
               <span className={`image-${theme}`} key={theme}>
                 {['eager', 'lazy'].map((loadingStrategy) => {
                   const imageKey = `${screenSize}-${theme}${loadingStrategy === 'eager' ? '-small' : ''}`;
+                  const altImageKey = `${screenSize}-${theme === 'dark' ? 'light' : 'dark'}${loadingStrategy === 'eager' ? '-small' : ''}`;
                   if (!isImageVariant(imageKey)) {
                     console.warn(`missing image variant '${imageKey}'`);
                     return null;
                   }
+                  if (!isImageVariant(altImageKey)) {
+                    console.warn(`missing image variant '${altImageKey}'`);
+                    return null;
+                  }
+                  const src = images[imageKey] || images[altImageKey];
                   return (
                     <span
                       className={`image-${loadingStrategy}`}
@@ -35,7 +41,7 @@ export function ProjectImages({
                       <img
                         className={`${screenSize} ${theme} ${loadingStrategy}${import.meta.env.DEV ? ' dev' : ''}`}
                         loading="lazy"
-                        src={images[imageKey]}
+                        src={src}
                         title={title}
                       ></img>
                     </span>

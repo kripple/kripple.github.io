@@ -1,23 +1,37 @@
-const imageVariants = [
+const darkVariants = [
   'desktop-dark-small',
-  'desktop-light-small',
   'desktop-dark',
-  'desktop-light',
   'mobile-dark-small',
-  'mobile-light-small',
   'mobile-dark',
-  'mobile-light',
   'tablet-dark-small',
-  'tablet-light-small',
   'tablet-dark',
+] as const;
+const lightVariants = [
+  'desktop-light-small',
+  'desktop-light',
+  'mobile-light-small',
+  'mobile-light',
+  'tablet-light-small',
   'tablet-light',
 ] as const;
+
+const imageVariants = [...darkVariants, ...lightVariants] as const;
+type DarkVariant = (typeof darkVariants)[number] & PropertyKey;
+type LightVariant = (typeof lightVariants)[number] & PropertyKey;
+
 export type ImageVariant = (typeof imageVariants)[number] & PropertyKey;
 export const isImageVariant = (value: unknown): value is ImageVariant => {
   if (typeof value !== 'string') return false;
   return (imageVariants as readonly string[]).includes(value);
 };
-export type ProjectUrls = { [key in ImageVariant]: string };
+export type ProjectUrls =
+  | { [key in ImageVariant]: string }
+  | ({ [key in DarkVariant]?: string } & {
+      [key in LightVariant]: string;
+    })
+  | ({ [key in DarkVariant]: string } & {
+      [key in LightVariant]?: string;
+    });
 
 import cckbDesktopSmall from '/src/images/cckb-desktop-small.jpg';
 import cckbDesktop from '/src/images/cckb-desktop.jpg';
@@ -25,18 +39,21 @@ import cckbMobileSmall from '/src/images/cckb-mobile-small.jpg';
 import cckbMobile from '/src/images/cckb-mobile.jpg';
 import cckbTabletSmall from '/src/images/cckb-tablet-small.jpg';
 import cckbTablet from '/src/images/cckb-tablet.jpg';
+//
 import hangmanDesktopSmall from '/src/images/hangman-desktop-small.jpg';
 import hangmanDesktop from '/src/images/hangman-desktop.jpg';
 import hangmanMobileSmall from '/src/images/hangman-mobile-small.jpg';
 import hangmanMobile from '/src/images/hangman-mobile.jpg';
 import hangmanTabletSmall from '/src/images/hangman-tablet-small.jpg';
 import hangmanTablet from '/src/images/hangman-tablet.jpg';
+//
 import mapSlicerDesktopSmall from '/src/images/map-slicer-desktop-small.jpg';
 import mapSlicerDesktop from '/src/images/map-slicer-desktop.jpg';
 import mapSlicerMobileSmall from '/src/images/map-slicer-mobile-small.jpg';
 import mapSlicerMobile from '/src/images/map-slicer-mobile.jpg';
 import mapSlicerTabletSmall from '/src/images/map-slicer-tablet-small.jpg';
 import mapSlicerTablet from '/src/images/map-slicer-tablet.jpg';
+//
 import pokematchDesktopDarkSmall from '/src/images/pokematch-desktop-dark-small.jpg';
 import pokematchDesktopDark from '/src/images/pokematch-desktop-dark.jpg';
 import pokematchDesktopLightSmall from '/src/images/pokematch-desktop-light-small.jpg';
@@ -49,6 +66,7 @@ import pokematchTabletDarkSmall from '/src/images/pokematch-tablet-dark-small.jp
 import pokematchTabletDark from '/src/images/pokematch-tablet-dark.jpg';
 import pokematchTabletLightSmall from '/src/images/pokematch-tablet-light-small.jpg';
 import pokematchTabletLight from '/src/images/pokematch-tablet-light.jpg';
+//
 import reposDesktopDarkSmall from '/src/images/repos-desktop-dark-small.jpg';
 import reposDesktopDark from '/src/images/repos-desktop-dark.jpg';
 import reposDesktopLightSmall from '/src/images/repos-desktop-light-small.jpg';
@@ -61,6 +79,7 @@ import reposTabletDarkSmall from '/src/images/repos-tablet-dark-small.jpg';
 import reposTabletDark from '/src/images/repos-tablet-dark.jpg';
 import reposTabletLightSmall from '/src/images/repos-tablet-light-small.jpg';
 import reposTabletLight from '/src/images/repos-tablet-light.jpg';
+//
 import webColorsDesktopDarkSmall from '/src/images/web-colors-desktop-dark-small.jpg';
 import webColorsDesktopDark from '/src/images/web-colors-desktop-dark.jpg';
 import webColorsDesktopLightSmall from '/src/images/web-colors-desktop-light-small.jpg';
@@ -75,46 +94,28 @@ import webColorsTabletLightSmall from '/src/images/web-colors-tablet-light-small
 import webColorsTabletLight from '/src/images/web-colors-tablet-light.jpg';
 
 const cckb: ProjectUrls = {
-  'desktop-dark-small': cckbDesktopSmall,
   'desktop-light-small': cckbDesktopSmall,
-  'desktop-dark': cckbDesktop,
   'desktop-light': cckbDesktop,
-  'mobile-dark-small': cckbMobileSmall,
   'mobile-light-small': cckbMobileSmall,
-  'mobile-dark': cckbMobile,
   'mobile-light': cckbMobile,
-  'tablet-dark-small': cckbTabletSmall,
   'tablet-light-small': cckbTabletSmall,
-  'tablet-dark': cckbTablet,
   'tablet-light': cckbTablet,
 };
 const hangman: ProjectUrls = {
-  'desktop-dark-small': hangmanDesktopSmall,
   'desktop-light-small': hangmanDesktopSmall,
-  'desktop-dark': hangmanDesktop,
   'desktop-light': hangmanDesktop,
-  'mobile-dark-small': hangmanMobileSmall,
   'mobile-light-small': hangmanMobileSmall,
-  'mobile-dark': hangmanMobile,
   'mobile-light': hangmanMobile,
-  'tablet-dark-small': hangmanTabletSmall,
   'tablet-light-small': hangmanTabletSmall,
-  'tablet-dark': hangmanTablet,
   'tablet-light': hangmanTablet,
 };
 const mapSlicer: ProjectUrls = {
   'desktop-dark-small': mapSlicerDesktopSmall,
-  'desktop-light-small': mapSlicerDesktopSmall,
   'desktop-dark': mapSlicerDesktop,
-  'desktop-light': mapSlicerDesktop,
   'mobile-dark-small': mapSlicerMobileSmall,
-  'mobile-light-small': mapSlicerMobileSmall,
   'mobile-dark': mapSlicerMobile,
-  'mobile-light': mapSlicerMobile,
   'tablet-dark-small': mapSlicerTabletSmall,
-  'tablet-light-small': mapSlicerTabletSmall,
   'tablet-dark': mapSlicerTablet,
-  'tablet-light': mapSlicerTablet,
 };
 const pokematch: ProjectUrls = {
   'desktop-dark-small': pokematchDesktopDarkSmall,
