@@ -36,6 +36,7 @@
     "tsx": "^4.19.2",
     "typescript": "*",
     "vite": "*",
+    "vite-plugin-csp-guard": "^2.0.1",
     "vite-plugin-singlefile": "*"
   }
 }

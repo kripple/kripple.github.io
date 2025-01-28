@@ -6,10 +6,9 @@ import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type PluginOption, defineConfig } from 'vite';
+import csp from 'vite-plugin-csp-guard';
 
 import { viteSsg } from './build/ssg';
-
-// TODO: Add content security policy meta tag
 
 dns.setDefaultResultOrder('verbatim');
 
@@ -26,6 +25,24 @@ const gitBranch = childProcess
 const outDir = 'docs';
 const plugins: PluginOption[] = [
   react(),
+  csp({
+    override: true,
+    policy: {
+      'font-src': ['data:'],
+      'script-src-elem': [
+        "'sha256-tzLrrNZv/aqmrgUegn5OQd2yWAXpyhJiErT9OKwlHxY='",
+        "'sha256-SuXldA839B8Kj+HVFX3MvKTbGSTJA0McHdYdUMrUsi0='",
+        "'sha256-1d77p6cOKmtDjoIIzaox3Tc4lQtKf3nwPpdqxILZnO4='",
+        "'sha256-Qj8/0HvTtnoZXBLixeL5RzY5gLMyayBwaGj7rmBr4bA='",
+        "'sha256-4BHPsfGhReU+KLH/CJEyCRrctgb4TDmkMafg4ruwsK4='",
+        "'sha256-XN3vBgqCbcm6BC4tzKi6uzKVRSA9Ud6YgNGP5Sf4v2w='",
+      ],
+      'style-src': ["'sha256-SuXldA839B8Kj+HVFX3MvKTbGSTJA0McHdYdUMrUsi0='"],
+    },
+    build: {
+      sri: true,
+    },
+  }),
   viteSsg({
     renderModulePath: resolve(__dirname, 'build/render.tsx'),
     viteOutputPath: resolve(__dirname, outDir),
