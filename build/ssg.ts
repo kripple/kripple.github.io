@@ -164,7 +164,7 @@ export function viteSsg({
         if (asset.type === 'chunk' || asset.originalFileNames.length === 0)
           return result;
         const target = asset.originalFileNames[0];
-        return result.replace(target, asset.fileName);
+        return result.replaceAll(target, asset.fileName);
       }, appHtml);
 
       const outputPath = path.join(viteOutputPath, `/${entryPoint}`);
