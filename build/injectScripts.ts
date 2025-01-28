@@ -1,3 +1,7 @@
+function detectDisabledJavascript() {
+  document.documentElement.classList.remove('noscript');
+}
+
 function setDataTheme() {
   function storageAvailable(type: 'sessionStorage' | 'localStorage') {
     try {
@@ -74,7 +78,19 @@ function saveThemePreference() {
 }
 
 function loadImages() {
-  alert('go!');
+  const lazyImages = [
+    ...document.querySelectorAll('.image-lazy img'),
+  ] as HTMLImageElement[];
+
+  lazyImages.map((image) => {
+    if (image.complete) {
+      image.style.opacity = '1';
+    } else {
+      image.onload = () => {
+        image.style.opacity = '1';
+      };
+    }
+  });
 }
 
 type Injected = typeof setDataTheme &
@@ -86,7 +102,10 @@ export function injectScripts(html: string) {
     `<script>(${injected.toString()})()</script>`;
 
   return html
-    .replace('<!--inject-script-head-->', toHtml(setDataTheme))
+    .replace(
+      '<!--inject-script-head-->',
+      `${toHtml(detectDisabledJavascript)}\n${toHtml(setDataTheme)}`,
+    )
     .replace(
       '<!--inject-script-body-->',
       `${toHtml(saveThemePreference)}\n${toHtml(loadImages)}`,

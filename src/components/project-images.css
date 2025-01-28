@@ -2,7 +2,7 @@
   --frame-height: 156;
 }
 
-.project-images {
+.frame {
   align-self: flex-start;
   background-color: black;
   border-radius: 5px;
@@ -23,57 +23,83 @@
   width: 100%;
 }
 
-.project-images img {
-  display: none;
+.image-container * {
+  aspect-ratio: inherit;
+  display: flex;
   height: calc(var(--frame-height) * 1px);
+  position: absolute;
 }
-.project-images img.desktop {
+
+.image-desktop,
+img.desktop {
   aspect-ratio: 576 / 400;
 }
-.project-images img.tablet {
+.image-tablet,
+img.tablet {
   aspect-ratio: 306 / 408;
 }
-.project-images img.mobile {
+.image-mobile,
+img.mobile {
   aspect-ratio: 144 / 256;
 }
 
+.image-dark {
+  display: var(--display-image-dark);
+}
+.image-light {
+  display: var(--display-image-light);
+}
+
+html:not(.noscript) .image-lazy img:not(.dev) {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-desktop,
+.image-tablet,
+.image-mobile {
+  opacity: 0;
+  z-index: -1;
+}
 @media screen and (min-width: 801px) {
-  .project-images img.dark.desktop {
-    display: var(--display-image-dark);
-  }
-  .project-images img.light.desktop {
-    display: var(--display-image-light);
+  .image-desktop {
+    opacity: 1;
+    position: relative;
+    z-index: unset;
   }
 }
 @media screen and (min-width: 601px) and (max-width: 800px) {
-  .project-images img.dark.tablet {
-    display: var(--display-image-dark);
-  }
-  .project-images img.light.tablet {
-    display: var(--display-image-light);
+  .image-tablet {
+    opacity: 1;
+    position: relative;
+    z-index: unset;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 600px) {
-  .project-images img.dark.mobile {
-    display: var(--display-image-dark);
-  }
-  .project-images img.light.mobile {
-    display: var(--display-image-light);
+  .image-mobile {
+    opacity: 1;
+    position: relative;
+    z-index: unset;
   }
 }
 @media screen and (max-width: 500px) {
-  :root {
-    --frame-height: 200;
-  }
-  .project-images img.dark.desktop {
-    display: var(--display-image-dark);
-  }
-  .project-images img.light.desktop {
-    display: var(--display-image-light);
-  }
-  .project-images img {
+  img {
     height: unset;
     max-height: calc(var(--frame-height) * 1px);
     max-width: 100%;
+  }
+}
+@media screen and (min-width: 370px) and (max-width: 500px) {
+  .image-desktop {
+    opacity: 1;
+    position: relative;
+    z-index: unset;
+  }
+}
+@media screen and (max-width: 369px) {
+  .image-tablet {
+    opacity: 1;
+    position: relative;
+    z-index: unset;
   }
 }

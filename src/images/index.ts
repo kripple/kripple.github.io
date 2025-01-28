@@ -1,16 +1,22 @@
-export type ImageVariant =
-  | 'desktop-dark-small'
-  | 'desktop-light-small'
-  | 'desktop-dark'
-  | 'desktop-light'
-  | 'mobile-dark-small'
-  | 'mobile-light-small'
-  | 'mobile-dark'
-  | 'mobile-light'
-  | 'tablet-dark-small'
-  | 'tablet-light-small'
-  | 'tablet-dark'
-  | 'tablet-light';
+const imageVariants = [
+  'desktop-dark-small',
+  'desktop-light-small',
+  'desktop-dark',
+  'desktop-light',
+  'mobile-dark-small',
+  'mobile-light-small',
+  'mobile-dark',
+  'mobile-light',
+  'tablet-dark-small',
+  'tablet-light-small',
+  'tablet-dark',
+  'tablet-light',
+] as const;
+export type ImageVariant = (typeof imageVariants)[number] & PropertyKey;
+export const isImageVariant = (value: unknown): value is ImageVariant => {
+  if (typeof value !== 'string') return false;
+  return (imageVariants as readonly string[]).includes(value);
+};
 export type ProjectUrls = { [key in ImageVariant]: string };
 
 import cckbDesktopSmall from '/src/images/cckb-desktop-small.jpg';

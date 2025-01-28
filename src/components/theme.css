@@ -32,8 +32,6 @@ html {
   --text-color: rgb(var(--platinum-rgb));
   --card-color: #2e2e33;
   --header-footer-color: #16181d;
-  --display-image-light: none;
-  --display-image-dark: inherit;
 }
 
 /* light mode */
@@ -44,8 +42,6 @@ html[data-theme='light'],
   --card-color: #ffffff;
   --header-footer-color: #ffffff;
   --magenta: #b200b2;
-  --display-image-light: inherit;
-  --display-image-dark: none;
 }
 
 .theme {
@@ -132,4 +128,26 @@ html[data-theme='light'],
 }
 .fancy-hover-effect:hover:after {
   filter: blur(15px);
+}
+
+/* dark mode (default) */
+.image-dark {
+  opacity: 1;
+  z-index: unset;
+}
+.image-light {
+  opacity: 0;
+  z-index: -1;
+}
+
+/* light mode */
+html[data-theme='light'],
+#theme-toggle:checked ~ .theme .image-dark {
+  opacity: 0;
+  z-index: -1;
+}
+html[data-theme='light'],
+#theme-toggle:checked ~ .theme .image-light {
+  opacity: 1;
+  z-index: unset;
 }

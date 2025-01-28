@@ -28,21 +28,21 @@
   }
 }
 
-.frame,
+/* .frame,
 .iframe-container,
 .iframe-container:after,
 iframe {
   box-sizing: border-box;
-}
+} */
 
-.frame {
+/* .frame {
   background-color: black;
   border-radius: 5px;
   flex-shrink: 0;
   height: calc(var(--frame-height) * 1px);
   padding: calc(var(--frame-thickness) * 1px);
   position: relative;
-}
+} */
 
 .iframe-container {
   aspect-ratio: var(--iframe-width) / var(--iframe-height);
