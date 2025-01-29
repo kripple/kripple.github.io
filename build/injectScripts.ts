@@ -1,3 +1,5 @@
+import { minify } from 'uglify-js';
+
 function detectDisabledJavascript() {
   document.documentElement.classList.remove('noscript');
 }
@@ -78,36 +80,31 @@ function saveThemePreference() {
 }
 
 function loadImages() {
-  const lazyImages = [
-    ...document.querySelectorAll('.image-lazy img'),
-  ] as HTMLImageElement[];
-
-  lazyImages.map((image) => {
-    if (image.complete) {
-      image.style.opacity = '1';
-    } else {
-      image.onload = () => {
-        image.style.opacity = '1';
-      };
-    }
-  });
+  // const lazyImages = [
+  //   ...document.querySelectorAll('.image-lazy img'),
+  // ] as HTMLImageElement[];
+  // lazyImages.map((image) => {
+  //   if (image.complete) {
+  //     image.style.opacity = '1';
+  //   } else {
+  //     image.onload = () => {
+  //       image.style.opacity = '1';
+  //     };
+  //   }
+  // });
 }
 
-type Injected = typeof setDataTheme &
-  typeof saveThemePreference &
-  typeof loadImages;
+const toString = (script: () => void) => {
+  const { code } = minify(script.toString());
+  return code;
+};
 
-export function injectScripts(html: string) {
-  const toHtml = (injected: Injected) =>
-    `<script>(${injected.toString()})()</script>`;
+export function injectScriptsHead() {
+  const scripts = [detectDisabledJavascript, setDataTheme];
+  return scripts.map((script) => toString(script));
+}
 
-  return html
-    .replace(
-      '<!--inject-script-head-->',
-      `${toHtml(detectDisabledJavascript)}\n${toHtml(setDataTheme)}`,
-    )
-    .replace(
-      '<!--inject-script-body-->',
-      `${toHtml(saveThemePreference)}\n${toHtml(loadImages)}`,
-    );
+export function injectScriptsBody() {
+  const scripts = [saveThemePreference, loadImages];
+  return scripts.map((script) => toString(script));
 }

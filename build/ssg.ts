@@ -5,12 +5,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import type { renderToStaticMarkup } from 'react-dom/server';
 import type { OutputAsset, OutputChunk, OutputOptions } from 'rollup';
 import { createServer } from 'vite';
 import type { Plugin } from 'vite';
 
-import { injectScripts } from './injectScripts';
+import { injectScriptsBody, injectScriptsHead } from './injectScripts';
+import { renderToString } from './renderToString';
 
 interface PluginOptions {
   /**
@@ -31,11 +31,23 @@ interface PluginOptions {
   htmlInjectionString?: string;
 }
 
-interface RenderModule {
-  render: () => typeof renderToStaticMarkup;
+function getContentSecurityPolicy({
+  scripts,
+  styles,
+}: {
+  scripts: string[];
+  styles: string[];
+}) {
+  const defaultSrc = `default-src 'none';`;
+  const fontSrc = `font-src data:;`;
+  const imgSrc = `img-src 'self';`;
+  const styleSrc = `style-src ${styles.join(' ')};`;
+  const scriptSrcElem = `script-src-elem ${scripts.join(' ')};`;
+  const content = `${defaultSrc} ${fontSrc} ${imgSrc} ${scriptSrcElem} ${styleSrc}`;
+  return `<meta http-equiv="Content-Security-Policy" content="${content}">`;
 }
 
-export function replaceScript(
+function replaceScript(
   html: string,
   scriptFilename: string,
   scriptCode: string,
@@ -43,35 +55,15 @@ export function replaceScript(
   const reScript = new RegExp(
     `<script([^>]*?) src="[./]*${scriptFilename}"([^>]*)></script>`,
   );
-
   const preloadMarker = /"?__VITE_PRELOAD__"?/g;
-
   scriptCode
     .replace(preloadMarker, 'void 0')
     .replace(/<(\/script>|!--)/g, '\\x3C$1');
-
   const inlined = html.replace(reScript, () => '');
-  const injected = injectScripts(inlined);
-
-  return removeViteModuleLoader(injected);
+  return removeViteModuleLoader(inlined);
 }
 
-export function replaceCss(
-  html: string,
-  scriptFilename: string,
-  scriptCode: string,
-): string {
-  const reStyle = new RegExp(
-    `<link([^>]*?) href="[./]*${scriptFilename}"([^>]*?)>`,
-  );
-  const newCode = scriptCode.replace(`@charset "UTF-8";`, '');
-  const inlined = html.replace(
-    reStyle,
-    () => `<style rel="stylesheet">${newCode.trim()}</style>`,
-  );
-  return inlined;
-}
-
+const name = 'vite:ssg' as const;
 const isJsFile = /\.[mc]?js$/;
 const isCssFile = /\.css$/;
 const isHtmlFile = /\.html?$/;
@@ -80,7 +72,6 @@ function warnNotInlined(filename: string) {
   console.debug(`NOTE: asset not inlined: ${filename}`);
 }
 
-const name = 'vite:ssg';
 export function viteSsg({
   renderModulePath,
   viteOutputPath,
@@ -122,20 +113,10 @@ export function viteSsg({
             );
           }
         }
-        for (const filename of files.css) {
-          const cssChunk = bundle[filename] as OutputAsset;
-          console.debug(`inlining: ${filename}`);
-          bundlesToDelete.push(filename);
-          replacedHtml = replaceCss(
-            replacedHtml,
-            cssChunk.fileName,
-            cssChunk.source as string,
-          );
-        }
         htmlChunk.source = replacedHtml;
       }
 
-      // deleteInlinedFiles
+      // delete inlined files
       for (const name of bundlesToDelete) {
         delete bundle[name];
       }
@@ -151,15 +132,17 @@ export function viteSsg({
       const entryPoint = 'index.html';
       const templatePath = path.join(viteOutputPath, entryPoint);
       const templateHtml = fs.readFileSync(templatePath, 'utf-8');
+      const scriptHashes: string[] = [];
+      const styleHashes: string[] = [];
 
       const vite = await createServer({
         server: { middlewareMode: true },
       });
-      const { render } = (await vite.ssrLoadModule(
-        renderModulePath,
-      )) as RenderModule;
-      const appHtml = templateHtml.replace(htmlInjectionString, render());
+      const { render } = await vite.ssrLoadModule(renderModulePath);
+      const staticMarkup: string = render();
+      const appHtml = templateHtml.replace(htmlInjectionString, staticMarkup);
 
+      // replace non-inlined asset paths with their resolved values
       const htmlWithAssets = Object.values(bundle).reduce((result, asset) => {
         if (asset.type === 'chunk' || asset.originalFileNames.length === 0)
           return result;
@@ -167,8 +150,74 @@ export function viteSsg({
         return result.replaceAll(target, asset.fileName);
       }, appHtml);
 
+      // inject script tags
+      const scriptsHead = injectScriptsHead().reduce((result, script) => {
+        const rendered = renderToString({ script });
+        result = result.concat(rendered.script);
+        scriptHashes.push(rendered.sha256);
+        return result;
+      }, '');
+      const scriptsBody = injectScriptsBody().reduce((result, script) => {
+        const rendered = renderToString({ script });
+        result = result.concat(rendered.script);
+        scriptHashes.push(rendered.sha256);
+        return result;
+      }, '');
+      const htmlWithScripts = htmlWithAssets
+        .replace('<!--inject-script-head-->', scriptsHead)
+        .replace('<!--inject-script-body-->', scriptsBody);
+
+      // inject style tags
+      const cssFiles = Object.keys(bundle).filter((file) =>
+        isCssFile.test(file),
+      );
+      if (cssFiles.length !== 1) {
+        throw Error(
+          'something unexpected happened and we should not continue.',
+        );
+      }
+      const cssFileName = cssFiles[0];
+      const cssChunk = bundle[cssFileName] as OutputAsset;
+      console.debug(`inlining: ${cssFileName}`);
+      const cssTarget = new RegExp(
+        `<link([^>]*?) href="[./]*${cssChunk.fileName}"([^>]*?)>`,
+      );
+      const newCode = (cssChunk.source as string).replace(
+        `@charset "UTF-8";`,
+        '',
+      );
+      const rendered = renderToString({ style: newCode });
+      styleHashes.push(rendered.sha256);
+      let htmlWithStyles = htmlWithScripts.replace(cssTarget, rendered.style);
+      // delete css source from bundle
+      delete bundle[cssFileName];
+
+      // create style tags
+      const target =
+        /<style data-background-color="#([0-9a-f]{6})" data-selector="([a-z.-]+)"><\/style>/g;
+      const styles = [...(htmlWithStyles.match(target) || [])];
+      styles.map((style) => {
+        const parts = style.split(`"`);
+        const selector = parts[3];
+        const color = parts[1];
+        const rendered = renderToString({
+          style: `${selector}{background-color:${color}}`,
+        });
+        styleHashes.push(rendered.sha256);
+        htmlWithStyles = htmlWithStyles.replace(style, rendered.style);
+      });
+
+      // inject csp
+      const htmlWithCsp = htmlWithStyles.replace(
+        '<!--inject-meta-csp-->',
+        getContentSecurityPolicy({
+          scripts: scriptHashes,
+          styles: styleHashes,
+        }),
+      );
+
       const outputPath = path.join(viteOutputPath, `/${entryPoint}`);
-      fs.writeFileSync(outputPath, htmlWithAssets);
+      fs.writeFileSync(outputPath, htmlWithCsp);
 
       console.debug(`[${name}] injected static html`);
       vite.close();
