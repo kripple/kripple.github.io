@@ -80,18 +80,19 @@ function saveThemePreference() {
 }
 
 function loadImages() {
-  // const lazyImages = [
-  //   ...document.querySelectorAll('.image-lazy img'),
-  // ] as HTMLImageElement[];
-  // lazyImages.map((image) => {
-  //   if (image.complete) {
-  //     image.style.opacity = '1';
-  //   } else {
-  //     image.onload = () => {
-  //       image.style.opacity = '1';
-  //     };
-  //   }
-  // });
+  const lazyImages = [
+    ...document.querySelectorAll('img'),
+  ] as HTMLImageElement[];
+  
+  lazyImages.map((image) => {
+    if (image.complete) {
+      image.style.opacity = '1';
+    } else {
+      image.onload = () => {
+        image.style.opacity = '1';
+      };
+    }
+  });
 }
 
 const toString = (script: () => void) => {

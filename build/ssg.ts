@@ -9,7 +9,7 @@ import type { OutputAsset, OutputChunk, OutputOptions } from 'rollup';
 import { createServer } from 'vite';
 import type { Plugin } from 'vite';
 
-import { injectScriptsBody, injectScriptsHead } from './injectScripts';
+import { injectScriptsBody, injectScriptsHead } from './injectedScripts';
 import { renderToString } from './renderToString';
 
 interface PluginOptions {
