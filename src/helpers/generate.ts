@@ -1,55 +1,44 @@
 import fs from 'fs';
 
+import { Vibrant } from 'node-vibrant/node';
 import tinify from 'tinify';
 
 import { tinifyApiKey } from '@/helpers/secrets';
 
+/**
+ * `npm run g`
+ * `rm src/helpers/output/*`
+ */
+
 tinify.key = tinifyApiKey;
-
-function compressImages() {
-  const inputPath = 'src/helpers/input' as const;
-  const outputPath = 'src/helpers/output' as const;
-  const filePaths = fs.readdirSync(inputPath);
-
-  filePaths.map(async (filePath) => {
-    if (filePath.includes('.DS_Store')) return;
-    const fromPath = `${inputPath}/${filePath}`;
-    const toPath = `${outputPath}/${filePath}`;
-
-    console.log(`compressing ${fromPath}`);
-    tinify.fromFile(fromPath).toFile(toPath);
-  });
-}
+const inputPath = 'src/helpers/input' as const;
+const outputPath = 'src/helpers/output' as const;
 
 function generateImages() {
-  const inputPath = 'src/helpers/input' as const;
-  const outputPath = 'src/helpers/output' as const;
+  console.debug(fs.readdirSync('src/images'));
   const filePaths = fs.readdirSync(inputPath);
 
   filePaths.map(async (filePath) => {
     if (filePath.includes('.DS_Store')) return;
     const fromPath = `${inputPath}/${filePath}`;
     const toPath = `${outputPath}/${filePath}`;
-    const size = filePath.includes('desktop')
-      ? 100
-      : filePath.includes('tablet')
-        ? 102
-        : filePath.includes('mobile')
-          ? 64
-          : undefined;
-    if (!size) return;
+    console.debug(`from: '${fromPath}', to: '${toPath}'`);
 
-    console.log(`resizing ${fromPath}`);
-    tinify
-      .fromFile(fromPath)
-      .resize({
-        method: 'scale',
-        height: size,
-      })
-      .toFile(toPath.replace('.jpg', '-small.jpg'));
+    Vibrant.from(fromPath)
+      .getPalette()
+      .then((palette) => console.log(filePath, ':', palette.Vibrant?.hex));
+
+    // 'image/avif' | 'image/jpeg' | 'image/png' | 'image/webp'
+    // await tinify
+    //   .fromFile(fromPath)
+    //   .convert({ type: 'image/avif' })
+    //   .toFile(toPath.replace('.jpg', '.avif'));
+
+    // await tinify
+    //   .fromFile(fromPath)
+    //   .resize({ height: 234, method: 'scale' })
+    //   .toFile(toPath.replace('.avif', '-compressed.avif'));
   });
 }
 
-compressImages();
 generateImages();
-console.log(fs.readdirSync('src/images'));
