@@ -6,7 +6,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "postbuild": "cp docs/index.html docs/404.html",
+    "postbuild": "cp docs/index.html docs/404.html && rm docs/assets/style-*.css",
     "lint": "eslint . && stylelint '**/*.css' && prettier --check .",
     "preview": "vite preview",
     "g": "tsx src/helpers/generate"
