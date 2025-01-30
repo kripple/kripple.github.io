@@ -25,7 +25,7 @@ const outDir = 'docs';
 const plugins: PluginOption[] = [
   react(),
   viteSsg({
-    renderModulePath: resolve(__dirname, 'build/render.tsx'),
+    renderModulePath: resolve(__dirname, 'src/build/render.tsx'),
     viteOutputPath: resolve(__dirname, outDir),
     htmlInjectionString: '<!--inject-root-->',
   }),
