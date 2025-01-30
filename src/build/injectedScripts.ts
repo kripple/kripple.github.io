@@ -80,19 +80,17 @@ export function saveThemePreference() {
   });
 
   // listen for keyboard events
-  // const label = document.getElementById('theme-toggle-label');
-  // if (!(label instanceof HTMLLabelElement)) {
-  //   console.info('missing theme toggle label');
-  //   return;
-  // }
-
-  // window.addEventListener('click', (event) => {
-  //   console.log(
-  //     'detected click on label, programatically clicking checkbox now.',
-  //     event,
-  //   );
-  //   checkbox.click();
-  // });
+  const label = document.getElementById('theme-toggle-label');
+  if (!(label instanceof HTMLLabelElement)) {
+    console.info('missing theme toggle label');
+    return;
+  }
+  label.addEventListener('keydown', (event: KeyboardEvent) => {
+    event.preventDefault(); // otherwise the spacebar will scroll the page
+    if (event.code === 'Enter' || event.code === 'Space') {
+      checkbox.click();
+    }
+  });
 }
 
 export function loadImages() {
