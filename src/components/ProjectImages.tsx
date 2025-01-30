@@ -36,19 +36,19 @@ export function ProjectImages({
                     data-selector={`.${screenSize}.${theme}.${projectKey}`}
                   ></style>
                   <span
-                    className={`${screenSize} ${theme} ${projectKey} placeholder`}
+                    className={`${screenSize} ${theme} ${projectKey} image-placeholder`}
                   ></span>
                   <img
-                    className={`${screenSize} ${theme} ${projectKey} hide-for-mobile`}
+                    alt={`${screenSize}-size screenshot, ${title}`}
+                    className={`${screenSize} ${theme} ${projectKey} image hide-for-mobile`}
                     loading={loadingStrategy}
                     src={src}
-                    title={title}
                   ></img>
                   <img
-                    className={`${screenSize} ${theme} ${projectKey} hide-for-desktop`}
+                    alt={`${screenSize}-size screenshot, ${title}`}
+                    className={`${screenSize} ${theme} ${projectKey} image hide-for-desktop`}
                     loading={loadingStrategy}
                     src={compressedSrc}
-                    title={title}
                   ></img>
                 </span>
               );
