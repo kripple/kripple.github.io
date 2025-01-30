@@ -13,12 +13,41 @@
 .card {
   background-color: var(--card-color);
   border-radius: 12px;
+  box-sizing: border-box;
   color: var(--text-color);
   cursor: pointer;
   display: flex;
   gap: 28px;
   padding: 28px;
+  position: relative;
   text-decoration: none;
+  transform-style: preserve-3d;
+}
+.card::after {
+  background: linear-gradient(
+    123deg,
+    var(--yellow),
+    var(--magenta) 50%,
+    var(--cyan)
+  );
+  background-clip: content-box;
+  border-radius: inherit;
+  bottom: 0;
+  box-sizing: border-box;
+  content: '';
+  display: flex;
+  left: 0;
+  overflow: hidden;
+  padding: 1px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateZ(-1px);
+  transition: filter 0.3s ease;
+}
+.card:hover::after {
+  filter: blur(15px);
 }
 @media screen and (max-width: 500px) {
   .card {

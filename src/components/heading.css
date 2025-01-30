@@ -10,7 +10,7 @@
 .h1 {
   column-gap: 16px;
 }
-.h1 svg {
+.h1 .heading-icon-svg {
   fill: var(--text-color);
   height: 58px;
 }
@@ -18,7 +18,7 @@
 .h2 {
   column-gap: 6px;
 }
-.h2 svg {
+.h2 .heading-icon-svg {
   fill: var(--magenta);
   height: 46px;
 }

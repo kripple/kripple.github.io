@@ -96,35 +96,3 @@ html[data-theme='light'],
 .theme-toggle-label {
   transition-property: transform, opacity;
 }
-
-.fancy-hover-effect {
-  box-sizing: border-box;
-  position: relative;
-  transform-style: preserve-3d;
-}
-.fancy-hover-effect::after {
-  background: linear-gradient(
-    123deg,
-    var(--yellow),
-    var(--magenta) 50%,
-    var(--cyan)
-  );
-  background-clip: content-box;
-  border-radius: inherit;
-  bottom: 0;
-  box-sizing: border-box;
-  content: '';
-  display: flex;
-  left: 0;
-  overflow: hidden;
-  padding: 1px;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: translateZ(-1px);
-  transition: filter 0.3s ease;
-}
-.fancy-hover-effect:hover::after {
-  filter: blur(15px);
-}

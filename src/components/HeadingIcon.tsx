@@ -14,7 +14,7 @@ export function HeadingIcon({
   return (
     <Heading aria-label={label} className={component} component={component}>
       {svgs.map(({ viewBox, drawPath }, svgIndex) => (
-        <svg key={svgIndex} viewBox={viewBox}>
+        <svg className="heading-icon-svg" key={svgIndex} viewBox={viewBox}>
           {drawPath.map((d, pathIndex) => (
             <path d={d} key={pathIndex} />
           ))}
