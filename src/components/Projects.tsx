@@ -27,10 +27,12 @@ export function Projects() {
 
         return (
           <a
+            aria-label={`Link to project: ${title}`}
             className="card"
             href={href}
             key={key}
             rel="noreferrer"
+            role="link"
             tabIndex={0}
             target="_blank"
           >
@@ -40,9 +42,17 @@ export function Projects() {
               title={title}
             />
             <div className="card-contents">
-              <h1 className="card-title title-font">{title}</h1>
-              <p className="card-description">{blurb}</p>
-              <time className="card-date date-font" dateTime={dateTime}>
+              <h1 aria-label="Project name" className="card-title title-font">
+                {title}
+              </h1>
+              <p aria-label="Project description" className="card-description">
+                {blurb}
+              </p>
+              <time
+                aria-label="Project publication date"
+                className="card-date date-font"
+                dateTime={dateTime}
+              >
                 {dateString}
               </time>
             </div>

@@ -205,6 +205,7 @@ export function viteSsg({
         const color = parts[1];
         const rendered = renderToString({
           style: `${selector}{background-color:${color}}`,
+          inline: true
         });
         styleHashes.push(rendered.sha256);
         htmlWithStyles = htmlWithStyles.replace(style, rendered.style);

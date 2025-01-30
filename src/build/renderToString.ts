@@ -5,16 +5,18 @@ const sha256 = (data: string) =>
 
 const hash = (value: string) => `'sha256-${sha256(value)}'`;
 
-export function renderToString(injected: { script: string }): {
+export function renderToString(options: { script: string; inline?: boolean }): {
   script: string;
   sha256: string;
 };
-export function renderToString(injected: { style: string }): {
+export function renderToString(options: { style: string; inline?: boolean }): {
   style: string;
   sha256: string;
 };
 export function renderToString(
-  injected: { script: string } | { style: string },
+  options:
+    | { script: string; inline?: boolean }
+    | { style: string; inline?: boolean },
 ):
   | {
       script: string;
@@ -24,12 +26,13 @@ export function renderToString(
       style: string;
       sha256: string;
     } {
-  if ('script' in injected) {
-    const value = `(${injected.script})()`;
+  if ('script' in options) {
+    const value = `(${options.script})()`;
     const script = `<script>${value}</script>`;
     return { script, sha256: hash(value) };
   } else {
-    const style = `<style rel="stylesheet">${injected.style}</style>`;
-    return { style, sha256: hash(injected.style) };
+    const ariaHidden = ` aria-hidden="true"`;
+    const style = `<style${options.inline ? ariaHidden : ''} rel="stylesheet">${options.style}</style>`;
+    return { style, sha256: hash(options.style) };
   }
 }

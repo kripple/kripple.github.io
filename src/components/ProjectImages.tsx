@@ -36,16 +36,19 @@ export function ProjectImages({
                     data-selector={`.${screenSize}.${theme}.${projectKey}`}
                   ></style>
                   <span
+                    aria-label="Project screenshot loading placeholder"
                     className={`${screenSize} ${theme} ${projectKey} image-placeholder`}
                   ></span>
                   <img
                     alt={`${screenSize}-size screenshot, ${title}`}
+                    aria-label="Project screenshot"
                     className={`${screenSize} ${theme} ${projectKey} image hide-for-mobile`}
                     loading={loadingStrategy}
                     src={src}
                   ></img>
                   <img
                     alt={`${screenSize}-size screenshot, ${title}`}
+                    aria-label="Project screenshot"
                     className={`${screenSize} ${theme} ${projectKey} image hide-for-desktop`}
                     loading={loadingStrategy}
                     src={compressedSrc}

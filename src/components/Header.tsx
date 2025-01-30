@@ -14,6 +14,7 @@ export function Header() {
             href={href}
             key={id}
             rel="noreferrer"
+            role="link"
             tabIndex={0}
             target="_blank"
           >
@@ -26,6 +27,7 @@ export function Header() {
         className="header-item theme-toggle-label"
         htmlFor="theme-toggle"
         id="theme-toggle-label"
+        role="button"
         tabIndex={0}
       >
         {[icons.sun, icons.moon].map(({ id, drawPath, viewBox }) => (
