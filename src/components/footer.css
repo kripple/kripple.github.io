@@ -9,14 +9,14 @@
   white-space: nowrap;
   width: 100%;
 }
-.copyright span {
+.copyright-contents {
   align-items: center;
   display: flex;
   height: 10px;
   padding-top: 2.5px;
   white-space: nowrap;
 }
-.copyright svg {
+.copyright-icon-svg {
   fill: var(--text-color);
   height: 16px;
   width: 16px;
