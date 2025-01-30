@@ -1,10 +1,10 @@
 import type { minify as imported } from 'uglify-js';
 
-export function detectDisabledJavascript() {
+function detectDisabledJavascript() {
   document.documentElement.classList.remove('noscript');
 }
 
-export function setDataTheme() {
+function setDataTheme() {
   function storageAvailable(type: 'sessionStorage' | 'localStorage') {
     try {
       const storage = window[type];
@@ -28,7 +28,7 @@ export function setDataTheme() {
   }
 }
 
-export function saveThemePreference() {
+function saveThemePreference() {
   function storageAvailable(type: 'sessionStorage' | 'localStorage') {
     try {
       const storage = window[type];
@@ -78,6 +78,14 @@ export function saveThemePreference() {
       ? light
       : dark;
   });
+}
+
+function toggleOnEnter() {
+  const checkbox = document.getElementById('theme-toggle');
+  if (!(checkbox instanceof HTMLInputElement)) {
+    console.info('missing theme toggle');
+    return;
+  }
 
   // listen for keyboard events
   const label = document.getElementById('theme-toggle-label');
@@ -86,14 +94,34 @@ export function saveThemePreference() {
     return;
   }
   label.addEventListener('keydown', (event: KeyboardEvent) => {
-    event.preventDefault(); // otherwise the spacebar will scroll the page
-    if (event.code === 'Enter' || event.code === 'Space') {
+    if (event.code === 'Enter') {
       checkbox.click();
     }
   });
 }
 
-export function loadImages() {
+function allowEscape() {
+  // allow user to cancel focus with the escape key
+  const focusableElements = [...document.querySelectorAll(`[tabindex="0"]`)];
+  focusableElements.map((element) => {
+    element.addEventListener('keydown', (event) => {
+      if (!('code' in event)) return;
+      if (
+        !(
+          event.target instanceof HTMLAnchorElement ||
+          event.target instanceof HTMLLabelElement
+        )
+      )
+        return;
+
+      if (event.code === 'Escape') {
+        event.target.blur();
+      }
+    });
+  });
+}
+
+function loadImages() {
   const lazyImages = [
     ...document.querySelectorAll('img'),
   ] as HTMLImageElement[];
@@ -114,12 +142,19 @@ const toString = (script: () => void, minify: typeof imported) => {
   return code;
 };
 
+const injectIntoHead = [detectDisabledJavascript, setDataTheme];
 export function injectScriptsHead(minify: typeof imported) {
-  const scripts = [detectDisabledJavascript, setDataTheme];
-  return scripts.map((script) => toString(script, minify));
+  return injectIntoHead.map((script) => toString(script, minify));
 }
 
+const injectIntoBody = [
+  saveThemePreference,
+  toggleOnEnter,
+  allowEscape,
+  loadImages,
+];
 export function injectScriptsBody(minify: typeof imported) {
-  const scripts = [saveThemePreference, loadImages];
-  return scripts.map((script) => toString(script, minify));
+  return injectIntoBody.map((script) => toString(script, minify));
 }
+
+export const injectedScripts = [...injectIntoHead, ...injectIntoBody];
