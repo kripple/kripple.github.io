@@ -36,15 +36,11 @@ export function Projects() {
             tabIndex={0}
             target="_blank"
           >
-            <ProjectImages
-              loadingStrategy={loadingStrategy}
-              projectKey={key}
-              title={title}
-            />
+            <ProjectImages loadingStrategy={loadingStrategy} projectKey={key} />
             <div className="card-contents">
-              <h1 aria-label="Project name" className="card-title title-font">
+              <h3 aria-label="Project name" className="card-title title-font">
                 {title}
-              </h1>
+              </h3>
               <p aria-label="Project description" className="card-description">
                 {blurb}
               </p>

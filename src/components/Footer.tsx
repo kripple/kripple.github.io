@@ -15,7 +15,7 @@ export function Footer() {
 
   return (
     <footer className="footer">
-      <div className="copyright font-small">
+      <div className="copyright fine-print-font">
         {copyrightIcon}{' '}
         <span className="copyright-contents" id="current-year">
           {currentYear}

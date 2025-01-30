@@ -10,17 +10,17 @@
   text-rendering: optimizeLegibility;
 }
 
-.theme .title-font {
+.title-font {
   font-size: 24px;
   font-weight: 500;
 }
 
-.theme .date-font {
+.date-font {
   font-family: var(--font-italic);
   font-size: 15px;
 }
 
-.theme .font-small {
+.fine-print-font {
   font-size: 15px;
   font-weight: 300;
 }

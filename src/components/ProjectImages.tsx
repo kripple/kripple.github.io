@@ -6,11 +6,9 @@ import '@/components/project-images.css';
 export function ProjectImages({
   loadingStrategy = 'lazy',
   projectKey,
-  title,
 }: {
   loadingStrategy?: 'eager' | 'lazy';
   projectKey: ProjectKey;
-  title: string;
 }) {
   const { images } = projects[projectKey];
   if (!images) return null;
@@ -40,14 +38,14 @@ export function ProjectImages({
                     className={`${screenSize} ${theme} ${projectKey} image-placeholder`}
                   ></span>
                   <img
-                    alt={`${screenSize}-size screenshot, ${title}`}
+                    alt={`screenshot of project: ${projectKey}, screen size: ${screenSize}, theme: ${theme}, standard resolution`}
                     aria-label="Project screenshot"
                     className={`${screenSize} ${theme} ${projectKey} image hide-for-mobile`}
                     loading={loadingStrategy}
                     src={src}
                   ></img>
                   <img
-                    alt={`${screenSize}-size screenshot, ${title}`}
+                    alt={`screenshot of project: ${projectKey}, screen size: ${screenSize}, theme: ${theme}, lower resolution`}
                     aria-label="Project screenshot"
                     className={`${screenSize} ${theme} ${projectKey} image hide-for-desktop`}
                     loading={loadingStrategy}
