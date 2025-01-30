@@ -1,163 +1,264 @@
-const darkVariants = [
-  'desktop-dark-small',
-  'desktop-dark',
-  'mobile-dark-small',
-  'mobile-dark',
-  'tablet-dark-small',
-  'tablet-dark',
-] as const;
-const lightVariants = [
-  'desktop-light-small',
-  'desktop-light',
-  'mobile-light-small',
-  'mobile-light',
-  'tablet-light-small',
-  'tablet-light',
-] as const;
+type ScreenSize = 'desktop' | 'tablet' | 'mobile';
+type ImageData = { color: string; src: string; compressedSrc: string };
 
-const imageVariants = [...darkVariants, ...lightVariants] as const;
-type DarkVariant = (typeof darkVariants)[number] & PropertyKey;
-type LightVariant = (typeof lightVariants)[number] & PropertyKey;
-
-export type ImageVariant = (typeof imageVariants)[number] & PropertyKey;
-export const isImageVariant = (value: unknown): value is ImageVariant => {
-  if (typeof value !== 'string') return false;
-  return (imageVariants as readonly string[]).includes(value);
+export type ProjectUrls = {
+  [key in ScreenSize]:
+    | { dark: ImageData; light: undefined }
+    | { dark: undefined; light: ImageData }
+    | { dark: ImageData; light: ImageData };
 };
-export type ProjectUrls =
-  | { [key in ImageVariant]: string }
-  | ({ [key in DarkVariant]?: string } & {
-      [key in LightVariant]: string;
-    })
-  | ({ [key in DarkVariant]: string } & {
-      [key in LightVariant]?: string;
-    });
 
-import cckbDesktopSmall from '/src/images/cckb-desktop-small.jpg';
-import cckbDesktop from '/src/images/cckb-desktop.jpg';
-import cckbMobileSmall from '/src/images/cckb-mobile-small.jpg';
-import cckbMobile from '/src/images/cckb-mobile.jpg';
-import cckbTabletSmall from '/src/images/cckb-tablet-small.jpg';
-import cckbTablet from '/src/images/cckb-tablet.jpg';
+import cckbDesktop from '/src/images/cckb-desktop.avif';
+import cckbDesktopCompressed from '/src/images/cckb-desktop-compressed.avif';
+import cckbMobile from '/src/images/cckb-mobile.avif';
+import cckbMobileCompressed from '/src/images/cckb-mobile-compressed.avif';
+import cckbTablet from '/src/images/cckb-tablet.avif';
+import cckbTabletCompressed from '/src/images/cckb-tablet-compressed.avif';
 //
-import hangmanDesktopSmall from '/src/images/hangman-desktop-small.jpg';
-import hangmanDesktop from '/src/images/hangman-desktop.jpg';
-import hangmanMobileSmall from '/src/images/hangman-mobile-small.jpg';
-import hangmanMobile from '/src/images/hangman-mobile.jpg';
-import hangmanTabletSmall from '/src/images/hangman-tablet-small.jpg';
-import hangmanTablet from '/src/images/hangman-tablet.jpg';
+import hangmanDesktop from '/src/images/hangman-desktop.avif';
+import hangmanDesktopCompressed from '/src/images/hangman-desktop-compressed.avif';
+import hangmanMobile from '/src/images/hangman-mobile.avif';
+import hangmanMobileCompressed from '/src/images/hangman-mobile-compressed.avif';
+import hangmanTablet from '/src/images/hangman-tablet.avif';
+import hangmanTabletCompressed from '/src/images/hangman-tablet-compressed.avif';
 //
-import mapSlicerDesktopSmall from '/src/images/map-slicer-desktop-small.jpg';
-import mapSlicerDesktop from '/src/images/map-slicer-desktop.jpg';
-import mapSlicerMobileSmall from '/src/images/map-slicer-mobile-small.jpg';
-import mapSlicerMobile from '/src/images/map-slicer-mobile.jpg';
-import mapSlicerTabletSmall from '/src/images/map-slicer-tablet-small.jpg';
-import mapSlicerTablet from '/src/images/map-slicer-tablet.jpg';
+import mapSlicerDesktop from '/src/images/map-slicer-desktop.avif';
+import mapSlicerDesktopCompressed from '/src/images/map-slicer-desktop-compressed.avif';
+import mapSlicerMobile from '/src/images/map-slicer-mobile.avif';
+import mapSlicerMobileCompressed from '/src/images/map-slicer-mobile-compressed.avif';
+import mapSlicerTablet from '/src/images/map-slicer-tablet.avif';
+import mapSlicerTabletCompressed from '/src/images/map-slicer-tablet-compressed.avif';
 //
-import pokematchDesktopDarkSmall from '/src/images/pokematch-desktop-dark-small.jpg';
-import pokematchDesktopDark from '/src/images/pokematch-desktop-dark.jpg';
-import pokematchDesktopLightSmall from '/src/images/pokematch-desktop-light-small.jpg';
-import pokematchDesktopLight from '/src/images/pokematch-desktop-light.jpg';
-import pokematchMobileDarkSmall from '/src/images/pokematch-mobile-dark-small.jpg';
-import pokematchMobileDark from '/src/images/pokematch-mobile-dark.jpg';
-import pokematchMobileLightSmall from '/src/images/pokematch-mobile-light-small.jpg';
-import pokematchMobileLight from '/src/images/pokematch-mobile-light.jpg';
-import pokematchTabletDarkSmall from '/src/images/pokematch-tablet-dark-small.jpg';
-import pokematchTabletDark from '/src/images/pokematch-tablet-dark.jpg';
-import pokematchTabletLightSmall from '/src/images/pokematch-tablet-light-small.jpg';
-import pokematchTabletLight from '/src/images/pokematch-tablet-light.jpg';
+import pokematchDesktopDark from '/src/images/pokematch-desktop-dark.avif';
+import pokematchDesktopDarkCompressed from '/src/images/pokematch-desktop-dark-compressed.avif';
+import pokematchDesktopLight from '/src/images/pokematch-desktop-light.avif';
+import pokematchDesktopLightCompressed from '/src/images/pokematch-desktop-light-compressed.avif';
+import pokematchMobileDark from '/src/images/pokematch-mobile-dark.avif';
+import pokematchMobileDarkCompressed from '/src/images/pokematch-mobile-dark-compressed.avif';
+import pokematchMobileLight from '/src/images/pokematch-mobile-light.avif';
+import pokematchMobileLightCompressed from '/src/images/pokematch-mobile-light-compressed.avif';
+import pokematchTabletDark from '/src/images/pokematch-tablet-dark.avif';
+import pokematchTabletDarkCompressed from '/src/images/pokematch-tablet-dark-compressed.avif';
+import pokematchTabletLight from '/src/images/pokematch-tablet-light.avif';
+import pokematchTabletLightCompressed from '/src/images/pokematch-tablet-light-compressed.avif';
 //
-import reposDesktopDarkSmall from '/src/images/repos-desktop-dark-small.jpg';
-import reposDesktopDark from '/src/images/repos-desktop-dark.jpg';
-import reposDesktopLightSmall from '/src/images/repos-desktop-light-small.jpg';
-import reposDesktopLight from '/src/images/repos-desktop-light.jpg';
-import reposMobileDarkSmall from '/src/images/repos-mobile-dark-small.jpg';
-import reposMobileDark from '/src/images/repos-mobile-dark.jpg';
-import reposMobileLightSmall from '/src/images/repos-mobile-light-small.jpg';
-import reposMobileLight from '/src/images/repos-mobile-light.jpg';
-import reposTabletDarkSmall from '/src/images/repos-tablet-dark-small.jpg';
-import reposTabletDark from '/src/images/repos-tablet-dark.jpg';
-import reposTabletLightSmall from '/src/images/repos-tablet-light-small.jpg';
-import reposTabletLight from '/src/images/repos-tablet-light.jpg';
+import reposDesktopDark from '/src/images/repos-desktop-dark.avif';
+import reposDesktopDarkCompressed from '/src/images/repos-desktop-dark-compressed.avif';
+import reposDesktopLight from '/src/images/repos-desktop-light.avif';
+import reposDesktopLightCompressed from '/src/images/repos-desktop-light-compressed.avif';
+import reposMobileDark from '/src/images/repos-mobile-dark.avif';
+import reposMobileDarkCompressed from '/src/images/repos-mobile-dark-compressed.avif';
+import reposMobileLight from '/src/images/repos-mobile-light.avif';
+import reposMobileLightCompressed from '/src/images/repos-mobile-light-compressed.avif';
+import reposTabletDark from '/src/images/repos-tablet-dark.avif';
+import reposTabletDarkCompressed from '/src/images/repos-tablet-dark-compressed.avif';
+import reposTabletLight from '/src/images/repos-tablet-light.avif';
+import reposTabletLightCompressed from '/src/images/repos-tablet-light-compressed.avif';
 //
-import webColorsDesktopDarkSmall from '/src/images/web-colors-desktop-dark-small.jpg';
-import webColorsDesktopDark from '/src/images/web-colors-desktop-dark.jpg';
-import webColorsDesktopLightSmall from '/src/images/web-colors-desktop-light-small.jpg';
-import webColorsDesktopLight from '/src/images/web-colors-desktop-light.jpg';
-import webColorsMobileDarkSmall from '/src/images/web-colors-mobile-dark-small.jpg';
-import webColorsMobileDark from '/src/images/web-colors-mobile-dark.jpg';
-import webColorsMobileLightSmall from '/src/images/web-colors-mobile-light-small.jpg';
-import webColorsMobileLight from '/src/images/web-colors-mobile-light.jpg';
-import webColorsTabletDarkSmall from '/src/images/web-colors-tablet-dark-small.jpg';
-import webColorsTabletDark from '/src/images/web-colors-tablet-dark.jpg';
-import webColorsTabletLightSmall from '/src/images/web-colors-tablet-light-small.jpg';
-import webColorsTabletLight from '/src/images/web-colors-tablet-light.jpg';
+import webColorsDesktopDark from '/src/images/web-colors-desktop-dark.avif';
+import webColorsDesktopDarkCompressed from '/src/images/web-colors-desktop-dark-compressed.avif';
+import webColorsDesktopLight from '/src/images/web-colors-desktop-light.avif';
+import webColorsDesktopLightCompressed from '/src/images/web-colors-desktop-light-compressed.avif';
+import webColorsMobileDark from '/src/images/web-colors-mobile-dark.avif';
+import webColorsMobileDarkCompressed from '/src/images/web-colors-mobile-dark-compressed.avif';
+import webColorsMobileLight from '/src/images/web-colors-mobile-light.avif';
+import webColorsMobileLightCompressed from '/src/images/web-colors-mobile-light-compressed.avif';
+import webColorsTabletDark from '/src/images/web-colors-tablet-dark.avif';
+import webColorsTabletDarkCompressed from '/src/images/web-colors-tablet-dark-compressed.avif';
+import webColorsTabletLight from '/src/images/web-colors-tablet-light.avif';
+import webColorsTabletLightCompressed from '/src/images/web-colors-tablet-light-compressed.avif';
 
 const cckb: ProjectUrls = {
-  'desktop-light-small': cckbDesktopSmall,
-  'desktop-light': cckbDesktop,
-  'mobile-light-small': cckbMobileSmall,
-  'mobile-light': cckbMobile,
-  'tablet-light-small': cckbTabletSmall,
-  'tablet-light': cckbTablet,
+  desktop: {
+    dark: undefined,
+    light: {
+      color: '#059c35',
+      src: cckbDesktop,
+      compressedSrc: cckbDesktopCompressed,
+    },
+  },
+  mobile: {
+    dark: undefined,
+    light: {
+      color: '#449444',
+      src: cckbMobile,
+      compressedSrc: cckbMobileCompressed,
+    },
+  },
+  tablet: {
+    dark: undefined,
+    light: {
+      color: '#449c45',
+      src: cckbTablet,
+      compressedSrc: cckbTabletCompressed,
+    },
+  },
 };
 const hangman: ProjectUrls = {
-  'desktop-light-small': hangmanDesktopSmall,
-  'desktop-light': hangmanDesktop,
-  'mobile-light-small': hangmanMobileSmall,
-  'mobile-light': hangmanMobile,
-  'tablet-light-small': hangmanTabletSmall,
-  'tablet-light': hangmanTablet,
+  desktop: {
+    dark: undefined,
+    light: {
+      color: '#7f7f7f',
+      src: hangmanDesktop,
+      compressedSrc: hangmanDesktopCompressed,
+    },
+  },
+  mobile: {
+    dark: undefined,
+    light: {
+      color: '#7f7f7f',
+      src: hangmanMobile,
+      compressedSrc: hangmanMobileCompressed,
+    },
+  },
+  tablet: {
+    dark: undefined,
+    light: {
+      color: '#7f7f7f',
+      src: hangmanTablet,
+      compressedSrc: hangmanTabletCompressed,
+    },
+  },
 };
 const mapSlicer: ProjectUrls = {
-  'desktop-dark-small': mapSlicerDesktopSmall,
-  'desktop-dark': mapSlicerDesktop,
-  'mobile-dark-small': mapSlicerMobileSmall,
-  'mobile-dark': mapSlicerMobile,
-  'tablet-dark-small': mapSlicerTabletSmall,
-  'tablet-dark': mapSlicerTablet,
+  desktop: {
+    dark: {
+      color: '#b3bc59',
+      src: mapSlicerDesktop,
+      compressedSrc: mapSlicerDesktopCompressed,
+    },
+    light: undefined,
+  },
+  mobile: {
+    dark: {
+      color: '#5188ad',
+      src: mapSlicerMobile,
+      compressedSrc: mapSlicerMobileCompressed,
+    },
+    light: undefined,
+  },
+  tablet: {
+    dark: {
+      color: '#b4b864',
+      src: mapSlicerTablet,
+      compressedSrc: mapSlicerTabletCompressed,
+    },
+    light: undefined,
+  },
 };
 const pokematch: ProjectUrls = {
-  'desktop-dark-small': pokematchDesktopDarkSmall,
-  'desktop-dark': pokematchDesktopDark,
-  'desktop-light-small': pokematchDesktopLightSmall,
-  'desktop-light': pokematchDesktopLight,
-  'mobile-dark-small': pokematchMobileDarkSmall,
-  'mobile-dark': pokematchMobileDark,
-  'mobile-light-small': pokematchMobileLightSmall,
-  'mobile-light': pokematchMobileLight,
-  'tablet-dark-small': pokematchTabletDarkSmall,
-  'tablet-dark': pokematchTabletDark,
-  'tablet-light-small': pokematchTabletLightSmall,
-  'tablet-light': pokematchTabletLight,
+  desktop: {
+    dark: {
+      color: '#ac9b24',
+      src: pokematchDesktopDark,
+      compressedSrc: pokematchDesktopDarkCompressed,
+    },
+    light: {
+      color: '#fcdc04',
+      src: pokematchDesktopLight,
+      compressedSrc: pokematchDesktopLightCompressed,
+    },
+  },
+  mobile: {
+    dark: {
+      color: '#262d7c',
+      src: pokematchMobileDark,
+      compressedSrc: pokematchMobileDarkCompressed,
+    },
+    light: {
+      color: '#f9da4e',
+      src: pokematchMobileLight,
+      compressedSrc: pokematchMobileLightCompressed,
+    },
+  },
+  tablet: {
+    dark: {
+      color: '#e0c84c',
+      src: pokematchTabletDark,
+      compressedSrc: pokematchTabletDarkCompressed,
+    },
+    light: {
+      color: '#fcdc4c',
+      src: pokematchTabletLight,
+      compressedSrc: pokematchTabletLightCompressed,
+    },
+  },
 };
 const repos: ProjectUrls = {
-  'desktop-dark-small': reposDesktopDarkSmall,
-  'desktop-dark': reposDesktopDark,
-  'desktop-light-small': reposDesktopLightSmall,
-  'desktop-light': reposDesktopLight,
-  'mobile-dark-small': reposMobileDarkSmall,
-  'mobile-dark': reposMobileDark,
-  'mobile-light-small': reposMobileLightSmall,
-  'mobile-light': reposMobileLight,
-  'tablet-dark-small': reposTabletDarkSmall,
-  'tablet-dark': reposTabletDark,
-  'tablet-light-small': reposTabletLightSmall,
-  'tablet-light': reposTabletLight,
+  desktop: {
+    dark: {
+      color: '#3a7dc4',
+      src: reposDesktopDark,
+      compressedSrc: reposDesktopDarkCompressed,
+    },
+    light: {
+      color: '#cc947c',
+      src: reposDesktopLight,
+      compressedSrc: reposDesktopLightCompressed,
+    },
+  },
+  mobile: {
+    dark: {
+      color: '#ac8052',
+      src: reposMobileDark,
+      compressedSrc: reposMobileDarkCompressed,
+    },
+    light: {
+      color: '#cc9c88',
+      src: reposMobileLight,
+      compressedSrc: reposMobileLightCompressed,
+    },
+  },
+  tablet: {
+    dark: {
+      color: '#cfa892',
+      src: reposTabletDark,
+      compressedSrc: reposTabletDarkCompressed,
+    },
+    light: {
+      color: '#36c8c8',
+      src: reposTabletLight,
+      compressedSrc: reposTabletLightCompressed,
+    },
+  },
 };
 const webColors: ProjectUrls = {
-  'desktop-dark-small': webColorsDesktopDarkSmall,
-  'desktop-dark': webColorsDesktopDark,
-  'desktop-light-small': webColorsDesktopLightSmall,
-  'desktop-light': webColorsDesktopLight,
-  'mobile-dark-small': webColorsMobileDarkSmall,
-  'mobile-dark': webColorsMobileDark,
-  'mobile-light-small': webColorsMobileLightSmall,
-  'mobile-light': webColorsMobileLight,
-  'tablet-dark-small': webColorsTabletDarkSmall,
-  'tablet-dark': webColorsTabletDark,
-  'tablet-light-small': webColorsTabletLightSmall,
-  'tablet-light': webColorsTabletLight,
+  desktop: {
+    dark: {
+      color: '#efdf05',
+      src: webColorsDesktopDark,
+      compressedSrc: webColorsDesktopDarkCompressed,
+    },
+    light: {
+      color: '#f7e515',
+      src: webColorsDesktopLight,
+      compressedSrc: webColorsDesktopLightCompressed,
+    },
+  },
+  mobile: {
+    dark: {
+      color: '#dc398e',
+      src: webColorsMobileDark,
+      compressedSrc: webColorsMobileDarkCompressed,
+    },
+    light: {
+      color: '#ec3c94',
+      src: webColorsMobileLight,
+      compressedSrc: webColorsMobileLightCompressed,
+    },
+  },
+  tablet: {
+    dark: {
+      color: '#e94024',
+      src: webColorsTabletDark,
+      compressedSrc: webColorsTabletDarkCompressed,
+    },
+    light: {
+      color: '#eb462a',
+      src: webColorsTabletLight,
+      compressedSrc: webColorsTabletLightCompressed,
+    },
+  },
 };
 
 export const urls = {
