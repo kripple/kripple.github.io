@@ -25,21 +25,21 @@
 }
 
 .header-item,
-svg.icon {
+.icon {
   overflow: visible; /* our view boxes have no external white space */
 }
 
-svg.icon {
+.icon {
   box-sizing: border-box;
   color: var(--text-color);
   height: 28px;
   width: 28px;
 }
-svg.icon:focus {
+.icon:focus {
   outline: none;
 }
 
-.header-item:hover svg.icon {
+.header-item:hover .icon {
   fill: var(--cyan);
   /* filter: drop-shadow(0 0 0.75px var(--yellow)); */
   stroke: var(--magenta);
@@ -49,7 +49,7 @@ svg.icon:focus {
   z-index: 300;
 }
 
-.theme-toggle-label > svg.icon {
+.theme-toggle-label > .icon {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
 }

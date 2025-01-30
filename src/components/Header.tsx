@@ -22,9 +22,10 @@ export function Header() {
         ),
       )}
       <label
-        aria-label="theme"
+        aria-label="theme toggle"
         className="header-item theme-toggle-label"
         htmlFor="theme-toggle"
+        id="theme-toggle-label"
         tabIndex={0}
       >
         {[icons.sun, icons.moon].map(({ id, drawPath, viewBox }) => (
