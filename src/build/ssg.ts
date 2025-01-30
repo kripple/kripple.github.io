@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-restricted-imports */
+
 // adapted from sources:
 //  - https://github.com/asyarb/vite-plugin-ssr-nojs
 //  - https://github.com/richardtallent/vite-plugin-singlefile
@@ -6,6 +8,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import type { OutputAsset, OutputChunk, OutputOptions } from 'rollup';
+import { minify } from 'uglify-js';
 import { createServer } from 'vite';
 import type { Plugin } from 'vite';
 
@@ -151,13 +154,13 @@ export function viteSsg({
       }, appHtml);
 
       // inject script tags
-      const scriptsHead = injectScriptsHead().reduce((result, script) => {
+      const scriptsHead = injectScriptsHead(minify).reduce((result, script) => {
         const rendered = renderToString({ script });
         result = result.concat(rendered.script);
         scriptHashes.push(rendered.sha256);
         return result;
       }, '');
-      const scriptsBody = injectScriptsBody().reduce((result, script) => {
+      const scriptsBody = injectScriptsBody(minify).reduce((result, script) => {
         const rendered = renderToString({ script });
         result = result.concat(rendered.script);
         scriptHashes.push(rendered.sha256);

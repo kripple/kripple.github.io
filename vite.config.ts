@@ -7,7 +7,7 @@ import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type PluginOption, defineConfig } from 'vite';
 
-import { viteSsg } from './build/ssg';
+import { viteSsg } from './src/build/ssg';
 
 dns.setDefaultResultOrder('verbatim');
 

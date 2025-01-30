@@ -1,10 +1,10 @@
-import { minify } from 'uglify-js';
+import type { minify as imported } from 'uglify-js';
 
-function detectDisabledJavascript() {
+export function detectDisabledJavascript() {
   document.documentElement.classList.remove('noscript');
 }
 
-function setDataTheme() {
+export function setDataTheme() {
   function storageAvailable(type: 'sessionStorage' | 'localStorage') {
     try {
       const storage = window[type];
@@ -28,7 +28,7 @@ function setDataTheme() {
   }
 }
 
-function saveThemePreference() {
+export function saveThemePreference() {
   function storageAvailable(type: 'sessionStorage' | 'localStorage') {
     try {
       const storage = window[type];
@@ -40,6 +40,7 @@ function saveThemePreference() {
       return false;
     }
   }
+
   const available = storageAvailable('localStorage');
   function setItem(key: string, value: string) {
     if (!available) return;
@@ -77,9 +78,24 @@ function saveThemePreference() {
       ? light
       : dark;
   });
+
+  // listen for keyboard events
+  // const label = document.getElementById('theme-toggle-label');
+  // if (!(label instanceof HTMLLabelElement)) {
+  //   console.info('missing theme toggle label');
+  //   return;
+  // }
+
+  // window.addEventListener('click', (event) => {
+  //   console.log(
+  //     'detected click on label, programatically clicking checkbox now.',
+  //     event,
+  //   );
+  //   checkbox.click();
+  // });
 }
 
-function loadImages() {
+export function loadImages() {
   const lazyImages = [
     ...document.querySelectorAll('img'),
   ] as HTMLImageElement[];
@@ -95,17 +111,17 @@ function loadImages() {
   });
 }
 
-const toString = (script: () => void) => {
+const toString = (script: () => void, minify: typeof imported) => {
   const { code } = minify(script.toString());
   return code;
 };
 
-export function injectScriptsHead() {
+export function injectScriptsHead(minify: typeof imported) {
   const scripts = [detectDisabledJavascript, setDataTheme];
-  return scripts.map((script) => toString(script));
+  return scripts.map((script) => toString(script, minify));
 }
 
-export function injectScriptsBody() {
+export function injectScriptsBody(minify: typeof imported) {
   const scripts = [saveThemePreference, loadImages];
-  return scripts.map((script) => toString(script));
+  return scripts.map((script) => toString(script, minify));
 }
