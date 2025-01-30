@@ -83,7 +83,7 @@ function loadImages() {
   const lazyImages = [
     ...document.querySelectorAll('img'),
   ] as HTMLImageElement[];
-  
+
   lazyImages.map((image) => {
     if (image.complete) {
       image.style.opacity = '1';
