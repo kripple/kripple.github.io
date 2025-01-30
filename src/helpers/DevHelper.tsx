@@ -1,19 +1,14 @@
-import {
-  detectDisabledJavascript,
-  loadImages,
-  saveThemePreference,
-  setDataTheme,
-} from '@/build/injectedScripts';
+import { injectedScripts } from '@/build/injectedScripts';
 import { App } from '@/components/App';
 
 export function DevHelper() {
   if (!import.meta.env.DEV) throw Error('No.');
 
+  // use timeout to wait for app to render before calling scripts
   setTimeout(() => {
-    detectDisabledJavascript();
-    setDataTheme();
-    saveThemePreference();
-    loadImages();
+    injectedScripts.map((script) => {
+      script();
+    });
   });
 
   return <App />;
