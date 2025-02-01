@@ -24,6 +24,7 @@ function generateImages() {
     const toPath = `${outputPath}/${filePath}`;
     console.debug(`from: '${fromPath}', to: '${toPath}'`);
 
+    // do first - does not support avif
     Vibrant.from(fromPath)
       .getPalette()
       .then((palette) => console.log(filePath, ':', palette.Vibrant?.hex));
@@ -32,7 +33,7 @@ function generateImages() {
     // await tinify
     //   .fromFile(fromPath)
     //   .convert({ type: 'image/avif' })
-    //   .toFile(toPath.replace('.jpg', '.avif'));
+    //   .toFile(toPath.replace('.png', '.avif'));
 
     // await tinify
     //   .fromFile(fromPath)

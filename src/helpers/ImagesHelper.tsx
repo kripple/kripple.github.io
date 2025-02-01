@@ -1,4 +1,5 @@
 import { projectKeys, projects, toHref } from '@/data/projects';
+import type { ProjectKey } from '@/images/index';
 
 /**
  *
@@ -11,7 +12,7 @@ import { projectKeys, projects, toHref } from '@/data/projects';
  *
  */
 
-export function ImagesHelper() {
+export function ImagesHelper({ project }: { project?: ProjectKey }) {
   return (
     <div
       style={{
@@ -27,13 +28,13 @@ export function ImagesHelper() {
         overflow: 'visible',
       }}
     >
-      {projectKeys.map((key) => {
+      {(project ? [project] : projectKeys).map((key) => {
         const { websiteUrl, hide } = projects[key];
         if (hide) return;
         const href = websiteUrl || toHref(key);
 
         return (
-          <>
+          <div key={key}>
             <iframe
               frameBorder="none"
               height={1000}
@@ -55,7 +56,7 @@ export function ImagesHelper() {
               style={{ aspectRatio: 768 / 1024 }}
               width={768}
             ></iframe>
-          </>
+          </div>
         );
       })}
     </div>
