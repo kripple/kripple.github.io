@@ -15,12 +15,18 @@ import cckbMobileCompressed from '/src/images/cckb-mobile-compressed.avif';
 import cckbTablet from '/src/images/cckb-tablet.avif';
 import cckbTabletCompressed from '/src/images/cckb-tablet-compressed.avif';
 //
-import hangmanDesktop from '/src/images/hangman-desktop.avif';
-import hangmanDesktopCompressed from '/src/images/hangman-desktop-compressed.avif';
-import hangmanMobile from '/src/images/hangman-mobile.avif';
-import hangmanMobileCompressed from '/src/images/hangman-mobile-compressed.avif';
-import hangmanTablet from '/src/images/hangman-tablet.avif';
-import hangmanTabletCompressed from '/src/images/hangman-tablet-compressed.avif';
+import guessTheWordDesktopDark from '/src/images/guess-the-word-desktop-dark.avif';
+import guessTheWordDesktopDarkCompressed from '/src/images/guess-the-word-desktop-dark-compressed.avif';
+import guessTheWordDesktopLight from '/src/images/guess-the-word-desktop-light.avif';
+import guessTheWordDesktopLightCompressed from '/src/images/guess-the-word-desktop-light-compressed.avif';
+import guessTheWordMobileDark from '/src/images/guess-the-word-mobile-dark.avif';
+import guessTheWordMobileDarkCompressed from '/src/images/guess-the-word-mobile-dark-compressed.avif';
+import guessTheWordMobileLight from '/src/images/guess-the-word-mobile-light.avif';
+import guessTheWordMobileLightCompressed from '/src/images/guess-the-word-mobile-light-compressed.avif';
+import guessTheWordTabletDark from '/src/images/guess-the-word-tablet-dark.avif';
+import guessTheWordTabletDarkCompressed from '/src/images/guess-the-word-tablet-dark-compressed.avif';
+import guessTheWordTabletLight from '/src/images/guess-the-word-tablet-light.avif';
+import guessTheWordTabletLightCompressed from '/src/images/guess-the-word-tablet-light-compressed.avif';
 //
 import mapSlicerDesktop from '/src/images/map-slicer-desktop.avif';
 import mapSlicerDesktopCompressed from '/src/images/map-slicer-desktop-compressed.avif';
@@ -94,29 +100,41 @@ const cckb: ProjectUrls = {
     },
   },
 };
-const hangman: ProjectUrls = {
+const guessTheWord: ProjectUrls = {
   desktop: {
-    dark: undefined,
+    dark: {
+      color: '#3682b0',
+      src: guessTheWordDesktopDark,
+      compressedSrc: guessTheWordDesktopDarkCompressed,
+    },
     light: {
-      color: '#7f7f7f',
-      src: hangmanDesktop,
-      compressedSrc: hangmanDesktopCompressed,
+      color: '#ecb012',
+      src: guessTheWordDesktopLight,
+      compressedSrc: guessTheWordDesktopLightCompressed,
     },
   },
   mobile: {
-    dark: undefined,
+    dark: {
+      color: '#568cb9',
+      src: guessTheWordMobileDark,
+      compressedSrc: guessTheWordMobileDarkCompressed,
+    },
     light: {
-      color: '#7f7f7f',
-      src: hangmanMobile,
-      compressedSrc: hangmanMobileCompressed,
+      color: '#ccbc90',
+      src: guessTheWordMobileLight,
+      compressedSrc: guessTheWordMobileLightCompressed,
     },
   },
   tablet: {
-    dark: undefined,
+    dark: {
+      color: '#5082ae',
+      src: guessTheWordTabletDark,
+      compressedSrc: guessTheWordTabletDarkCompressed,
+    },
     light: {
-      color: '#7f7f7f',
-      src: hangmanTablet,
-      compressedSrc: hangmanTabletCompressed,
+      color: '#deba21',
+      src: guessTheWordTabletLight,
+      compressedSrc: guessTheWordTabletLightCompressed,
     },
   },
 };
@@ -263,7 +281,8 @@ const webColors: ProjectUrls = {
 
 export const urls = {
   cckb,
-  hangman,
+  'guess-the-word': guessTheWord,
+  hangman: {},
   'map-slicer': mapSlicer,
   pokematch,
   repos,

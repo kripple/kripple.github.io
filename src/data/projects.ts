@@ -48,7 +48,7 @@ export const projects: { [key in ProjectKey]: Project } = {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
     blurb:
-      'Converted a WordPress website into a static single-page application, reducing annual hosting costs from $100+ to $0.',
+      'Converted a WordPress site into a static single-page app for use with free hosting providers.',
     githubUrl:
       'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
     websiteUrl: 'https://cckb.net',
@@ -60,13 +60,19 @@ export const projects: { [key in ProjectKey]: Project } = {
     date: [Month.October, 2019],
     blurb: 'A Pokémon themed memory game. (Pokéflash v1)',
   },
+  'guess-the-word': {
+    title: 'Mysticabulary',
+    date: [Month.February, 2025],
+    blurb: 'A word guessing game.',
+    images: urls['guess-the-word'],
+  },
   hangman: {
+    hide: true,
     title: 'Hangman',
     date: [Month.July, 2015],
     blurb: 'I made this game while I was first learning how to use Javascript.',
     description:
       'I made this game while I was first learning how to use Javascript. This is, in fact, the first JavaScript application I ever completed. Many of the target words were sourced from the Dictionary of Obscure Sorrows.',
-    images: urls['hangman'],
   },
   'map-slicer': {
     title: 'Map Slicer',
@@ -78,7 +84,7 @@ export const projects: { [key in ProjectKey]: Project } = {
     images: urls['map-slicer'],
   },
   pokematch: {
-    title: 'Pokéflash',
+    title: 'Pokématch',
     date: [Month.January, 2025],
     blurb: 'A Pokémon themed memory game.',
     images: urls['pokematch'],
