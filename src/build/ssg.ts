@@ -44,9 +44,10 @@ function getContentSecurityPolicy({
   const defaultSrc = `default-src 'none';`;
   const fontSrc = `font-src data:;`;
   const imgSrc = `img-src 'self';`;
+  const manifestSrc = `manifest-src 'self';`;
   const styleSrc = `style-src ${styles.join(' ')};`;
   const scriptSrcElem = `script-src-elem ${scripts.join(' ')};`;
-  const content = `${defaultSrc} ${fontSrc} ${imgSrc} ${scriptSrcElem} ${styleSrc}`;
+  const content = `${defaultSrc} ${fontSrc} ${imgSrc} ${manifestSrc} ${scriptSrcElem} ${styleSrc}`;
   return `<meta http-equiv="Content-Security-Policy" content="${content}">`;
 }
 
