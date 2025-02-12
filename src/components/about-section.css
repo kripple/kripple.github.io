@@ -1,0 +1,46 @@
+.about-section {
+  background-color: var(--about-section-color);
+}
+
+.emoji {
+  margin-right: 6px;
+}
+
+.emoji-right {
+  margin-left: 6px;
+}
+
+.section-subtitle {
+  padding: 1rem 0;
+}
+
+.hobbies-section {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.hobbies {
+  display: flex;
+  flex-direction: column;
+}
+
+.extras {
+  display: none;
+  flex-direction: column;
+}
+
+.extras .paragraph {
+  align-items: center;
+  display: inherit;
+  gap: 6px;
+}
+
+.logical-operator {
+  font-family: monospace;
+}
+
+@media screen and (min-width: 361px) {
+  .extras {
+    display: flex;
+  }
+}

@@ -1,0 +1,39 @@
+.contact-section .icon.copy-icon {
+  display: none;
+}
+
+.contact-section .label,
+.contact-section .copy-button-label {
+  font-size: 1rem;
+}
+
+.contact-section .button-set {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-section .button-link,
+.contact-section .copy-to-clipboard-button {
+  align-items: center;
+  border: 1px solid var(--text-color);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: monospace;
+  height: var(--padding-x2);
+  justify-content: center;
+  padding: 0 1.125rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+html.noscript .copy-instructions {
+  display: none;
+}
+
+/* TODO: */
+.copy-instructions {
+  display: none !important;
+}

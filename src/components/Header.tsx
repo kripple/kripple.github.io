@@ -1,39 +1,44 @@
-import { Icon } from '@/components/Icon';
-import { icons } from '@/data/icons';
+import { config, ids } from '@/data/config';
+import { sections } from '@/data/sections';
 
 import '@/components/header.css';
 
-export function Header() {
+export function Header({ children }: { children: ReactNode }) {
   return (
     <header className="header">
-      {[icons.github, icons.linkedin, icons.email].map(
-        ({ id, href, viewBox, drawPath }) => (
-          <a
-            aria-label={id}
-            className="header-item"
-            href={href}
-            key={id}
-            rel="noreferrer"
-            role="link"
-            tabIndex={0}
-            target="_blank"
-          >
-            <Icon drawPath={drawPath} id={id} viewBox={viewBox} />
-          </a>
-        ),
-      )}
-      <label
-        aria-label="theme toggle"
-        className="header-item theme-toggle-label"
-        htmlFor="theme-toggle"
-        id="theme-toggle-label"
-        role="button"
-        tabIndex={0}
-      >
-        {[icons.sun, icons.moon].map(({ id, drawPath, viewBox }) => (
-          <Icon drawPath={drawPath} id={id} key={id} viewBox={viewBox} />
-        ))}
-      </label>
+      <div className="app-controls">
+        <a
+          className="app-title click-to-close-menu click-to-scroll"
+          href="#home"
+        >
+          {config.name}
+        </a>
+        <label
+          aria-label="Menu button"
+          className="menu-button"
+          htmlFor={ids.menuButton}
+        ></label>
+      </div>
+      <nav className="nav" role="navigation">
+        <a
+          className="section-link click-to-close-menu click-to-scroll"
+          href={`#${ids.home}`}
+        >
+          {ids.home}
+        </a>
+        {Object.keys(sections).map((id) => {
+          return (
+            <a
+              className="section-link click-to-close-menu click-to-scroll"
+              href={`#${id}`}
+              key={id}
+            >
+              {id}
+            </a>
+          );
+        })}
+        {children}
+      </nav>
     </header>
   );
 }

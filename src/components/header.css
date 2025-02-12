@@ -1,55 +1,193 @@
-.header {
-  align-items: center;
-  box-sizing: border-box;
-  grid-template-columns: repeat(4, 60px);
-  justify-content: end;
-  justify-items: center;
-  padding-left: 16px;
-  padding-right: 16px;
+/* menu is closed by default */
+.menu-button::before {
+  content: 'show menu';
+}
+:root {
+  --collapsible-nav-height: 0;
+  --display-menu-icon: flex;
+  --position-menu: absolute;
+  --menu-button-margin: 12px;
+  --line-height-normal: 1.21875;
+}
+/* theme variables don't exist at :root, only in .theme */
+.menu {
+  --menu-button-color: var(--theme-color-overlay);
+  --menu-button-text-color: var(--text-color);
+
+  --menu-button-hover-color: var(--text-color-overlay);
+  --menu-button-text-hover-color: var(--contrast-color);
 }
 
-@media screen and (width <= 600px) {
-  .header {
-    justify-content: space-between;
+/* menu is open */
+#menu-button:checked ~ .menu .menu-button::before {
+  content: 'hide menu';
+}
+#menu-button:checked ~ .menu {
+  --collapsible-nav-height: calc-size(auto, size);
+
+  --menu-button-color: var(--text-color-overlay);
+  --menu-button-text-color: var(--contrast-color);
+
+  --menu-button-hover-color: var(--theme-color-overlay);
+  --menu-button-text-hover-color: var(--text-color);
+}
+
+/* for larger screens, menu is visible and menu button is hidden */
+/* @media screen and (min-width: 501px) {
+  :root {
+    --display-menu-icon: none;
+    --position-menu: relative;
   }
+} */
+
+/* input is hidden, use the input label instead */
+#menu-button {
+  display: none;
 }
 
-.header-item {
-  align-content: center;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: grid;
-  height: 44px;
+.app-controls {
+  background-color: var(--theme-color-overlay);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.header-spacer {
+  background: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: var(--padding-offset);
+  margin-right: var(--padding-offset);
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
+  width: calc(100% + var(--padding-x2));
+  z-index: -1;
+}
+
+.app-title {
+  flex-grow: 1;
+  text-decoration: none;
+}
+.menu-button {
+  color: var(--menu-button-text-color);
+  transform-style: preserve-3d;
+}
+.menu-button:hover {
+  color: var(--menu-button-text-hover-color);
+}
+
+.menu-button,
+.menu-button::before {
+  align-items: center;
+  display: flex;
+  font-family: monospace;
   justify-content: center;
-  width: 44px;
+  letter-spacing: 0.6px;
 }
 
-.header-item,
-.icon {
-  overflow: visible; /* our view boxes have no external white space */
+.app-title-spacer {
+  flex-grow: 1;
+  padding: var(--padding);
+  position: relative;
+  text-transform: capitalize;
+}
+.menu-button-spacer {
+  align-items: center;
+  display: flex;
+  font-family: monospace;
+  justify-content: center;
+  letter-spacing: 0.6px;
+  padding: var(--padding);
+  position: relative;
+  text-transform: capitalize;
 }
 
-.icon {
+.menu-button::after {
+  background-color: var(--menu-button-color);
+  border: 1px solid var(--menu-button-text-color);
+  border-radius: var(--border-radius);
+  bottom: var(--menu-button-margin);
+  content: '';
+  left: var(--menu-button-margin);
+  position: absolute;
+  right: var(--menu-button-margin);
+  top: var(--menu-button-margin);
+  transform: translateZ(-1px);
+  /* transition: background-color 0.2s ease; */
+}
+.menu-button:hover::after {
+  background-color: var(--menu-button-hover-color);
+  border: 1px solid var(--menu-button-text-hover-color);
+}
+
+.app-title,
+.menu-button,
+.section-link,
+.theme-toggle {
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: var(--line-height-normal);
+  position: relative;
+  text-transform: capitalize;
+  user-select: none;
+}
+
+.app-title,
+.menu-button {
+  padding: var(--padding);
+}
+.section-link,
+.theme-toggle {
+  height: calc(var(--padding-x2) + (var(--line-height-normal) * 1rem));
+  padding: 0 var(--padding);
+}
+
+.app-controls,
+.nav {
+  backdrop-filter: blur(10px);
+}
+.nav {
+  background-color: var(--text-color-overlay);
+  /* border: 1px solid var(--contrast-color); */
+  border-radius: var(--border-radius);
   box-sizing: border-box;
-  color: var(--text-color);
-  height: 28px;
-  width: 28px;
-}
-.icon:focus {
-  outline: none;
-}
-
-.header-item:hover .icon {
-  fill: var(--cyan);
-  /* filter: drop-shadow(0 0 0.75px var(--yellow)); */
-  stroke: var(--magenta);
-}
-
-.theme-toggle-label {
-  z-index: 300;
+  display: flex;
+  flex-wrap: wrap;
+  height: var(--collapsible-nav-height);
+  justify-content: center;
+  margin: var(--menu-button-margin);
+  min-height: var(--collapsible-nav-height);
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: height 0.2s ease;
+  width: calc(100% - (var(--menu-button-margin) * 2));
 }
 
-.theme-toggle-label > .icon {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+.nav::after {
+  border: 1px solid var(--contrast-color);
+  border-radius: inherit;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  /* transform: translateZ(-2px); */
+  z-index: -1;
+}
+
+.section-link,
+.theme-toggle {
+  align-items: center;
+  border: 0.5px solid var(--contrast-color);
+  /* border-radius: inherit; */
+  color: var(--contrast-color);
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
 }

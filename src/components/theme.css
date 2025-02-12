@@ -1,0 +1,97 @@
+:root {
+  --eerie-black: #222222;
+  --eerie-black-overlay: #222222cc;
+  --platinum: #dddddd;
+  --platinum-overlay: #ddddddcc;
+
+  --oxford-blue: #04052e;
+  --oxford-blue-overlay: #04052ecc;
+  --dark-purple: #2f1b25;
+  --carmine: #950017;
+  --chocolate-cosmos: #550022;
+
+  --powder-blue: #afc1d6;
+  --powder-blue-overlay: #afc1d6cc;
+  --african-violet: #ab92bf;
+  --mint-green: #cef9f2;
+  --ultra-violet: #655a7c;
+
+  /* these are used to set the html background-color */
+  --theme-color-dark: var(--oxford-blue);
+  --theme-color-light: var(--powder-blue);
+}
+
+/* dark mode (default) */
+:root {
+  --theme-color: var(--theme-color-dark);
+  --text-color: var(--platinum);
+  --contrast-color: var(--eerie-black);
+  --opacity-dark: 1;
+  --opacity-light: 0;
+
+  --about-section-color: var(--chocolate-cosmos);
+  --skills-section-color: var(--carmine);
+  --projects-section-color: var(--dark-purple);
+
+  --theme-color-overlay: var(--oxford-blue-overlay);
+  --text-color-overlay: var(--platinum-overlay);
+  --highlight-color: cyan;
+
+  --tag-color: rgba(0, 230, 230, 0.1);
+  --tag-text-color: rgb(0, 255, 213);
+}
+
+/* light mode */
+html[data-theme='light'],
+#theme-toggle:checked ~ .theme {
+  --theme-color: var(--theme-color-light);
+  --text-color: var(--eerie-black);
+  --contrast-color: var(--platinum);
+  --opacity-dark: 0;
+  --opacity-light: 1;
+
+  --about-section-color: #ffffff;
+  --skills-section-color: var(--african-violet);
+  --projects-section-color: var(--ultra-violet);
+
+  --theme-color-overlay: var(--powder-blue-overlay);
+  --text-color-overlay: var(--eerie-black-overlay);
+  --highlight-color: cyan;
+
+  --tag-color: rgba(0, 21, 255, 0.1);
+  --tag-text-color: rgb(0, 89, 255);
+}
+
+.theme {
+  background-color: var(--theme-color);
+  color: var(--text-color);
+  font-family: 'Inter';
+  font-optical-sizing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: 400; /* Use a value from 100 to 900 */
+  text-rendering: optimizeLegibility;
+}
+
+a,
+svg {
+  color: var(--text-color);
+}
+
+#theme-toggle {
+  display: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+/* TODO: */
+/* .active {
+  color: var(--highlight-color);
+}
+
+::selection {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+} */

@@ -1,0 +1,79 @@
+:root {
+  --padding: 1.5rem;
+  --padding-offset: calc(var(--padding) * -1);
+
+  --padding-x2: calc(var(--padding) * 2);
+  --padding-half: calc(var(--padding) / 2);
+
+  --icon-size: 2rem;
+  --icon-padding: calc(var(--padding) / 3);
+  --icon-link-padding: calc(var(--padding) / 4);
+  --icon-label-gap: 10px;
+
+  --icon-size-inner: calc(var(--icon-size) * 0.7);
+  --icon-alt-padding: calc((var(--icon-size) - var(--icon-size-inner)) / 2);
+
+  --border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  filter: none;
+  flex-direction: column;
+  pointer-events: auto;
+  position: fixed;
+  top: 0px;
+  user-select: none;
+  width: 100%;
+  z-index: 10;
+}
+
+.main {
+  min-height: 100vh;
+}
+
+.footer {
+  font-size: var(--padding-half);
+  font-weight: 300;
+  padding: var(--padding-half);
+  text-align: center;
+}
+
+.theme-toggle {
+  cursor: pointer;
+  user-select: none;
+}
+
+.section {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: var(--padding-x2);
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+
+.app-title,
+.section-title {
+  filter: contrast(1.25);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 28px 0 16px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.paragraph {
+  font-weight: 300;
+  line-height: 1.35;
+  margin: 4px 0 12px 0;
+}
+
+.skip-to-content {
+  height: 0;
+  position: absolute;
+  width: 0;
+}
