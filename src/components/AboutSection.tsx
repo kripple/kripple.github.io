@@ -3,8 +3,6 @@ import { ids } from '@/data/config';
 
 import '@/components/about-section.css';
 
-// My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on creating clean, well-crafted interfaces that not only look great but also provide a seamless user experience.
-
 export function AboutSection() {
   const startYear = 2016; /* Started in December 2015, use 2016 as start year. */
   const currentYear = new Date().getFullYear() - 1; /* Don't include current year. */

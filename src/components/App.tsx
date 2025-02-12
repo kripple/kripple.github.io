@@ -15,6 +15,7 @@ export function App() {
       className="theme-toggle click-to-close-menu"
       htmlFor={ids.themeToggle}
       // id="theme-toggle-label"
+      // TODO:
       // onKeyDown={onKeyDown}
       role="button"
       tabIndex={0}
@@ -25,6 +26,7 @@ export function App() {
 
   return (
     <>
+      {/* TODO */}
       {/* <a className="skip-to-content" href="#content">
         Skip to Content
       </a> */}

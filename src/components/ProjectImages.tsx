@@ -23,7 +23,7 @@ export function ProjectImages({
   const fallback = images[screenSize].dark || images[screenSize].light;
   const {
     // color: backgroundColor,
-    src,
+    // src,
     compressedSrc,
   } = images[screenSize][theme] || fallback;
 
