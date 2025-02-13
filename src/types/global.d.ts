@@ -9,3 +9,5 @@ declare type ReactNode = import('@/types/imported').ReactNode;
 declare type SetState<T> = import('@/types/imported').SetState<T>;
 
 declare type Union<T> = T[number];
+
+declare type ValueOf<T> = T[keyof T];

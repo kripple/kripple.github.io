@@ -3,7 +3,7 @@ import photo from '@/assets/kelly-ripple-circle.png';
 export const config = {
   photo,
   name: 'Kelly Ripple',
-  jobTitle: 'Front End Software Engineer',
+  jobTitle: 'Frontend Engineer',
   email: 'email@kellyripple.com',
   github: 'kripple',
   linkedin: 'kellymripple',

@@ -114,7 +114,6 @@
   right: var(--menu-button-margin);
   top: var(--menu-button-margin);
   transform: translateZ(-1px);
-  /* transition: background-color 0.2s ease; */
 }
 .menu-button:hover::after {
   background-color: var(--menu-button-hover-color);
@@ -135,8 +134,11 @@
 
 .app-title,
 .menu-button {
+  box-sizing: border-box;
+  height: calc(var(--padding-x2) + (var(--line-height-normal) * 1rem));
   padding: var(--padding);
 }
+
 .section-link,
 .theme-toggle {
   height: calc(var(--padding-x2) + (var(--line-height-normal) * 1rem));
@@ -149,7 +151,6 @@
 }
 .nav {
   background-color: var(--text-color-overlay);
-  /* border: 1px solid var(--contrast-color); */
   border-radius: var(--border-radius);
   box-sizing: border-box;
   display: flex;
@@ -174,7 +175,6 @@
   position: absolute;
   right: 0;
   top: 0;
-  /* transform: translateZ(-2px); */
   z-index: -1;
 }
 
@@ -182,7 +182,6 @@
 .theme-toggle {
   align-items: center;
   border: 0.5px solid var(--contrast-color);
-  /* border-radius: inherit; */
   color: var(--contrast-color);
   display: flex;
   flex-basis: 0;

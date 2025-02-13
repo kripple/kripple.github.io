@@ -1,6 +1,7 @@
 import type { ProjectKey, ProjectUrls } from '@/data/project-images';
 import { urls } from '@/data/project-images';
-import { Tag } from '@/data/tags';
+import type { Tag } from '@/data/tags';
+import { tags } from '@/data/tags';
 
 enum Month {
   January,
@@ -59,10 +60,10 @@ export const projects: { [key in ProjectKey]: Project } = {
       'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
     websiteUrl: 'https://cckb.net',
     tags: [
-      Tag.React,
-      Tag.TypeScript,
-      Tag['React Router'],
-      Tag['Static Site Generation (SSG)'],
+      tags.React,
+      tags.TypeScript,
+      tags['React Router'],
+      tags['Static Site Generation (SSG)'],
     ],
   },
   'guess-the-word': {
@@ -73,10 +74,11 @@ export const projects: { [key in ProjectKey]: Project } = {
     githubUrl: toSrc('guess-the-word'),
     websiteUrl: toHref('guess-the-word'),
     tags: [
-      Tag.React,
-      Tag.TypeScript,
-      Tag['Dictionary API'],
-      Tag['Game Development'],
+      tags.React,
+      tags.TypeScript,
+      tags['Dictionary API'],
+      tags['Game Development'],
+      tags['React Hooks'],
     ],
   },
   // hangman: {
@@ -97,11 +99,13 @@ export const projects: { [key in ProjectKey]: Project } = {
       'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
     websiteUrl: toHref('map-slicer'),
     tags: [
-      Tag.React,
-      Tag.TypeScript,
-      Tag['Material UI'],
-      Tag['HTML Canvas'],
-      Tag.PDFs,
+      tags.React,
+      tags.TypeScript,
+      tags['React Hooks'],
+      tags['React Context API'],
+      tags['Web Workers'],
+      tags['HTML Canvas'],
+      tags['Material UI'],
     ],
   },
   pokematch: {
@@ -112,9 +116,9 @@ export const projects: { [key in ProjectKey]: Project } = {
     githubUrl: toSrc('pokematch'),
     websiteUrl: toHref('pokematch'),
     tags: [
-      Tag.JavaScript,
-      Tag['Object-Oriented Programming (OOP)'],
-      Tag['Game Development'],
+      tags.JavaScript,
+      tags['Object-Oriented Programming (OOP)'],
+      tags['Game Development'],
     ],
   },
   repos: {
@@ -128,12 +132,13 @@ export const projects: { [key in ProjectKey]: Project } = {
     apiUrl: 'https://api.kellyripple.com/profile',
     apiSrcUrl: 'https://github.com/kripple/cloudflare-workers',
     tags: [
-      Tag.React,
-      Tag.TypeScript,
-      Tag['RTK Query'],
-      Tag['Node.js'],
-      Tag['Cloudflare Workers'],
-      Tag['GitHub API'],
+      tags.React,
+      tags.TypeScript,
+      tags['RTK Query'],
+      tags['React Hooks'],
+      tags['Node.js'],
+      tags['Cloudflare Workers'],
+      tags['GitHub API'],
     ],
   },
   'web-colors': {
@@ -146,10 +151,10 @@ export const projects: { [key in ProjectKey]: Project } = {
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
     websiteUrl: toHref('web-colors'),
     tags: [
-      Tag.React,
-      Tag.TypeScript,
-      Tag['Material UI'],
-      Tag['Responsive Design'],
+      tags.React,
+      tags.TypeScript,
+      tags['Material UI'],
+      tags['Responsive Design'],
     ],
   },
 } as const;

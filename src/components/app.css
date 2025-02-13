@@ -46,7 +46,6 @@
 
 .section {
   box-sizing: border-box;
-  min-height: 100vh;
   padding-bottom: var(--padding-x2);
   padding-left: var(--padding);
   padding-right: var(--padding);

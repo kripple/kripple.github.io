@@ -2,41 +2,27 @@
   background-color: var(--skills-section-color);
 }
 
-.skills-list {
+.skills-section .section-subtitle {
+  padding: 1.25rem 0 0.5rem 0;
+}
+
+.skills-section .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--padding);
-  padding: var(--padding);
+  gap: 0.375rem;
+  /* gap: 0.5rem; */
 }
 
-.skill-block {
-  /* border-color: var(--text-color);
-  border-style: solid; */
-  box-sizing: border-box;
-  flex-basis: 0;
+.skills-section .project-skill-tag {
+  /* background-color: var(--theme-color-overlay); */
+  border: 0.5px solid var(--text-color-overlay);
+  border-radius: 4px;
+  /* color: var(--tag-text-color); */
   flex-grow: 1;
-  min-width: 200px;
-  /* padding: 40px 30px; */
-  /* padding: var(--padding); */
-}
-
-/* .skill-block-1 {
-  border-left-width: 2px;
-  border-top-width: 2px;
-}
-.skill-block-2 {
-}
-.skill-block-3 {
-  border-bottom-width: 2px;
-  border-right-width: 2px;
-} */
-
-.skill-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.skill-description {
-  font-family: monospace;
-  font-size: 16px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  /* line-height: 1.25rem; */
+  padding: 0.25rem 0.5rem;
+  /* padding: 0 5px 0 0; */
+  text-align: center;
 }
