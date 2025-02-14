@@ -1,17 +1,16 @@
-import type { ProjectKey } from '@/data/project-images';
-import { projects } from '@/data/projects';
+import type { ProjectKey, ProjectUrls } from '@/data/project-images';
 
 import '@/components/project-images.css';
 
 export function ProjectImages({
+  images,
   loadingStrategy = 'lazy',
   projectKey,
 }: {
+  images: ProjectUrls;
   loadingStrategy?: 'eager' | 'lazy';
   projectKey: ProjectKey;
 }) {
-  const { images } = projects[projectKey];
-
   const theme = 'dark';
   const screenSize = 'desktop';
   // const data = images[screenSize][theme];

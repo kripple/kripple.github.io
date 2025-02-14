@@ -1,28 +1,21 @@
-import { HeaderSpacer } from '@/components/HeaderSpacer';
 import { ProjectFilters } from '@/components/ProjectFilters';
 import { ProjectImages } from '@/components/ProjectImages';
 import { ProjectLink } from '@/components/ProjectLink';
 import { ProjectTags } from '@/components/ProjectTags';
 import { SvgIcon } from '@/components/SvgIcon';
 import { ids } from '@/data/config';
-import {
-  projectKeys,
-  projects,
-  toDateString,
-  toDateTime,
-} from '@/data/projects';
+import { projects, toDateString, toDateTime } from '@/data/projects';
 
 import '@/components/projects-section.css';
 
 export function ProjectsSection() {
   return (
     <section className="section projects-section" id={ids.projects}>
-      <HeaderSpacer />
       <h3 className="section-title">Projects</h3>
       <ProjectFilters />
 
       <div className="projects-grid">
-        {projectKeys.map((key, index) => {
+        {projects.map((project, index) => {
           const {
             title,
             date,
@@ -32,7 +25,9 @@ export function ProjectsSection() {
             apiUrl,
             apiSrcUrl,
             tags,
-          } = projects[key];
+            key,
+            images,
+          } = project;
           const loadingStrategy = index === 0 ? 'eager' : 'lazy';
 
           const dateTime = toDateTime(date);
@@ -41,6 +36,7 @@ export function ProjectsSection() {
           return (
             <div className="project" key={key}>
               <ProjectImages
+                images={images}
                 loadingStrategy={loadingStrategy}
                 projectKey={key}
               />

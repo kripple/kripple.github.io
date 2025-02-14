@@ -1,10 +1,12 @@
 .project-images {
+  background-color: var(--projects-section-color);
   display: flex;
   min-height: 8.25rem;
   position: relative;
 }
 
 .project-images-frame-absolute {
+  background-color: inherit;
   bottom: var(--padding-half);
   display: flex;
   left: 0;
@@ -13,6 +15,12 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.project-images-frame-relative {
+  background-color: inherit;
+  position: relative;
+  width: 100%;
 }
 
 /* TODO: */
@@ -24,6 +32,7 @@ html:not(.noscript) .project-images-frame-absolute:hover .project-image {
 } */
 
 .project-image {
+  background-color: inherit;
   border-radius: inherit;
   height: auto;
   position: relative;
