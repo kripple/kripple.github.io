@@ -49,7 +49,7 @@ type Project = {
 const toSrc = (key: ProjectKey) => `https://github.com/kripple/${key}`;
 const toHref = (key: ProjectKey) => `https://kellyripple.com/${key}`;
 
-export const projects: { [key in ProjectKey]: Project } = {
+const projects: { [key in ProjectKey]: Project } = {
   cckb: {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
@@ -60,10 +60,13 @@ export const projects: { [key in ProjectKey]: Project } = {
       'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
     websiteUrl: 'https://cckb.net',
     tags: [
+      tags.HTML,
+      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['React Router'],
       tags['Static Site Generation (SSG)'],
+      tags['Cloudflare Pages'],
     ],
   },
   'guess-the-word': {
@@ -74,6 +77,8 @@ export const projects: { [key in ProjectKey]: Project } = {
     githubUrl: toSrc('guess-the-word'),
     websiteUrl: toHref('guess-the-word'),
     tags: [
+      tags.HTML,
+      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['Dictionary API'],
@@ -81,14 +86,6 @@ export const projects: { [key in ProjectKey]: Project } = {
       tags['React Hooks'],
     ],
   },
-  // hangman: {
-  //   hide: true,
-  //   title: 'Hangman',
-  //   date: [Month.July, 2015],
-  //   blurb: 'I made this game while I was first learning how to use Javascript.',
-  //   description:
-  //     'I made this game while I was first learning how to use Javascript. This is, in fact, the first JavaScript application I ever completed. Many of the target words were sourced from the Dictionary of Obscure Sorrows.',
-  // },
   'map-slicer': {
     title: 'Map Slicer',
     date: [Month.September, 2024],
@@ -99,6 +96,8 @@ export const projects: { [key in ProjectKey]: Project } = {
       'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
     websiteUrl: toHref('map-slicer'),
     tags: [
+      tags.HTML,
+      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['React Hooks'],
@@ -116,6 +115,8 @@ export const projects: { [key in ProjectKey]: Project } = {
     githubUrl: toSrc('pokematch'),
     websiteUrl: toHref('pokematch'),
     tags: [
+      tags.HTML,
+      tags.CSS,
       tags.JavaScript,
       tags['Object-Oriented Programming (OOP)'],
       tags['Game Development'],
@@ -132,6 +133,8 @@ export const projects: { [key in ProjectKey]: Project } = {
     apiUrl: 'https://api.kellyripple.com/profile',
     apiSrcUrl: 'https://github.com/kripple/cloudflare-workers',
     tags: [
+      tags.HTML,
+      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['RTK Query'],
@@ -151,6 +154,8 @@ export const projects: { [key in ProjectKey]: Project } = {
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
     websiteUrl: toHref('web-colors'),
     tags: [
+      tags.HTML,
+      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['Material UI'],
@@ -161,18 +166,18 @@ export const projects: { [key in ProjectKey]: Project } = {
 
 const toNumber = ([month, year]: ProjectDate) => year * 100 + month;
 const sorted = (Object.keys(projects) as ProjectKey[]).sort((keyA, keyB) => {
-  const showAFirst = -1;
-  const showBFirst = 1;
+  const optionA = -1;
+  const optionB = 1;
 
   // sort by most recent
   const dateA = toNumber(projects[keyA].date);
   const dateB = toNumber(projects[keyB].date);
-  if (dateA > dateB) return showAFirst;
-  if (dateB < dateA) return showBFirst;
+  if (dateA > dateB) return optionA;
+  if (dateB < dateA) return optionB;
 
-  // sort alphabetically
+  // then sort alphabetically
   // github enforces (case-insensitive) unique repo names
-  return keyA < keyB ? showAFirst : showBFirst;
+  return keyA < keyB ? optionA : optionB;
 });
 
 export const toDateTime = ([month, year]: ProjectDate) =>
@@ -181,4 +186,31 @@ export const toDateTime = ([month, year]: ProjectDate) =>
 export const toDateString = ([month, year]: ProjectDate) =>
   `${Month[month]} ${year}`;
 
-export { sorted as projectKeys };
+type ProjectItem = Project & { key: ProjectKey };
+
+/* We have a lot of nested loops here. We would not want to run this code in production, but as part of the build process, it's okay. It's also important to note that the looped collection has fewer than 10 items. */
+const removed = new Set<Tag>([]);
+const projectItems = sorted.reduce((result, key) => {
+  const project = projects[key];
+
+  // remove tags that are present in every project
+  const tags = project.tags.filter((tag) => {
+    const always = Object.values(projects).every((projectInCollection) =>
+      projectInCollection.tags.includes(tag),
+    );
+    if (always) removed.add(tag);
+    return !always;
+  });
+
+  result.push({ ...project, key, tags });
+  return result;
+}, [] as ProjectItem[]);
+
+/* Log what was removed. */
+if (removed.size > 0)
+  console.info(
+    `%cRemoved Tags: ${[...removed.values()].join(', ')}.`,
+    'color: #f3bb1b',
+  );
+
+export { projectItems as projects };

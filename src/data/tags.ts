@@ -11,6 +11,8 @@ export const tagsList = [
 
   /* specific */
   'Cloudflare Workers',
+  'Cloudflare Pages',
+  'GitHub Pages',
   'HTML Canvas',
 
   /* web development */
