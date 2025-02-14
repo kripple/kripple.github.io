@@ -9,7 +9,10 @@ export function SkillsSection() {
     <section className="section skills-section" id={ids.skills}>
       <h3 className="section-title skills-section-title">Skills</h3>
       {skills.map(({ title, skills: list }) => (
-        <div className="skills-list-section" key={title}>
+        <div
+          className={`skills-list-section skills-list-${title.toLowerCase()}`}
+          key={title}
+        >
           <h4 className="section-subtitle">{title}</h4>
           <ul className="skills-list">
             {list.map(({ label, ...optional }) => {

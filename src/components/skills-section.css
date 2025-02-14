@@ -1,20 +1,46 @@
 .skills-section {
   background-color: var(--skills-section-color);
+  display: grid;
   grid-area: skills;
+  grid-template-areas:
+    'skills-title'
+    'languages'
+    'frameworks'
+    'tools'
+    'testing';
 }
-
 .skills-section .section-title {
   grid-area: skills-title;
   padding-bottom: 0;
+  text-align: center;
+}
+.skills-list-languages {
+  grid-area: languages;
+}
+.skills-list-frameworks {
+  grid-area: frameworks;
+}
+.skills-list-tools {
+  grid-area: tools;
+}
+.skills-list-testing {
+  grid-area: testing;
 }
 
 .skills-section .section-subtitle {
-  padding: 1.25rem 0 0.875rem 0;
+  padding: 0.675rem calc(2px + 0.25rem) 0.5rem calc(2px + 0.25rem);
+}
+
+.skills-list-section {
+  display: flex;
+  flex-direction: column;
 }
 
 .skills-list {
+  align-content: flex-start;
   align-items: flex-start;
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
   gap: 0.25rem;
 }
@@ -24,8 +50,9 @@
   border: 2px dotted var(--about-section-contrast-color);
   border-radius: 1.25rem;
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
-  gap: inherit;
+  gap: 0.25rem;
   padding: 0.25rem;
   position: relative;
 }
@@ -123,11 +150,32 @@
   width: 0.5rem;
 }
 
-/* @media screen and (min-width: 801px) {
+@media screen and (min-width: 600px) {
   .skills-section {
-    column-gap: 1.5rem;
-    display: grid;
+    column-gap: var(--padding);
     grid-template-areas:
-      'skills-title skills-title';
+      'skills-title skills-title'
+      'languages frameworks'
+      'tools testing';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, max-content);
   }
-} */
+  .skills-section .section-subtitle {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .skills-section {
+    column-gap: var(--padding);
+    grid-template-areas:
+      'skills-title skills-title skills-title skills-title'
+      'languages frameworks tools testing';
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, max-content);
+  }
+  .skills-section .section-subtitle {
+    padding-bottom: 0.675rem;
+    padding-top: 0.25rem;
+  }
+}

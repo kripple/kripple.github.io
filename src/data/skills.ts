@@ -59,6 +59,19 @@ export const skills = [
         items: ['AWS'],
       },
       {
+        label: 'Build Tools',
+        items: ['Vite', 'Rollup', 'NPM'],
+      },
+      {
+        label: 'Image Manipulation',
+        items: ['Sharp', 'Inkscape'],
+      },
+    ],
+  },
+  {
+    title: 'Testing',
+    skills: [
+      {
         label: 'Performance Optimization',
         items: ['Lighthouse'],
       },
@@ -67,20 +80,12 @@ export const skills = [
         items: ['WAVE'],
       },
       {
-        label: 'Build Tools',
-        items: ['Vite', 'Rollup', 'NPM'],
-      },
-      {
         label: 'Unit & Integration Testing',
         items: ['Jest', 'Vitest', 'React Testing Library'],
       },
       {
         label: 'API Mocking',
         items: ['Mock Service Worker (MSW)'],
-      },
-      {
-        label: 'Image Manipulation',
-        items: ['Sharp', 'Inkscape'],
       },
     ],
   },
