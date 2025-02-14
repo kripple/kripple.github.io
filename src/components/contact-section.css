@@ -1,3 +1,7 @@
+.contact-section {
+  grid-area: contact;
+}
+
 .contact-section .icon.copy-icon {
   display: none;
 }
