@@ -36,9 +36,13 @@
   --theme-color-overlay: var(--oxford-blue-overlay);
   --text-color-overlay: var(--platinum-overlay);
   --highlight-color: cyan;
+  --backdrop-color: transparent;
 
   --tag-color: rgba(0, 230, 230, 0.1);
-  --tag-text-color: rgb(0, 255, 213);
+  --tag-text-rgb: 0, 255, 213;
+  --tag-text-color: rgb(var(--tag-text-rgb));
+
+  --about-section-contrast-color: rgba(var(--tag-text-rgb), 0.3);
 }
 
 /* light mode */
@@ -50,16 +54,20 @@ html[data-theme='light'],
   --opacity-dark: 0;
   --opacity-light: 1;
 
-  --about-section-color: #ffffff;
+  --about-section-color: var(--african-violet);
   --skills-section-color: var(--african-violet);
   --projects-section-color: var(--ultra-violet);
 
   --theme-color-overlay: var(--powder-blue-overlay);
   --text-color-overlay: var(--eerie-black-overlay);
   --highlight-color: cyan;
+  --backdrop-color: #ffffff66;
 
   --tag-color: rgba(0, 21, 255, 0.1);
-  --tag-text-color: rgb(0, 89, 255);
+  --tag-text-rgb: 0, 89, 255;
+  --tag-text-color: rgb(var(--tag-text-rgb));
+
+  --about-section-contrast-color: var(--platinum);
 }
 
 .theme {
