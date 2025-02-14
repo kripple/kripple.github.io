@@ -1,5 +1,4 @@
 import { CopyButton } from '@/components/CopyButton';
-import { HeaderSpacer } from '@/components/HeaderSpacer';
 import { config, ids } from '@/data/config';
 
 import '@/components/contact-section.css';
@@ -7,7 +6,6 @@ import '@/components/contact-section.css';
 export function ContactSection() {
   return (
     <section className="section contact-section" id={ids.contact}>
-      <HeaderSpacer />
       <h3 className="section-title">Contact</h3>
       <p className="paragraph">
         Kelly can be reached by email at {config.email}.
