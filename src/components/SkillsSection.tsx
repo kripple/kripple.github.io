@@ -1,5 +1,5 @@
-// import { SvgIcon } from '@/components/SvgIcon';
-import { ids } from '@/data/config';
+// import { Icon } from '@/components/Icon';
+import { ids } from '@/data/sections';
 import { skills } from '@/data/skills';
 
 import '@/components/skills-section.css';
@@ -21,7 +21,7 @@ export function SkillsSection() {
                   <span className="skill-label">
                     {label}
                     {/* <button className="skill-button">
-                      <SvgIcon icon="plus" />
+                      <Icon icon="plus" />
                     </button> */}
                   </span>
                   {'items' in optional ? (
