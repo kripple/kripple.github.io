@@ -1,7 +1,7 @@
 import { Header } from '@/components/Header';
-import { HomeSection } from '@/components/HomeSection';
 import { Theme } from '@/components/Theme';
-import { config, ids } from '@/data/config';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { config } from '@/data/config';
 import { sections } from '@/data/sections';
 
 import '@/components/global.css';
@@ -9,20 +9,6 @@ import '@/components/app.css';
 
 export function App() {
   const currentYear = new Date().getFullYear();
-  const themeToggle = (
-    <label
-      aria-label="theme toggle"
-      className="theme-toggle click-to-close-menu"
-      htmlFor={ids.themeToggle}
-      // id="theme-toggle-label"
-      // TODO:
-      // onKeyDown={onKeyDown}
-      role="button"
-      tabIndex={0}
-    >
-      change theme
-    </label>
-  );
 
   return (
     <>
@@ -32,16 +18,17 @@ export function App() {
       </a> */}
       <Theme>
         <div className="app">
-          <Header>{themeToggle}</Header>
+          <Header>
+            <ThemeToggle />
+          </Header>
           <main className="main">
-            <HomeSection />
-            {Object.values(sections).map((Section) => (
-              <Section key={Section.name} />
+            {Object.values(sections).map((section) => (
+              <section.Component key={section.id} />
             ))}
+            <footer className="footer">
+              © {currentYear} {config.name}
+            </footer>
           </main>
-          <footer className="footer">
-            © {currentYear} {config.name}
-          </footer>
         </div>
       </Theme>
     </>

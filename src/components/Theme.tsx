@@ -1,4 +1,4 @@
-import { ids } from '@/data/config';
+import { ids } from '@/data/sections';
 
 import '@/components/theme.css';
 

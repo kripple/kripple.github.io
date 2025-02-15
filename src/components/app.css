@@ -4,6 +4,7 @@
 
   --padding-x2: calc(var(--padding) * 2);
   --padding-half: calc(var(--padding) / 2);
+  --padding-xl: 6rem;
 
   --icon-size: 2rem;
   --icon-padding: calc(var(--padding) / 3);
@@ -16,36 +17,28 @@
   --border-radius: 8px;
 }
 
-.header {
+.body,
+.app,
+.header,
+.main,
+.footer {
+  box-sizing: border-box;
+}
+
+.body {
+  align-items: center;
   display: flex;
-  filter: none;
+  justify-content: center;
+}
+
+.app {
+  display: flex;
   flex-direction: column;
-  grid-area: header;
-  pointer-events: auto;
-  position: fixed;
-  top: 0px;
-  user-select: none;
-  width: 100%;
-  z-index: 10;
 }
 
 .main {
   min-height: 100vh;
 }
-/* @media screen and (min-width: 600px) {
-  :root {
-    --about-section-color: var(--theme-color);
-    --projects-section-color: var(--theme-color);
-  }
-  .main {
-    display: grid;
-    grid-template-areas:
-      'header  header'
-      'home    projects'
-      '.       about';
-    grid-template-columns: 1fr 2fr;
-  }
-} */
 
 .footer {
   font-size: var(--padding-half);
@@ -68,24 +61,21 @@
   scroll-margin-top: var(--header-height);
 }
 
-/* .app-title,
-.section-title {
-  filter: contrast(1.25);
-} */
-
 .section-title {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.6;
   margin: 0;
-  padding: 28px 0 16px 0;
+  padding: 1.75rem 0 1rem 0;
+  text-align: center;
   width: 100%;
 }
 
 .paragraph {
-  font-weight: 300;
-  line-height: 1.35;
-  margin: 4px 0 12px 0;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.382;
+  margin: 0 0 1rem 0;
 }
 
 .skip-to-content {
@@ -94,12 +84,39 @@
   width: 0;
 }
 
+/* switch to split-screen layout */
 @media screen and (min-width: 1200px) {
-  :root {
-    --section-screen-padding: calc(((100vw - 1200px) / 2) + var(--padding));
+  .app {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 var(--padding);
+    max-width: 74rem;
+  }
+  .header {
+    max-height: 100vh;
+    max-width: 30rem;
+    padding: var(--padding-xl) var(--padding);
+    position: sticky;
+    top: 0;
+    width: 38.2%;
+  }
+  .main {
+    max-width: 125rem;
+    padding: var(--padding-xl) 0 0 0;
+    width: 61.8%;
+  }
+  .footer {
+    padding-bottom: var(--padding-xl);
+    padding-top: var(--padding-xl);
   }
   .section {
-    padding-left: var(--section-screen-padding);
-    padding-right: var(--section-screen-padding);
+    background-color: var(--theme-color);
+  }
+  .section:not(.projects-section) {
+    scroll-margin-top: 0;
+  }
+
+  .projects-section {
+    scroll-margin-top: var(--padding-xl);
   }
 }

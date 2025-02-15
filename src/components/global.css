@@ -34,8 +34,19 @@ p {
   padding: 0;
 }
 
+a {
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+::before,
+::after {
+  box-sizing: inherit;
 }

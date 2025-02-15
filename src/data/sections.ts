@@ -1,17 +1,34 @@
 import { AboutSection } from '@/components/AboutSection';
-// import { ContactSection } from '@/components/ContactSection';
+import { ContactSection } from '@/components/ContactSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { SkillsSection } from '@/components/SkillsSection';
-import { ids } from '@/data/config';
+
+export const ids = {
+  themeToggle: 'theme-toggle',
+  menuButton: 'menu-button',
+  home: 'home',
+  about: 'about',
+  contact: 'contact',
+  projects: 'portfolio',
+  skills: 'skills',
+} as const;
 
 export const sections = {
-  [ids.projects]: ProjectsSection,
-  [ids.skills]: SkillsSection,
-  [ids.about]: AboutSection,
-  // [ids.contact]: ContactSection,
+  [ids.projects]: {
+    Component: ProjectsSection,
+    id: ids.projects,
+  },
+  [ids.about]: {
+    Component: AboutSection,
+    id: ids.about,
+  },
+  [ids.skills]: {
+    Component: SkillsSection,
+    id: ids.skills,
+  },
+  [ids.contact]: {
+    Component: ContactSection,
+    id: ids.contact,
+  },
 } as const;
 export type Section = keyof typeof sections;
-// export function isSection(value?: string): value is Section {
-//   if (!value) return false;
-//   return (sections as readonly string[]).includes(value);
-// }
