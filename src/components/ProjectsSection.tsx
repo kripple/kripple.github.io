@@ -1,17 +1,17 @@
+import { Icon } from '@/components/Icon';
 import { ProjectFilters } from '@/components/ProjectFilters';
 import { ProjectImages } from '@/components/ProjectImages';
 import { ProjectLink } from '@/components/ProjectLink';
 import { ProjectTags } from '@/components/ProjectTags';
-import { SvgIcon } from '@/components/SvgIcon';
-import { ids } from '@/data/config';
 import { projects, toDateString, toDateTime } from '@/data/projects';
+import { ids } from '@/data/sections';
 
 import '@/components/projects-section.css';
 
 export function ProjectsSection() {
   return (
     <section className="section projects-section" id={ids.projects}>
-      <h3 className="section-title">Projects</h3>
+      {/* <h3 className="section-title">Projects</h3> */}
       <ProjectFilters />
 
       <div className="projects-grid">
@@ -64,7 +64,7 @@ export function ProjectsSection() {
                   label="App"
                   url={websiteUrl}
                 >
-                  <SvgIcon icon="internet" />
+                  <Icon icon="internet" />
                 </ProjectLink>
 
                 <ProjectLink
@@ -72,7 +72,7 @@ export function ProjectsSection() {
                   label="Source"
                   url={githubUrl}
                 >
-                  <SvgIcon icon="github" />
+                  <Icon icon="github" />
                 </ProjectLink>
 
                 <ProjectLink
@@ -80,7 +80,7 @@ export function ProjectsSection() {
                   label="API"
                   url={apiUrl}
                 >
-                  <SvgIcon icon="api" />
+                  <Icon icon="api" />
                 </ProjectLink>
 
                 <ProjectLink
@@ -88,7 +88,7 @@ export function ProjectsSection() {
                   label="API Source"
                   url={apiSrcUrl}
                 >
-                  <SvgIcon icon="github" />
+                  <Icon icon="github" />
                 </ProjectLink>
               </div>
               <ProjectTags tags={tags} />

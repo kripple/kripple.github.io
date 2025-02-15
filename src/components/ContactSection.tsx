@@ -1,5 +1,6 @@
 import { CopyButton } from '@/components/CopyButton';
-import { config, ids } from '@/data/config';
+import { config } from '@/data/config';
+import { ids } from '@/data/sections';
 
 import '@/components/contact-section.css';
 
