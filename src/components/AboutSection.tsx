@@ -1,27 +1,9 @@
-import { HeaderSpacer } from '@/components/HeaderSpacer';
-import { ids } from '@/data/config';
+import { config } from '@/data/config';
+import { ids } from '@/data/sections';
 
 import '@/components/about-section.css';
 
 export function AboutSection() {
-  const startYear = 2016; /* Started in December 2015, use 2016 as start year. */
-  const currentYear = new Date().getFullYear() - 1; /* Don't include current year. */
-  const yearsOfExperience = currentYear - startYear
-  /**
-   * 3 years @ BTI360
-   * 1 year @ Capital One
-   * 4 years @ Custom Ink
-   * ~ 3 mos freelance (Nov 2024 - Feb 2025)
-   */
-
-  const paragraphs = [
-    `Kelly is a full-stack software engineer specializing in front-end web development with React and TypeScript. She has ${yearsOfExperience} years of experience, primarily in the industries of finance and eCommerce.`,
-
-    `Past teammates describe Kelly as a "highly effective and autonomous engineer." "Highly recommended."`,
-
-    'Kelly is a Maryland native and is currently based in Northern Virginia.',
-  ] as const;
-
   const hobbies = [
     ['🖥️', 'Writing Code'],
     ['🌱', 'Tending House Plants'],
@@ -30,67 +12,29 @@ export function AboutSection() {
     ['📚', 'Reading Books'],
   ] as const;
 
-  const extras = [
-    [
-      { emoji: '🐈', text: 'Cats', rating: 0 },
-      { emoji: '🐕', text: 'Dogs', rating: 1 },
-    ],
-    [
-      { emoji: '☕', text: 'Coffee', rating: 1 },
-      { emoji: '🍵', text: 'Tea', rating: 1 },
-    ],
-    [
-      { emoji: '☀️', text: 'Mornings', rating: 0 },
-      { emoji: '🦉', text: 'Evenings', rating: 1 },
-    ],
-    [
-      { emoji: '🍪', text: 'Cookies', rating: 1 },
-      { emoji: '🧁', text: 'Cupcakes', rating: 0 },
-    ],
-  ] as const;
-
   return (
     <section className="section about-section" id={ids.about}>
-      <HeaderSpacer />
-      <h3 className="section-title">About</h3>
-      {paragraphs.map((content, index) => (
-        <p className="paragraph" key={index}>
-          {content}
+      <h3 className="section-title about-section-title">About</h3>
+
+      <div className="about-section-content">
+        <p className="paragraph">
+          {`I'm a fullstack software engineer with over ${config.yearsOfExperience} years of full-time experience. I specialize in frontend web development using React and TypeScript.`}
         </p>
-      ))}
 
-      <h4 className="section-subtitle">Hobbies & Interests</h4>
-
-      <div className="hobbies-section">
-        <div className="hobbies">
+        <p className="paragraph">
+          I am a Maryland native and am currently based in Northern Virginia. I
+          often spend my free time{' '}
           {hobbies.map(([emoji, hobby], index) => (
-            <p className="paragraph" key={index}>
+            <span className="hobby" key={index}>
               <span className="emoji">{emoji}</span>&nbsp;{hobby}
-            </p>
+            </span>
           ))}
-        </div>
+          .
+        </p>
 
-        <div className="extras">
-          {extras.map(([thisOption, thatOption], index) => {
-            const result =
-              thisOption.rating > thatOption.rating
-                ? '>'
-                : thisOption.rating < thatOption.rating
-                  ? '<'
-                  : '===';
-
-            if (result === '===') return null; // TODO
-            return (
-              <p className="paragraph" key={index}>
-                <span className="emoji">{thisOption.emoji}</span>{' '}
-                {thisOption.text}{' '}
-                <span className="logical-operator">{result}</span>{' '}
-                {thatOption.text}
-                <span className="emoji-right">{thatOption.emoji}</span>
-              </p>
-            );
-          })}
-        </div>
+        <p className="paragraph">
+          {`I have had the privilege of working with many talented professionals over the course of my career. Past teammates have described me as a "highly effective and autonomous engineer." I’m currently spending my time on freelance and personal projects, but I’m actively seeking my next full-time role and am available to start immediately. If you know of any opportunities that might be a good fit, I’d love to hear from you! I can be reached by email at ${config.email}.`}
+        </p>
       </div>
     </section>
   );
