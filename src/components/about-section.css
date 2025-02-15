@@ -1,46 +1,81 @@
 .about-section {
-  background-color: var(--about-section-color);
+  /* background-color: var(--about-section-color); */
+  grid-area: about;
 }
 
-.emoji {
-  margin-right: 6px;
+.hobby {
+  text-transform: lowercase;
 }
 
-.emoji-right {
-  margin-left: 6px;
+.hobby + .hobby::before {
+  content: ', ';
+}
+.hobby:last-of-type::before {
+  content: ', or ';
 }
 
-.section-subtitle {
+/* :root { */
+/* --about-section-image-width: 10rem; */
+/* image aspect ratio 4:5 */
+/* --about-section-image-height: calc(var(--about-section-image-width) * 1.25); */
+/* --rx: calc(var(--about-section-image-width) / 2); */
+/* --ry: calc(var(--about-section-image-height) / 2); */
+/* } */
+
+/* .about-section .image {
+  border-radius: 50%;
+  height: auto;
+  position: relative;
+  width: var(--about-section-image-width);
+  z-index: 33;
+} */
+
+/* .text-path-left {
+  --polygon: ellipse(var(--rx) var(--ry) at right center);
+  float: right;
+}
+.text-path-right {
+  --polygon: ellipse(var(--rx) var(--ry) at left center);
+  float: left;
+}
+.text-path-left,
+.text-path-right {
+  clip-path: var(--polygon);
+  height: var(--about-section-image-height);
+  shape-outside: var(--polygon);
+  width: var(--rx);
+  z-index: -1;
+} */
+
+/* .section-subtitle {
   padding: 1rem 0;
-}
+} */
 
-.hobbies-section {
-  display: flex;
-  gap: 2.5rem;
+/* .about-section-title {
+  grid-area: about-title;
 }
-
-.hobbies {
-  display: flex;
-  flex-direction: column;
+.about-section-content {
+  grid-area: about-content;
 }
-
-.extras {
-  display: none;
-  flex-direction: column;
+.about-section-aside {
+  grid-area: about-aside;
 }
+.about-section-photo {
+  grid-area: about-photo;
+  margin-left: -50%;
+  margin-right: -50%;
+} */
 
-.extras .paragraph {
-  align-items: center;
-  display: inherit;
-  gap: 6px;
-}
-
-.logical-operator {
-  font-family: monospace;
-}
-
-@media screen and (min-width: 361px) {
-  .extras {
-    display: flex;
+/* @media screen and (min-width: 600px) {
+  .about-section {
+    column-gap: 2rem;
+    display: grid;
+    grid-template-areas:
+      'about-title    about-title   about-title'
+      'about-content  about-photo   about-aside';
+    grid-template-columns: 1fr 0 1fr;
   }
-}
+  .section-subtitle {
+    padding: 0 0 1rem 0;
+  }
+} */
