@@ -28,7 +28,7 @@
 }
 
 .skills-section .section-subtitle {
-  padding: 0.675rem calc(2px + 0.25rem) 0.5rem calc(2px + 0.25rem);
+  padding: 1rem calc(2px + 0.25rem) 0.75rem calc(2px + 0.25rem);
 }
 
 .skills-list-section {
@@ -71,7 +71,7 @@
   transform-style: preserve-3d;
 }
 .skill-item::before {
-  border: 1px solid var(--text-color);
+  background-color: var(--backdrop-color);
   border-radius: inherit;
   bottom: 0;
   content: '';
@@ -99,7 +99,7 @@
   transform-style: preserve-3d;
 }
 .skill-label::before {
-  background-color: var(--backdrop-color);
+  background-color: var(--tag-backdrop-color);
   border-radius: inherit;
   bottom: 0;
   content: '';
@@ -165,7 +165,7 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   .skills-section {
     column-gap: var(--padding);
     grid-template-areas:
@@ -178,4 +178,4 @@
     padding-bottom: 0.675rem;
     padding-top: 0.25rem;
   }
-}
+} */
