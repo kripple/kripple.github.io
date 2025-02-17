@@ -149,19 +149,19 @@ function clickToNavigate() {
     });
   });
 
-  // const checkbox = document.getElementById('menu-button');
-  // if (!(checkbox instanceof HTMLInputElement)) {
-  //   console.info('missing menu button');
-  //   return;
-  // }
-  // const clickToCloseMenu = [
-  //   ...document.querySelectorAll('.click-to-close-menu'),
-  // ];
-  // clickToCloseMenu.map((element) => {
-  //   element.addEventListener('click', () => {
-  //     if (checkbox.checked) checkbox.click();
-  //   });
-  // });
+  const checkbox = document.getElementById('menu-button');
+  if (!(checkbox instanceof HTMLInputElement)) {
+    console.info('missing menu button');
+    return;
+  }
+  const clickToCloseMenu = [
+    ...document.querySelectorAll('.click-to-close-menu'),
+  ];
+  clickToCloseMenu.map((element) => {
+    element.addEventListener('click', () => {
+      if (checkbox.checked) checkbox.click();
+    });
+  });
 }
 
 function addLinkStyles() {
