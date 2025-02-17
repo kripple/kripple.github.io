@@ -9,17 +9,16 @@
 }
 
 .icon-set .icon {
-  /* height: 2.125rem; */
+  /* transform-origin: bottom center; */
   /* transition: filter 0.15s cubic-bezier(0.4, 0, 0.2, 1); */
-  /* width: 2.125rem; */
+  transition: transform 0.2s ease-in-out;
 }
-.icon-set .icon-link .icon {
-  /* filter: drop-shadow(0 0 3px var(--glow-color));
-  stroke: var(--glow-color);
-  stroke-width: 0.5px; */
+.icon-set .icon-link:hover .icon {
+  /* filter: drop-shadow(3px 3px 2px var(--drop-shadow)); */
+  transform: scale(1.2);
 }
 
-.icon-set .icon-link {
+/* .icon-set .icon-link {
   position: relative;
   transform-style: preserve-3d;
 }
@@ -40,7 +39,7 @@
 }
 .icon-set .icon-link:hover::after {
   opacity: 1;
-}
+} */
 
 /* .social-icons {
   align-items: center;

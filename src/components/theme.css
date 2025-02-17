@@ -53,18 +53,26 @@
   --white: #ffffff;
 }
 
-/* these are used to set the html background-color */
+/* --theme-color-dark and --theme-color-light are used to set the html background-color */
 :root {
-  /* --theme-color-dark: var(--oxford-blue);
-  --theme-color-light: var(--powder-blue); */
+  /* dark theme */
   --theme-color-dark: var(--dark-purple);
+  --text-color-dark: var(--platinum);
+  --tag-text-rgb-dark: 0, 255, 213; /* --aquamarine */
+  --tag-text-color-dark: rgb(var(--tag-text-rgb-dark));
+  --glow-color-dark: var(--coquelicot);
+  /* light theme */
   --theme-color-light: var(--african-violet);
+  --text-color-light: var(--eerie-black);
+  --tag-text-rgb-light: 0, 89, 255; /* --risd-blue */
+  --tag-text-color-light: rgb(var(--tag-text-rgb-light));
+  --glow-color-light: #ffffff;
 }
 
 /* dark mode (default) */
 :root {
   --theme-color: var(--theme-color-dark);
-  --text-color: var(--platinum);
+  --text-color: var(--text-color-dark);
   --text-color-emphasis: #ffffff;
   --contrast-color: var(--eerie-black);
 
@@ -80,18 +88,19 @@
 
   --tag-backdrop-color: transparent;
   --backdrop-color: #ffffff66;
+  --drop-shadow: rgba(255, 255, 255, 0.4);
 
   /* --aquamarine */
-  --tag-text-rgb: 0, 255, 213;
+  --tag-text-rgb: var(--tag-text-rgb-dark);
   --tag-color: rgba(0, 230, 230, 0.1);
-  --tag-text-color: rgb(var(--tag-text-rgb));
+  --tag-text-color: var(--tag-text-color-dark);
 
   --highlight-color: rgba(var(--tag-text-rgb), 0.9);
   --highlight-text-color: #000000;
   /* --glow-color: var(--aureolin);
   --glow-color: var(--mikado-yellow);
   --glow-color: var(--canary); */
-  --glow-color: var(--coquelicot);
+  --glow-color: var(--glow-color-dark);
 
   --about-section-contrast-color: rgba(var(--tag-text-rgb), 0.3);
 
@@ -107,7 +116,7 @@
 html[data-theme='light'],
 #theme-toggle:checked ~ .theme {
   --theme-color: var(--theme-color-light);
-  --text-color: var(--eerie-black);
+  --text-color: var(--text-color-light);
   --text-color-emphasis: #000000;
   --contrast-color: var(--platinum);
 
@@ -123,15 +132,16 @@ html[data-theme='light'],
 
   --tag-backdrop-color: #ffffff66;
   --backdrop-color: #ffffff99;
+  --drop-shadow: rgba(0, 0, 0, 0.6);
 
   /* --risd-blue */
-  --tag-text-rgb: 0, 89, 255;
+  --tag-text-rgb: var(--tag-text-rgb-light);
   --tag-color: rgba(0, 21, 255, 0.1);
-  --tag-text-color: rgb(var(--tag-text-rgb));
+  --tag-text-color: var(--tag-text-color-light);
 
   --highlight-color: rgba(var(--tag-text-rgb), 0.8);
   --highlight-text-color: #ffffff;
-  --glow-color: #ffffff;
+  --glow-color: var(--glow-color-light);
 
   --about-section-contrast-color: var(--platinum);
 

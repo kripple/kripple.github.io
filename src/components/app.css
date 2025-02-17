@@ -48,17 +48,11 @@
   text-align: center;
 }
 
-.theme-toggle {
-  cursor: pointer;
-  user-select: none;
-}
-
 .section {
   box-sizing: border-box;
   padding-bottom: var(--padding);
   padding-left: var(--padding);
   padding-right: var(--padding);
-  /* scroll-margin-top: var(--header-height); */
 }
 
 .section-title {
