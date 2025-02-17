@@ -1,7 +1,8 @@
+import { MenuButton } from '@/components/MenuButton';
 import { SocialIcons } from '@/components/SocialIcons';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { config } from '@/data/config';
-import { sections } from '@/data/sections';
+import { ids, sections } from '@/data/sections';
 
 import '@/components/header.css';
 
@@ -9,23 +10,31 @@ export function Header() {
   return (
     <header className="header">
       <div className="header-title-bar">
-        <h1 className="name">{config.name}</h1>
-        <h2 className="job-title">{config.jobTitle}</h2>
+        <a
+          className="app-title click-to-close-menu click-to-scroll"
+          href={`#${ids.home}`}
+        >
+          <h1 className="name">{config.name}</h1>
+          <h2 className="job-title">{config.jobTitle}</h2>
+        </a>
+        <MenuButton />
       </div>
 
       <nav className="nav" role="navigation">
-        {Object.values(sections).map((section) => {
-          return (
-            <a
-              className="nav-link click-to-scroll"
-              href={`#${section.id}`}
-              key={section.id}
-            >
-              <span className="nav-indicator"></span>
-              {section.id}
-            </a>
-          );
-        })}
+        <div className="nav-container">
+          {Object.values(sections).map((section) => {
+            return (
+              <a
+                className="nav-link click-to-close-menu click-to-scroll"
+                href={`#${section.id}`}
+                key={section.id}
+              >
+                <span className="nav-indicator"></span>
+                {section.id}
+              </a>
+            );
+          })}
+        </div>
       </nav>
 
       <div className="header-icon-set">

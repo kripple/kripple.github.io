@@ -5,7 +5,7 @@ import { ProjectsSection } from '@/components/ProjectsSection';
 export const ids = {
   themeToggle: 'theme-toggle',
   menuButton: 'menu-button',
-  home: 'home',
+  home: 'portfolio',
   about: 'about',
   contact: 'contact',
   projects: 'portfolio',

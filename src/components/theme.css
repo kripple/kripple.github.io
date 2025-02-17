@@ -1,8 +1,10 @@
 :root {
   --eerie-black: #222222;
   --eerie-black-overlay: #222222cc;
+  --eerie-black-overlay: #22222233;
   --platinum: #dddddd;
   --platinum-overlay: #ddddddcc;
+  --platinum-overlay: #dddddd33;
 }
 :root {
   --oxford-blue: #04052e;
@@ -174,7 +176,7 @@ svg {
   color: var(--text-color);
 }
 
-/* inputs are hidden, use the input label instead */
+/* inputs are hidden, use the input labels instead */
 #theme-toggle,
 #menu-button {
   display: none;

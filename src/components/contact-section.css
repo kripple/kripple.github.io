@@ -22,7 +22,7 @@
 .contact-section .copy-to-clipboard-button {
   align-items: center;
   border: 1px solid var(--text-color);
-  border-radius: var(--border-radius);
+  border-radius: 0.5rem;
   box-sizing: border-box;
   cursor: pointer;
   display: flex;

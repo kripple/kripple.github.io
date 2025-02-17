@@ -13,9 +13,6 @@
 
   --icon-size-inner: calc(var(--icon-size) * 0.7);
   --icon-alt-padding: calc((var(--icon-size) - var(--icon-size-inner)) / 2);
-
-  --border-radius: 8px;
-  --line-height-normal: 1.21875;
 }
 
 .body,
@@ -85,6 +82,7 @@
     --theme-color-dark: var(--oxford-blue);
     --theme-color-light: var(--ultra-violet);
   }
+  .header,
   .section {
     background-color: var(--theme-color-const);
   }

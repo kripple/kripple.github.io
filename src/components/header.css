@@ -28,19 +28,33 @@
 
 .header-title-bar {
   order: 1;
+  width: 100%;
+}
+
+.app-title {
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
 }
 
 .nav {
+  display: flex;
   flex-grow: 1;
   order: 2;
   width: 100%;
 }
 
 .header-icon-set {
-  align-items: center;
   box-sizing: border-box;
   display: flex;
   order: 3;
+}
+
+.header-title-bar {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
 @media screen and (max-width: 1199px) {
@@ -49,6 +63,15 @@
   }
 
   .header-title-bar {
+    align-items: center;
+    background-color: var(--theme-color);
+    /* flex-grow: 1; */
+    /* gap: 0.25rem; */
+    /* justify-content: center; */
+    /* padding: var(--padding); */
+  }
+
+  .app-title {
     align-items: center;
     display: flex;
     flex-grow: 1;
@@ -60,7 +83,6 @@
   .name,
   .job-title {
     display: flex;
-
     line-height: var(--line-height-normal);
     margin: 0;
     white-space: nowrap;
@@ -98,13 +120,15 @@
     display: flex;
     flex-basis: 0;
     flex-grow: 1;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 500;
     justify-content: center;
+    letter-spacing: 0.05rem;
     line-height: var(--line-height-normal);
     padding: 1rem var(--padding);
     text-decoration: none;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
+    text-transform: uppercase;
     user-select: none;
   }
   .nav-link + .nav-link {
@@ -117,6 +141,7 @@
     text-underline-offset: 0.25rem;
   }
   .header-icon-set {
+    /* align-items: center; */
     display: none;
     /* justify-content: center;
     order: 2;
@@ -208,6 +233,7 @@
   }
 
   .header-icon-set {
+    align-items: flex-end;
     justify-content: flex-start;
   }
 }
