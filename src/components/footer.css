@@ -1,0 +1,10 @@
+.footer {
+  font-size: var(--padding-half);
+  font-weight: 300;
+  padding: var(--scroll-margin) 0;
+  text-align: center;
+}
+
+.footer .icon {
+  opacity: 0.8;
+}

@@ -1,5 +1,5 @@
 .project-images {
-  background-color: var(--projects-section-color);
+  background-color: var(--theme-color);
   display: flex;
   min-height: 8.25rem;
   position: relative;

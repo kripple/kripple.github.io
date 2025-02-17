@@ -1,7 +1,5 @@
 .skills-section {
-  /* background-color: var(--skills-section-color); */
   display: grid;
-  grid-area: skills;
   grid-template-areas:
     'skills-title'
     'languages'

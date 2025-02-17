@@ -56,13 +56,15 @@
 /* --theme-color-dark and --theme-color-light are used to set the html background-color */
 :root {
   /* dark theme */
-  --theme-color-dark: var(--dark-purple);
+  --theme-color-dark-const: var(--dark-purple);
+  --theme-color-dark: var(--theme-color-dark-const);
   --text-color-dark: var(--platinum);
   --tag-text-rgb-dark: 0, 255, 213; /* --aquamarine */
   --tag-text-color-dark: rgb(var(--tag-text-rgb-dark));
   --glow-color-dark: var(--coquelicot);
   /* light theme */
-  --theme-color-light: var(--african-violet);
+  --theme-color-light-const: var(--african-violet);
+  --theme-color-light: var(--theme-color-light-const);
   --text-color-light: var(--eerie-black);
   --tag-text-rgb-light: 0, 89, 255; /* --risd-blue */
   --tag-text-color-light: rgb(var(--tag-text-rgb-light));
@@ -72,6 +74,7 @@
 /* dark mode (default) */
 :root {
   --theme-color: var(--theme-color-dark);
+  --theme-color-const: var(--theme-color-dark-const);
   --text-color: var(--text-color-dark);
   --text-color-emphasis: #ffffff;
   --contrast-color: var(--eerie-black);
@@ -79,9 +82,9 @@
   --opacity-dark: 1;
   --opacity-light: 0;
 
-  --about-section-color: var(--chocolate-cosmos);
-  --skills-section-color: var(--eerie-black);
-  --projects-section-color: var(--dark-purple);
+  --theme-color-secondary: var(--oxford-blue);
+  --theme-color-tertiary: var(--chocolate-cosmos);
+  --theme-color-quaternary: var(--carmine);
 
   --theme-color-overlay: var(--oxford-blue-overlay);
   --text-color-overlay: var(--platinum-overlay);
@@ -116,6 +119,7 @@
 html[data-theme='light'],
 #theme-toggle:checked ~ .theme {
   --theme-color: var(--theme-color-light);
+  --theme-color-const: var(--theme-color-light-const);
   --text-color: var(--text-color-light);
   --text-color-emphasis: #000000;
   --contrast-color: var(--platinum);
@@ -123,9 +127,9 @@ html[data-theme='light'],
   --opacity-dark: 0;
   --opacity-light: 1;
 
-  --about-section-color: var(--african-violet);
-  --skills-section-color: var(--african-violet);
-  --projects-section-color: var(--ultra-violet);
+  --theme-color-secondary: var(--ultra-violet);
+  --theme-color-tertiary: var(--powder-blue);
+  --theme-color-quaternary: var(--mint-green);
 
   --theme-color-overlay: var(--powder-blue-overlay);
   --text-color-overlay: var(--eerie-black-overlay);

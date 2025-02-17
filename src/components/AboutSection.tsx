@@ -18,7 +18,7 @@ export function AboutSection() {
 
   return (
     <section className="section about-section" id={ids.about}>
-      {/* <h3 className="section-title about-section-title">About</h3> */}
+      <h3 className="section-title">About</h3>
 
       <div className="about-section-content">
         <p className="paragraph">

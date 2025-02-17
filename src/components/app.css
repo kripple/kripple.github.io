@@ -15,6 +15,7 @@
   --icon-alt-padding: calc((var(--icon-size) - var(--icon-size-inner)) / 2);
 
   --border-radius: 8px;
+  --line-height-normal: 1.21875;
 }
 
 .body,
@@ -37,22 +38,21 @@
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-.footer {
-  font-size: var(--padding-half);
-  font-weight: 300;
-  grid-area: footer;
-  padding: var(--padding-half) 0;
-  text-align: center;
-}
-
 .section {
+  /* background-color: var(--theme-color-secondary); */
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   padding-bottom: var(--padding);
   padding-left: var(--padding);
   padding-right: var(--padding);
+  padding-top: var(--scroll-margin);
 }
 
 .section-title {
@@ -60,7 +60,7 @@
   font-weight: 700;
   line-height: 1.6;
   margin: 0;
-  padding: 1.75rem 0 1rem 0;
+  padding: 0 0 1rem 0;
   text-align: center;
   width: 100%;
 }
@@ -78,18 +78,24 @@
   width: 0;
 }
 
-.footer {
-  padding-bottom: var(--scroll-margin);
-  padding-top: var(--scroll-margin);
+/* single column layout */
+@media screen and (max-width: 1199px) {
+  /* --theme-color-dark and --theme-color-light are used to set the html background-color */
+  :root {
+    --theme-color-dark: var(--oxford-blue);
+    --theme-color-light: var(--ultra-violet);
+  }
+  .section {
+    background-color: var(--theme-color-const);
+  }
+  .show-for-mobile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--padding-half);
+  }
 }
 
-.section {
-  background-color: var(--theme-color);
-  min-height: 100vh;
-  padding-top: var(--scroll-margin);
-}
-
-/* switch to split-screen layout */
+/* split-screen layout */
 @media screen and (min-width: 1200px) {
   :root {
     --scroll-margin: 6rem;
@@ -113,6 +119,14 @@
     width: 61.8%;
   }
 
+  .section {
+    background-color: var(--theme-color);
+  }
+
+  .section-title {
+    display: none;
+  }
+
   /* .section:not(.projects-section) {
     scroll-margin-top: 0;
   }
@@ -120,4 +134,8 @@
   .projects-section {
     scroll-margin-top: var(--scroll-margin);
   } */
+
+  .show-for-mobile {
+    display: none;
+  }
 }

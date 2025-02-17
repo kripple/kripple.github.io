@@ -14,7 +14,8 @@ const yearsOfExperience = currentYear - startYear;
 export const config = {
   photo,
   name: 'Kelly Ripple',
-  jobTitle: 'Frontend Engineer',
+  // jobTitle: 'Frontend Engineer',
+  jobTitle: 'Fullstack Engineer',
   yearsOfExperience,
   email: 'email@kellyripple.com',
   github: 'kripple',

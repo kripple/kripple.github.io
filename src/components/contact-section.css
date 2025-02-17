@@ -1,7 +1,4 @@
 .section.contact-section {
-  display: flex;
-  flex-direction: column;
-  grid-area: contact;
   justify-content: space-between;
   padding-bottom: 0;
 }

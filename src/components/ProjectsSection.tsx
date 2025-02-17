@@ -11,7 +11,7 @@ import '@/components/projects-section.css';
 export function ProjectsSection() {
   return (
     <section className="section projects-section" id={ids.projects}>
-      {/* <h3 className="section-title">Projects</h3> */}
+      <h3 className="section-title">Portfolio</h3>
       <ProjectFilters />
 
       <div className="projects-grid">
