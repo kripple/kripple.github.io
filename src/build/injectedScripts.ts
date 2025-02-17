@@ -137,11 +137,6 @@ function loadImages() {
 }
 
 function clickToNavigate() {
-  const checkbox = document.getElementById('menu-button');
-  if (!(checkbox instanceof HTMLInputElement)) {
-    console.info('missing menu button');
-    return;
-  }
   const clickToScroll = [...document.querySelectorAll('a.click-to-scroll')];
   clickToScroll.map((element) => {
     element.addEventListener('click', (event) => {
@@ -154,14 +149,37 @@ function clickToNavigate() {
     });
   });
 
-  const clickToCloseMenu = [
-    ...document.querySelectorAll('.click-to-close-menu'),
-  ];
-  clickToCloseMenu.map((element) => {
-    element.addEventListener('click', () => {
-      if (checkbox.checked) checkbox.click();
-    });
-  });
+  // const checkbox = document.getElementById('menu-button');
+  // if (!(checkbox instanceof HTMLInputElement)) {
+  //   console.info('missing menu button');
+  //   return;
+  // }
+  // const clickToCloseMenu = [
+  //   ...document.querySelectorAll('.click-to-close-menu'),
+  // ];
+  // clickToCloseMenu.map((element) => {
+  //   element.addEventListener('click', () => {
+  //     if (checkbox.checked) checkbox.click();
+  //   });
+  // });
+}
+
+function addLinkStyles() {
+  // const sections = [...document.querySelectorAll('section')];
+  // const sectionLinks = [...document.querySelectorAll('a.click-to-scroll')];
+  // sections.map((section) => {
+  //   console.log(section.id, {
+  //     offsetTop: section.offsetTop,
+  //   });
+  // });
+  // document.addEventListener(
+  //   'scroll',
+  //   () => {
+  //     const test = sections[0].getClientRects()[0];
+  //     console.log({ top: Math.abs(test.top) });
+  //   },
+  //   { passive: true },
+  // );
 }
 
 function allowCopyToClipboard() {
@@ -200,6 +218,7 @@ const injectIntoBody = [
   loadImages,
   clickToNavigate,
   allowCopyToClipboard,
+  addLinkStyles,
 ];
 export function injectScriptsBody(minify: typeof imported) {
   return injectIntoBody.map((script) => toString(script, minify));

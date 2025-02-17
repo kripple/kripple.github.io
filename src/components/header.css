@@ -1,11 +1,7 @@
+/* TODO */
 /* show header on scroll */
 /* ignore no js case, it will still be at the top of the page */
 /* make sure it's still at the top of the page for the no js case */
-
-:root {
-  --frame-size: 0.25rem;
-  --frame-offset: calc(var(--frame-size) * -1);
-}
 
 .header {
   display: flex;
@@ -23,6 +19,11 @@
 .nav {
   display: flex;
   flex-direction: column;
+}
+
+.nav-link {
+  text-decoration: none;
+  user-select: none;
 }
 
 .nav-link,
@@ -62,13 +63,6 @@ html.noscript .nav-indicator {
   /* width: 5rem; */
 }
 
-.icon-set {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 0;
-  width: 100%;
-}
-
 .header .icon.copy-icon {
   --copy-icon-size: 1rem;
   fill: currentColor;
@@ -83,12 +77,25 @@ html.noscript .nav-indicator {
   padding: calc(var(--icon-padding) + var(--icon-link-padding));
 }
 
-.header-image-container,
-.header-image-frame,
-.header-image-circle {
-  box-sizing: border-box;
-  display: none;
-  flex-shrink: 0;
+.header-icon-set {
+  /* --header-icon-size: 2.125rem;
+  --header-icon-size-inner: calc(var(--header-icon-size) * 0.7); */
+  display: flex;
+}
+.header-icon-set .icon.sun-icon,
+.header-icon-set .icon.moon-icon {
+  /* background-color: ; */
+
+  border-radius: 50%;
+  /* --icon-size-inner: calc(var(--icon-size) * 0.7);
+  --icon-alt-padding: calc((var(--icon-size) - var(--icon-size-inner)) / 2); */
+  /* padding: 0; */
+  /* height: var(--header-icon-size);
+  width: var(--header-icon-size); */
+}
+.circle {
+  border: 1px solid var(--text-color);
+  border-radius: inherit;
 }
 
 @media screen and (min-width: 1200px) {
@@ -96,6 +103,7 @@ html.noscript .nav-indicator {
     --heading-font-size-1: 3.875rem;
     --heading-font-size-2: calc(var(--heading-font-size-1) * 0.55);
     --heading-font-size-3: calc(var(--heading-font-size-1) * 0.3);
+    --heading-font-size-3: 1rem;
     --heading-gap: var(--heading-font-size-2);
   }
 
@@ -112,8 +120,8 @@ html.noscript .nav-indicator {
   .name {
     font-size: var(--heading-font-size-1);
     font-weight: 700;
-    margin-bottom: 0.875rem;
     margin-bottom: var(--heading-gap);
+    margin-top: 0.5rem;
   }
 
   .job-title {
@@ -121,10 +129,10 @@ html.noscript .nav-indicator {
     font-weight: 400;
   }
 
-  .header .paragraph {
+  /* .header .paragraph {
     margin-top: var(--heading-gap);
     opacity: 0.8;
-  }
+  } */
 
   .header-actions {
     display: flex;
@@ -137,54 +145,5 @@ html.noscript .nav-indicator {
   .theme-toggle {
     font-size: var(--heading-font-size-3);
     padding: var(--padding-half) var(--padding-half) var(--padding-half) 0;
-  }
-
-  .header-image-container {
-    align-items: center;
-    display: flex;
-    margin-bottom: var(--padding-x2);
-    margin-left: var(--frame-size);
-    width: 100%;
-  }
-  .header-image-frame {
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: flex;
-    position: relative;
-    transform-style: preserve-3d;
-    width: 38.2%;
-  }
-  .header-image-frame::before {
-    background: var(--gradient);
-    border-radius: inherit;
-    bottom: 0;
-    content: '';
-    filter: blur(0.5rem);
-    left: 0;
-    padding: 1px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateZ(-1px);
-  }
-  .header-image-frame::after {
-    border-radius: inherit;
-    bottom: 0;
-    box-shadow: inset 0 0 3px 1px var(--tag-text-color);
-    content: '';
-    left: 0;
-    padding: 3px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateZ(1px);
-  }
-
-  .header-image-circle {
-    background-color: var(--tag-text-color);
-    border-radius: inherit;
-    display: flex;
-    height: 100%;
-    width: 100%;
   }
 }

@@ -1,5 +1,9 @@
-.contact-section {
+.section.contact-section {
+  display: flex;
+  flex-direction: column;
   grid-area: contact;
+  justify-content: space-between;
+  padding-bottom: 0;
 }
 
 .contact-section .icon.copy-icon {
@@ -40,4 +44,18 @@ html.noscript .copy-instructions {
 /* TODO: */
 .copy-instructions {
   display: none !important;
+}
+
+.add-punctuation::after {
+  content: '.';
+}
+
+.email-text-link {
+  color: var(--text-color-emphasis);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 0.125rem;
+}
+.email-text-link:hover {
+  text-decoration: underline;
 }

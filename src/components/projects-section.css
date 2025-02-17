@@ -1,5 +1,5 @@
 .projects-section {
-  background-color: var(--projects-section-color);
+  /* background-color: var(--projects-section-color); */
   grid-area: projects;
 }
 
@@ -45,6 +45,15 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0.5rem var(--link-margin);
+}
+
+.project-title-link {
+  text-decoration: none;
+  text-underline-offset: 0.125rem;
+  user-select: none;
+}
+.project-title-link:hover {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 600px) {

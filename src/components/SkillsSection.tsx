@@ -6,8 +6,8 @@ import '@/components/skills-section.css';
 
 export function SkillsSection() {
   return (
-    <section className="section skills-section" id={ids.skills}>
-      <h3 className="section-title skills-section-title">Skills</h3>
+    <div className="skills-section" id={ids.skills}>
+      {/* <h3 className="section-title skills-section-title">Skills</h3> */}
       {skills.map(({ title, skills: list }) => (
         <div
           className={`skills-list-section skills-list-${title.toLowerCase()}`}
@@ -39,6 +39,6 @@ export function SkillsSection() {
           </ul>
         </div>
       ))}
-    </section>
+    </div>
   );
 }

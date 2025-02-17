@@ -4,7 +4,7 @@
 
   --padding-x2: calc(var(--padding) * 2);
   --padding-half: calc(var(--padding) / 2);
-  --padding-xl: 6rem;
+  --scroll-margin: 1.5rem;
 
   --icon-size: 2rem;
   --icon-padding: calc(var(--padding) / 3);
@@ -44,7 +44,7 @@
   font-size: var(--padding-half);
   font-weight: 300;
   grid-area: footer;
-  padding: var(--padding-half);
+  padding: var(--padding-half) 0;
   text-align: center;
 }
 
@@ -58,7 +58,7 @@
   padding-bottom: var(--padding);
   padding-left: var(--padding);
   padding-right: var(--padding);
-  scroll-margin-top: var(--header-height);
+  /* scroll-margin-top: var(--header-height); */
 }
 
 .section-title {
@@ -74,7 +74,7 @@
 .paragraph {
   font-size: 1.125rem;
   font-weight: 400;
-  line-height: 1.382;
+  line-height: 1.5;
   margin: 0 0 1rem 0;
 }
 
@@ -84,8 +84,22 @@
   width: 0;
 }
 
+.footer {
+  padding-bottom: var(--scroll-margin);
+  padding-top: var(--scroll-margin);
+}
+
+.section {
+  background-color: var(--theme-color);
+  min-height: 100vh;
+  padding-top: var(--scroll-margin);
+}
+
 /* switch to split-screen layout */
 @media screen and (min-width: 1200px) {
+  :root {
+    --scroll-margin: 6rem;
+  }
   .app {
     flex-direction: row;
     justify-content: center;
@@ -95,28 +109,21 @@
   .header {
     max-height: 100vh;
     max-width: 30rem;
-    padding: var(--padding-xl) var(--padding);
+    padding: var(--scroll-margin) var(--padding);
     position: sticky;
     top: 0;
     width: 38.2%;
   }
   .main {
     max-width: 125rem;
-    padding: var(--padding-xl) 0 0 0;
     width: 61.8%;
   }
-  .footer {
-    padding-bottom: var(--padding-xl);
-    padding-top: var(--padding-xl);
-  }
-  .section {
-    background-color: var(--theme-color);
-  }
-  .section:not(.projects-section) {
+
+  /* .section:not(.projects-section) {
     scroll-margin-top: 0;
   }
 
   .projects-section {
-    scroll-margin-top: var(--padding-xl);
-  }
+    scroll-margin-top: var(--scroll-margin);
+  } */
 }

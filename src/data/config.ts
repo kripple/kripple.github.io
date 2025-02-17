@@ -20,3 +20,29 @@ export const config = {
   github: 'kripple',
   linkedin: 'kellymripple',
 } as const;
+
+const github = `https://github.com/${config.github}` as const;
+const linkedin = `https://www.linkedin.com/in/${config.linkedin}` as const;
+export const socialLinks = {
+  github: {
+    key: 'github',
+    href: github,
+    label: `@${config.github}`,
+    title: 'GitHub',
+    value: github,
+  },
+  linkedin: {
+    key: 'linkedin',
+    href: linkedin,
+    label: `/in/${config.linkedin}`,
+    title: 'LinkedIn',
+    value: linkedin,
+  },
+  email: {
+    key: 'email',
+    href: `mailto:${config.email}`,
+    label: config.email,
+    title: 'Email',
+    value: config.email,
+  },
+} as const;

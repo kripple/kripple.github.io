@@ -27,8 +27,15 @@
   --test4: rgb(254, 254, 254);
   --test4: rgb(123, 123, 123);
   --test6: rgb(23, 9, 55);
+  --murrey: #a60067;
+  --black-bean: #360a14;
+  --iris: #6153cc;
+  --mikado-yellow: #ffc600;
+  --canary: #ffea0f;
+  --aureolin: #fcf300;
 }
 
+/* gradient colors */
 :root {
   --coquelicot: #ff4000;
   --scarlet: #ff2a00;
@@ -42,6 +49,7 @@
   --celestial-blue: #009dff;
   --electric-blue: #00eaff;
   --aquamarine: #00ffd5;
+  --celeste: #bbffff;
   --white: #ffffff;
 }
 
@@ -59,10 +67,6 @@
   --text-color: var(--platinum);
   --text-color-emphasis: #ffffff;
   --contrast-color: var(--eerie-black);
-
-  /* --theme-toggle-color: #229fea;
-  --theme-toggle-background-color: #0b2231;
-  --theme-toggle-background-color: #229fea99; */
 
   --opacity-dark: 1;
   --opacity-light: 0;
@@ -84,6 +88,10 @@
 
   --highlight-color: rgba(var(--tag-text-rgb), 0.9);
   --highlight-text-color: #000000;
+  /* --glow-color: var(--aureolin);
+  --glow-color: var(--mikado-yellow);
+  --glow-color: var(--canary); */
+  --glow-color: var(--coquelicot);
 
   --about-section-contrast-color: rgba(var(--tag-text-rgb), 0.3);
 
@@ -102,10 +110,6 @@ html[data-theme='light'],
   --text-color: var(--eerie-black);
   --text-color-emphasis: #000000;
   --contrast-color: var(--platinum);
-
-  /* --theme-toggle-color: #ffffff;
-  --theme-toggle-background-color: #f8e6a1;
-  --theme-toggle-background-color: #86671988; */
 
   --opacity-dark: 0;
   --opacity-light: 1;
@@ -127,6 +131,7 @@ html[data-theme='light'],
 
   --highlight-color: rgba(var(--tag-text-rgb), 0.8);
   --highlight-text-color: #ffffff;
+  --glow-color: #ffffff;
 
   --about-section-contrast-color: var(--platinum);
 

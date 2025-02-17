@@ -35,11 +35,8 @@ export const skills = [
           'React Router',
           'React Hooks',
           'React Context API',
+          'Material UI',
         ],
-      },
-      {
-        label: 'CSS Frameworks',
-        items: ['Bootstrap', 'Tailwind', 'Material UI'],
       },
     ],
   },
@@ -55,8 +52,8 @@ export const skills = [
         items: ['GitHub Actions'],
       },
       {
-        label: 'Cloud Service Providers',
-        items: ['AWS'],
+        label: 'Cloud Providers',
+        items: ['AWS', 'Cloudflare'],
       },
       {
         label: 'Build Tools',

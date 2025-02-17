@@ -1,23 +1,14 @@
-import photo from '@/assets/kelly-ripple-circle.png';
-import { SocialIcon } from '@/components/SocialIcon';
+import { Icon } from '@/components/Icon';
+import { SocialIcons } from '@/components/SocialIcons';
 import { config } from '@/data/config';
-import { sections } from '@/data/sections';
+import { ids, sections } from '@/data/sections';
 
 import '@/components/header.css';
 
-export function Header({ children }: { children: ReactNode }) {
+export function Header() {
   return (
     <header className="header">
       <div>
-        <div className="header-image-container">
-          <div className="header-image-frame">
-            <img
-              alt={config.name}
-              className="header-image-circle"
-              src={photo}
-            ></img>
-          </div>
-        </div>
         <h1 className="name">{config.name}</h1>
         <h2 className="job-title">{config.jobTitle}</h2>
         <div className="header-actions">
@@ -35,14 +26,32 @@ export function Header({ children }: { children: ReactNode }) {
               );
             })}
           </nav>
-          {children}
         </div>
       </div>
-
-      <div className="icon-set">
-        <SocialIcon icon="github" />
-        <SocialIcon icon="linkedin" />
-        <SocialIcon icon="email" />
+      <div className="header-icon-set">
+        <SocialIcons iconsOnly={true} />
+        <label
+          aria-label="theme toggle"
+          // className="theme-toggle"
+          htmlFor={ids.themeToggle}
+          // id="theme-toggle-label"
+          // TODO:
+          // onKeyDown={onKeyDown}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="icon sun-icon">
+            light
+            <div className="circle icon"></div>
+          </div>
+          <div className="icon moon-icon">
+            dark
+            <div className="circle icon"></div>
+          </div>
+          {/* <Icon icon="sun" />
+          <Icon icon="moon" /> */}
+        </label>
+        {/* <ThemeToggle /> */}
       </div>
     </header>
   );

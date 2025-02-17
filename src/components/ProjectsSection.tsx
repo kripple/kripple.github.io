@@ -42,7 +42,17 @@ export function ProjectsSection() {
               />
               <div className="project-contents">
                 <h4 aria-label="Project name" className="project-title">
-                  {title}
+                  <a
+                    aria-label={title}
+                    className="project-title-link"
+                    href={websiteUrl}
+                    rel="noreferrer"
+                    role="link"
+                    tabIndex={0}
+                    target="_blank"
+                  >
+                    {title}
+                  </a>
                 </h4>
                 <time
                   aria-label="Project date"

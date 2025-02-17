@@ -1,7 +1,6 @@
 import { AboutSection } from '@/components/AboutSection';
 import { ContactSection } from '@/components/ContactSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
-import { SkillsSection } from '@/components/SkillsSection';
 
 export const ids = {
   themeToggle: 'theme-toggle',
@@ -21,10 +20,6 @@ export const sections = {
   [ids.about]: {
     Component: AboutSection,
     id: ids.about,
-  },
-  [ids.skills]: {
-    Component: SkillsSection,
-    id: ids.skills,
   },
   [ids.contact]: {
     Component: ContactSection,

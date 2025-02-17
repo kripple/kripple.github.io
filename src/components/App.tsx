@@ -1,6 +1,5 @@
 import { Header } from '@/components/Header';
 import { Theme } from '@/components/Theme';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { config } from '@/data/config';
 import { sections } from '@/data/sections';
 
@@ -9,7 +8,6 @@ import '@/components/app.css';
 
 export function App() {
   const currentYear = new Date().getFullYear();
-
   return (
     <>
       {/* TODO */}
@@ -18,9 +16,7 @@ export function App() {
       </a> */}
       <Theme>
         <div className="app">
-          <Header>
-            <ThemeToggle />
-          </Header>
+          <Header />
           <main className="main">
             {Object.values(sections).map((section) => (
               <section.Component key={section.id} />

@@ -207,10 +207,10 @@ const projectItems = sorted.reduce((result, key) => {
 }, [] as ProjectItem[]);
 
 /* Log what was removed. */
-if (removed.size > 0)
-  console.info(
-    `%cRemoved Tags: ${[...removed.values()].join(', ')}.`,
-    'color: #f3bb1b',
-  );
+// if (removed.size > 0)
+//   console.info(
+//     `%cRemoved Tags: ${[...removed.values()].join(', ')}.`,
+//     'color: #f3bb1b',
+//   );
 
 export { projectItems as projects };

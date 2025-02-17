@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   grid-area: home;
-  padding-top: var(--header-height);
+  /* padding-top: var(--header-height); */
 }
 @media screen and (min-width: 600px) {
   .home-section {
@@ -31,12 +31,12 @@
   text-align: center;
 }
 
-.icon-set {
+/* .icon-set {
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
   width: 100%;
-}
+} */
 
 .home-section .icon.copy-icon {
   --copy-icon-size: 1rem;

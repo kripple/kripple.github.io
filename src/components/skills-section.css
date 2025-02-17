@@ -1,5 +1,5 @@
 .skills-section {
-  background-color: var(--skills-section-color);
+  /* background-color: var(--skills-section-color); */
   display: grid;
   grid-area: skills;
   grid-template-areas:
@@ -29,6 +29,7 @@
 
 .skills-section .section-subtitle {
   padding: 1rem calc(2px + 0.25rem) 0.75rem calc(2px + 0.25rem);
+  text-align: center;
 }
 
 .skills-list-section {
@@ -159,9 +160,6 @@
       'tools testing';
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, max-content);
-  }
-  .skills-section .section-subtitle {
-    text-align: center;
   }
 }
 

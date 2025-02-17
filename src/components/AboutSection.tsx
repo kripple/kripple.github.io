@@ -1,3 +1,7 @@
+import { Fragment } from 'react';
+
+import { Photo } from '@/components/Photo';
+import { SkillsSection } from '@/components/SkillsSection';
 import { config } from '@/data/config';
 import { ids } from '@/data/sections';
 
@@ -14,28 +18,32 @@ export function AboutSection() {
 
   return (
     <section className="section about-section" id={ids.about}>
-      <h3 className="section-title about-section-title">About</h3>
+      {/* <h3 className="section-title about-section-title">About</h3> */}
 
       <div className="about-section-content">
         <p className="paragraph">
-          {`I'm a fullstack software engineer with over ${config.yearsOfExperience} years of full-time experience. I specialize in frontend web development using React and TypeScript.`}
+          {`I'm a fullstack software engineer with over ${config.yearsOfExperience} years of full-time experience. I specialize in frontend web development using React and TypeScript. While looking for my next full-time role, I'm staying active by strengthening my skills through freelance and personal projects.`}
         </p>
 
         <p className="paragraph">
-          I am a Maryland native and am currently based in Northern Virginia. I
-          often spend my free time{' '}
+          I live and work in Northern Virginia and I often spend my free time{' '}
           {hobbies.map(([emoji, hobby], index) => (
-            <span className="hobby" key={index}>
-              <span className="emoji">{emoji}</span>&nbsp;{hobby}
-            </span>
+            <Fragment key={index}>
+              {index === 0
+                ? ''
+                : index === hobbies.length - 1
+                  ? ', and '
+                  : ', '}
+              <span className="emoji">{emoji}</span>&nbsp;{hobby.toLowerCase()}
+            </Fragment>
           ))}
           .
         </p>
 
-        <p className="paragraph">
-          {`I have had the privilege of working with many talented professionals over the course of my career. Past teammates have described me as a "highly effective and autonomous engineer." I’m currently spending my time on freelance and personal projects, but I’m actively seeking my next full-time role and am available to start immediately. If you know of any opportunities that might be a good fit, I’d love to hear from you! I can be reached by email at ${config.email}.`}
-        </p>
+        <Photo />
       </div>
+
+      <SkillsSection />
     </section>
   );
 }

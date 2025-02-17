@@ -1,0 +1,74 @@
+.icon-set {
+  display: flex;
+  /* gap: 1rem; */
+}
+
+.icon-set .list-item,
+.icon-set .icon-link {
+  display: flex;
+}
+
+.icon-set .icon {
+  /* height: 2.125rem; */
+  /* transition: filter 0.15s cubic-bezier(0.4, 0, 0.2, 1); */
+  /* width: 2.125rem; */
+}
+.icon-set .icon-link .icon {
+  /* filter: drop-shadow(0 0 3px var(--glow-color));
+  stroke: var(--glow-color);
+  stroke-width: 0.5px; */
+}
+
+.icon-set .icon-link {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.icon-set .icon-link::after {
+  --offset: 0.4375rem;
+  background-color: var(--glow-color);
+  border-radius: 50%;
+  bottom: var(--offset);
+  content: '';
+  filter: blur(1px);
+  left: var(--offset);
+  opacity: 0;
+  position: absolute;
+  right: var(--offset);
+  top: var(--offset);
+  transform: translateZ(-1px);
+  transition: opacity 0.3s ease;
+}
+.icon-set .icon-link:hover::after {
+  opacity: 1;
+}
+
+/* .social-icons {
+  align-items: center;
+  display: flex;
+}
+
+.social-icons .icon-link {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  gap: var(--icon-label-gap);
+  padding: var(--icon-link-padding);
+  text-decoration: none;
+}
+
+.social-icons .icon-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.social-icons .icon-label-title {
+  font-size: 1rem;
+}
+
+.social-icons .icon-label-details {
+  font-size: var(--padding-half);
+  font-weight: 300;
+  opacity: 0.75;
+} */
