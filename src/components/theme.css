@@ -171,6 +171,19 @@ html[data-theme='light'],
   text-rendering: optimizeLegibility;
 }
 
+/* menu is closed by default */
+:root {
+  --opacity-open: 1;
+  --opacity-closed: 0;
+  --collapsible-nav-height: 0;
+}
+/* menu is open */
+#menu-button:checked ~ .menu {
+  --opacity-open: 0;
+  --opacity-closed: 1;
+  --collapsible-nav-height: calc-size(auto, size);
+}
+
 a,
 svg {
   color: var(--text-color);

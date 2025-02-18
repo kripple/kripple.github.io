@@ -1,131 +1,67 @@
-:root {
-  --display-menu-button: flex;
-  --position-nav: absolute;
-  --menu-button-margin: 0.75rem;
-  --line-height-normal: 1.21875;
-  --header-height: calc(var(--padding-x2) + (var(--line-height-normal) * 1rem));
-  --menu-transition: 0.2s linear;
-}
-
 /* menu is closed by default */
-.menu-button::after {
-  content: 'menu';
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
 :root {
-  --collapsible-nav-height: 0;
-  --transform-icon: none;
+  --menu-transform: translateX(0);
 }
 /* menu is open */
 #menu-button:checked ~ .menu {
-  --collapsible-nav-height: calc-size(auto, size);
-  --transform-icon: scaleY(-1);
+  --menu-transform: translateX(3rem);
 }
 
 .menu-button {
   align-items: center;
-  border-radius: 0.125rem;
   box-sizing: border-box;
-  display: var(--display-menu-button);
-  flex-wrap: nowrap;
-  justify-content: center;
-  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  height: 3rem;
+  justify-content: flex-start;
+  min-width: 6rem;
+  padding: var(--icon-padding);
+  position: relative;
   transform-style: preserve-3d;
 }
+.menu-button::before,
+.menu-button::after {
+  align-items: center;
+  background-color: var(--backdrop-color);
+  border: 1px solid var(--tag-text-color);
+  border-radius: var(--icon-size);
+  bottom: 0;
+  content: 'Menu';
+  display: flex;
+  justify-content: center;
+  left: 0;
+  margin: calc(var(--icon-padding) / 2);
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateZ(-1px);
+}
+.menu-button::before {
+  opacity: var(--opacity-closed);
+  padding-right: var(--icon-size);
+}
+.menu-button::after {
+  opacity: var(--opacity-open);
+  padding-left: var(--icon-size);
+}
 
-@media screen and (max-width: 1099px) {
-  .menu-button .icon {
-    height: 0.675rem;
-    padding: 0 0.325rem 0 0;
-    stroke: var(--text-color);
-    stroke-width: 0.0625rem;
-    stroke-width: 0.03125rem;
-    width: 0.675rem;
-  }
+.menu-toggle {
+  aspect-ratio: 1;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  height: var(--icon-size);
+  transform: var(--menu-transform);
+  transition: transform 0.2s ease-in-out;
+  width: var(--icon-size);
+}
 
-  .menu-button .icon.down-icon {
-    display: flex;
-    transform: var(--transform-icon);
-    transition: transform var(--menu-transition);
-  }
-
-  .menu-button .icon {
-    display: none;
-  }
-
-  .menu-button:hover {
-    background-color: var(--text-color-overlay);
-  }
-
-  .menu-button::after {
-    font-family: monospace;
-    letter-spacing: 0.6px;
-  }
-
-  .menu-button {
-    cursor: pointer;
-    font-size: 1rem;
-    line-height: var(--line-height-normal);
-    position: relative;
-    text-transform: capitalize;
-    user-select: none;
-  }
-
-  .nav-link {
-    cursor: pointer;
-    font-size: 1rem;
-    line-height: var(--line-height-normal);
-    position: relative;
-    text-transform: capitalize;
-    user-select: none;
-  }
-
-  .app-title {
-    box-sizing: border-box;
-    cursor: pointer;
-    font-size: 1rem;
-    height: var(--header-height);
-    line-height: var(--line-height-normal);
-    padding: var(--padding);
-    position: relative;
-    text-transform: capitalize;
-    user-select: none;
-  }
-
-  .nav-link {
-    align-items: center;
-    box-sizing: border-box;
-    color: var(--text-color-emphasis);
-    display: flex;
-    flex-basis: 0;
-    flex-grow: 1;
-    height: calc(var(--padding-x2) + (var(--line-height-normal) * 1rem));
-    justify-content: center;
-    padding: var(--padding);
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .nav-container {
-    backdrop-filter: blur(10px);
-    background-color: var(--text-color-overlay);
-    display: flex;
-    height: var(--collapsible-nav-height);
-    overflow: hidden;
-    position: var(--position-nav);
-    transition: height var(--menu-transition);
-    width: 100%;
-    z-index: 10;
-  }
+.menu-button:hover .menu-toggle {
+  transform: var(--menu-transform) scale(1.15);
 }
 
 /* for larger screens, menu is visible and menu button is hidden */
 @media screen and (min-width: 1200px) {
-  :root {
-    --display-menu-button: none;
-    --position-nav: relative;
-    --collapsible-nav-height: calc-size(auto, size);
+  .menu-button {
+    display: none;
   }
 }
