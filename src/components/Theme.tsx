@@ -11,13 +11,13 @@ export function Theme({ children }: { children: ReactNode }) {
         id={ids.themeToggle}
         tabIndex={-1}
         type="checkbox"
-      />
+      ></input>
       <input
         aria-hidden={true}
         id={ids.menuToggle}
         tabIndex={-1}
         type="checkbox"
-      />
+      ></input>
       <div className="theme menu body">{children}</div>
     </>
   );
