@@ -73,12 +73,11 @@ function saveThemePreference() {
   setTheme(savedTheme === 'light' ? 'light' : 'dark');
 
   checkbox.addEventListener('change', (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLInputElement)) {
+    if (!(event.currentTarget instanceof HTMLInputElement)) {
       console.info('unexpected input');
       return;
     }
-    setTheme(target.checked ? 'light' : 'dark');
+    setTheme(event.currentTarget.checked ? 'light' : 'dark');
   });
 }
 
@@ -137,29 +136,21 @@ function loadImages() {
 }
 
 function clickToNavigate() {
-  const clickToScroll = [...document.querySelectorAll('a.click-to-scroll')];
-  clickToScroll.map((element) => {
-    element.addEventListener('click', (event) => {
-      if (!(event.target instanceof HTMLAnchorElement)) return;
-      const targetId = event.target.hash.replace('#', '');
-      const target = document.getElementById(targetId);
-      if (!target) return;
-      event.preventDefault();
-      target.scrollIntoView();
-    });
-  });
-
   const checkbox = document.getElementById('menu-toggle');
   if (!(checkbox instanceof HTMLInputElement)) {
     console.info('missing menu button');
     return;
   }
-  const clickToCloseMenu = [
-    ...document.querySelectorAll('.click-to-close-menu'),
-  ];
-  clickToCloseMenu.map((element) => {
-    element.addEventListener('click', () => {
-      if (checkbox.checked) checkbox.click();
+  const clickToScroll = [...document.querySelectorAll('a.click-to-scroll')];
+  clickToScroll.map((element) => {
+    element.addEventListener('click', (event) => {
+      if (!(event.currentTarget instanceof HTMLAnchorElement)) return;
+      const targetId = event.currentTarget.hash.replace('#', '');
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView();
+      if (checkbox.checked) checkbox.click(); /* close menu */
     });
   });
 }
