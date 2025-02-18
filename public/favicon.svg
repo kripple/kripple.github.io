@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.161 34.161"><path id="backdrop" d="M3.309 0h27.543a3.302 3.302 0 0 1 3.309 3.309v27.543a3.302 3.302 0 0 1-3.309 3.309H3.309A3.302 3.302 0 0 1 0 30.852V3.309A3.302 3.302 0 0 1 3.309 0z"/><path id="text" d="M10.553 6.899h3.186v11.029l5.883-6.128h4.044l-6.495 6.74 6.862 8.58h-4.165l-5.025-6.496-1.103.98v5.515h-3.186z"/><style>
+  #backdrop { fill: #ab92bf }
+  #text { fill: #222222 }
+  @media (prefers-color-scheme: dark) {
+    #backdrop { fill: #dddddd }
+    #text { fill: #2f1b25 }
+  }
+</style></svg>
