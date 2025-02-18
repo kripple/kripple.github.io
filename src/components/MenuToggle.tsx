@@ -8,7 +8,6 @@ export function MenuToggle() {
       aria-label="Menu toggle"
       className="menu-toggle"
       htmlFor={ids.menuToggle}
-      role="button"
       tabIndex={0}
     >
       <span className="menu-toggle-icon"></span>

@@ -22,7 +22,7 @@ export function ProjectImages({
   const fallback = images[screenSize].dark || images[screenSize].light;
   const {
     // color: backgroundColor,
-    // src,
+    src,
     compressedSrc,
   } = images[screenSize][theme] || fallback;
 
@@ -50,12 +50,16 @@ export function ProjectImages({
         src={src}
       ></img> */}
           <img
-            alt={`screenshot of project: ${projectKey}, screen size: ${screenSize}, theme: ${theme}, lower resolution`}
+            // alt={`screenshot of project: ${projectKey}, screen size: ${screenSize}, theme: ${theme}, lower resolution`}
+            alt={`screenshot of project: ${projectKey}`}
             aria-label="Project screenshot"
-            // className={`project-image ${screenSize} ${theme} ${projectKey} image hide-for-desktop`}
             className="project-image"
+            height={400}
             loading={loadingStrategy}
             src={compressedSrc}
+            srcSet={`${compressedSrc}, ${src} 2x`}
+            width={576}
+            // className={`project-image ${screenSize} ${theme} ${projectKey} image hide-for-desktop`}
           ></img>
         </div>
       </div>
