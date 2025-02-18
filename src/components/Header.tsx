@@ -9,7 +9,7 @@ import '@/components/header.css';
 export function Header() {
   return (
     <header className="header">
-      <div className="header-title-bar">
+      <div className="header-title">
         <a
           className="app-title click-to-close-menu click-to-scroll"
           href={`#${ids.home}`}
@@ -20,7 +20,7 @@ export function Header() {
         <MenuButton />
       </div>
 
-      <nav className="nav" role="navigation">
+      <nav className="header-nav" role="navigation">
         <div className="nav-container">
           {Object.values(sections).map((section) => {
             return (
@@ -37,7 +37,7 @@ export function Header() {
         </div>
       </nav>
 
-      <div className="header-icon-set">
+      <div className="header-icons">
         <SocialIcons iconsOnly={true} />
         <ThemeToggle />
       </div>
