@@ -15,7 +15,7 @@ export function Header() {
       </a>
       <MenuToggle />
 
-      <nav className="header-nav" role="navigation">
+      <nav className="header-nav">
         <div className="nav-container">
           {Object.values(sections).map((section) => {
             return (

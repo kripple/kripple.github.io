@@ -48,26 +48,16 @@ export function ProjectsSection() {
                     className="project-title-link"
                     href={websiteUrl}
                     rel="noreferrer"
-                    role="link"
                     tabIndex={0}
                     target="_blank"
                   >
                     {title}
                   </a>
                 </h4>
-                <time
-                  aria-label="Project date"
-                  className="project-date"
-                  dateTime={dateTime}
-                >
+                <time className="project-date" dateTime={dateTime}>
                   {dateString}
                 </time>
-                <p
-                  aria-label="Project description"
-                  className="project-description"
-                >
-                  {blurb}
-                </p>
+                <p className="project-description">{blurb}</p>
               </div>
 
               <div className="project-links">

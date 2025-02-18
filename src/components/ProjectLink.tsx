@@ -17,7 +17,6 @@ export function ProjectLink({
       className="project-link"
       href={url}
       rel="noreferrer"
-      role="link"
       tabIndex={0}
       target="_blank"
     >
