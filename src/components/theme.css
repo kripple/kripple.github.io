@@ -165,7 +165,6 @@ html[data-theme='light'],
   background-color: var(--theme-color);
   color: var(--text-color);
   font-family: 'Inter';
-  font-optical-sizing: auto;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
