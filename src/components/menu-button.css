@@ -24,15 +24,6 @@
   --transform-icon: scaleY(-1);
 }
 
-/* for larger screens, menu is visible and menu button is hidden */
-@media screen and (min-width: 600px) {
-  :root {
-    --display-menu-button: none;
-    --position-nav: relative;
-    --collapsible-nav-height: calc-size(auto, size);
-  }
-}
-
 .menu-button {
   align-items: center;
   border-radius: 0.125rem;
@@ -40,12 +31,11 @@
   display: var(--display-menu-button);
   flex-wrap: nowrap;
   justify-content: center;
-  margin-right: var(--padding);
   padding: 0.75rem 1rem;
   transform-style: preserve-3d;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1099px) {
   .menu-button .icon {
     height: 0.675rem;
     padding: 0 0.325rem 0 0;
@@ -74,8 +64,15 @@
     letter-spacing: 0.6px;
   }
 
-  .app-title,
-  .menu-button,
+  .menu-button {
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: var(--line-height-normal);
+    position: relative;
+    text-transform: capitalize;
+    user-select: none;
+  }
+
   .nav-link {
     cursor: pointer;
     font-size: 1rem;
@@ -87,8 +84,14 @@
 
   .app-title {
     box-sizing: border-box;
+    cursor: pointer;
+    font-size: 1rem;
     height: var(--header-height);
+    line-height: var(--line-height-normal);
     padding: var(--padding);
+    position: relative;
+    text-transform: capitalize;
+    user-select: none;
   }
 
   .nav-link {
@@ -105,17 +108,6 @@
     text-decoration: none;
   }
 
-  .nav {
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    height: var(--collapsible-nav-height);
-    justify-content: center;
-    min-height: var(--collapsible-nav-height);
-    overflow: visible;
-    position: relative;
-  }
-
   .nav-container {
     backdrop-filter: blur(10px);
     background-color: var(--text-color-overlay);
@@ -126,5 +118,14 @@
     transition: height var(--menu-transition);
     width: 100%;
     z-index: 10;
+  }
+}
+
+/* for larger screens, menu is visible and menu button is hidden */
+@media screen and (min-width: 1200px) {
+  :root {
+    --display-menu-button: none;
+    --position-nav: relative;
+    --collapsible-nav-height: calc-size(auto, size);
   }
 }
