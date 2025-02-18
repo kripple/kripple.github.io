@@ -1,10 +1,10 @@
 /* menu is closed by default */
 :root {
-  --menu-transform: translateX(0);
+  --menu-toggle-transform: translateX(0);
 }
 /* menu is open */
 #menu-toggle:checked ~ .menu {
-  --menu-transform: translateX(3rem);
+  --menu-toggle-transform: translateX(3rem);
 }
 
 .menu-toggle {
@@ -12,12 +12,13 @@
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
+  grid-area: menu-toggle;
   height: 3rem;
   justify-content: flex-start;
-  min-width: 6rem;
   padding: var(--icon-padding);
   position: relative;
   transform-style: preserve-3d;
+  width: 6rem;
 }
 .menu-toggle::before,
 .menu-toggle::after {
@@ -50,13 +51,21 @@
   background-color: var(--text-color);
   border-radius: 50%;
   height: var(--icon-size);
-  transform: var(--menu-transform);
+  transform: var(--menu-toggle-transform);
   transition: transform 0.2s ease-in-out;
   width: var(--icon-size);
 }
 
 .menu-toggle:hover .menu-toggle-icon {
-  transform: var(--menu-transform) scale(1.15);
+  transform: var(--menu-toggle-transform) scale(1.15);
+}
+
+@media screen and (max-width: 399px) {
+  .menu-toggle {
+    justify-self: end;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+  }
 }
 
 /* for larger screens, menu is visible and menu button is hidden */

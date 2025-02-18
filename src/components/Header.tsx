@@ -9,16 +9,14 @@ import '@/components/header.css';
 export function Header() {
   return (
     <header className="header">
-      <div className="header-title">
-        <a
-          className="app-title click-to-close-menu click-to-scroll"
-          href={`#${ids.home}`}
-        >
-          <h1 className="name">{config.name}</h1>
-          <h2 className="job-title">{config.jobTitle}</h2>
-        </a>
-        <MenuToggle />
-      </div>
+      <a
+        className="header-title click-to-close-menu click-to-scroll"
+        href={`#${ids.home}`}
+      >
+        <h1 className="name">{config.name}</h1>
+        <h2 className="job-title">{config.jobTitle}</h2>
+      </a>
+      <MenuToggle />
 
       <nav className="header-nav" role="navigation">
         <div className="nav-container">

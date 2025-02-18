@@ -83,6 +83,7 @@
 
   --opacity-dark: 1;
   --opacity-light: 0;
+  --theme-toggle-transform: translateX(3rem);
 
   --theme-color-secondary: var(--oxford-blue);
   --theme-color-tertiary: var(--chocolate-cosmos);
@@ -128,6 +129,7 @@ html[data-theme='light'],
 
   --opacity-dark: 0;
   --opacity-light: 1;
+  --theme-toggle-transform: translateX(0);
 
   --theme-color-secondary: var(--ultra-violet);
   --theme-color-tertiary: var(--powder-blue);

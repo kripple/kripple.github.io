@@ -1,8 +1,14 @@
 .theme-toggle {
+  align-items: center;
+  box-sizing: border-box;
   cursor: pointer;
   display: flex;
+  height: 3rem;
+  justify-content: flex-start;
+  padding: var(--icon-padding);
   position: relative;
   transform-style: preserve-3d;
+  width: 6rem;
 }
 .theme-toggle::before,
 .theme-toggle::after {
@@ -31,6 +37,16 @@
   padding-right: var(--icon-size);
 }
 
+.theme-toggle-icon {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  height: var(--icon-size);
+  position: relative;
+  transform: var(--theme-toggle-transform);
+  transition: transform 0.2s ease-in-out;
+  width: var(--icon-size);
+}
+
 .sun-icon {
   opacity: var(--opacity-light);
 }
@@ -39,8 +55,17 @@
 }
 
 .theme-toggle .icon {
+  padding: 0;
+  position: absolute;
   transition: transform 0.2s ease-in-out;
 }
 .theme-toggle:hover .icon {
   transform: scale(1.15);
+}
+
+@media screen and (max-width: 399px) {
+  .theme-toggle {
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+  }
 }

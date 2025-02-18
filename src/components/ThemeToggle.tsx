@@ -15,8 +15,10 @@ export function ThemeToggle() {
       role="button"
       tabIndex={0}
     >
-      <Icon icon="sun" />
-      <Icon icon="moon" />
+      <span className="theme-toggle-icon">
+        <Icon icon="sun" />
+        <Icon icon="moon" />
+      </span>
     </label>
   );
 }

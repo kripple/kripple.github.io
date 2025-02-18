@@ -82,7 +82,6 @@
     --theme-color-dark: var(--oxford-blue);
     --theme-color-light: var(--ultra-violet);
   }
-  .header,
   .section {
     background-color: var(--theme-color-const);
   }
