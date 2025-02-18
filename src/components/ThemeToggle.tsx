@@ -12,7 +12,6 @@ export function ThemeToggle() {
       // id="theme-toggle-label"
       // TODO:
       // onKeyDown={onKeyDown}
-      role="button"
       tabIndex={0}
     >
       <span className="theme-toggle-icon">
