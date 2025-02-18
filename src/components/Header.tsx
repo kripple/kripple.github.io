@@ -9,10 +9,7 @@ import '@/components/header.css';
 export function Header() {
   return (
     <header className="header">
-      <a
-        className="header-title click-to-close-menu click-to-scroll"
-        href={`#${ids.home}`}
-      >
+      <a className="header-title click-to-scroll" href={`#${ids.home}`}>
         <h1 className="name">{config.name}</h1>
         <h2 className="job-title">{config.jobTitle}</h2>
       </a>
@@ -23,7 +20,7 @@ export function Header() {
           {Object.values(sections).map((section) => {
             return (
               <a
-                className="nav-link click-to-close-menu click-to-scroll"
+                className="nav-link click-to-scroll"
                 href={`#${section.id}`}
                 key={section.id}
               >
