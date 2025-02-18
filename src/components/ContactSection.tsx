@@ -45,7 +45,6 @@ export function ContactSection() {
         <SocialIcon icon="email" />
       </div> */}
       </div>
-
     </section>
   );
 }
