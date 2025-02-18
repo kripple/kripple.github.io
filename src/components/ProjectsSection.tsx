@@ -40,6 +40,7 @@ export function ProjectsSection() {
                 loadingStrategy={loadingStrategy}
                 projectKey={key}
               />
+
               <div className="project-contents">
                 <h4 aria-label="Project name" className="project-title">
                   <a
@@ -68,6 +69,7 @@ export function ProjectsSection() {
                   {blurb}
                 </p>
               </div>
+
               <div className="project-links">
                 <ProjectLink
                   ariaLabel={`Link to project: ${title}`}
@@ -101,6 +103,7 @@ export function ProjectsSection() {
                   <Icon icon="github" />
                 </ProjectLink>
               </div>
+
               <ProjectTags tags={tags} />
             </div>
           );

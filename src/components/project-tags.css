@@ -19,7 +19,7 @@
   white-space: nowrap;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 399px) {
   .project-skill-tag .collapsible .collapse {
     display: none;
   }

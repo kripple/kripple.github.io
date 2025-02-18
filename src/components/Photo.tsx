@@ -4,6 +4,8 @@ import { config } from '@/data/config';
 
 import '@/components/photo.css';
 
+/* TODO: use `picture` and add png fallback */
+
 export function Photo() {
   return (
     <div className="photo-container">
@@ -12,6 +14,7 @@ export function Photo() {
           alt={config.name}
           className="photo"
           height={530}
+          loading="lazy"
           src={tinyPhoto}
           srcSet={`${tinyPhoto}, ${photo} 2x`}
           width={530}
