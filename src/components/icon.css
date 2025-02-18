@@ -1,0 +1,7 @@
+.icon {
+  fill: currentColor;
+  height: var(--icon-size);
+  overflow: visible;
+  padding: var(--icon-padding);
+  width: var(--icon-size);
+}

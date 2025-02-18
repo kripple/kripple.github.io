@@ -1,0 +1,57 @@
+.section.contact-section {
+  justify-content: space-between;
+  padding-bottom: 0;
+}
+
+.contact-section .icon.copy-icon {
+  display: none;
+}
+
+.contact-section .label,
+.contact-section .copy-button-label {
+  font-size: 1rem;
+}
+
+.contact-section .button-set {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-section .button-link,
+.contact-section .copy-to-clipboard-button {
+  align-items: center;
+  border: 1px solid var(--text-color);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  height: var(--padding-x2);
+  justify-content: center;
+  padding: 0 1.125rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+html.noscript .copy-instructions {
+  display: none;
+}
+
+/* TODO: */
+.copy-instructions {
+  display: none !important;
+}
+
+.add-punctuation::after {
+  content: '.';
+}
+
+.email-text-link {
+  color: var(--text-color-emphasis);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 0.125rem;
+}
+.email-text-link:hover {
+  text-decoration: underline;
+}

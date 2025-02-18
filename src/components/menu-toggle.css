@@ -1,0 +1,76 @@
+/* menu is closed by default */
+:root {
+  --menu-toggle-transform: translateX(0);
+}
+/* menu is open */
+#menu-toggle:checked ~ .menu {
+  --menu-toggle-transform: translateX(3rem);
+}
+
+.menu-toggle {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  grid-area: menu-toggle;
+  height: 3rem;
+  justify-content: flex-start;
+  padding: var(--icon-padding);
+  position: relative;
+  transform-style: preserve-3d;
+  width: 6rem;
+}
+.menu-toggle::before,
+.menu-toggle::after {
+  align-items: center;
+  background-color: var(--backdrop-color);
+  border: 1px solid var(--tag-text-color);
+  border-radius: var(--icon-size);
+  bottom: 0;
+  content: 'Menu';
+  display: flex;
+  justify-content: center;
+  left: 0;
+  margin: calc(var(--icon-padding) / 2);
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateZ(-1px);
+}
+.menu-toggle::before {
+  opacity: var(--opacity-closed);
+  padding-right: var(--icon-size);
+}
+.menu-toggle::after {
+  opacity: var(--opacity-open);
+  padding-left: var(--icon-size);
+}
+
+.menu-toggle-icon {
+  aspect-ratio: 1;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  height: var(--icon-size);
+  transform: var(--menu-toggle-transform);
+  transition: transform 0.2s ease-in-out;
+  width: var(--icon-size);
+}
+
+.menu-toggle:hover .menu-toggle-icon {
+  transform: var(--menu-toggle-transform) scale(1.15);
+}
+
+@media screen and (max-width: 399px) {
+  .menu-toggle {
+    justify-self: end;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+  }
+}
+
+/* for larger screens, menu is visible and menu button is hidden */
+@media screen and (min-width: 1200px) {
+  .menu-toggle {
+    display: none;
+  }
+}

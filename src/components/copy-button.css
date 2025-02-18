@@ -1,0 +1,28 @@
+.icon.copy-icon {
+  border-radius: 50%;
+  height: var(--icon-size-inner);
+  overflow: visible;
+  padding: var(--icon-alt-padding);
+  width: var(--icon-size-inner);
+}
+
+.copy-to-clipboard-button {
+  align-items: center;
+  display: flex;
+  gap: calc(var(--icon-label-gap) + var(--icon-alt-padding));
+  justify-content: flex-end;
+  padding: var(--icon-padding);
+}
+
+.copy-button-label {
+  color: inherit;
+}
+
+html.noscript .copy-to-clipboard-button {
+  display: none;
+}
+
+/* TODO: */
+.copy-to-clipboard-button {
+  display: none !important;
+}

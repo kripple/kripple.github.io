@@ -1,22 +1,29 @@
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { Projects } from '@/components/Projects';
 import { Theme } from '@/components/Theme';
-import { Title } from '@/components/Title';
+import { sections } from '@/data/sections';
 
+import '@/components/global.css';
 import '@/components/app.css';
 
 export function App() {
   return (
-    <Theme>
-      <div className="body">
-        <Header />
-        <main className="main">
-          <Title />
-          <Projects />
-        </main>
-        <Footer />
-      </div>
-    </Theme>
+    <>
+      {/* TODO */}
+      {/* <a className="skip-to-content" href="#content">
+        Skip to Content
+      </a> */}
+      <Theme>
+        <div className="app">
+          <Header />
+          <main className="main">
+            {Object.values(sections).map((section) => (
+              <section.Component key={section.id} />
+            ))}
+            <Footer />
+          </main>
+        </div>
+      </Theme>
+    </>
   );
 }

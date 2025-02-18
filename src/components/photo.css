@@ -1,0 +1,111 @@
+.photo-container {
+  --frame-size: 0.5rem;
+  --frame-offset: calc(var(--frame-size) * -1);
+}
+
+.photo-container {
+  align-items: center;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 5.5rem 0;
+  position: relative;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+.photo-container::before {
+  background-color: var(--backdrop-color);
+  border-radius: inherit;
+  bottom: -6rem;
+  content: '';
+  left: 0;
+  opacity: 0.2;
+  position: absolute;
+  right: 0;
+  top: 12rem;
+  transform: translateZ(-2px);
+}
+.photo-container::after {
+  align-items: center;
+  border-radius: inherit;
+  bottom: -6rem;
+  color: var(--text-color);
+  content: 'Skills';
+  display: flex;
+  font-size: 2rem;
+  font-weight: 500;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 12rem;
+}
+
+.photo-frame {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  height: 10rem;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.photo-frame::before {
+  background: var(--gradient);
+  border-radius: inherit;
+  bottom: var(--frame-offset);
+  content: '';
+  filter: blur(0.875rem);
+  filter: blur(0.5rem);
+  left: var(--frame-offset);
+  position: absolute;
+  right: var(--frame-offset);
+  top: var(--frame-offset);
+  transform: translateZ(-1px);
+}
+.photo-frame::after {
+  border-radius: inherit;
+  bottom: 0;
+  box-shadow: inset 0 0 3px 1px var(--folly);
+  content: '';
+  left: 0;
+  padding: 3px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateZ(1px);
+}
+
+.photo {
+  background-color: var(--tag-text-color);
+  border-radius: inherit;
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.photo-title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 600px) {
+  .photo-container {
+    justify-content: flex-start;
+    margin: 2rem 0 0.5rem 0;
+  }
+  .photo-container::before {
+    border-top-left-radius: 2.5rem;
+    bottom: 17%;
+    left: 5rem;
+    top: 17%;
+  }
+  .photo-container::after {
+    bottom: 0;
+    top: 0;
+  }
+}
