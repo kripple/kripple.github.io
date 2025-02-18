@@ -1,4 +1,4 @@
-import { MenuButton } from '@/components/MenuButton';
+import { MenuToggle } from '@/components/MenuToggle';
 import { SocialIcons } from '@/components/SocialIcons';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { config } from '@/data/config';
@@ -17,7 +17,7 @@ export function Header() {
           <h1 className="name">{config.name}</h1>
           <h2 className="job-title">{config.jobTitle}</h2>
         </a>
-        <MenuButton />
+        <MenuToggle />
       </div>
 
       <nav className="header-nav" role="navigation">

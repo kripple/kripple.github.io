@@ -3,11 +3,11 @@
   --menu-transform: translateX(0);
 }
 /* menu is open */
-#menu-button:checked ~ .menu {
+#menu-toggle:checked ~ .menu {
   --menu-transform: translateX(3rem);
 }
 
-.menu-button {
+.menu-toggle {
   align-items: center;
   box-sizing: border-box;
   cursor: pointer;
@@ -19,8 +19,8 @@
   position: relative;
   transform-style: preserve-3d;
 }
-.menu-button::before,
-.menu-button::after {
+.menu-toggle::before,
+.menu-toggle::after {
   align-items: center;
   background-color: var(--backdrop-color);
   border: 1px solid var(--tag-text-color);
@@ -36,16 +36,16 @@
   top: 0;
   transform: translateZ(-1px);
 }
-.menu-button::before {
+.menu-toggle::before {
   opacity: var(--opacity-closed);
   padding-right: var(--icon-size);
 }
-.menu-button::after {
+.menu-toggle::after {
   opacity: var(--opacity-open);
   padding-left: var(--icon-size);
 }
 
-.menu-toggle {
+.menu-toggle-icon {
   aspect-ratio: 1;
   background-color: var(--text-color);
   border-radius: 50%;
@@ -55,13 +55,13 @@
   width: var(--icon-size);
 }
 
-.menu-button:hover .menu-toggle {
+.menu-toggle:hover .menu-toggle-icon {
   transform: var(--menu-transform) scale(1.15);
 }
 
 /* for larger screens, menu is visible and menu button is hidden */
 @media screen and (min-width: 1200px) {
-  .menu-button {
+  .menu-toggle {
     display: none;
   }
 }

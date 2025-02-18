@@ -13,7 +13,7 @@ export function Theme({ children }: { children: ReactNode }) {
       />
       <input
         aria-hidden={true}
-        id={ids.menuButton}
+        id={ids.menuToggle}
         tabIndex={-1}
         type="checkbox"
       />

@@ -178,7 +178,7 @@ html[data-theme='light'],
   --collapsible-nav-height: 0;
 }
 /* menu is open */
-#menu-button:checked ~ .menu {
+#menu-toggle:checked ~ .menu {
   --opacity-open: 0;
   --opacity-closed: 1;
   --collapsible-nav-height: calc-size(auto, size);
@@ -191,7 +191,7 @@ svg {
 
 /* inputs are hidden, use the input labels instead */
 #theme-toggle,
-#menu-button {
+#menu-toggle {
   display: none;
 }
 

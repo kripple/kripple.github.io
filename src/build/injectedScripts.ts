@@ -149,7 +149,7 @@ function clickToNavigate() {
     });
   });
 
-  const checkbox = document.getElementById('menu-button');
+  const checkbox = document.getElementById('menu-toggle');
   if (!(checkbox instanceof HTMLInputElement)) {
     console.info('missing menu button');
     return;
