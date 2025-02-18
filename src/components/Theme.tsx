@@ -1,5 +1,6 @@
 import { ids } from '@/data/sections';
 
+import '@/assets/font.css';
 import '@/components/theme.css';
 
 export function Theme({ children }: { children: ReactNode }) {
