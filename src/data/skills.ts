@@ -1,22 +1,24 @@
+import { tags } from '@/data/tags';
+
 export const skills = [
   {
     title: 'Languages',
     skills: [
       {
         label: 'Client-Side Languages',
-        items: ['HTML', 'CSS', 'JavaScript', 'TypeScript'],
+        tags: [tags.HTML, tags.CSS, tags.JavaScript, tags.TypeScript],
       },
       {
         label: 'Server-Side Technologies',
-        items: ['Node.js', 'Ruby', 'Ruby on Rails'],
+        tags: [tags['Node.js'], tags.Ruby, tags['Ruby on Rails']],
       },
       {
         label: 'Command Line',
-        items: ['Shell Scripting'],
+        tags: [tags['Shell Scripting']],
       },
       {
         label: 'Databases',
-        items: ['SQL', 'NoSQL'],
+        tags: [tags.SQL, tags.NoSQL],
       },
     ],
   },
@@ -25,17 +27,17 @@ export const skills = [
     skills: [
       {
         label: 'JavaScript Frameworks',
-        items: ['React', 'Angular', 'Vue'],
+        tags: [tags.React, tags.Angular, tags.Vue],
       },
       {
         label: 'React Ecosystem',
-        items: [
-          'Redux',
-          'RTK Query',
-          'React Router',
-          'React Hooks',
-          'React Context API',
-          'Material UI',
+        tags: [
+          tags.Redux,
+          tags['RTK Query'],
+          tags['React Router'],
+          tags['React Hooks'],
+          tags['React Context API'],
+          tags['Material UI'],
         ],
       },
     ],
@@ -45,23 +47,23 @@ export const skills = [
     skills: [
       {
         label: 'Version Control',
-        items: ['Git', 'Github'],
+        tags: [tags.Git, tags.GitHub],
       },
       {
         label: 'CI/CD',
-        items: ['GitHub Actions'],
+        tags: [tags['GitHub Actions']],
       },
       {
         label: 'Cloud Providers',
-        items: ['AWS', 'Cloudflare'],
+        tags: [tags.AWS, tags.Cloudflare],
       },
       {
         label: 'Build Tools',
-        items: ['Vite', 'Rollup', 'NPM'],
+        tags: [tags.Vite, tags.Rollup, tags.NPM],
       },
       {
         label: 'Image Manipulation',
-        items: ['Sharp', 'Inkscape'],
+        tags: [tags.Sharp, tags.Inkscape, tags['D3.js']],
       },
     ],
   },
@@ -70,19 +72,19 @@ export const skills = [
     skills: [
       {
         label: 'Performance Optimization',
-        items: ['Lighthouse'],
+        tags: [tags.Lighthouse],
       },
       {
         label: 'Web Accessibility (a11y)',
-        items: ['WAVE'],
+        tags: [tags.WAVE],
       },
       {
         label: 'Unit & Integration Testing',
-        items: ['Jest', 'Vitest', 'React Testing Library'],
+        tags: [tags.Jest, tags.Vitest, tags['React Testing Library']],
       },
       {
         label: 'API Mocking',
-        items: ['Mock Service Worker (MSW)'],
+        tags: [tags['Mock Service Worker (MSW)']],
       },
     ],
   },

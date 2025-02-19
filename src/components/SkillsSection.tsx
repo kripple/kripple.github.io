@@ -15,7 +15,7 @@ export function SkillsSection() {
         >
           <h4 className="section-subtitle">{title}</h4>
           <ul className="skills-list">
-            {list.map(({ label, ...optional }) => {
+            {list.map(({ label, tags }) => {
               return (
                 <li className="skill-item-list" key={label}>
                   <span className="skill-label">
@@ -24,15 +24,11 @@ export function SkillsSection() {
                       <Icon icon="plus" />
                     </button> */}
                   </span>
-                  {'items' in optional ? (
-                    <>
-                      {optional.items.map((item) => (
-                        <span className="skill-item" key={item}>
-                          {item}
-                        </span>
-                      ))}
-                    </>
-                  ) : null}
+                  {tags.map((tag) => (
+                    <span className="skill-item" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
                 </li>
               );
             })}
