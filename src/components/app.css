@@ -45,11 +45,13 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   padding-bottom: var(--padding);
   padding-left: var(--padding);
   padding-right: var(--padding);
   padding-top: var(--scroll-margin);
+}
+.section:not(.contact-section) {
+  min-height: 100vh;
 }
 
 .section-title {
@@ -120,7 +122,7 @@
     background-color: var(--theme-color);
   }
 
-  .section-title {
+  .section-title:not(.contact-section-title) {
     display: none;
   }
 

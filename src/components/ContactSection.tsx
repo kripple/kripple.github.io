@@ -11,7 +11,7 @@ export function ContactSection() {
   return (
     <section className="section contact-section" id={ids.contact}>
       <div>
-        <h3 className="section-title">Contact</h3>
+        <h3 className="section-title contact-section-title">Contact</h3>
         <p className="paragraph add-punctuation">
           {`I’m actively seeking my next full-time role and am available to start immediately. If you know of any opportunities that might be a good fit, I’d love to hear from you! I can be reached by email at `}
           <a
