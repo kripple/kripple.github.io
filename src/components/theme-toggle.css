@@ -40,6 +40,7 @@
   right: 0;
   top: 0;
   transform: translateZ(-1px);
+  user-select: none;
 }
 .theme-toggle::before {
   content: 'Light';
