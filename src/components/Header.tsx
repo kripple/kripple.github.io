@@ -24,7 +24,7 @@ export function Header() {
                 href={`#${section.id}`}
                 key={section.id}
               >
-                <span className="nav-indicator"></span>
+                <span className="nav-link-indicator"></span>
                 {section.id}
               </a>
             );
