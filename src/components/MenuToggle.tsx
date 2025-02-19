@@ -7,6 +7,7 @@ export function MenuToggle() {
     <label
       aria-label="Menu toggle"
       className="menu-toggle"
+      data-testid="menu-toggle"
       htmlFor={ids.menuToggle}
       tabIndex={0}
     >
