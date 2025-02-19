@@ -97,6 +97,19 @@
   padding-left: 0.25rem;
 }
 
+.nav-container {
+  backdrop-filter: blur(10px);
+  background-color: var(--platinum-overlay);
+  display: flex;
+  flex-direction: column;
+  height: var(--collapsible-nav-height);
+  overflow: hidden;
+  position: var(--position-nav);
+  transition: height 0.2s linear;
+  width: 100%;
+  z-index: 10;
+}
+
 @media screen and (max-width: 299px) {
   .header-nav {
     flex-wrap: wrap;
@@ -140,6 +153,10 @@
 
   .name::after {
     content: none;
+  }
+
+  .nav-container {
+    flex-direction: row;
   }
 }
 @media screen and (min-width: 600px) {
@@ -230,6 +247,12 @@
   .name::after {
     content: none;
   }
+
+  .nav-container {
+    background-color: unset;
+    flex-direction: column;
+    height: unset;
+  }
 }
 
 /* ------------------------------------------------- */
@@ -274,19 +297,6 @@
     padding: var(--padding);
     text-align: center;
     text-decoration: none;
-  }
-
-  .nav-container {
-    backdrop-filter: blur(10px);
-    background-color: var(--platinum-overlay);
-    display: flex;
-    flex-direction: column;
-    height: var(--collapsible-nav-height);
-    overflow: hidden;
-    position: var(--position-nav);
-    transition: height 0.2s linear;
-    width: 100%;
-    z-index: 10;
   }
 }
 
@@ -333,19 +343,6 @@
     text-align: center;
     text-decoration: none;
   }
-
-  .nav-container {
-    backdrop-filter: blur(10px);
-    background-color: var(--platinum-overlay);
-    display: flex;
-    flex-direction: column;
-    height: var(--collapsible-nav-height);
-    overflow: hidden;
-    position: var(--position-nav);
-    transition: height 0.2s linear;
-    width: 100%;
-    z-index: 10;
-  }
 }
 
 /* ------------------------------------------------- */
@@ -389,18 +386,6 @@
     padding: var(--padding);
     text-align: center;
     text-decoration: none;
-  }
-
-  .nav-container {
-    backdrop-filter: blur(10px);
-    background-color: var(--platinum-overlay);
-    display: flex;
-    height: var(--collapsible-nav-height);
-    overflow: hidden;
-    position: var(--position-nav);
-    transition: height 0.2s linear;
-    width: 100%;
-    z-index: 10;
   }
 }
 
@@ -446,18 +431,6 @@
     padding: var(--padding);
     text-align: center;
     text-decoration: none;
-  }
-
-  .nav-container {
-    backdrop-filter: blur(10px);
-    background-color: var(--platinum-overlay);
-    display: flex;
-    height: var(--collapsible-nav-height);
-    overflow: hidden;
-    position: var(--position-nav);
-    transition: height 0.2s linear;
-    width: 100%;
-    z-index: 10;
   }
 }
 
