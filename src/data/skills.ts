@@ -80,7 +80,12 @@ export const skills = [
       },
       {
         label: 'Unit & Integration Testing',
-        tags: [tags.Jest, tags.Vitest, tags['React Testing Library']],
+        tags: [
+          tags.Jest,
+          tags.Vitest,
+          tags['React Testing Library'],
+          tags.Playwright,
+        ],
       },
       {
         label: 'API Mocking',

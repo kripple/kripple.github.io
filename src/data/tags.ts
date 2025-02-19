@@ -39,6 +39,7 @@ export const tagsList = [
   'NoSQL',
   'NPM',
   'Object-Oriented Programming (OOP)',
+  'Playwright',
   'React',
   'React Context API',
   'React Hooks',
