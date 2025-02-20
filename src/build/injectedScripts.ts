@@ -183,25 +183,6 @@ function addLinkStyles() {
     }
     return wrapper;
   }
-
-  const checkbox = document.getElementById('menu-toggle');
-  if (!(checkbox instanceof HTMLInputElement)) {
-    console.info('missing menu button');
-    return;
-  }
-  const clickToScroll = [...document.querySelectorAll('a.click-to-scroll')];
-  clickToScroll.map((element) => {
-    element.addEventListener('click', (event) => {
-      if (!(event.currentTarget instanceof HTMLAnchorElement)) return;
-      const targetId = event.currentTarget.hash.replace('#', '');
-      const target = document.getElementById(targetId);
-      if (!target) return;
-      event.preventDefault();
-      target.scrollIntoView();
-      if (checkbox.checked) checkbox.click(); /* close menu */
-    });
-  });
-
   const prefix = 'nav-link';
   const portfolioLink = document.getElementById(`${prefix}-portfolio`);
   const portfolioSection = document.getElementById('portfolio');
@@ -289,12 +270,30 @@ function showHeaderOnScroll() {
     }
     return wrapper;
   }
+  const header = document.getElementById('header');
+  if (!header) {
+    console.info('missing header');
+    return;
+  }
 
   let lastScrollTop = 0;
   const handler = throttle(() => {
+    const menuToggle = document.getElementById('menu-toggle-label');
+    if (
+      !(menuToggle instanceof HTMLLabelElement) ||
+      !menuToggle.checkVisibility()
+    ) {
+      return;
+    }
+
     const currentScrollTop = document.documentElement.scrollTop;
-    if (lastScrollTop - currentScrollTop > 50) {
-      console.log('show header');
+    const diff = lastScrollTop - currentScrollTop;
+    if (diff > 0) {
+      // scroll up
+      // if (diff > 50) header.classList.remove('hidden');
+    } else {
+      // scroll down
+      // if (diff < -50) header.classList.add('hidden');
     }
     lastScrollTop = currentScrollTop;
   });
