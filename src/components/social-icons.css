@@ -3,6 +3,10 @@
   /* gap: 1rem; */
 }
 
+.icon-link {
+  border-radius: 50%;
+}
+
 .icon-set .list-item,
 .icon-set .icon-link {
   display: flex;
