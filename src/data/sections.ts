@@ -16,14 +16,17 @@ export const sections = {
   [ids.projects]: {
     Component: ProjectsSection,
     id: ids.projects,
+    navId: `nav-link-${ids.projects}`,
   },
   [ids.about]: {
     Component: AboutSection,
     id: ids.about,
+    navId: `nav-link-${ids.about}`,
   },
   [ids.contact]: {
     Component: ContactSection,
     id: ids.contact,
+    navId: `nav-link-${ids.contact}`,
   },
 } as const;
 export type Section = keyof typeof sections;

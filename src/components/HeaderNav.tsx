@@ -11,6 +11,7 @@ export function HeaderNav() {
             <a
               className="nav-link click-to-scroll"
               href={`#${section.id}`}
+              id={section.navId}
               key={section.id}
               tabIndex={0}
             >

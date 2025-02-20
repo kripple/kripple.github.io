@@ -91,7 +91,7 @@
   }
 
   .nav-link:hover,
-  .nav-link:active {
+  .nav-link.active {
     font-weight: 600;
     opacity: 1;
     text-decoration: none;
@@ -108,7 +108,7 @@
   }
 
   .nav-link:hover .nav-link-indicator,
-  .nav-link:active .nav-link-indicator {
+  .nav-link.active .nav-link-indicator {
     width: calc(var(--nav-link-indicator-width) * 1.618);
   }
 }

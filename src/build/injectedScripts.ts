@@ -160,27 +160,146 @@ function clickToNavigate() {
   });
 }
 
-// TODO
 function addLinkStyles() {
-  // const sections = [...document.querySelectorAll('section')];
-  // const sectionLinks = [...document.querySelectorAll('a.click-to-scroll')];
-  // sections.map((section) => {
-  //   console.log(section.id, {
-  //     offsetTop: section.offsetTop,
-  //   });
-  // });
-  // document.addEventListener(
-  //   'scroll',
-  //   () => {
-  //     const test = sections[0].getClientRects()[0];
-  //     console.log({ top: Math.abs(test.top) });
-  //   },
-  //   { passive: true },
-  // );
+  function throttle(fn: () => void) {
+    const interval = 200;
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+    let throttled: (() => void) | null = null;
+    function wrapper() {
+      let callNow = !timeout;
+      throttled = function () {
+        return fn();
+      };
+      if (!timeout) {
+        timeout = setTimeout(() => {
+          timeout = null;
+          return throttled?.();
+        }, interval);
+      }
+      if (callNow) {
+        callNow = false;
+        return throttled?.();
+      }
+    }
+    return wrapper;
+  }
+
+  const checkbox = document.getElementById('menu-toggle');
+  if (!(checkbox instanceof HTMLInputElement)) {
+    console.info('missing menu button');
+    return;
+  }
+  const clickToScroll = [...document.querySelectorAll('a.click-to-scroll')];
+  clickToScroll.map((element) => {
+    element.addEventListener('click', (event) => {
+      if (!(event.currentTarget instanceof HTMLAnchorElement)) return;
+      const targetId = event.currentTarget.hash.replace('#', '');
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView();
+      if (checkbox.checked) checkbox.click(); /* close menu */
+    });
+  });
+
+  const prefix = 'nav-link';
+  const portfolioLink = document.getElementById(`${prefix}-portfolio`);
+  const portfolioSection = document.getElementById('portfolio');
+  const aboutLink = document.getElementById(`${prefix}-about`);
+  const aboutSection = document.getElementById('about');
+  const contactLink = document.getElementById(`${prefix}-contact`);
+  const contactSection = document.getElementById('contact');
+  if (
+    !portfolioSection ||
+    !aboutSection ||
+    !contactSection ||
+    !portfolioLink ||
+    !aboutLink ||
+    !contactLink
+  ) {
+    console.info('missing elements');
+    return;
+  }
+
+  function isVisible(element: HTMLElement) {
+    const box = element.getBoundingClientRect();
+    const height = document.documentElement.clientHeight;
+    return box.top >= 0 && box.bottom <= height;
+  }
+
+  function setLinksState() {
+    if (
+      !portfolioSection ||
+      !aboutSection ||
+      !contactSection ||
+      !portfolioLink ||
+      !aboutLink ||
+      !contactLink
+    ) {
+      console.info('missing elements');
+      return;
+    }
+    const style = getComputedStyle(document.documentElement);
+    const rem = parseFloat(
+      style.getPropertyValue('--scroll-margin').replace('rem', ''),
+    );
+    const fontSize = parseFloat(style.fontSize);
+    const scrollMargin = rem * fontSize;
+    const scrollTop = document.documentElement.scrollTop + scrollMargin;
+    function removeActiveClass(links: HTMLElement[]) {
+      links.map((link) => link.classList.remove('active'));
+    }
+    if (scrollTop >= contactSection.offsetTop || isVisible(contactSection)) {
+      contactLink.classList.add('active');
+      removeActiveClass([portfolioLink, aboutLink]);
+    } else if (scrollTop >= aboutSection.offsetTop) {
+      aboutLink.classList.add('active');
+      removeActiveClass([portfolioLink, contactLink]);
+    } else {
+      portfolioLink.classList.add('active');
+      removeActiveClass([aboutLink, contactLink]);
+    }
+  }
+  const handler = throttle(setLinksState);
+  document.addEventListener('scroll', handler, { passive: true });
+  setLinksState();
 }
 
 // TODO
-function showHeaderOnScroll() {}
+function showHeaderOnScroll() {
+  function throttle(fn: () => void) {
+    const interval = 200;
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+    let throttled: (() => void) | null = null;
+    function wrapper() {
+      let callNow = !timeout;
+      throttled = function () {
+        return fn();
+      };
+      if (!timeout) {
+        timeout = setTimeout(() => {
+          timeout = null;
+          return throttled?.();
+        }, interval);
+      }
+      if (callNow) {
+        callNow = false;
+        return throttled?.();
+      }
+    }
+    return wrapper;
+  }
+
+  let lastScrollTop = 0;
+  const handler = throttle(() => {
+    const currentScrollTop = document.documentElement.scrollTop;
+    if (lastScrollTop - currentScrollTop > 50) {
+      console.log('show header');
+    }
+    lastScrollTop = currentScrollTop;
+  });
+  document.addEventListener('scroll', handler, { passive: true });
+}
 
 function allowCopyToClipboard() {
   const buttons = [...document.querySelectorAll('.copy-to-clipboard-button')];
