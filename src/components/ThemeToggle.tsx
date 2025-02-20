@@ -9,9 +9,7 @@ export function ThemeToggle() {
       aria-label="theme toggle"
       className="theme-toggle"
       htmlFor={ids.themeToggle}
-      // id="theme-toggle-label"
-      // TODO:
-      // onKeyDown={onKeyDown}
+      id="theme-toggle-label"
       tabIndex={0}
     >
       <span className="theme-toggle-icon">

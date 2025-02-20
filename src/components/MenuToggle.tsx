@@ -9,6 +9,7 @@ export function MenuToggle() {
       className="menu-toggle"
       data-testid="menu-toggle"
       htmlFor={ids.menuToggle}
+      id="menu-toggle-label"
       tabIndex={0}
     >
       <span className="menu-toggle-label">Menu</span>
