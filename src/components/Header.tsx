@@ -9,7 +9,7 @@ import '@/components/header.css';
 
 export function Header() {
   return (
-    <header className="header">
+    <header className="header" id="header">
       <div className="header-title">
         <h1 className="name">
           <a
