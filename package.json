@@ -11,8 +11,7 @@
     "preview": "vite preview",
     "g": "tsx src/helpers/generate",
     "draw": "tsx src/helpers/draw",
-    "test": "playwright test",
-    "report": "playwright report"
+    "test": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "1.50.1",
