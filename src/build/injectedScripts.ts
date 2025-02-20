@@ -104,7 +104,6 @@ function toggleOnEnter() {
   addListeners('menu');
 }
 
-// TODO
 function allowEscape() {
   // allow user to cancel focus with the escape key
   const focusableElements = [...document.querySelectorAll(`[tabindex="0"]`)];
