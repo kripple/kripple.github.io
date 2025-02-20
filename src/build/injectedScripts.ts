@@ -82,44 +82,50 @@ function saveThemePreference() {
 }
 
 function toggleOnEnter() {
-  // const checkbox = document.getElementById('theme-toggle');
-  // if (!(checkbox instanceof HTMLInputElement)) {
-  //   console.info('missing theme toggle');
-  //   return;
-  // }
-  // // listen for keyboard events
-  // const label = document.getElementById('theme-toggle-label');
-  // if (!(label instanceof HTMLLabelElement)) {
-  //   console.info('missing theme toggle label');
-  //   return;
-  // }
-  // label.addEventListener('keydown', (event: KeyboardEvent) => {
-  //   if (event.code === 'Enter') {
-  //     checkbox.click();
-  //   }
-  // });
+  function addListeners(prefix: 'theme' | 'menu') {
+    const checkbox = document.getElementById(`${prefix}-toggle`);
+    if (!(checkbox instanceof HTMLInputElement)) {
+      console.info(`missing ${prefix} toggle`);
+      return;
+    }
+    // listen for keyboard events
+    const label = document.getElementById(`${prefix}-toggle-label`);
+    if (!(label instanceof HTMLLabelElement)) {
+      console.info(`missing ${prefix} toggle label`);
+      return;
+    }
+    label.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.code === 'Enter') {
+        checkbox.click();
+      }
+    });
+  }
+  addListeners('theme');
+  addListeners('menu');
 }
 
+// TODO
 function allowEscape() {
   // allow user to cancel focus with the escape key
-  // const focusableElements = [...document.querySelectorAll(`[tabindex="0"]`)];
-  // focusableElements.map((element) => {
-  //   element.addEventListener('keydown', (event) => {
-  //     if (!('code' in event)) return;
-  //     if (
-  //       !(
-  //         event.target instanceof HTMLAnchorElement ||
-  //         event.target instanceof HTMLLabelElement
-  //       )
-  //     )
-  //       return;
-  //     if (event.code === 'Escape') {
-  //       event.target.blur();
-  //     }
-  //   });
-  // });
+  const focusableElements = [...document.querySelectorAll(`[tabindex="0"]`)];
+  focusableElements.map((element) => {
+    element.addEventListener('keydown', (event) => {
+      if (
+        !('code' in event) ||
+        !(
+          event.currentTarget instanceof HTMLAnchorElement ||
+          event.currentTarget instanceof HTMLLabelElement
+        )
+      )
+        return;
+      if (event.code === 'Escape') {
+        event.currentTarget.blur();
+      }
+    });
+  });
 }
 
+// TODO
 function loadImages() {
   // const lazyImages = [
   //   ...document.querySelectorAll('img'),
@@ -155,6 +161,7 @@ function clickToNavigate() {
   });
 }
 
+// TODO
 function addLinkStyles() {
   // const sections = [...document.querySelectorAll('section')];
   // const sectionLinks = [...document.querySelectorAll('a.click-to-scroll')];
@@ -172,6 +179,9 @@ function addLinkStyles() {
   //   { passive: true },
   // );
 }
+
+// TODO
+function showHeaderOnScroll() {}
 
 function allowCopyToClipboard() {
   const buttons = [...document.querySelectorAll('.copy-to-clipboard-button')];
@@ -210,6 +220,7 @@ const injectIntoBody = [
   clickToNavigate,
   allowCopyToClipboard,
   addLinkStyles,
+  showHeaderOnScroll,
 ];
 export function injectScriptsBody(minify: typeof imported) {
   return injectIntoBody.map((script) => toString(script, minify));
