@@ -1,0 +1,114 @@
+.header-nav {
+  display: flex;
+  gap: 0.125rem;
+  grid-area: header-nav;
+  position: relative;
+  width: 100%;
+}
+
+.nav-container {
+  backdrop-filter: blur(10px);
+  background-color: var(--platinum-overlay);
+  display: flex;
+  flex-direction: column;
+  height: var(--collapsible-nav-height);
+  overflow: hidden;
+  position: var(--position-nav);
+  transition: height 0.2s linear;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-link {
+  align-items: center;
+  box-sizing: border-box;
+  color: var(--text-color-emphasis);
+  cursor: pointer;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  height: calc(var(--padding-x2) + (var(--line-height-normal) * 1rem));
+  justify-content: center;
+  letter-spacing: 0.05rem;
+  line-height: var(--line-height-normal);
+  padding: var(--padding);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  user-select: none;
+}
+.nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+@media screen and (max-width: 299px) {
+  .header-nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .nav-container {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .header-nav {
+    flex-wrap: nowrap;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header-nav {
+    flex-direction: column;
+    margin-top: var(--padding-x2);
+  }
+
+  .nav-container {
+    background-color: unset;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: unset;
+    margin-left: -0.25rem;
+    padding: 0.25rem;
+  }
+
+  .nav-link {
+    --pad: calc(var(--padding-half) - 0.25rem);
+    justify-content: flex-start;
+    letter-spacing: 0.1rem;
+    opacity: 0.7;
+    padding: var(--padding-half) var(--padding-half) var(--padding-half) 0;
+    padding: var(--pad) var(--pad) var(--pad) 0;
+    text-align: left;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  .nav-link:hover,
+  .nav-link:active {
+    font-weight: 600;
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .nav-link-indicator {
+    --nav-link-indicator-width: 2.5rem;
+    background-color: var(--text-color-emphasis);
+    height: 1px;
+    margin-right: 1rem;
+    opacity: inherit;
+    transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    width: var(--nav-link-indicator-width);
+  }
+
+  .nav-link:hover .nav-link-indicator,
+  .nav-link:active .nav-link-indicator {
+    width: calc(var(--nav-link-indicator-width) * 1.618);
+  }
+}
