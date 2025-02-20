@@ -19,6 +19,7 @@ export function ContactSection() {
             className="email-text-link"
             href={email.href}
             rel="noreferrer"
+            tabIndex={0}
             target="_blank"
           >
             {email.value}
@@ -32,7 +33,7 @@ export function ContactSection() {
         </p>
 
         <div className="button-set">
-          <a className="button-link" href={`mailto:${config.email}`}>
+          <a className="button-link" href={`mailto:${config.email}`} tabIndex={0}>
             <span className="label">Email</span>
           </a>
 

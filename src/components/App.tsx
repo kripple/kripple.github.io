@@ -10,7 +10,7 @@ export function App() {
   return (
     <>
       {/* TODO */}
-      {/* <a className="skip-to-content" href="#content">
+      {/* <a className="skip-to-content" href="#content" tabIndex={0}>
         Skip to Content
       </a> */}
       <Theme>

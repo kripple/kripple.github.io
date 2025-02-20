@@ -14,6 +14,7 @@ export function SocialIcons({ iconsOnly }: { iconsOnly?: boolean }) {
             className="icon-link"
             href={href}
             rel="noreferrer"
+            tabIndex={0}
             target="_blank"
           >
             <Icon icon={key} />

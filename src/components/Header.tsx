@@ -9,10 +9,19 @@ import '@/components/header.css';
 export function Header() {
   return (
     <header className="header">
-      <a className="header-title click-to-scroll" href={`#${ids.home}`}>
-        <h1 className="name">{config.name}</h1>
+      <div className="header-title">
+        <h1 className="name">
+          <a
+            className="header-title-link click-to-scroll"
+            href={`#${ids.home}`}
+            tabIndex={0}
+          >
+            {config.name}
+          </a>
+        </h1>
         <h2 className="job-title">{config.jobTitle}</h2>
-      </a>
+      </div>
+
       <MenuToggle />
 
       <nav className="header-nav">
@@ -23,6 +32,7 @@ export function Header() {
                 className="nav-link click-to-scroll"
                 href={`#${section.id}`}
                 key={section.id}
+                tabIndex={0}
               >
                 <span className="nav-link-indicator"></span>
                 {section.id}
