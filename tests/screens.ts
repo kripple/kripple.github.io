@@ -1,3 +1,51 @@
+export const standardScreens = [
+  {
+    category: 'mobile',
+    device: 'iPhone SE',
+    orientation: 'portrait',
+    width: 320,
+    height: 568,
+  },
+  {
+    category: 'mobile',
+    device: 'iPhone X/XS/11 Pro',
+    orientation: 'portrait',
+    width: 375,
+    height: 812,
+  },
+  {
+    category: 'tablet',
+    device: 'iPad Mini',
+    orientation: 'portrait',
+    width: 768,
+    height: 1024,
+  },
+  {
+    category: 'desktop',
+    orientation: 'landscape',
+    width: 1024,
+    height: 768,
+  },
+  {
+    category: 'desktop',
+    orientation: 'landscape',
+    width: 1440,
+    height: 900,
+  },
+  {
+    category: 'desktop',
+    orientation: 'landscape',
+    width: 1920,
+    height: 1080,
+  },
+  {
+    category: 'desktop',
+    orientation: 'landscape',
+    width: 2560,
+    height: 1440,
+  },
+] as const;
+
 export const menuIsHidden = [
   { width: 2560, height: 1440 },
   { width: 1920, height: 1080 },
