@@ -9,6 +9,7 @@
 .nav-container {
   backdrop-filter: blur(10px);
   background-color: var(--platinum-overlay);
+  /* background-color: var(--menu-background-color); */
   display: flex;
   flex-direction: column;
   height: var(--collapsible-nav-height);
@@ -23,7 +24,6 @@
 .nav-link {
   align-items: center;
   box-sizing: border-box;
-  color: var(--text-color-emphasis);
   cursor: pointer;
   display: flex;
   flex-basis: 0;
@@ -64,6 +64,20 @@
   }
 }
 
+/* @media screen and (max-width: 1199px) {
+  .nav-link {
+    color: var(--text-color-light);
+  }
+  .nav-link:hover {
+    background-color: var(--menu-background-color-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+  }
+  .nav-link.active {
+    background-color: var(--menu-background-color-active);
+  }
+} */
+
 @media screen and (min-width: 1200px) {
   .header-nav {
     flex-direction: column;
@@ -81,6 +95,7 @@
 
   .nav-link {
     --pad: calc(var(--padding-half) - 0.25rem);
+    color: var(--text-color-emphasis);
     justify-content: flex-start;
     letter-spacing: 0.1rem;
     opacity: 0.7;

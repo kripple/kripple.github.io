@@ -1,10 +1,11 @@
 :root {
   --eerie-black: #222222;
-  --eerie-black-overlay: #222222cc;
   --eerie-black-overlay: #22222233;
   --platinum: #dddddd;
-  --platinum-overlay: #ddddddcc;
   --platinum-overlay: #dddddd33;
+  /* --menu-background-color: #cccccc99;
+  --menu-background-color-hover: #dddddd99;
+  --menu-background-color-active: #eeeeeeee; */
 }
 :root {
   --oxford-blue: #04052e;
