@@ -5,6 +5,7 @@ export const standardScreens = [
     orientation: 'portrait',
     width: 320,
     height: 568,
+    menu: true
   },
   {
     category: 'mobile',
@@ -12,6 +13,7 @@ export const standardScreens = [
     orientation: 'portrait',
     width: 375,
     height: 812,
+    menu: true
   },
   {
     category: 'tablet',
@@ -19,37 +21,42 @@ export const standardScreens = [
     orientation: 'portrait',
     width: 768,
     height: 1024,
+    menu: true
   },
   {
     category: 'desktop',
     orientation: 'landscape',
     width: 1024,
     height: 768,
+    menu: true
   },
   {
     category: 'desktop',
     orientation: 'landscape',
     width: 1440,
     height: 900,
+    menu: false
   },
   {
     category: 'desktop',
     orientation: 'landscape',
     width: 1920,
     height: 1080,
+    menu: false
   },
   {
     category: 'desktop',
     orientation: 'landscape',
     width: 2560,
     height: 1440,
+    menu: false
   },
 ] as const;
 
 export const menuIsHidden = [
   { width: 2560, height: 1440 },
   { width: 1920, height: 1080 },
-  { width: 1440, height: 1000 }, // 1440x900
+  { width: 1440, height: 900 },
   { width: 1200, height: 720 },
 ] as const;
 export const menuIsVisible = [
