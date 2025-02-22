@@ -49,8 +49,7 @@ export const standardScreens = [
 export const menuIsHidden = [
   { width: 2560, height: 1440 },
   { width: 1920, height: 1080 },
-  { width: 1440, height: 1000 },
-  { width: 1280, height: 720 },
+  { width: 1440, height: 1000 }, // 1440x900
   { width: 1200, height: 720 },
 ] as const;
 export const menuIsVisible = [
