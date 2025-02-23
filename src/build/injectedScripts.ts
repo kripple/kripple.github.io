@@ -141,11 +141,39 @@ function loadImages() {
 }
 
 function clickToNavigate() {
+  function throttle(fn: () => void) {
+    const interval = 200;
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+    let throttled: (() => void) | null = null;
+    function wrapper() {
+      let callNow = !timeout;
+      throttled = function () {
+        return fn();
+      };
+      if (!timeout) {
+        timeout = setTimeout(() => {
+          timeout = null;
+          return throttled?.();
+        }, interval);
+      }
+      if (callNow) {
+        callNow = false;
+        return throttled?.();
+      }
+    }
+    return wrapper;
+  }
+  const header = document.getElementById('header');
+  if (!header) {
+    console.info('missing header');
+    return;
+  }
   const checkbox = document.getElementById('menu-toggle');
   if (!(checkbox instanceof HTMLInputElement)) {
     console.info('missing menu button');
     return;
   }
+
   const clickToScroll = [...document.querySelectorAll('a.click-to-scroll')];
   clickToScroll.map((element) => {
     element.addEventListener('click', (event) => {
@@ -154,10 +182,35 @@ function clickToNavigate() {
       const target = document.getElementById(targetId);
       if (!target) return;
       event.preventDefault();
+      // header.classList.add('nav-click');
       target.scrollIntoView();
       if (checkbox.checked) checkbox.click(); /* close menu */
     });
   });
+
+  let lastScrollTop = 0;
+  const handler = throttle(() => {
+    const menuToggle = document.getElementById('menu-toggle-label');
+    if (
+      !(menuToggle instanceof HTMLLabelElement) ||
+      !menuToggle.checkVisibility()
+    ) {
+      return;
+    }
+
+    const currentScrollTop = document.documentElement.scrollTop;
+    const diff = lastScrollTop - currentScrollTop;
+    if (diff > 0) {
+      // scroll up
+      // if (diff > 50) header.classList.remove('hidden');
+    } else {
+      // scroll down
+      // if (diff < -50) header.classList.add('hidden');
+    }
+    lastScrollTop = currentScrollTop;
+  });
+
+  document.addEventListener('scroll', handler, { passive: true });
 }
 
 function addLinkStyles() {
@@ -246,60 +299,6 @@ function addLinkStyles() {
   setLinksState();
 }
 
-// TODO
-function showHeaderOnScroll() {
-  function throttle(fn: () => void) {
-    const interval = 200;
-    let timeout: ReturnType<typeof setTimeout> | null = null;
-    let throttled: (() => void) | null = null;
-    function wrapper() {
-      let callNow = !timeout;
-      throttled = function () {
-        return fn();
-      };
-      if (!timeout) {
-        timeout = setTimeout(() => {
-          timeout = null;
-          return throttled?.();
-        }, interval);
-      }
-      if (callNow) {
-        callNow = false;
-        return throttled?.();
-      }
-    }
-    return wrapper;
-  }
-  const header = document.getElementById('header');
-  if (!header) {
-    console.info('missing header');
-    return;
-  }
-
-  let lastScrollTop = 0;
-  const handler = throttle(() => {
-    const menuToggle = document.getElementById('menu-toggle-label');
-    if (
-      !(menuToggle instanceof HTMLLabelElement) ||
-      !menuToggle.checkVisibility()
-    ) {
-      return;
-    }
-
-    const currentScrollTop = document.documentElement.scrollTop;
-    const diff = lastScrollTop - currentScrollTop;
-    if (diff > 0) {
-      // scroll up
-      // if (diff > 50) header.classList.remove('hidden');
-    } else {
-      // scroll down
-      // if (diff < -50) header.classList.add('hidden');
-    }
-    lastScrollTop = currentScrollTop;
-  });
-  document.addEventListener('scroll', handler, { passive: true });
-}
-
 function allowCopyToClipboard() {
   const buttons = [...document.querySelectorAll('.copy-to-clipboard-button')];
   function copyToClipboard(text: string) {
@@ -337,7 +336,6 @@ const injectIntoBody = [
   clickToNavigate,
   allowCopyToClipboard,
   addLinkStyles,
-  showHeaderOnScroll,
 ];
 export function injectScriptsBody(minify: typeof imported) {
   return injectIntoBody.map((script) => toString(script, minify));

@@ -3,9 +3,6 @@
   --eerie-black-overlay: #22222233;
   --platinum: #dddddd;
   --platinum-overlay: #dddddd33;
-  /* --menu-background-color: #cccccc99;
-  --menu-background-color-hover: #dddddd99;
-  --menu-background-color-active: #eeeeeeee; */
 }
 :root {
   --oxford-blue: #04052e;
@@ -117,6 +114,9 @@
     var(--violet) 50%,
     var(--palatinate-blue) 100%
   );
+
+  --menu-background-color: #111111aa;
+  --menu-background-color-hover: #111111ee;
 }
 
 /* light mode */
@@ -160,6 +160,9 @@ html[data-theme='light'],
     var(--electric-purple) 50%,
     var(--risd-blue) 100%
   );
+
+  --menu-background-color: #ccccccaa;
+  --menu-background-color-hover: #dddddddd;
 }
 
 .theme {
@@ -178,6 +181,9 @@ html[data-theme='light'],
   --opacity-open: 1;
   --opacity-closed: 0;
   --collapsible-nav-height: 0;
+  --nav-link-height: calc(
+    var(--padding-x2) + (var(--line-height-normal) * 1rem)
+  );
 }
 /* menu is open */
 #menu-toggle:checked ~ .menu {
