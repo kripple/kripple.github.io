@@ -17,7 +17,7 @@ export const config = {
   // jobTitle: 'Frontend Engineer',
   jobTitle: 'Fullstack Engineer',
   yearsOfExperience,
-  email: 'email@kellyripple.com',
+  email: 'hello@kellyripple.com',
   github: 'kripple',
   linkedin: 'kellymripple',
 } as const;
