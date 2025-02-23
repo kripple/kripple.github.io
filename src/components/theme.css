@@ -161,7 +161,7 @@ html[data-theme='light'],
     var(--risd-blue) 100%
   );
 
-  --menu-background-color: #ccccccaa;
+  --menu-background-color: #cccccc99;
   --menu-background-color-hover: #dddddddd;
 }
 

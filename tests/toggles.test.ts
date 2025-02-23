@@ -9,14 +9,17 @@ import { expect, test } from '@playwright/test';
  * baseline screenshots were generated.
  */
 
+const options = {
+  animations: 'disabled',
+  threshold: 0,
+} as const;
+
 test('menu toggle - off, theme toggle - on', async ({ page }) => {
   await page.goto('/');
   await page.setViewportSize({ width: 600, height: 600 });
 
   const toggle = page.getByTestId('menu-toggle');
-  await expect(toggle).toHaveScreenshot('menu-toggle-off-dark.png', {
-    animations: 'disabled',
-  });
+  await expect(toggle).toHaveScreenshot('menu-toggle-off-dark.png', options);
 });
 
 test('menu toggle - on, theme toggle - on', async ({ page }) => {
@@ -31,9 +34,7 @@ test('menu toggle - on, theme toggle - on', async ({ page }) => {
 
   await expect(page.getByTestId('menu-toggle')).toHaveScreenshot(
     'menu-toggle-on-dark.png',
-    {
-      animations: 'disabled',
-    },
+    options,
   );
 });
 
@@ -44,9 +45,7 @@ test('menu toggle - off, theme-toggle - off', async ({ page }) => {
   const toggle = page.getByTestId('menu-toggle');
   await page.getByTestId('theme-toggle').click();
 
-  await expect(toggle).toHaveScreenshot('menu-toggle-off-light.png', {
-    animations: 'disabled',
-  });
+  await expect(toggle).toHaveScreenshot('menu-toggle-off-light.png', options);
 });
 
 test('menu toggle - on, theme-toggle - off', async ({ page }) => {
@@ -61,9 +60,7 @@ test('menu toggle - on, theme-toggle - off', async ({ page }) => {
 
   await expect(page.getByTestId('menu-toggle')).toHaveScreenshot(
     'menu-toggle-on-light.png',
-    {
-      animations: 'disabled',
-    },
+    options,
   );
 });
 
@@ -72,9 +69,7 @@ test('theme toggle - on', async ({ page }) => {
   await page.setViewportSize({ width: 600, height: 600 });
 
   const toggle = page.getByTestId('theme-toggle');
-  await expect(toggle).toHaveScreenshot('theme-toggle-on.png', {
-    animations: 'disabled',
-  });
+  await expect(toggle).toHaveScreenshot('theme-toggle-on.png', options);
 });
 
 test('theme toggle - off', async ({ page }) => {
@@ -89,8 +84,6 @@ test('theme toggle - off', async ({ page }) => {
 
   await expect(page.getByTestId('theme-toggle')).toHaveScreenshot(
     'theme-toggle-off.png',
-    {
-      animations: 'disabled',
-    },
+    options,
   );
 });

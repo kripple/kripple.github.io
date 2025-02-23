@@ -11,6 +11,11 @@ import { breakpoints } from './screens';
  * baseline screenshots were generated.
  */
 
+const options = {
+  animations: 'disabled',
+  threshold: 0,
+} as const;
+
 function testBreakpoint(width: number, lightTheme?: boolean) {
   if (width >= 1200) return;
   const height = 1200 as const;
@@ -37,7 +42,7 @@ function testBreakpoint(width: number, lightTheme?: boolean) {
       (await page.locator('.nav-container').boundingBox())?.height || 0;
 
     await expect(page).toHaveScreenshot(`menu-${width}px-${theme}.png`, {
-      animations: 'disabled',
+      ...options,
       clip: { x: 0, y: header - 4, width, height: nav + 8 },
     });
   });
@@ -48,4 +53,24 @@ breakpoints.map((breakpoint) => {
   testBreakpoint(breakpoint - 1, true);
   testBreakpoint(breakpoint);
   testBreakpoint(breakpoint, true);
+});
+
+test('nav links [dark]', async ({ page }) => {
+  await page.goto('/');
+  await page.setViewportSize({ width: 1200, height: 1200 });
+  await expect(page.locator('.nav-container')).toHaveScreenshot(
+    'nav-links-dark.png',
+    options,
+  );
+});
+
+test('nav links [light]', async ({ page }) => {
+  await page.goto('/');
+  await page.setViewportSize({ width: 1200, height: 1200 });
+  await page.getByTestId('theme-toggle').click();
+  await page.mouse.move(0, 0);
+  await expect(page.locator('.nav-container')).toHaveScreenshot(
+    'nav-links-light.png',
+    options,
+  );
 });

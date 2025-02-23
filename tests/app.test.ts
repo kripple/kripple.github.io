@@ -13,7 +13,11 @@ test('has title', async ({ page }) => {
 // TODO: break into reasonable sections for screenshots
 screens.map((screen) => {
   const name = `app-${screen.width}px`;
-  const options = { animations: 'disabled', fullPage: true } as const;
+  const options = {
+    animations: 'disabled',
+    fullPage: true,
+    threshold: 0,
+  } as const;
 
   test.skip(`${name} [dark]`, async ({ page }) => {
     await page.goto('/');

@@ -79,6 +79,7 @@
 
   .nav-link {
     --pad: calc(var(--padding-half) - 0.25rem);
+    color: var(--text-color-emphasis);
     justify-content: flex-start;
     letter-spacing: 0.1rem;
     opacity: 0.7;
