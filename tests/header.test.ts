@@ -11,16 +11,23 @@ import { breakpoints } from './screens';
  * baseline screenshots were generated.
  */
 
-function testBreakpoint(width: number) {
+function testBreakpoint(width: number, lightTheme?: boolean) {
   const height = 900 as const;
   const options = { animations: 'disabled' } as const;
-  const file = `header-${width}x${height}.png`;
+  const theme = lightTheme === true ? 'light' : 'dark';
+  const file = `header-${width}x${height}-${theme}.png`;
 
   if (width < 1200) {
     // menu is visible
-    test(`menu button is clickable - ${width}x${height}`, async ({ page }) => {
+    test(`menu button is clickable - ${width}x${height} [${theme}]`, async ({
+      page,
+    }) => {
       await page.goto('/');
       await page.setViewportSize({ width, height });
+      if (lightTheme) {
+        await page.getByTestId('theme-toggle').click();
+        await page.mouse.move(0, 0);
+      }
 
       // menu is hidden by default for smaller screens
       const menu = page.getByTestId('menu');
@@ -30,15 +37,27 @@ function testBreakpoint(width: number) {
       await expect(menu).toBeVisible();
     });
 
-    test(`header matches screenshot - ${width}x${height}`, async ({ page }) => {
+    test(`header matches screenshot - ${width}x${height} [${theme}]`, async ({
+      page,
+    }) => {
       await page.goto('/');
       await page.setViewportSize({ width, height });
+      if (lightTheme) {
+        await page.getByTestId('theme-toggle').click();
+        await page.mouse.move(0, 0);
+      }
       await expect(page.locator('.header')).toHaveScreenshot(file, options);
     });
   } else {
-    test(`menu button is hidden - ${width}x${height}`, async ({ page }) => {
+    test(`menu button is hidden - ${width}x${height} [${theme}]`, async ({
+      page,
+    }) => {
       await page.goto('/');
       await page.setViewportSize({ width, height });
+      if (lightTheme) {
+        await page.getByTestId('theme-toggle').click();
+        await page.mouse.move(0, 0);
+      }
 
       // menu is visible by default for larger screen
       const menu = page.getByTestId('menu');
@@ -48,15 +67,22 @@ function testBreakpoint(width: number) {
       await expect(page.getByTestId('menu-toggle')).toBeHidden();
     });
 
-    test(`header matches screenshot - ${width}x${height}`, async ({ page }) => {
+    test(`header matches screenshot - ${width}x${height} [${theme}]`, async ({
+      page,
+    }) => {
       await page.goto('/');
       await page.setViewportSize({ width, height });
+      if (lightTheme) {
+        await page.getByTestId('theme-toggle').click();
+        await page.mouse.move(0, 0);
+      }
       await expect(page.locator('.header')).toHaveScreenshot(file, options);
     });
   }
 }
 breakpoints.map((breakpoint) => {
   testBreakpoint(breakpoint - 1);
+  testBreakpoint(breakpoint - 1, true);
   testBreakpoint(breakpoint);
+  testBreakpoint(breakpoint, true);
 });
-// and again for light theme
