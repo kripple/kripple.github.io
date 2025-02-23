@@ -8,6 +8,7 @@ export function ThemeToggle() {
     <label
       aria-label="theme toggle"
       className="theme-toggle"
+      data-testid="theme-toggle"
       htmlFor={ids.themeToggle}
       id="theme-toggle-label"
       tabIndex={0}
