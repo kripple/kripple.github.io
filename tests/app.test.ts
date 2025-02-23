@@ -7,5 +7,4 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/Kelly Ripple/);
 });
 
-// test has theme toggle
 // take full-page screenshots for all standard screens?
