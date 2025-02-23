@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-restricted-imports */
 import { expect, test } from '@playwright/test';
 
-import { standardScreens as screens } from './screens';
+import { screens } from './screens';
 
 const before = 'https://dylan-vigil-9tec.squarespace.com';
 const url = 'https://www.tntlaserworks.com';
