@@ -11,13 +11,19 @@ import { breakpoints } from './screens';
  * baseline screenshots were generated.
  */
 
-function testBreakpoint(width: number) {
+function testBreakpoint(width: number, lightTheme?: boolean) {
   if (width >= 1200) return;
   const height = 1200 as const;
+  const theme = lightTheme === true ? 'light' : 'dark';
 
-  test(`menu matches screenshot - ${width}px`, async ({ page }) => {
+  test(`menu matches screenshot - ${width}px [${theme}]`, async ({ page }) => {
     await page.goto('/');
     await page.setViewportSize({ width, height });
+
+    if (lightTheme) {
+      await page.getByTestId('theme-toggle').click();
+      await page.mouse.move(0, 0);
+    }
 
     // open the menu
     await page.getByTestId('menu-toggle').click();
@@ -30,7 +36,7 @@ function testBreakpoint(width: number) {
     const nav =
       (await page.locator('.nav-container').boundingBox())?.height || 0;
 
-    await expect(page).toHaveScreenshot(`menu-${width}px.png`, {
+    await expect(page).toHaveScreenshot(`menu-${width}px-${theme}.png`, {
       animations: 'disabled',
       clip: { x: 0, y: header - 4, width, height: nav + 8 },
     });
@@ -39,6 +45,7 @@ function testBreakpoint(width: number) {
 
 breakpoints.map((breakpoint) => {
   testBreakpoint(breakpoint - 1);
+  testBreakpoint(breakpoint - 1, true);
   testBreakpoint(breakpoint);
+  testBreakpoint(breakpoint, true);
 });
-// and again for light theme
