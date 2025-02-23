@@ -12,24 +12,31 @@ import { breakpoints } from './screens';
  */
 
 function testBreakpoint(width: number) {
-  const height = 900 as const;
-  const options = { animations: 'disabled' } as const;
+  if (width >= 1200) return;
+  const height = 1200 as const;
 
-  if (width < 1200) {
-    // menu is visible
-    test(`menu matches screenshot - ${width}x${height}`, async ({ page }) => {
-      await page.goto('/');
-      await page.setViewportSize({ width, height });
+  test(`menu matches screenshot - ${width}px`, async ({ page }) => {
+    await page.goto('/');
+    await page.setViewportSize({ width, height });
 
-      // open the menu
-      await page.getByTestId('menu-toggle').click();
-      await expect(page).toHaveScreenshot(
-        `menu-${width}x${height}.png`,
-        options,
-      );
+    // open the menu
+    await page.getByTestId('menu-toggle').click();
+
+    // wait for nav-container height transition
+    await page.waitForTimeout(500);
+
+    // measure menu size
+    const header = (await page.locator('.header').boundingBox())?.height || 0;
+    const nav =
+      (await page.locator('.nav-container').boundingBox())?.height || 0;
+
+    await expect(page).toHaveScreenshot(`menu-${width}px.png`, {
+      animations: 'disabled',
+      clip: { x: 0, y: header - 4, width, height: nav + 8 },
     });
-  }
+  });
 }
+
 breakpoints.map((breakpoint) => {
   testBreakpoint(breakpoint - 1);
   testBreakpoint(breakpoint);

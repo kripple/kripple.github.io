@@ -1,3 +1,5 @@
+export const breakpoints = [300, 400, 600, 1200] as const;
+
 export const screens = [
   {
     category: 'mobile',
@@ -68,6 +70,3 @@ export const screens = [
     menu: false,
   },
 ] as const;
-
-
-export const breakpoints = [300, 400, 600, 1200] as const;
