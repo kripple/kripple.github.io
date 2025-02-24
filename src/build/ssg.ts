@@ -192,25 +192,9 @@ export function viteSsg({
       );
       const rendered = renderToString({ style: newCode });
       styleHashes.push(rendered.sha256);
-      let htmlWithStyles = htmlWithScripts.replace(cssTarget, rendered.style);
+      const htmlWithStyles = htmlWithScripts.replace(cssTarget, rendered.style);
       // delete css source from bundle
       delete bundle[cssFileName];
-
-      // create style tags
-      const target =
-        /<style data-background-color="#([0-9a-f]{6})" data-selector="([a-z.-]+)"><\/style>/g;
-      const styles = [...(htmlWithStyles.match(target) || [])];
-      styles.map((style) => {
-        const parts = style.split(`"`);
-        const selector = parts[3];
-        const color = parts[1];
-        const rendered = renderToString({
-          style: `${selector}{background-color:${color}}`,
-          inline: true,
-        });
-        styleHashes.push(rendered.sha256);
-        htmlWithStyles = htmlWithStyles.replace(style, rendered.style);
-      });
 
       // inject csp
       const htmlWithCsp = htmlWithStyles.replace(

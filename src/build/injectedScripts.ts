@@ -124,20 +124,19 @@ function allowEscape() {
   });
 }
 
-// TODO
-function loadImages() {
-  // const lazyImages = [
-  //   ...document.querySelectorAll('img'),
-  // ] as HTMLImageElement[];
-  // lazyImages.map((image) => {
-  //   if (image.complete) {
-  //     image.style.opacity = '1';
-  //   } else {
-  //     image.onload = () => {
-  //       image.style.opacity = '1';
-  //     };
-  //   }
-  // });
+function loadProjectImages() {
+  const lazyImages = [
+    ...document.querySelectorAll('img.project-image'),
+  ] as HTMLImageElement[];
+  lazyImages.map((image) => {
+    if (image.complete) {
+      image.style.opacity = '1';
+    } else {
+      image.onload = () => {
+        image.style.opacity = '1';
+      };
+    }
+  });
 }
 
 function clickToNavigate() {
@@ -332,7 +331,7 @@ const injectIntoBody = [
   saveThemePreference,
   toggleOnEnter,
   allowEscape,
-  loadImages,
+  loadProjectImages,
   clickToNavigate,
   allowCopyToClipboard,
   addLinkStyles,

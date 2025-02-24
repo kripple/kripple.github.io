@@ -1,5 +1,5 @@
 type ScreenSize = 'desktop' | 'tablet' | 'mobile';
-type ImageData = { color: string; src: string; compressedSrc: string };
+type ImageData = { src: string; compressedSrc: string };
 
 export type ProjectUrls = {
   [key in ScreenSize]:
@@ -78,7 +78,6 @@ const cckb: ProjectUrls = {
   desktop: {
     dark: undefined,
     light: {
-      color: '#059c35',
       src: cckbDesktop,
       compressedSrc: cckbDesktopCompressed,
     },
@@ -86,7 +85,6 @@ const cckb: ProjectUrls = {
   mobile: {
     dark: undefined,
     light: {
-      color: '#449444',
       src: cckbMobile,
       compressedSrc: cckbMobileCompressed,
     },
@@ -94,7 +92,6 @@ const cckb: ProjectUrls = {
   tablet: {
     dark: undefined,
     light: {
-      color: '#449c45',
       src: cckbTablet,
       compressedSrc: cckbTabletCompressed,
     },
@@ -103,36 +100,30 @@ const cckb: ProjectUrls = {
 const guessTheWord: ProjectUrls = {
   desktop: {
     dark: {
-      color: '#3682b0',
       src: guessTheWordDesktopDark,
       compressedSrc: guessTheWordDesktopDarkCompressed,
     },
     light: {
-      color: '#ecb012',
       src: guessTheWordDesktopLight,
       compressedSrc: guessTheWordDesktopLightCompressed,
     },
   },
   mobile: {
     dark: {
-      color: '#568cb9',
       src: guessTheWordMobileDark,
       compressedSrc: guessTheWordMobileDarkCompressed,
     },
     light: {
-      color: '#ccbc90',
       src: guessTheWordMobileLight,
       compressedSrc: guessTheWordMobileLightCompressed,
     },
   },
   tablet: {
     dark: {
-      color: '#5082ae',
       src: guessTheWordTabletDark,
       compressedSrc: guessTheWordTabletDarkCompressed,
     },
     light: {
-      color: '#deba21',
       src: guessTheWordTabletLight,
       compressedSrc: guessTheWordTabletLightCompressed,
     },
@@ -141,7 +132,6 @@ const guessTheWord: ProjectUrls = {
 const mapSlicer: ProjectUrls = {
   desktop: {
     dark: {
-      color: '#b3bc59',
       src: mapSlicerDesktop,
       compressedSrc: mapSlicerDesktopCompressed,
     },
@@ -149,7 +139,6 @@ const mapSlicer: ProjectUrls = {
   },
   mobile: {
     dark: {
-      color: '#5188ad',
       src: mapSlicerMobile,
       compressedSrc: mapSlicerMobileCompressed,
     },
@@ -157,7 +146,6 @@ const mapSlicer: ProjectUrls = {
   },
   tablet: {
     dark: {
-      color: '#b4b864',
       src: mapSlicerTablet,
       compressedSrc: mapSlicerTabletCompressed,
     },
@@ -167,36 +155,30 @@ const mapSlicer: ProjectUrls = {
 const pokematch: ProjectUrls = {
   desktop: {
     dark: {
-      color: '#ac9b24',
       src: pokematchDesktopDark,
       compressedSrc: pokematchDesktopDarkCompressed,
     },
     light: {
-      color: '#fcdc04',
       src: pokematchDesktopLight,
       compressedSrc: pokematchDesktopLightCompressed,
     },
   },
   mobile: {
     dark: {
-      color: '#262d7c',
       src: pokematchMobileDark,
       compressedSrc: pokematchMobileDarkCompressed,
     },
     light: {
-      color: '#f9da4e',
       src: pokematchMobileLight,
       compressedSrc: pokematchMobileLightCompressed,
     },
   },
   tablet: {
     dark: {
-      color: '#e0c84c',
       src: pokematchTabletDark,
       compressedSrc: pokematchTabletDarkCompressed,
     },
     light: {
-      color: '#fcdc4c',
       src: pokematchTabletLight,
       compressedSrc: pokematchTabletLightCompressed,
     },
@@ -205,36 +187,30 @@ const pokematch: ProjectUrls = {
 const repos: ProjectUrls = {
   desktop: {
     dark: {
-      color: '#3a7dc4',
       src: reposDesktopDark,
       compressedSrc: reposDesktopDarkCompressed,
     },
     light: {
-      color: '#cc947c',
       src: reposDesktopLight,
       compressedSrc: reposDesktopLightCompressed,
     },
   },
   mobile: {
     dark: {
-      color: '#ac8052',
       src: reposMobileDark,
       compressedSrc: reposMobileDarkCompressed,
     },
     light: {
-      color: '#cc9c88',
       src: reposMobileLight,
       compressedSrc: reposMobileLightCompressed,
     },
   },
   tablet: {
     dark: {
-      color: '#cfa892',
       src: reposTabletDark,
       compressedSrc: reposTabletDarkCompressed,
     },
     light: {
-      color: '#36c8c8',
       src: reposTabletLight,
       compressedSrc: reposTabletLightCompressed,
     },
@@ -243,36 +219,30 @@ const repos: ProjectUrls = {
 const webColors: ProjectUrls = {
   desktop: {
     dark: {
-      color: '#efdf05',
       src: webColorsDesktopDark,
       compressedSrc: webColorsDesktopDarkCompressed,
     },
     light: {
-      color: '#f7e515',
       src: webColorsDesktopLight,
       compressedSrc: webColorsDesktopLightCompressed,
     },
   },
   mobile: {
     dark: {
-      color: '#dc398e',
       src: webColorsMobileDark,
       compressedSrc: webColorsMobileDarkCompressed,
     },
     light: {
-      color: '#ec3c94',
       src: webColorsMobileLight,
       compressedSrc: webColorsMobileLightCompressed,
     },
   },
   tablet: {
     dark: {
-      color: '#e94024',
       src: webColorsTabletDark,
       compressedSrc: webColorsTabletDarkCompressed,
     },
     light: {
-      color: '#eb462a',
       src: webColorsTabletLight,
       compressedSrc: webColorsTabletLightCompressed,
     },

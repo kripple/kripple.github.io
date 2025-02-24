@@ -1,3 +1,7 @@
+:root {
+  --project-image-transition: transform 0.3s ease-in-out;
+}
+
 .project-images {
   background-color: var(--theme-color);
   display: flex;
@@ -37,6 +41,12 @@ html:not(.noscript) .project-images-frame-absolute:hover .project-image {
   height: auto;
   position: relative;
   transform-origin: top center;
-  transition: transform 0.3s ease-in-out;
+  transition: var(--project-image-transition);
   width: 100%;
+}
+html:not(.noscript) .project-image {
+  opacity: 0;
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    var(--project-image-transition);
 }

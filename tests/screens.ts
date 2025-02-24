@@ -8,6 +8,7 @@ export const screens = [
     width: 320,
     height: 568,
     menu: true,
+    primary: false,
   },
   {
     category: 'mobile',
@@ -15,6 +16,7 @@ export const screens = [
     width: 360,
     height: 640,
     menu: true,
+    primary: true,
   },
   {
     category: 'mobile',
@@ -23,6 +25,7 @@ export const screens = [
     width: 375,
     height: 812,
     menu: true,
+    primary: false,
   },
   {
     category: 'tablet',
@@ -31,6 +34,7 @@ export const screens = [
     width: 768,
     height: 1024,
     menu: true,
+    primary: true,
   },
   {
     category: 'desktop',
@@ -38,6 +42,7 @@ export const screens = [
     width: 1024,
     height: 768,
     menu: true,
+    primary: false,
   },
   {
     category: 'desktop',
@@ -46,6 +51,7 @@ export const screens = [
     width: 1280,
     height: 720,
     menu: true,
+    primary: false,
   },
   {
     category: 'desktop',
@@ -53,6 +59,7 @@ export const screens = [
     width: 1440,
     height: 900,
     menu: false,
+    primary: true,
   },
   {
     category: 'desktop',
@@ -61,6 +68,7 @@ export const screens = [
     width: 1920,
     height: 1080,
     menu: false,
+    primary: false,
   },
   {
     category: 'desktop',
@@ -68,5 +76,6 @@ export const screens = [
     width: 2560,
     height: 1440,
     menu: false,
+    primary: false,
   },
 ] as const;

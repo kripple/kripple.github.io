@@ -1,5 +1,4 @@
-import type { ProjectKey, ProjectUrls } from '@/data/project-images';
-import { urls } from '@/data/project-images';
+import type { ProjectKey } from '@/data/project-images';
 import type { Tag } from '@/data/tags';
 import { tags } from '@/data/tags';
 
@@ -43,7 +42,6 @@ type Project = {
   websiteUrl: string;
   apiUrl?: string;
   apiSrcUrl?: string;
-  images: ProjectUrls;
 };
 
 const toSrc = (key: ProjectKey) => `https://github.com/kripple/${key}`;
@@ -53,7 +51,6 @@ const projects: { [key in ProjectKey]: Project } = {
   cckb: {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
-    images: urls['cckb'],
     blurb:
       'Converted a WordPress site into a static single-page app for use with free hosting providers.',
     githubUrl:
@@ -72,7 +69,6 @@ const projects: { [key in ProjectKey]: Project } = {
   'guess-the-word': {
     title: 'Mysticabulary',
     date: [Month.February, 2025],
-    images: urls['guess-the-word'],
     blurb: 'A word guessing game.',
     githubUrl: toSrc('guess-the-word'),
     websiteUrl: toHref('guess-the-word'),
@@ -89,7 +85,6 @@ const projects: { [key in ProjectKey]: Project } = {
   'map-slicer': {
     title: 'Map Slicer',
     date: [Month.September, 2024],
-    images: urls['map-slicer'],
     blurb:
       'Map Slicer allows you to print images that are too large to fit on a single page.',
     description:
@@ -110,7 +105,6 @@ const projects: { [key in ProjectKey]: Project } = {
   pokematch: {
     title: 'Pokématch',
     date: [Month.January, 2025],
-    images: urls['pokematch'],
     blurb: 'A Pokémon themed memory game.',
     githubUrl: toSrc('pokematch'),
     websiteUrl: toHref('pokematch'),
@@ -125,7 +119,6 @@ const projects: { [key in ProjectKey]: Project } = {
   repos: {
     title: 'Repo Gallery',
     date: [Month.January, 2025],
-    images: urls['repos'],
     blurb:
       'A gallery page that dynamically displays all publicly accessible GitHub repositories belonging to a specific user (kripple).',
     githubUrl: toSrc('repos'),
@@ -147,7 +140,6 @@ const projects: { [key in ProjectKey]: Project } = {
   'web-colors': {
     title: 'Web Colors',
     date: [Month.November, 2024],
-    images: urls['web-colors'],
     blurb:
       'Web Colors showcases all available CSS color names along with their HEX and RGB values.',
     description:

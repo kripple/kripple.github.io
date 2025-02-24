@@ -26,7 +26,6 @@ export function ProjectsSection() {
             apiSrcUrl,
             tags,
             key,
-            images,
           } = project;
           const loadingStrategy = index === 0 || index === 1 ? 'eager' : 'lazy';
 
@@ -36,7 +35,6 @@ export function ProjectsSection() {
           return (
             <div className="project" key={key}>
               <ProjectImages
-                images={images}
                 loadingStrategy={loadingStrategy}
                 projectKey={key}
               />
