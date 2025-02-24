@@ -13,7 +13,7 @@ import { breakpoints } from './screens';
 
 const options = {
   animations: 'disabled',
-  threshold: 0.05, 
+  threshold: 0.05,
 } as const;
 
 function testBreakpoint(width: number, lightTheme?: boolean) {
