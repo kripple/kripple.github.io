@@ -50,9 +50,6 @@
   padding-right: var(--padding);
   padding-top: var(--scroll-margin);
 }
-.section:not(.contact-section) {
-  min-height: 100vh;
-}
 
 .section-title {
   font-size: 2rem;

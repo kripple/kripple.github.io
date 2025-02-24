@@ -52,7 +52,7 @@ const projects: { [key in ProjectKey]: Project } = {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
     blurb:
-      'Converted a WordPress site into a static single-page app for use with free hosting providers.',
+      'Rebuilt and deployed cckb.net as a static site, eliminating annual hosting costs.',
     githubUrl:
       'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
     websiteUrl: 'https://cckb.net',
@@ -62,8 +62,7 @@ const projects: { [key in ProjectKey]: Project } = {
       tags.React,
       tags.TypeScript,
       tags['React Router'],
-      tags['Static Site Generation (SSG)'],
-      tags['Cloudflare Pages'],
+      tags['Cloudflare'],
     ],
   },
   'guess-the-word': {
@@ -78,8 +77,6 @@ const projects: { [key in ProjectKey]: Project } = {
       tags.React,
       tags.TypeScript,
       tags['Dictionary API'],
-      tags['Game Development'],
-      tags['React Hooks'],
     ],
   },
   'map-slicer': {
@@ -95,9 +92,7 @@ const projects: { [key in ProjectKey]: Project } = {
       tags.CSS,
       tags.React,
       tags.TypeScript,
-      tags['React Hooks'],
       tags['React Context API'],
-      tags['Web Workers'],
       tags['HTML Canvas'],
       tags['Material UI'],
     ],
@@ -113,13 +108,14 @@ const projects: { [key in ProjectKey]: Project } = {
       tags.CSS,
       tags.JavaScript,
       tags['Object-Oriented Programming (OOP)'],
-      tags['Game Development'],
     ],
   },
   repos: {
     title: 'Repo Gallery',
     date: [Month.January, 2025],
     blurb:
+      'A GitHub repository gallery that lists, sorts, and filters public repos.',
+    description:
       'A gallery page that dynamically displays all publicly accessible GitHub repositories belonging to a specific user (kripple).',
     githubUrl: toSrc('repos'),
     websiteUrl: toHref('repos'),
@@ -131,9 +127,8 @@ const projects: { [key in ProjectKey]: Project } = {
       tags.React,
       tags.TypeScript,
       tags['RTK Query'],
-      tags['React Hooks'],
       tags['Node.js'],
-      tags['Cloudflare Workers'],
+      tags['Cloudflare'],
       tags['GitHub API'],
     ],
   },
@@ -141,7 +136,7 @@ const projects: { [key in ProjectKey]: Project } = {
     title: 'Web Colors',
     date: [Month.November, 2024],
     blurb:
-      'Web Colors showcases all available CSS color names along with their HEX and RGB values.',
+      'Web Colors lists all CSS color names along with their HEX and RGB values.',
     description:
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
     websiteUrl: toHref('web-colors'),
@@ -151,7 +146,6 @@ const projects: { [key in ProjectKey]: Project } = {
       tags.React,
       tags.TypeScript,
       tags['Material UI'],
-      tags['Responsive Design'],
     ],
   },
 } as const;
