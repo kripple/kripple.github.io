@@ -3,14 +3,12 @@
 }
 
 .project-images {
-  background-color: var(--theme-color);
   display: flex;
   min-height: 8.25rem;
   position: relative;
 }
 
 .project-images-frame-absolute {
-  background-color: inherit;
   bottom: var(--padding-half);
   display: flex;
   left: 0;
@@ -22,7 +20,6 @@
 }
 
 .project-images-frame-relative {
-  background-color: inherit;
   position: relative;
   width: 100%;
 }
@@ -36,17 +33,23 @@ html:not(.noscript) .project-images-frame-absolute:hover .project-image {
 } */
 
 .project-image {
-  background-color: inherit;
+  background-color: var(--theme-color-const);
   border-radius: inherit;
   height: auto;
-  position: relative;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
   transform-origin: top center;
   transition: var(--project-image-transition);
   width: 100%;
 }
 html:not(.noscript) .project-image {
-  opacity: 0;
+  opacity: 1;
   transition:
     opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     var(--project-image-transition);
+}
+html:not(.noscript) .project-image.hide {
+  opacity: 0;
 }

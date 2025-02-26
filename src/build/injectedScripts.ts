@@ -130,10 +130,10 @@ function loadProjectImages() {
   ] as HTMLImageElement[];
   lazyImages.map((image) => {
     if (image.complete) {
-      image.style.opacity = '1';
+      image.classList.remove('hide');
     } else {
       image.onload = () => {
-        image.style.opacity = '1';
+        image.classList.remove('hide');
       };
     }
   });
