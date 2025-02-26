@@ -48,9 +48,11 @@ html.noscript .copy-instructions {
 .email-text-link {
   color: var(--text-color-emphasis);
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
   text-underline-offset: 0.125rem;
+  transition: text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .email-text-link:hover {
-  text-decoration: underline;
+  text-decoration-color: inherit;
 }
