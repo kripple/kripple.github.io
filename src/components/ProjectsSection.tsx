@@ -34,23 +34,22 @@ export function ProjectsSection() {
 
           return (
             <div className="project" key={key}>
-              <ProjectImages
-                loadingStrategy={loadingStrategy}
-                projectKey={key}
-              />
+              <a
+                aria-label={title}
+                href={websiteUrl}
+                rel="noreferrer"
+                tabIndex={0}
+                target="_blank"
+              >
+                <ProjectImages
+                  loadingStrategy={loadingStrategy}
+                  projectKey={key}
+                />
+              </a>
 
               <div className="project-contents">
                 <h4 aria-label="Project name" className="project-title">
-                  <a
-                    aria-label={title}
-                    className="project-title-link"
-                    href={websiteUrl}
-                    rel="noreferrer"
-                    tabIndex={0}
-                    target="_blank"
-                  >
-                    {title}
-                  </a>
+                  {title}
                 </h4>
                 <time className="project-date" dateTime={dateTime}>
                   {dateString}
@@ -59,14 +58,6 @@ export function ProjectsSection() {
               </div>
 
               <div className="project-links">
-                <ProjectLink
-                  ariaLabel={`Link to project: ${title}`}
-                  label="App"
-                  url={websiteUrl}
-                >
-                  <Icon icon="internet" />
-                </ProjectLink>
-
                 <ProjectLink
                   ariaLabel={`Link to source code: ${title}`}
                   label="Source"

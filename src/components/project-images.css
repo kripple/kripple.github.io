@@ -24,13 +24,12 @@
   width: 100%;
 }
 
-/* TODO: */
-/* html:not(.noscript) .project-images-frame-absolute {
+.project-images {
   cursor: pointer;
 }
-html:not(.noscript) .project-images-frame-absolute:hover .project-image {
+.project-images:hover .project-image {
   transform: scale(1.1);
-} */
+}
 
 .project-image {
   background-color: var(--theme-color-const);
