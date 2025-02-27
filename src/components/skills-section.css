@@ -1,16 +1,13 @@
 .skills-section {
   display: grid;
   grid-template-areas:
-    'skills-title'
     'languages'
     'frameworks'
     'tools'
     'testing';
 }
-.skills-section .section-title {
-  grid-area: skills-title;
-  padding-bottom: 0;
-  text-align: center;
+.skills-section-title {
+  display: none;
 }
 .skills-list-languages {
   grid-area: languages;
