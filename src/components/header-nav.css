@@ -97,17 +97,22 @@
   }
 
   .nav-link-indicator {
-    --nav-link-indicator-width: 2.5rem;
     background-color: var(--text-color-emphasis);
     height: 1px;
-    margin-right: 1rem;
     opacity: inherit;
-    transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    width: var(--nav-link-indicator-width);
+    width: 4rem;
   }
 
-  .nav-link:hover .nav-link-indicator,
-  .nav-link.active .nav-link-indicator {
-    width: calc(var(--nav-link-indicator-width) * 1.618);
+  .nav-link-text {
+    background-color: var(--theme-color-const);
+    padding-left: 1rem;
+    transform: translateX(-1.5rem);
+    transform-origin: left;
+    transition: transform 0.15s linear;
+  }
+
+  .nav-link:hover .nav-link-text,
+  .nav-link.active .nav-link-text {
+    transform: translateX(0);
   }
 }

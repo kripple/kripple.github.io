@@ -16,7 +16,7 @@ export function HeaderNav() {
               tabIndex={0}
             >
               <span className="nav-link-indicator"></span>
-              {section.id}
+              <span className="nav-link-text">{section.id}</span>
             </a>
           );
         })}
