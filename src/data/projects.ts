@@ -52,7 +52,7 @@ const projects: { [key in ProjectKey]: Project } = {
     title: 'Cricket Creek Kitchens & Baths',
     date: [Month.December, 2024],
     blurb:
-      'Rebuilt and deployed cckb.net as a static site, eliminating annual hosting costs.',
+      'Rebuilt cckb.net as a static site, eliminating annual hosting costs.',
     githubUrl:
       'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
     websiteUrl: 'https://cckb.net',
@@ -107,7 +107,7 @@ const projects: { [key in ProjectKey]: Project } = {
       tags.HTML,
       tags.CSS,
       tags.JavaScript,
-      tags['Object-Oriented Programming (OOP)'],
+      tags['Object-Oriented Programming'],
     ],
   },
   repos: {
