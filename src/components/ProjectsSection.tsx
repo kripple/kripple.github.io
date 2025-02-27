@@ -33,7 +33,7 @@ export function ProjectsSection() {
           const dateString = toDateString(date);
 
           return (
-            <div className="project" key={key}>
+            <figure className="project" key={key}>
               <a
                 aria-label={title}
                 href={websiteUrl}
@@ -48,9 +48,9 @@ export function ProjectsSection() {
               </a>
 
               <div className="project-contents">
-                <h4 aria-label="Project name" className="project-title">
+                <figcaption aria-label="Project name" className="project-title">
                   {title}
-                </h4>
+                </figcaption>
                 <time className="project-date" dateTime={dateTime}>
                   {dateString}
                 </time>
@@ -84,7 +84,7 @@ export function ProjectsSection() {
               </div>
 
               <ProjectTags tags={tags} />
-            </div>
+            </figure>
           );
         })}
       </div>
