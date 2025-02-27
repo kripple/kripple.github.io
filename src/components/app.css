@@ -123,14 +123,6 @@
     display: none;
   }
 
-  /* .section:not(.projects-section) {
-    scroll-margin-top: 0;
-  }
-
-  .projects-section {
-    scroll-margin-top: var(--scroll-margin);
-  } */
-
   .show-for-mobile {
     display: none;
   }
