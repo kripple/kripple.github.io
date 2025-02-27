@@ -13,7 +13,7 @@ import { breakpoints } from './screens';
 
 function testBreakpoint(width: number, lightTheme?: boolean) {
   const height = 900 as const;
-  const options = { animations: 'disabled', threshold: 0 } as const;
+  const options = { animations: 'disabled', threshold: 0.1 } as const;
   const theme = lightTheme === true ? 'light' : 'dark';
   const file = `header-${width}x${height}-${theme}.png`;
 
