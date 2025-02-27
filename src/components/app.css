@@ -1,6 +1,5 @@
 :root {
   --padding: 1.5rem;
-  --padding-offset: calc(var(--padding) * -1);
 
   --padding-x2: calc(var(--padding) * 2);
   --padding-half: calc(var(--padding) / 2);
