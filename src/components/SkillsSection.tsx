@@ -13,7 +13,7 @@ export function SkillsSection() {
           className={`skills-list-section skills-list-${title.toLowerCase()}`}
           key={title}
         >
-          <h4 className="section-subtitle">{title}</h4>
+          <p className="section-subtitle">{title}</p>
           <ul className="skills-list">
             {list.map(({ label, tags }) => {
               return (
