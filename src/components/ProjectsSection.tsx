@@ -28,63 +28,67 @@ export function ProjectsSection() {
             key,
           } = project;
           const loadingStrategy = index === 0 || index === 1 ? 'eager' : 'lazy';
-
           const dateTime = toDateTime(date);
           const dateString = toDateString(date);
 
           return (
-            <figure className="project" key={key}>
-              <a
-                aria-label={title}
-                href={websiteUrl}
-                rel="noreferrer"
-                tabIndex={0}
-                target="_blank"
-              >
+            <a
+              aria-label={title}
+              className="project-card-link"
+              href={websiteUrl}
+              key={key}
+              rel="noreferrer"
+              tabIndex={0}
+              target="_blank"
+            >
+              <figure className="project">
                 <ProjectImages
                   loadingStrategy={loadingStrategy}
                   projectKey={key}
                 />
-              </a>
 
-              <div className="project-contents">
-                <figcaption aria-label="Project name" className="project-title">
-                  {title}
-                </figcaption>
-                <time className="project-date" dateTime={dateTime}>
-                  {dateString}
-                </time>
-                <p className="project-description">{blurb}</p>
-              </div>
+                <div className="project-contents">
+                  <figcaption
+                    aria-label="Project name"
+                    className="project-title"
+                  >
+                    {title}
+                  </figcaption>
+                  <time className="project-date" dateTime={dateTime}>
+                    {dateString}
+                  </time>
+                  <p className="project-description">{blurb}</p>
+                </div>
 
-              <div className="project-links">
-                <ProjectLink
-                  ariaLabel={`Link to source code: ${title}`}
-                  label="Source"
-                  url={githubUrl}
-                >
-                  <Icon icon="github" />
-                </ProjectLink>
+                <div className="project-links">
+                  <ProjectLink
+                    ariaLabel={`Link to source code: ${title}`}
+                    label="Source"
+                    url={githubUrl}
+                  >
+                    <Icon icon="github" />
+                  </ProjectLink>
 
-                <ProjectLink
-                  ariaLabel={`Link to API: ${title}`}
-                  label="API"
-                  url={apiUrl}
-                >
-                  <Icon icon="api" />
-                </ProjectLink>
+                  <ProjectLink
+                    ariaLabel={`Link to API: ${title}`}
+                    label="API"
+                    url={apiUrl}
+                  >
+                    <Icon icon="api" />
+                  </ProjectLink>
 
-                <ProjectLink
-                  ariaLabel={`Link to API source code: ${title}`}
-                  label="API Source"
-                  url={apiSrcUrl}
-                >
-                  <Icon icon="github" />
-                </ProjectLink>
-              </div>
+                  <ProjectLink
+                    ariaLabel={`Link to API source code: ${title}`}
+                    label="API Source"
+                    url={apiSrcUrl}
+                  >
+                    <Icon icon="github" />
+                  </ProjectLink>
+                </div>
 
-              <ProjectTags tags={tags} />
-            </figure>
+                <ProjectTags tags={tags} />
+              </figure>
+            </a>
           );
         })}
       </div>

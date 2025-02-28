@@ -1,5 +1,6 @@
 :root {
   --columns: 1;
+  --rows: 6;
 }
 
 .projects-section {
@@ -10,7 +11,14 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(var(--columns), minmax(256px, 1fr));
+  grid-template-rows: repeat(var(--rows), max-content);
   max-width: 1034px;
+}
+
+.project-card-link {
+  border-radius: 0.5rem;
+  max-width: 334px;
+  text-decoration: none;
 }
 
 .project {
@@ -20,8 +28,8 @@
     rgba(0, 0, 0, 0.16) 0px 3px 6px,
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
   box-sizing: border-box;
+  height: 100%;
   margin: 0;
-  max-width: 334px;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -57,17 +65,20 @@
 @media screen and (min-width: 560px) {
   :root {
     --columns: 2;
+    --rows: 3;
   }
 }
 
 @media screen and (min-width: 816px) {
   :root {
     --columns: 3;
+    --rows: 2;
   }
 }
 
 @media screen and (min-width: 1200px) {
   :root {
     --columns: 2;
+    --rows: 3;
   }
 }
