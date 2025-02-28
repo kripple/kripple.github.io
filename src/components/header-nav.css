@@ -66,6 +66,7 @@
   .header-nav {
     flex-direction: column;
     margin-top: var(--padding-x2);
+    max-width: 16rem;
   }
 
   .nav-container {
