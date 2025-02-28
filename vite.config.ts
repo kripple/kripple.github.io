@@ -65,6 +65,7 @@ export default defineConfig({
     'import.meta.env.APP_VERSION': JSON.stringify(gitHash),
     'import.meta.env.GIT_BRANCH': JSON.stringify(gitBranch),
   },
+  logLevel: 'silent',
   plugins,
   resolve: {
     alias: {
