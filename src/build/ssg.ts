@@ -72,7 +72,7 @@ const isJsFile = /\.[mc]?js$/;
 const isCssFile = /\.css$/;
 const isHtmlFile = /\.html?$/;
 function warnNotInlined(filename: string) {
-  if (filename.includes('.avif')) return;
+  if (filename.endsWith('.avif') || filename.endsWith('.png')) return; // expected
   console.debug(`NOTE: asset not inlined: ${filename}`);
 }
 
@@ -84,7 +84,6 @@ export function viteSsg({
   return {
     name,
     generateBundle: (_, bundle) => {
-      console.debug('\n');
       const files = {
         html: [] as string[],
         css: [] as string[],
@@ -182,7 +181,7 @@ export function viteSsg({
       }
       const cssFileName = cssFiles[0];
       const cssChunk = bundle[cssFileName] as OutputAsset;
-      console.debug(`inlining: ${cssFileName}`);
+      // console.debug(`inlining: ${cssFileName}`);
       const cssTarget = new RegExp(
         `<link([^>]*?) href="[./]*${cssChunk.fileName}"([^>]*?)>`,
       );
@@ -208,7 +207,7 @@ export function viteSsg({
       const outputPath = path.join(viteOutputPath, `/${entryPoint}`);
       fs.writeFileSync(outputPath, htmlWithCsp);
 
-      console.debug(`[${name}] injected static html`);
+      // console.debug(`[${name}] injected static html`);
       vite.close();
     },
     enforce: 'post',
