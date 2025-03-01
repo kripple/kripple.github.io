@@ -45,7 +45,7 @@ type Project = {
 };
 
 const toSrc = (key: ProjectKey) => `https://github.com/kripple/${key}`;
-const toHref = (key: ProjectKey) => `https://kellyripple.com/${key}`;
+const toHref = (key: ProjectKey) => `https://kripple.github.io/${key}`;
 
 const projects: { [key in ProjectKey]: Project } = {
   cckb: {
