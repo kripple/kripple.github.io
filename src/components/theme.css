@@ -63,6 +63,7 @@
   --tag-text-color-dark: rgb(var(--tag-text-rgb-dark));
   --glow-color-dark: var(--coquelicot);
   /* light theme */
+  /* --theme-color-light-const: #ffffff; */
   --theme-color-light-const: var(--african-violet);
   --theme-color-light: var(--theme-color-light-const);
   --text-color-light: var(--eerie-black);
@@ -126,6 +127,7 @@ html[data-theme='light'],
   --theme-color-const: var(--theme-color-light-const);
   --text-color: var(--text-color-light);
   --text-color-emphasis: #000000;
+  /* --contrast-color: hsl(215, 15%, 97%); */
   --contrast-color: var(--platinum);
 
   --opacity-dark: 0;
@@ -212,4 +214,14 @@ svg {
   background-color: var(--highlight-color);
   color: var(--highlight-text-color);
   opacity: 1;
+}
+
+/* single column layout */
+@media screen and (max-width: 1199px) {
+  /* --theme-color-dark and --theme-color-light are used to set the html background-color */
+  :root {
+    --theme-color-dark: var(--oxford-blue);
+    /* --theme-color-light: var(--chocolate-cosmos); */
+    --theme-color-light: var(--ultra-violet);
+  }
 }

@@ -75,13 +75,10 @@
 
 /* single column layout */
 @media screen and (max-width: 1199px) {
-  /* --theme-color-dark and --theme-color-light are used to set the html background-color */
-  :root {
-    --theme-color-dark: var(--oxford-blue);
-    --theme-color-light: var(--ultra-violet);
-  }
   .section {
     background-color: var(--theme-color-const);
+    /* margin-top: -1px; */
+    /* padding-top: calc(var(--scroll-margin) + 1px); */
   }
   .show-for-mobile {
     display: flex;
