@@ -15,7 +15,7 @@
   width: 100%;
 }
 .photo-container::before {
-  background-color: var(--backdrop-color);
+  background-color: var(--subtitle-background-color);
   border-radius: inherit;
   bottom: -6rem;
   content: '';

@@ -60,14 +60,15 @@
   --theme-color-dark-const: var(--dark-purple);
   --theme-color-dark: var(--theme-color-dark-const);
   --text-color-dark: var(--platinum);
+  --text-color-emphasis-dark: #ffffff;
   --tag-text-rgb-dark: 0, 255, 213; /* --aquamarine */
   --tag-text-color-dark: rgb(var(--tag-text-rgb-dark));
   --glow-color-dark: var(--coquelicot);
   /* light theme */
-  /* --theme-color-light-const: #ffffff; */
-  --theme-color-light-const: var(--african-violet);
+  --theme-color-light-const: #ffffff;
   --theme-color-light: var(--theme-color-light-const);
   --text-color-light: var(--eerie-black);
+  --text-color-emphasis-light: #000000;
   --tag-text-rgb-light: 0, 89, 255; /* --risd-blue */
   --tag-text-color-light: rgb(var(--tag-text-rgb-light));
   --glow-color-light: #ffffff;
@@ -78,7 +79,7 @@
   --theme-color: var(--theme-color-dark);
   --theme-color-const: var(--theme-color-dark-const);
   --text-color: var(--text-color-dark);
-  --text-color-emphasis: #ffffff;
+  --text-color-emphasis: var(--text-color-emphasis-dark);
   --contrast-color: var(--eerie-black);
 
   --opacity-dark: 1;
@@ -93,7 +94,8 @@
   --text-color-overlay: var(--platinum-overlay);
 
   --tag-backdrop-color: transparent;
-  --backdrop-color: #ffffff66;
+  --backdrop-color-header: #ffffff66;
+  --backdrop-color-main: #ffffff66;
   --drop-shadow: rgba(255, 255, 255, 0.4);
 
   /* --aquamarine */
@@ -109,6 +111,8 @@
   --glow-color: var(--glow-color-dark);
 
   --about-section-contrast-color: rgba(var(--tag-text-rgb), 0.3);
+  --subtitle-background-color: #ffffff66;
+  --toggle-background-color: #ffffff66;
 
   --gradient: linear-gradient(
     123deg,
@@ -127,9 +131,8 @@ html[data-theme='light'],
   --theme-color: var(--theme-color-light);
   --theme-color-const: var(--theme-color-light-const);
   --text-color: var(--text-color-light);
-  --text-color-emphasis: #000000;
-  /* --contrast-color: hsl(215, 15%, 97%); */
-  --contrast-color: var(--platinum);
+  --text-color-emphasis: var(--text-color-emphasis-light);
+  --contrast-color: rgb(252, 253, 254);
 
   --opacity-dark: 0;
   --opacity-light: 1;
@@ -143,7 +146,8 @@ html[data-theme='light'],
   --text-color-overlay: var(--eerie-black-overlay);
 
   --tag-backdrop-color: #ffffff66;
-  --backdrop-color: #ffffff99;
+  --backdrop-color-header: #ffffff55;
+  --backdrop-color-main: #8400ff77;
   --drop-shadow: rgba(0, 0, 0, 0.6);
 
   /* --risd-blue */
@@ -156,6 +160,8 @@ html[data-theme='light'],
   --glow-color: var(--glow-color-light);
 
   --about-section-contrast-color: var(--platinum);
+  --subtitle-background-color: #00000088;
+  --toggle-background-color: #88888877;
 
   --gradient: linear-gradient(
     123deg,
@@ -222,7 +228,6 @@ svg {
   /* --theme-color-dark and --theme-color-light are used to set the html background-color */
   :root {
     --theme-color-dark: var(--darker-purple);
-    /* --theme-color-light: var(--chocolate-cosmos); */
-    --theme-color-light: var(--ultra-violet);
+    --theme-color-light: var(--chocolate-cosmos);
   }
 }

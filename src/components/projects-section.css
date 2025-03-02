@@ -33,12 +33,18 @@
 }
 
 .project-container {
+  border-radius: 0.5rem;
   position: relative;
   width: 100%;
 }
 
 .project-card-link {
+  border-radius: 0.5rem;
   text-decoration: none;
+}
+
+a.project-card-link:-webkit-any-link:focus-visible {
+  outline-offset: 3px;
 }
 
 .project-contents {

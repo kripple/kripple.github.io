@@ -48,12 +48,14 @@
 }
 
 .header-title-link {
+  color: var(--text-color-dark);
   cursor: pointer;
   text-decoration: none;
   user-select: none;
 }
 
 .job-title {
+  color: var(--text-color-dark);
   display: flex;
   font-size: 1rem;
   font-weight: 400;
@@ -63,7 +65,6 @@
 }
 
 .name {
-  color: var(--text-color-emphasis);
   display: flex;
   font-size: 1.25rem;
   font-weight: 600;
@@ -72,7 +73,7 @@
   white-space: nowrap;
 }
 .name::after {
-  color: var(--text-color);
+  color: var(--text-color-dark);
   content: '|';
   font-weight: 400;
   padding-left: 0.25rem;
@@ -205,7 +206,12 @@
     padding: 0;
   }
 
+  .header-title-link {
+    color: var(--text-color);
+  }
+
   .job-title {
+    color: var(--text-color);
     font-size: var(--heading-font-size-2);
     letter-spacing: -0.025rem;
     line-height: 0.75;

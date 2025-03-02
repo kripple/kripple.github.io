@@ -14,9 +14,10 @@
 .theme-toggle::before,
 .theme-toggle::after {
   align-items: center;
-  background-color: var(--backdrop-color);
+  background-color: var(--backdrop-color-header);
   border-radius: var(--icon-size);
   bottom: 0;
+  color: var(--text-color-dark);
   display: flex;
   justify-content: center;
   left: 0;
@@ -56,6 +57,7 @@
 }
 
 .theme-toggle .icon {
+  color: var(--text-color-dark);
   padding: 0;
   position: absolute;
   transition: transform 0.2s ease-in-out;
@@ -68,5 +70,17 @@
   .theme-toggle {
     margin-bottom: 1.25rem;
     margin-top: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .theme-toggle::before,
+  .theme-toggle::after {
+    background-color: var(--toggle-background-color);
+    color: var(--text-color);
+  }
+
+  .theme-toggle .icon {
+    color: var(--text-color);
   }
 }

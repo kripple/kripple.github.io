@@ -67,7 +67,7 @@
   transform-style: preserve-3d;
 }
 .skill-item::before {
-  background-color: var(--backdrop-color);
+  background-color: var(--backdrop-color-main);
   border-radius: inherit;
   bottom: 0;
   content: '';

@@ -22,7 +22,7 @@
 }
 .menu-toggle::before {
   align-items: center;
-  background-color: var(--backdrop-color);
+  background-color: var(--backdrop-color-header);
   border-radius: var(--icon-size);
   bottom: 0;
   content: '';
@@ -37,6 +37,7 @@
 }
 
 .menu-toggle-label {
+  color: var(--text-color-dark);
   flex-grow: 1;
   text-align: center;
   transform: var(--menu-toggle-label-transform);
@@ -45,7 +46,7 @@
 }
 .menu-toggle-icon {
   aspect-ratio: 1;
-  background-color: var(--text-color);
+  background-color: var(--text-color-dark);
   border-radius: 50%;
   height: var(--icon-size);
   transform: var(--menu-toggle-transform);
