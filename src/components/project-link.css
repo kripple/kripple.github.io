@@ -1,15 +1,14 @@
 .project-link {
-  --hover-size: calc(1rem + var(--link-padding));
-  --translate: calc((var(--link-padding) / 2) * -1);
   align-items: center;
-  border-radius: 1rem;
-  box-sizing: content-box;
+  border-radius: 1.75rem;
+  box-sizing: border-box;
   display: flex;
+  flex-grow: 1;
   font-size: 1rem;
   font-weight: 500;
   gap: 5px;
-  height: 1rem;
-  padding: var(--link-padding);
+  height: 1.75rem;
+  justify-content: center;
   position: relative;
   text-decoration: none;
   transition: background-color 0.2s ease-in-out;
@@ -20,6 +19,7 @@
 
 .project-link .icon {
   height: 1rem;
+  margin: 0;
   padding: 0;
   width: 1rem;
 }
