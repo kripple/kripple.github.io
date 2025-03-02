@@ -8,6 +8,7 @@
   --oxford-blue: #04052e;
   --oxford-blue-overlay: #04052ecc;
   --dark-purple: #2f1b25;
+  --darker-purple: #1e0512;
   --carmine: #950017;
   --chocolate-cosmos: #550022;
 }
@@ -220,6 +221,7 @@ svg {
 @media screen and (max-width: 1199px) {
   /* --theme-color-dark and --theme-color-light are used to set the html background-color */
   :root {
+    /* --theme-color-dark: var(--darker-purple); */
     --theme-color-dark: var(--oxford-blue);
     /* --theme-color-light: var(--chocolate-cosmos); */
     --theme-color-light: var(--ultra-violet);
