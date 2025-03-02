@@ -101,11 +101,7 @@ const projects: { [key in ProjectKey]: Project } = {
     blurb: 'A memory game built with object-oriented programming techniques.',
     githubUrl: toSrc('pokematch'),
     websiteUrl: toHref('pokematch'),
-    tags: [
-      tags.JavaScript,
-      tags['Game Development'],
-      tags.Pokémon,
-    ],
+    tags: [tags.JavaScript, tags['Game Development'], tags.Pokémon],
   },
   repos: {
     title: 'Repo Gallery',
@@ -135,11 +131,7 @@ const projects: { [key in ProjectKey]: Project } = {
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
     githubUrl: toSrc('web-colors'),
     websiteUrl: toHref('web-colors'),
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['Material UI'],
-    ],
+    tags: [tags.React, tags.TypeScript, tags['Material UI']],
   },
 } as const;
 

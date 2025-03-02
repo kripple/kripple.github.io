@@ -66,7 +66,7 @@ export const tagsList = [
   'WAVE',
   'Web Accessibility (a11y)',
   'Web Workers',
-  'WordPress'
+  'WordPress',
 ] as const;
 
 export type Tag = Union<typeof tagsList>;
