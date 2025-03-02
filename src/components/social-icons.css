@@ -6,3 +6,7 @@
 .icon-link:hover {
   background-color: var(--text-color-overlay);
 }
+
+.icon-set {
+  display: flex;
+}
