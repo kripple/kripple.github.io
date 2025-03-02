@@ -34,11 +34,12 @@ const machineReadableMonths = {
 type ProjectDate = [Month, number];
 type Project = {
   title: string;
+  subtitle?: string;
   date: ProjectDate;
   blurb: string;
   description?: string;
   tags: Tag[];
-  githubUrl?: string /* undefined for private projects */;
+  githubUrl: string;
   websiteUrl: string;
   apiUrl?: string;
   apiSrcUrl?: string;
@@ -49,7 +50,8 @@ const toHref = (key: ProjectKey) => `https://kripple.github.io/${key}`;
 
 const projects: { [key in ProjectKey]: Project } = {
   cckb: {
-    title: 'Cricket Creek Kitchens & Baths',
+    title: 'Cricket Creek',
+    subtitle: 'Kitchens & Baths',
     date: [Month.December, 2024],
     blurb:
       'Rebuilt cckb.net as a static site, eliminating annual hosting costs.',
@@ -57,57 +59,52 @@ const projects: { [key in ProjectKey]: Project } = {
       'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
     websiteUrl: 'https://cckb.net',
     tags: [
-      tags.HTML,
-      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['React Router'],
       tags['Cloudflare'],
+      tags.WordPress,
     ],
   },
   'guess-the-word': {
     title: 'Mysticabulary',
     date: [Month.February, 2025],
-    blurb: 'A word guessing game.',
+    blurb: 'An interactive word guessing game with a fixed number of guesses.',
     githubUrl: toSrc('guess-the-word'),
     websiteUrl: toHref('guess-the-word'),
     tags: [
-      tags.HTML,
-      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['Dictionary API'],
+      tags['Game Development'],
     ],
   },
   'map-slicer': {
     title: 'Map Slicer',
     date: [Month.September, 2024],
-    blurb:
-      'Map Slicer allows you to print images that are too large to fit on a single page.',
+    blurb: 'Map Slicer lets you print large images across multiple pages.',
     description:
       'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
+    githubUrl: toSrc('map-slicer'),
     websiteUrl: toHref('map-slicer'),
     tags: [
-      tags.HTML,
-      tags.CSS,
       tags.React,
       tags.TypeScript,
-      tags['React Context API'],
       tags['HTML Canvas'],
+      tags['React Context API'],
       tags['Material UI'],
     ],
   },
   pokematch: {
     title: 'Pokématch',
     date: [Month.January, 2025],
-    blurb: 'A Pokémon themed memory game.',
+    blurb: 'A memory game built with object-oriented programming techniques.',
     githubUrl: toSrc('pokematch'),
     websiteUrl: toHref('pokematch'),
     tags: [
-      tags.HTML,
-      tags.CSS,
       tags.JavaScript,
-      tags['Object-Oriented Programming'],
+      tags['Game Development'],
+      tags.Pokémon,
     ],
   },
   repos: {
@@ -122,27 +119,23 @@ const projects: { [key in ProjectKey]: Project } = {
     apiUrl: 'https://api.kellyripple.com/profile',
     apiSrcUrl: 'https://github.com/kripple/cloudflare-workers',
     tags: [
-      tags.HTML,
-      tags.CSS,
       tags.React,
       tags.TypeScript,
-      tags['RTK Query'],
+      tags['GitHub API'],
       tags['Node.js'],
       tags['Cloudflare'],
-      tags['GitHub API'],
+      tags['RTK Query'],
     ],
   },
   'web-colors': {
     title: 'Web Colors',
     date: [Month.November, 2024],
-    blurb:
-      'Web Colors lists all CSS color names along with their HEX and RGB values.',
+    blurb: 'Web Colors lists CSS color names with their HEX and RGB values.',
     description:
       'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
+    githubUrl: toSrc('web-colors'),
     websiteUrl: toHref('web-colors'),
     tags: [
-      tags.HTML,
-      tags.CSS,
       tags.React,
       tags.TypeScript,
       tags['Material UI'],
@@ -173,30 +166,10 @@ export const toDateString = ([month, year]: ProjectDate) =>
   `${Month[month]} ${year}`;
 
 type ProjectItem = Project & { key: ProjectKey };
-
-/* We have a lot of nested loops here. We would not want to run this code in production, but as part of the build process, it's okay. It's also important to note that the looped collection has fewer than 10 items. */
-const removed = new Set<Tag>([]);
 const projectItems = sorted.reduce((result, key) => {
   const project = projects[key];
-
-  // remove tags that are present in every project
-  const tags = project.tags.filter((tag) => {
-    const always = Object.values(projects).every((projectInCollection) =>
-      projectInCollection.tags.includes(tag),
-    );
-    if (always) removed.add(tag);
-    return !always;
-  });
-
-  result.push({ ...project, key, tags });
+  result.push({ ...project, key });
   return result;
 }, [] as ProjectItem[]);
-
-/* Log what was removed. */
-// if (removed.size > 0)
-//   console.info(
-//     `%cRemoved Tags: ${[...removed.values()].join(', ')}.`,
-//     'color: #f3bb1b',
-//   );
 
 export { projectItems as projects };
