@@ -41,6 +41,7 @@ export const tagsList = [
   'Object-Oriented Programming',
   // 'Object-Oriented Programming (OOP)',
   'Playwright',
+  'Pokémon',
   'React',
   'React Context API',
   'React Hooks',
@@ -65,6 +66,7 @@ export const tagsList = [
   'WAVE',
   'Web Accessibility (a11y)',
   'Web Workers',
+  'WordPress'
 ] as const;
 
 export type Tag = Union<typeof tagsList>;
