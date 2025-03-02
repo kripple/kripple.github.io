@@ -1,3 +1,9 @@
+:root {
+  --icon-label-gap: 10px;
+  --icon-size-inner: calc(var(--icon-size) * 0.7);
+  --icon-alt-padding: calc((var(--icon-size) - var(--icon-size-inner)) / 2);
+}
+
 .icon.copy-icon {
   border-radius: 50%;
   height: var(--icon-size-inner);
