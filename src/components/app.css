@@ -1,6 +1,5 @@
 :root {
-  --padding: 1.5rem;
-
+  --padding: 24px;
   --padding-x2: calc(var(--padding) * 2);
   --padding-half: calc(var(--padding) / 2);
 
@@ -8,11 +7,6 @@
 
   --icon-size: 2rem;
   --icon-padding: calc(var(--padding) / 3);
-  --icon-link-padding: calc(var(--padding) / 4);
-  --icon-label-gap: 10px;
-
-  --icon-size-inner: calc(var(--icon-size) * 0.7);
-  --icon-alt-padding: calc((var(--icon-size) - var(--icon-size-inner)) / 2);
 }
 
 .body,
