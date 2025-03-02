@@ -71,10 +71,21 @@
   height: 1.75rem;
 }
 
+@media screen and (max-width: 655px) {
+  .project-tags {
+    max-height: 3.875rem;
+    min-height: 1.75rem;
+  }
+}
+
 /* 656px = (2 * --min-card-width) + (2 * --padding) */
 @media screen and (min-width: 656px) {
   :root {
     --columns: 2;
+  }
+
+  .project-tags {
+    height: 3.875rem;
   }
 }
 

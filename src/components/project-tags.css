@@ -3,7 +3,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem;
-  height: 3.875rem;
   margin: var(--padding-half);
   overflow-y: hidden;
 }
@@ -16,14 +15,4 @@
   font-weight: 500;
   line-height: 1.25rem;
   padding: 0.25rem 0.75rem;
-}
-
-.project-skill-tag .collapsible {
-  white-space: nowrap;
-}
-
-@media screen and (max-width: 399px) {
-  .project-skill-tag .collapsible .collapse {
-    display: none;
-  }
 }
