@@ -97,6 +97,10 @@
     text-decoration: none;
   }
 
+  .nav-link:focus-visible {
+    opacity: 1;
+  }
+
   .nav-link-indicator {
     background-color: var(--text-color-emphasis);
     height: 1px;
