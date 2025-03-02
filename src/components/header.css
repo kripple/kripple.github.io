@@ -3,20 +3,6 @@
 /* ignore no js case, it will still be at the top of the page */
 /* make sure it's still at the top of the page for the no js case */
 
-/* .header .icon.copy-icon {
-  --copy-icon-size: 1rem;
-  fill: currentColor;
-  flex-shrink: 0;
-  height: var(--copy-icon-size);
-  padding: 0;
-  width: var(--copy-icon-size);
-} */
-
-/* .header .copy-to-clipboard-button {
-  opacity: 0.5;
-  padding: calc(var(--icon-padding) + var(--icon-link-padding));
-} */
-
 :root {
   --position-nav: absolute;
   --line-height-normal: 1.21875;
