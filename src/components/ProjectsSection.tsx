@@ -48,13 +48,10 @@ export function ProjectsSection() {
                   />
 
                   <div className="project-contents">
-                    <figcaption
-                      aria-label="Project name"
-                      className="project-title"
-                    >
+                    <div className="project-title">
                       <span>{title}</span>
                       {subtitle ? <span>{subtitle}</span> : null}
-                    </figcaption>
+                    </div>
                     <time className="project-date" dateTime={dateTime}>
                       {dateString}
                     </time>
