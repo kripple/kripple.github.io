@@ -16,12 +16,9 @@
   background-color: var(--inactive-icon-background-color);
   border-radius: inherit;
   color: var(--text-color-emphasis-dark);
-  /* font-size: 1.25rem; */
-  /* height: 2rem; */
   transition:
     color 0.1s ease-in,
     text-shadow 0.3s linear;
-  /* width: 2rem; */
 }
 .social-icons .font-icon-link:hover .font-icon {
   color: var(--glow-color);
