@@ -26,7 +26,7 @@ export function Header() {
       <MenuToggle />
       <HeaderNav />
       <div className="header-icons">
-        <SocialIcons iconsOnly={true} />
+        <SocialIcons />
         <ThemeToggle />
       </div>
     </header>

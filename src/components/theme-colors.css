@@ -1,0 +1,54 @@
+/* theme colors */
+:root {
+  --eerie-black: #222222;
+  --eerie-black-overlay: #22222233;
+  --platinum: #dddddd;
+  --platinum-overlay: #dddddd33;
+  --rose-red: #ba005d;
+  --dark-purple: #2f1b25;
+  --licorice: #1e0512;
+  --chocolate-cosmos: #550022;
+  --ghost-white: #f0f0f8;
+  --canary: #ffea0f;
+  --wenge: rgb(83, 70, 77);
+  --cadet-gray: rgb(160, 160, 167);
+  --outer-space: rgb(70, 70, 70);
+  --gray: rgb(121, 121, 121);
+  --silver: rgb(173, 173, 173);
+}
+
+/* sandbox colors */
+:root {
+  --iris: #6153cc;
+  --black-bean: #360a14;
+  --carmine: #950017;
+  --murrey: #a60067;
+  --princeton-orange: #ff9500;
+  --orange: #ffae00;
+  --mikado-yellow: #ffc600;
+  --aureolin: #fcf300;
+  --anti-flash-white: #f1f5f8;
+  --alabaster: #e8eddf;
+  --old-lace: #fff7e7;
+  --linen: #fff1e5;
+}
+
+/* gradient colors */
+:root {
+  --coquelicot: #ff4000;
+  --scarlet: #ff2a00;
+  --folly: #ff0044;
+  --rose: #ff006f;
+  --magenta: #ff0088;
+  --electric-purple: #b300ff;
+  --violet: #8400ff;
+  --palatinate-blue: #3158f8;
+  --risd-blue: #0059ff;
+  --risd-blue-rgb: 0, 89, 255;
+  --celestial-blue: #009dff;
+  --electric-blue: #00eaff;
+  --aquamarine: #00ffd5;
+  --aquamarine-rgb: 0, 255, 213;
+  --celeste: #bbffff;
+  --white: #ffffff;
+}

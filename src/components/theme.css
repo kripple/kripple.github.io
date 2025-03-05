@@ -1,59 +1,3 @@
-:root {
-  --eerie-black: #222222;
-  --eerie-black-overlay: #22222233;
-  --platinum: #dddddd;
-  --platinum-overlay: #dddddd33;
-}
-:root {
-  --oxford-blue: #04052e;
-  --oxford-blue-overlay: #04052ecc;
-  --dark-purple: #2f1b25;
-  --darker-purple: #1e0512;
-  --carmine: #950017;
-  --chocolate-cosmos: #550022;
-}
-:root {
-  --powder-blue: #afc1d6;
-  --powder-blue-overlay: #afc1d6cc;
-  --african-violet: #ab92bf;
-  --mint-green: #cef9f2;
-  --ultra-violet: #655a7c;
-}
-
-:root {
-  --test: rgb(253, 0, 115);
-  --test2: rgb(19, 22, 82);
-  --test5: rgb(38, 27, 98);
-  --test3: rgb(252, 255, 255);
-  --test4: rgb(254, 254, 254);
-  --test4: rgb(123, 123, 123);
-  --test6: rgb(23, 9, 55);
-  --murrey: #a60067;
-  --black-bean: #360a14;
-  --iris: #6153cc;
-  --mikado-yellow: #ffc600;
-  --canary: #ffea0f;
-  --aureolin: #fcf300;
-}
-
-/* gradient colors */
-:root {
-  --coquelicot: #ff4000;
-  --scarlet: #ff2a00;
-  --folly: #ff0044;
-  --rose: #ff006f;
-  --magenta: #ff0088;
-  --electric-purple: #b300ff;
-  --violet: #8400ff;
-  --palatinate-blue: #3158f8;
-  --risd-blue: #0059ff;
-  --celestial-blue: #009dff;
-  --electric-blue: #00eaff;
-  --aquamarine: #00ffd5;
-  --celeste: #bbffff;
-  --white: #ffffff;
-}
-
 /* --theme-color-dark and --theme-color-light are used to set the html background-color */
 :root {
   /* dark theme */
@@ -61,15 +5,15 @@
   --theme-color-dark: var(--theme-color-dark-const);
   --text-color-dark: var(--platinum);
   --text-color-emphasis-dark: #ffffff;
-  --tag-text-rgb-dark: 0, 255, 213; /* --aquamarine */
+  --tag-text-rgb-dark: var(--aquamarine-rgb);
   --tag-text-color-dark: rgb(var(--tag-text-rgb-dark));
-  --glow-color-dark: var(--coquelicot);
+  --glow-color-dark: var(--canary);
   /* light theme */
-  --theme-color-light-const: #ffffff;
+  --theme-color-light-const: var(--ghost-white);
   --theme-color-light: var(--theme-color-light-const);
   --text-color-light: var(--eerie-black);
   --text-color-emphasis-light: #000000;
-  --tag-text-rgb-light: 0, 89, 255; /* --risd-blue */
+  --tag-text-rgb-light: var(--risd-blue-rgb);
   --tag-text-color-light: rgb(var(--tag-text-rgb-light));
   --glow-color-light: #ffffff;
 }
@@ -80,47 +24,22 @@
   --theme-color-const: var(--theme-color-dark-const);
   --text-color: var(--text-color-dark);
   --text-color-emphasis: var(--text-color-emphasis-dark);
+  --text-color-overlay: var(--platinum-overlay);
   --contrast-color: var(--eerie-black);
-
   --opacity-dark: 1;
   --opacity-light: 0;
   --theme-toggle-transform: translateX(3rem);
-
-  --theme-color-secondary: var(--oxford-blue);
-  --theme-color-tertiary: var(--chocolate-cosmos);
-  --theme-color-quaternary: var(--carmine);
-
-  --theme-color-overlay: var(--oxford-blue-overlay);
-  --text-color-overlay: var(--platinum-overlay);
-
   --tag-backdrop-color: transparent;
   --backdrop-color-header: #ffffff66;
   --backdrop-color-main: #ffffff66;
   --drop-shadow: rgba(255, 255, 255, 0.4);
-
-  /* --aquamarine */
   --tag-text-rgb: var(--tag-text-rgb-dark);
   --tag-color: rgba(0, 230, 230, 0.1);
   --tag-text-color: var(--tag-text-color-dark);
-
-  --highlight-color: rgba(var(--tag-text-rgb), 0.9);
+  --highlight-color: rgba(var(--tag-text-rgb-dark), 0.9);
   --highlight-text-color: #000000;
-  /* --glow-color: var(--aureolin);
-  --glow-color: var(--mikado-yellow);
-  --glow-color: var(--canary); */
   --glow-color: var(--glow-color-dark);
-
-  --about-section-contrast-color: rgba(var(--tag-text-rgb), 0.3);
-  --subtitle-background-color: #ffffff66;
-  --toggle-background-color: #ffffff66;
-
-  --gradient: linear-gradient(
-    123deg,
-    var(--coquelicot) 0%,
-    var(--violet) 50%,
-    var(--palatinate-blue) 100%
-  );
-
+  --glow-shadow: var(--glow-color);
   --menu-background-color: #111111aa;
   --menu-background-color-hover: #111111ee;
 }
@@ -132,44 +51,22 @@ html[data-theme='light'],
   --theme-color-const: var(--theme-color-light-const);
   --text-color: var(--text-color-light);
   --text-color-emphasis: var(--text-color-emphasis-light);
+  --text-color-overlay: var(--eerie-black-overlay);
   --contrast-color: rgb(252, 253, 254);
-
   --opacity-dark: 0;
   --opacity-light: 1;
   --theme-toggle-transform: translateX(0);
-
-  --theme-color-secondary: var(--ultra-violet);
-  --theme-color-tertiary: var(--powder-blue);
-  --theme-color-quaternary: var(--mint-green);
-
-  --theme-color-overlay: var(--powder-blue-overlay);
-  --text-color-overlay: var(--eerie-black-overlay);
-
   --tag-backdrop-color: #ffffff66;
   --backdrop-color-header: #ffffff55;
   --backdrop-color-main: #8400ff77;
   --drop-shadow: rgba(0, 0, 0, 0.6);
-
-  /* --risd-blue */
   --tag-text-rgb: var(--tag-text-rgb-light);
   --tag-color: rgba(0, 21, 255, 0.1);
   --tag-text-color: var(--tag-text-color-light);
-
-  --highlight-color: rgba(var(--tag-text-rgb), 0.8);
+  --highlight-color: rgba(var(--tag-text-rgb-light), 0.8);
   --highlight-text-color: #ffffff;
   --glow-color: var(--glow-color-light);
-
-  --about-section-contrast-color: var(--platinum);
-  --subtitle-background-color: #00000088;
-  --toggle-background-color: #88888877;
-
-  --gradient: linear-gradient(
-    123deg,
-    var(--scarlet) 0%,
-    var(--electric-purple) 50%,
-    var(--risd-blue) 100%
-  );
-
+  --glow-shadow: var(--magenta);
   --menu-background-color: #cccccc99;
   --menu-background-color-hover: #dddddddd;
 }
@@ -212,11 +109,6 @@ svg {
   display: none;
 }
 
-/* TODO: */
-/* .active {
-  color: var(--highlight-color);
-} */
-
 ::selection {
   background-color: var(--highlight-color);
   color: var(--highlight-text-color);
@@ -227,7 +119,7 @@ svg {
 @media screen and (max-width: 1199px) {
   /* --theme-color-dark and --theme-color-light are used to set the html background-color */
   :root {
-    --theme-color-dark: var(--darker-purple);
+    --theme-color-dark: var(--licorice);
     --theme-color-light: var(--chocolate-cosmos);
   }
 }

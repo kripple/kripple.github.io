@@ -6,7 +6,10 @@
   --scroll-margin: 1.5rem;
 
   --icon-size: 2rem;
+  --icon-font-size: calc(var(--icon-size) - 0.75rem);
   --icon-padding: calc(var(--padding) / 3);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .body,
@@ -67,6 +70,52 @@
   width: 0;
 }
 
+.font-icon {
+  display: flex;
+  font-family: 'fontello';
+  font-size: var(--icon-font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  height: var(--icon-size);
+  line-height: var(--icon-size);
+  text-align: center;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  text-transform: none;
+  user-select: none;
+  width: var(--icon-size);
+}
+.font-icon::before {
+  height: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  width: inherit;
+}
+.font-icon-link {
+  display: flex;
+  height: var(--icon-size);
+  text-decoration: none;
+  width: var(--icon-size);
+}
+.icon-moon:before {
+  content: '\e800';
+}
+.icon-sun:before {
+  content: '\e801';
+}
+.icon-email:before {
+  content: '\e802';
+}
+.icon-github:before {
+  content: '\f09b';
+}
+.icon-linkedin:before {
+  content: '\f0e1';
+}
+
 /* single column layout */
 @media screen and (max-width: 1199px) {
   .section {
@@ -84,6 +133,7 @@
 /* split-screen layout */
 @media screen and (min-width: 1200px) {
   :root {
+    --icon-size: 2.25rem;
     --scroll-margin: 6rem;
   }
   .app {

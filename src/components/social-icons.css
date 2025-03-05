@@ -1,12 +1,54 @@
-.icon-link {
-  border-radius: 50%;
+.social-icons {
   display: flex;
-  transition: background-color 0.2s ease-in-out;
-}
-.icon-link:hover {
-  background-color: var(--text-color-overlay);
 }
 
-.icon-set {
-  display: flex;
+.social-icons .font-icon-link {
+  border-radius: 50%;
+  padding: var(--icon-padding);
+}
+
+.social-icons .font-icon-link .font-icon-container {
+  border-radius: inherit;
+  position: relative;
+}
+
+.social-icons .font-icon {
+  background-color: var(--inactive-icon-background-color);
+  border-radius: inherit;
+  color: var(--text-color-emphasis-dark);
+  /* font-size: 1.25rem; */
+  /* height: 2rem; */
+  transition:
+    color 0.1s ease-in,
+    text-shadow 0.3s linear;
+  /* width: 2rem; */
+}
+.social-icons .font-icon-link:hover .font-icon {
+  color: var(--glow-color);
+  text-shadow: 0 0 5px var(--glow-shadow);
+}
+
+.social-icons .font-icon-link .font-icon-container::before,
+.social-icons .font-icon-link .font-icon-container::after {
+  border-radius: inherit;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(0.9);
+  transition: box-shadow 0.3s linear;
+}
+.social-icons .font-icon-link .font-icon-container::after {
+  background-color: var(--glow-color);
+  z-index: -1;
+}
+.social-icons .font-icon-link:hover .font-icon-container::before {
+  box-shadow: 0 0 5px var(--glow-shadow);
+  transform: scale(1.1);
+}
+.social-icons .font-icon-link:hover .font-icon-container::after {
+  box-shadow: 0 0 12px var(--glow-shadow);
+  transform: scale(1.1);
 }

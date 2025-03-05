@@ -29,7 +29,7 @@
   display: flex;
   grid-area: header-icons;
 }
-.header-icons .icon-set {
+.header-icons .social-icons {
   display: none;
 }
 
@@ -196,7 +196,7 @@
     align-items: flex-end;
     justify-content: flex-start;
   }
-  .header-icons .icon-set {
+  .header-icons .social-icons {
     display: inherit;
   }
 
@@ -213,6 +213,7 @@
   .job-title {
     color: var(--text-color);
     font-size: var(--heading-font-size-2);
+    font-weight: 500;
     letter-spacing: -0.025rem;
     line-height: 0.75;
   }

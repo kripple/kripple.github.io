@@ -36,23 +36,25 @@ export function ProjectLinks({
           <Icon icon="github" />
         </ProjectLink>
 
-        <ProjectLink
-          ariaLabel={`Link to API: ${title}`}
-          label="API"
-          placeholder={placeholder}
-          url={apiUrl}
-        >
-          <Icon icon="api" />
-        </ProjectLink>
-
-        <ProjectLink
-          ariaLabel={`Link to API source code: ${title}`}
-          label="API Source"
-          placeholder={placeholder}
-          url={apiSrcUrl}
-        >
-          <Icon icon="github" />
-        </ProjectLink>
+        {apiUrl && apiSrcUrl ? (
+          <div className="api-links">
+            <ProjectLink
+              ariaLabel={`Link to API: ${title}`}
+              label="API"
+              placeholder={placeholder}
+              url={apiUrl}
+            >
+              <Icon icon="api" />
+            </ProjectLink>
+            |
+            <ProjectLink
+              ariaLabel={`Link to API source code: ${title}`}
+              label="Source"
+              placeholder={placeholder}
+              url={apiSrcUrl}
+            ></ProjectLink>
+          </div>
+        ) : null}
       </div>
     </div>
   );
