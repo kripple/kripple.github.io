@@ -1,11 +1,7 @@
-.menu {
-  --menu-toggle-transform: translateX(-3rem);
-  --menu-toggle-label-transform: translateX(var(--icon-size));
+/* .menu {
 }
 #menu-toggle:checked ~ .menu {
-  --menu-toggle-transform: translateX(0);
-  --menu-toggle-label-transform: translateX(0);
-}
+} */
 
 .menu-toggle {
   align-items: center;
@@ -13,56 +9,53 @@
   cursor: pointer;
   display: flex;
   grid-area: menu-toggle;
-  height: 3rem;
+  height: var(--icon-height);
   justify-content: flex-start;
   padding: var(--icon-padding);
   position: relative;
   transform-style: preserve-3d;
-  width: 6rem;
 }
-.menu-toggle::before {
-  align-items: center;
-  background-color: var(--backdrop-color-header);
-  border-radius: var(--icon-size);
+
+.menu-toggle-icon::before,
+.menu-toggle-icon::after {
+  background-color: var(--canary);
+  border-radius: inherit;
   bottom: 0;
   content: '';
-  display: flex;
-  justify-content: center;
   left: 0;
-  margin: calc(var(--icon-padding) / 2);
   position: absolute;
   right: 0;
   top: 0;
-  transform: translateZ(-1px);
+  transform: scale(0.9);
+  transition: box-shadow 0.3s linear;
+  z-index: -1;
 }
 
-.menu-toggle-label {
-  color: var(--text-color-dark);
-  flex-grow: 1;
-  text-align: center;
-  transform: var(--menu-toggle-label-transform);
-  transition: transform 0.2s ease-in-out;
-  user-select: none;
+.menu-toggle:hover .icon-menu {
+  color: var(--canary);
+  text-shadow: 0 0 5px var(--canary);
 }
-.menu-toggle-icon {
-  aspect-ratio: 1;
-  background-color: var(--text-color-dark);
-  border-radius: 50%;
-  height: var(--icon-size);
-  transform: var(--menu-toggle-transform);
-  transition: transform 0.2s ease-in-out;
-  width: var(--icon-size);
+.menu-toggle:hover .menu-toggle-icon::before {
+  box-shadow: 0 0 5px var(--canary);
+  transform: scale(1.1);
 }
-
-.menu-toggle:hover .menu-toggle-icon {
-  transform: var(--menu-toggle-transform) scale(1.15);
+.menu-toggle:hover .menu-toggle-icon::after {
+  box-shadow: 0 0 12px var(--canary);
+  transform: scale(1.1);
+}
+.menu-toggle:hover .menu-toggle-inset {
+  box-shadow: inset 0 0 5px var(--canary);
+}
+.menu-toggle:hover .icon-menu::before {
+  color: var(--canary);
+  text-shadow: 0 0 5px var(--canary);
 }
 
 @media screen and (max-width: 399px) {
   .menu-toggle {
     justify-self: end;
-    margin-bottom: 1.25rem;
-    margin-top: 0.75rem;
+    /* margin-bottom: 1.25rem; */
+    /* margin-top: 0.75rem; */
   }
 }
 

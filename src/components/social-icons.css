@@ -7,45 +7,18 @@
   padding: var(--icon-padding);
 }
 
-.social-icons .font-icon-link .font-icon-container {
-  border-radius: inherit;
-  position: relative;
-}
-
-.social-icons .font-icon {
-  background-color: var(--inactive-icon-background-color);
-  border-radius: inherit;
-  color: var(--text-color-emphasis-dark);
-  transition:
-    color 0.1s ease-in,
-    text-shadow 0.3s linear;
-}
 .social-icons .font-icon-link:hover .font-icon {
+  box-shadow: inset 0 0 5px var(--glow-shadow-color);
   color: var(--glow-color);
-  text-shadow: 0 0 5px var(--glow-shadow);
+  text-shadow: 0 0 5px var(--glow-shadow-color);
 }
 
-.social-icons .font-icon-link .font-icon-container::before,
-.social-icons .font-icon-link .font-icon-container::after {
-  border-radius: inherit;
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: scale(0.9);
-  transition: box-shadow 0.3s linear;
-}
-.social-icons .font-icon-link .font-icon-container::after {
-  background-color: var(--glow-color);
-  z-index: -1;
-}
-.social-icons .font-icon-link:hover .font-icon-container::before {
-  box-shadow: 0 0 5px var(--glow-shadow);
+.social-icons .font-icon-link:hover .glow-icon::before {
+  box-shadow: 0 0 5px var(--glow-shadow-color);
   transform: scale(1.1);
 }
-.social-icons .font-icon-link:hover .font-icon-container::after {
-  box-shadow: 0 0 12px var(--glow-shadow);
+
+.social-icons .font-icon-link:hover .glow-icon::after {
+  box-shadow: 0 0 12px var(--glow-shadow-color);
   transform: scale(1.1);
 }

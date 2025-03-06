@@ -18,6 +18,13 @@
   --glow-color-light: #ffffff;
 }
 
+/* TODO: https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
+@media print {
+  :root {
+    --theme-color-light-const: white;
+  }
+}
+
 /* dark mode (default) */
 :root {
   --theme-color: var(--theme-color-dark);
@@ -28,7 +35,6 @@
   --contrast-color: var(--eerie-black);
   --opacity-dark: 1;
   --opacity-light: 0;
-  --theme-toggle-transform: translateX(3rem);
   --tag-backdrop-color: transparent;
   --backdrop-color-header: #ffffff66;
   --backdrop-color-main: #ffffff66;
@@ -39,9 +45,10 @@
   --highlight-color: rgba(var(--tag-text-rgb-dark), 0.9);
   --highlight-text-color: #000000;
   --glow-color: var(--glow-color-dark);
-  --glow-shadow: var(--glow-color);
+  --glow-shadow-color: var(--glow-color);
   --menu-background-color: #111111aa;
   --menu-background-color-hover: #111111ee;
+  --button-background-color: var(--wenge);
 }
 
 /* light mode */
@@ -55,7 +62,6 @@ html[data-theme='light'],
   --contrast-color: rgb(252, 253, 254);
   --opacity-dark: 0;
   --opacity-light: 1;
-  --theme-toggle-transform: translateX(0);
   --tag-backdrop-color: #ffffff66;
   --backdrop-color-header: #ffffff55;
   --backdrop-color-main: #8400ff77;
@@ -66,9 +72,10 @@ html[data-theme='light'],
   --highlight-color: rgba(var(--tag-text-rgb-light), 0.8);
   --highlight-text-color: #ffffff;
   --glow-color: var(--glow-color-light);
-  --glow-shadow: var(--magenta);
+  --glow-shadow-color: var(--magenta);
   --menu-background-color: #cccccc99;
   --menu-background-color-hover: #dddddddd;
+  --button-background-color: var(--quinacridone-magenta);
 }
 
 .theme {
@@ -121,5 +128,17 @@ svg {
   :root {
     --theme-color-dark: var(--licorice);
     --theme-color-light: var(--chocolate-cosmos);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* dark mode (default) */
+  :root {
+    --button-background-color: var(--wenge);
+  }
+  /* light mode */
+  html[data-theme='light'],
+  #theme-toggle:checked ~ .theme {
+    --button-background-color: var(--cadet-gray);
   }
 }

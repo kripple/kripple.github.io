@@ -1,195 +1,185 @@
-/* dark mode (default) */
-.theme {
-  --active-icon-color: var(--wenge);
-  --inactive-icon-color: var(--text-color-emphasis-dark);
-  --active-icon-background-color: var(--text-color);
-  --inactive-icon-background-color: var(--wenge);
-  --sun-color: var(--inactive-icon-color);
-  --moon-color: var(--active-icon-color);
-  --sun-background-color: var(--inactive-icon-background-color);
-  --moon-background-color: var(--active-icon-background-color);
-  --sun-hover-color: var(--glow-color);
-  --moon-hover-color: var(--moon-background-color);
-  --sun-glow-color: var(--glow-color);
-  --moon-glow-color: transparent;
-  --sun-shadow-color: var(--glow-shadow);
-  --moon-shadow-color: transparent;
-}
-/* light mode */
-html[data-theme='light'],
-#theme-toggle:checked ~ .theme {
-  --active-icon-color: var(--text-color-emphasis-dark);
-  --inactive-icon-color: var(--text-color-emphasis-dark);
-  --active-icon-background-color: var(--rose-red);
-  --inactive-icon-background-color: var(--cadet-gray);
-  --sun-color: var(--active-icon-color);
-  --moon-color: var(--inactive-icon-color);
-  --sun-background-color: var(--active-icon-background-color);
-  --moon-background-color: var(--inactive-icon-background-color);
-  --sun-hover-color: var(--sun-background-color);
-  --moon-hover-color: var(--glow-color);
-  --sun-glow-color: transparent;
-  --moon-glow-color: var(--glow-color);
-  --sun-shadow-color: transparent;
-  --moon-shadow-color: var(--glow-shadow);
-}
-
 .theme-toggle {
   align-items: center;
   border-radius: var(--icon-size);
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
-  height: calc(var(--icon-size) + var(--icon-padding) + var(--icon-padding));
+  height: var(--icon-height);
   justify-content: flex-start;
   padding: var(--icon-padding);
   position: relative;
   transform-style: preserve-3d;
 }
 
-.theme-toggle-icon {
-  aspect-ratio: 1;
-  border-radius: 50%;
-  height: var(--icon-size);
-  position: relative;
-  transform: var(--theme-toggle-transform);
-  transition: transform 0.2s ease-in-out;
-  width: var(--icon-size);
+.theme-toggle-icon.glow-icon {
+  aspect-ratio: 2;
+  display: flex;
 }
-
-.sun-icon {
-  opacity: var(--opacity-light);
-}
-.moon-icon {
-  opacity: var(--opacity-dark);
-}
-
-.theme-toggle .icon {
-  color: var(--text-color-dark);
-  padding: 0;
+.theme-toggle-icon::before,
+.theme-toggle-icon::after {
+  border-radius: inherit;
+  bottom: 0;
+  content: '';
+  left: 0;
   position: absolute;
-  transition: transform 0.2s ease-in-out;
-}
-.theme-toggle:hover .icon {
-  transform: scale(1.15);
+  right: 0;
+  top: 0;
+  transform: scale(0.9);
+  transition: box-shadow 0.3s linear;
 }
 
-@media screen and (max-width: 399px) {
+.theme-toggle .icon-sun {
+  z-index: 1;
+}
+.theme-toggle .icon-moon {
+  z-index: 1;
+}
+
+.theme-toggle .icon-sun::before {
+  transition:
+    color 0.1s ease-in,
+    text-shadow 0.3s linear;
+}
+.theme-toggle .icon-moon::before {
+  transition:
+    color 0.1s ease-in,
+    text-shadow 0.3s linear;
+}
+
+.theme-toggle .theme-toggle-inset {
+  background-color: transparent;
+  border-radius: var(--icon-size);
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: box-shadow 0.3s linear;
+  z-index: 2;
+}
+
+.icon-sun,
+.icon-moon {
+  background-color: var(--button-background-color);
+}
+
+/* @media screen and (max-width: 399px) {
   .theme-toggle {
     margin-bottom: 1.25rem;
     margin-top: 0.75rem;
   }
-}
+} */
 
 @media screen and (max-width: 1199px) {
-  .theme-toggle {
-    width: 6rem;
-  }
-
-  .theme-toggle::before,
-  .theme-toggle::after {
-    align-items: center;
-    background-color: var(--backdrop-color-header);
-    border-radius: var(--icon-size);
-    bottom: 0;
-    color: var(--text-color-dark);
-    display: flex;
-    justify-content: center;
-    left: 0;
-    margin: calc(var(--icon-padding) / 2);
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateZ(-1px);
-    user-select: none;
-  }
-  .theme-toggle::before {
-    content: 'Light';
-    opacity: var(--opacity-light);
-    padding-left: var(--icon-size);
-  }
-  .theme-toggle::after {
-    content: 'Dark';
-    opacity: var(--opacity-dark);
-    padding-right: var(--icon-size);
-  }
-
-  .icon-backdrop-left,
-  .icon-backdrop-right {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .theme-toggle-icon {
-    background-image: linear-gradient(
-      to right,
-      var(--sun-background-color) 0%,
-      var(--sun-background-color) 50%,
-      var(--moon-background-color) 50%,
-      var(--moon-background-color) 100%
-    );
-    border-radius: 3rem;
-    display: flex;
-    height: var(--icon-size);
-    position: relative;
-    transform: none;
-    transition: box-shadow 0.3s linear;
-    width: unset;
-  }
-  .theme-toggle-icon::before,
-  .theme-toggle-icon::after {
-    background-color: var(--glow-color);
+  .icon-sun,
+  .icon-moon {
     border-radius: inherit;
     bottom: 0;
+    color: var(--text-color-emphasis-dark);
     content: '';
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
-    transform: scale(0.9);
     transition: box-shadow 0.3s linear;
   }
+  .icon-sun {
+    opacity: var(--opacity-dark);
+  }
+  .icon-moon {
+    opacity: var(--opacity-light);
+  }
+
+  .theme-toggle-inset {
+    display: none;
+  }
+
+  .theme-toggle-icon::before,
+  .theme-toggle-icon::after {
+    background-color: var(--canary);
+  }
+
+  .theme-toggle:hover .icon-sun,
+  .theme-toggle:hover .icon-moon {
+    color: var(--canary);
+    text-shadow: 0 0 5px var(--canary);
+  }
+
   .theme-toggle:hover .theme-toggle-icon::before {
-    box-shadow: 0 0 5px var(--glow-shadow);
-    transform: scaleX(1.05) scaleY(1.1);
+    box-shadow: 0 0 5px var(--canary);
+    transform: scale(1.1);
   }
   .theme-toggle:hover .theme-toggle-icon::after {
-    box-shadow: 0 0 12px var(--glow-shadow);
-    transform: scaleX(1.05) scaleY(1.1);
+    box-shadow: 0 0 12px var(--canary);
+    transform: scale(1.1);
+  }
+
+  .theme-toggle:hover .theme-toggle-inset {
+    box-shadow: inset 0 0 5px var(--canary);
+  }
+
+  .theme-toggle:hover .icon-sun::before {
+    color: var(--canary);
+    text-shadow: 0 0 5px var(--canary);
+  }
+  .theme-toggle:hover .icon-moon::before {
+    color: var(--canary);
+    text-shadow: 0 0 5px var(--canary);
+  }
+
+  .theme-toggle .icon-sun::before {
+    color: var(--text-color-emphasis-dark);
+  }
+  .theme-toggle .icon-moon::before {
+    color: var(--text-color-emphasis-dark);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .theme-toggle-icon::before,
+  .theme-toggle-icon::after {
+    background-color: var(--glow-color);
   }
 
   .theme-toggle .icon-sun {
     background-color: var(--sun-background-color);
     border-bottom-left-radius: var(--icon-size);
     border-top-left-radius: var(--icon-size);
-    z-index: 1;
-  }
-  .theme-toggle .icon-sun::before {
-    color: var(--sun-color);
-    transition:
-      color 0.1s ease-in,
-      text-shadow 0.3s linear;
-  }
-  .theme-toggle:hover .icon-sun::before {
-    color: var(--sun-hover-color);
-    text-shadow: 0 0 5px var(--sun-shadow-color);
   }
 
   .theme-toggle .icon-moon {
     background-color: var(--moon-background-color);
     border-bottom-right-radius: var(--icon-size);
     border-top-right-radius: var(--icon-size);
-    z-index: 1;
   }
-  .theme-toggle .icon-moon::before {
-    color: var(--moon-color);
-    transition:
-      color 0.1s ease-in,
-      text-shadow 0.3s linear;
+
+  .theme-toggle:hover .theme-toggle-icon::before {
+    box-shadow: 0 0 5px var(--glow-shadow-color);
+    transform: scaleX(1.05) scaleY(1.1);
+  }
+  .theme-toggle:hover .theme-toggle-icon::after {
+    box-shadow: 0 0 12px var(--glow-shadow-color);
+    transform: scaleX(1.05) scaleY(1.1);
+  }
+
+  .theme-toggle:hover .theme-toggle-inset {
+    box-shadow: inset 0 0 5px var(--glow-shadow-color);
+  }
+
+  .theme-toggle:hover .icon-sun::before {
+    color: var(--sun-hover-color);
+    text-shadow: 0 0 5px var(--sun-shadow-color);
   }
   .theme-toggle:hover .icon-moon::before {
     color: var(--moon-hover-color);
     text-shadow: 0 0 5px var(--moon-shadow-color);
+  }
+
+  .theme-toggle .icon-sun::before {
+    color: var(--sun-color);
+  }
+  .theme-toggle .icon-moon::before {
+    color: var(--moon-color);
   }
 }

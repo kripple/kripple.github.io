@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 0.5rem;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 var(--padding-half) var(--padding-half) var(--padding-half);
 }
 
