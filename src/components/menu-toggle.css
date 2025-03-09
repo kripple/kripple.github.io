@@ -1,67 +1,42 @@
-/* .menu {
-}
-#menu-toggle:checked ~ .menu {
-} */
-
 .menu-toggle {
-  align-items: center;
+  border-radius: 50%;
   box-sizing: border-box;
   cursor: pointer;
-  display: flex;
   grid-area: menu-toggle;
   height: var(--icon-height);
-  justify-content: flex-start;
   padding: var(--icon-padding);
-  position: relative;
-  transform-style: preserve-3d;
 }
-
-.menu-toggle-icon::before,
-.menu-toggle-icon::after {
-  background-color: var(--canary);
+.menu-toggle .menu-toggle-icon {
+  border-radius: inherit;
+  display: flex;
+  height: var(--icon-size);
+  position: relative;
+  width: var(--icon-size);
+}
+.menu-toggle-icon::before {
+  background-color: var(--button-background-color);
   border-radius: inherit;
   bottom: 0;
   content: '';
   left: 0;
+  opacity: 0;
   position: absolute;
   right: 0;
   top: 0;
-  transform: scale(0.9);
-  transition: box-shadow 0.3s linear;
+  transition: opacity 0.2s linear;
   z-index: -1;
 }
-
-.menu-toggle:hover .icon-menu {
-  color: var(--canary);
-  text-shadow: 0 0 5px var(--canary);
-}
 .menu-toggle:hover .menu-toggle-icon::before {
-  box-shadow: 0 0 5px var(--canary);
-  transform: scale(1.1);
-}
-.menu-toggle:hover .menu-toggle-icon::after {
-  box-shadow: 0 0 12px var(--canary);
-  transform: scale(1.1);
-}
-.menu-toggle:hover .menu-toggle-inset {
-  box-shadow: inset 0 0 5px var(--canary);
-}
-.menu-toggle:hover .icon-menu::before {
-  color: var(--canary);
-  text-shadow: 0 0 5px var(--canary);
+  opacity: 1;
 }
 
-@media screen and (max-width: 399px) {
-  .menu-toggle {
-    justify-self: end;
-    /* margin-bottom: 1.25rem; */
-    /* margin-top: 0.75rem; */
-  }
+.font-icon.icon-menu::before {
+  color: var(--text-color-emphasis-dark);
 }
 
 /* for larger screens, menu is visible and menu button is hidden */
 @media screen and (min-width: 1200px) {
-  .menu-toggle {
+  #menu-toggle-label {
     display: none;
   }
 }
