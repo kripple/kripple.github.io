@@ -30,8 +30,13 @@ function testCase({
   theme: TestCase<'theme'>;
   selector: TestCase<'selector'>;
 }) {
+  if (selector === 'menu-toggle' && width === 1200) return;
   const name = `${selector}-${width}px-${theme}`;
   const height = 1200 as const;
+  const locator =
+    selector === 'social-icons'
+      ? `${width === 1200 ? '.header' : '.footer'} .${selector}`
+      : `.${selector}`;
 
   test(name, async ({ page }) => {
     await page.goto('/');
@@ -40,21 +45,45 @@ function testCase({
       await page.getByTestId('theme-toggle').click();
       await page.mouse.move(0, 0);
     }
-
-    await expect(page.locator(`.${selector}`)).toHaveScreenshot(
+    await expect(page.locator(locator)).toHaveScreenshot(
       `${name}.png`,
       options,
     );
   });
 
-  // TODO: repeat for pseudo-classes :hover and for :focus-visible
+  test(`${name}-hover`, async ({ page }) => {
+    await page.goto('/');
+    await page.setViewportSize({ width, height });
+    if (theme === 'light') {
+      await page.getByTestId('theme-toggle').click();
+      await page.mouse.move(0, 0);
+    }
+    await page.locator(locator).hover();
+    await expect(page.locator(locator)).toHaveScreenshot(
+      `${name}-hover.png`,
+      options,
+    );
+  });
+
+  // test(`${name}-focus`, async ({ page }) => {
+  //   await page.goto('/');
+  //   await page.setViewportSize({ width, height });
+  //   if (theme === 'light') {
+  //     await page.getByTestId('theme-toggle').click();
+  //     await page.mouse.move(0, 0);
+  //   }
+  //   await page.locator(locator).focus();
+  //   await expect(page.locator(locator)).toHaveScreenshot(
+  //     `${name}-focus.png`,
+  //     options,
+  //   );
+  // });
 }
 
 tests.theme.map((theme) => {
   tests.selector.map((selector) => {
     tests.width.map((width) => {
-      // testCase({ theme, selector, width });
-      // console.log({ theme, selector, width });
+      testCase({ theme, selector, width });
     });
   });
 });
