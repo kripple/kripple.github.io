@@ -97,12 +97,14 @@ html[data-theme='light'],
   --nav-link-height: calc(
     var(--padding-x2) + (var(--line-height-normal) * 1rem)
   );
+  --menu-visibility: hidden;
 }
 /* menu is open */
 #menu-toggle:checked ~ .menu {
   --opacity-open: 0;
   --opacity-closed: 1;
   --collapsible-nav-height: calc-size(auto, size);
+  --menu-visibility: visible;
 }
 
 a,
@@ -122,6 +124,10 @@ svg {
   opacity: 1;
 }
 
+[tabindex='0']:focus-visible {
+  outline-color: var(--tag-text-color);
+}
+
 /* single column layout */
 @media screen and (max-width: 1199px) {
   /* --theme-color-dark and --theme-color-light are used to set the html background-color */
@@ -135,6 +141,7 @@ svg {
   /* dark mode (default) */
   :root {
     --button-background-color: var(--wenge);
+    --menu-visibility: visible;
   }
   /* light mode */
   html[data-theme='light'],
