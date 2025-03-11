@@ -24,11 +24,11 @@ export function Header() {
       </div>
 
       <MenuToggle />
+      <HeaderNav />
       <div className="header-icons">
         <SocialIcons />
         <ThemeToggle />
       </div>
-      <HeaderNav />
     </header>
   );
 }
