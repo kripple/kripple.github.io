@@ -64,20 +64,6 @@ function testCase({
       options,
     );
   });
-
-  // test(`${name}-focus`, async ({ page }) => {
-  //   await page.goto('/');
-  //   await page.setViewportSize({ width, height });
-  //   if (theme === 'light') {
-  //     await page.getByTestId('theme-toggle').click();
-  //     await page.mouse.move(0, 0);
-  //   }
-  //   await page.locator(locator).focus();
-  //   await expect(page.locator(locator)).toHaveScreenshot(
-  //     `${name}-focus.png`,
-  //     options,
-  //   );
-  // });
 }
 
 tests.theme.map((theme) => {
