@@ -1,12 +1,102 @@
-.icon-link {
-  border-radius: 50%;
+.social-icons {
   display: flex;
-  transition: background-color 0.2s ease-in-out;
-}
-.icon-link:hover {
-  background-color: var(--text-color-overlay);
 }
 
-.icon-set {
+.social-icon-link {
+  border-radius: 50%;
   display: flex;
+  height: var(--icon-size);
+  padding: var(--icon-padding);
+  position: relative;
+  text-decoration: none;
+  width: var(--icon-size);
+}
+
+.social-icon-text {
+  color: var(--text-color-emphasis-dark);
+}
+
+.social-icon {
+  aspect-ratio: 1;
+  background-color: var(--button-background-color);
+  border-radius: var(--icon-height);
+  position: relative;
+}
+.social-icon::before,
+.social-icon::after {
+  border-radius: inherit;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(0.9);
+  transition: box-shadow 0.3s linear;
+}
+.social-icon::after {
+  background-color: var(--glow-color);
+  z-index: -1;
+}
+
+@media screen and (max-width: 1199px) {
+  .social-icon-effects,
+  .font-icon.social-icon-text-effects {
+    display: none;
+  }
+
+  .social-icon {
+    background-color: unset;
+  }
+
+  .font-icon::before {
+    z-index: 1;
+  }
+
+  .social-icon::before {
+    background-color: var(--button-background-color);
+    opacity: 0;
+    transform: none;
+    transition: opacity 0.2s linear;
+  }
+  .social-icon-link:hover .social-icon::before {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .social-icon-effects,
+  .social-icon-text-effects {
+    height: var(--icon-size);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+    width: var(--icon-size);
+  }
+
+  .social-icon-link:hover .social-icon-effects,
+  .social-icon-link:hover .social-icon-text-effects {
+    opacity: 1;
+  }
+
+  .social-icon,
+  .social-icon-text-effects {
+    position: absolute;
+  }
+
+  .social-icon-text-effects {
+    box-shadow: inset 0 0 5px var(--glow-shadow-color);
+    color: var(--glow-color);
+    text-shadow: 0 0 5px var(--glow-shadow-color);
+    top: 0;
+  }
+
+  .social-icon-effects.social-icon::before {
+    box-shadow: 0 0 5px var(--glow-shadow-color);
+    transform: scale(1.1);
+  }
+
+  .social-icon-effects.social-icon::after {
+    box-shadow: 0 0 12px var(--glow-shadow-color);
+    transform: scale(1.1);
+  }
 }

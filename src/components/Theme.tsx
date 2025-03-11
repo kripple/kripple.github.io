@@ -1,6 +1,10 @@
 import { ids } from '@/data/sections';
 
 import '@/assets/fonts-latin.css';
+import '@/assets/icon-fonts.css';
+import '@/assets/icon-contents.css';
+import '@/components/theme-colors.css';
+import '@/components/theme-icons.css';
 import '@/components/theme.css';
 
 export function Theme({ children }: { children: ReactNode }) {

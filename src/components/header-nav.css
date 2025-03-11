@@ -44,6 +44,7 @@
   text-decoration: none;
   text-transform: capitalize;
   user-select: none;
+  visibility: var(--menu-visibility);
 }
 
 @media screen and (min-width: 400px) {

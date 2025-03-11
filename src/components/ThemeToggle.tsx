@@ -1,4 +1,3 @@
-import { Icon } from '@/components/Icon';
 import { ids } from '@/data/sections';
 
 import '@/components/theme-toggle.css';
@@ -13,9 +12,22 @@ export function ThemeToggle() {
       id="theme-toggle-label"
       tabIndex={0}
     >
-      <span className="theme-toggle-icon">
-        <Icon icon="sun" />
-        <Icon icon="moon" />
+      <span className="theme-toggle-icons">
+        <span className="theme-toggle-icon">
+          <i className="font-icon icon-sun"></i>
+        </span>
+        <span className="theme-toggle-icon">
+          <i className="font-icon icon-moon"></i>
+        </span>
+      </span>
+      <span className="theme-toggle-icons theme-icon-effects">
+        <span className="theme-toggle-icon">
+          <i className="font-icon icon-sun theme-icon-text-effects"></i>
+        </span>
+        <span className="theme-toggle-icon">
+          <i className="font-icon icon-moon theme-icon-text-effects"></i>
+        </span>
+        <span className="theme-toggle-inset"></span>
       </span>
     </label>
   );

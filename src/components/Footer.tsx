@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="show-for-mobile">
-        <SocialIcons iconsOnly={true} />
+        <SocialIcons />
       </div>
       © {currentYear} {config.name}
     </footer>

@@ -1,0 +1,18 @@
+.icon-moon:before {
+  content: '\e800';
+}
+.icon-sun:before {
+  content: '\e801';
+}
+.icon-email:before {
+  content: '\e802';
+}
+.icon-menu:before {
+  content: '\f008';
+}
+.icon-github:before {
+  content: '\f09b';
+}
+.icon-linkedin:before {
+  content: '\f0e1';
+}

@@ -12,8 +12,9 @@ export function MenuToggle() {
       id="menu-toggle-label"
       tabIndex={0}
     >
-      <span className="menu-toggle-label">Menu</span>
-      <span className="menu-toggle-icon"></span>
+      <span className="menu-toggle-icon">
+        <i className="font-icon icon-menu"></i>
+      </span>
     </label>
   );
 }

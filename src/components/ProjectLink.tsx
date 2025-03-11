@@ -8,7 +8,7 @@ export function ProjectLink({
   url,
 }: {
   ariaLabel: string;
-  children: ReactNode;
+  children?: ReactNode;
   label: string;
   placeholder: boolean;
   url: string | undefined;

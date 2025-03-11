@@ -16,14 +16,6 @@ body,
   width: 100vw;
 }
 
-@media screen and (max-width: 300px) {
-  html,
-  body,
-  .body {
-    overflow-x: auto;
-  }
-}
-
 h1,
 h2,
 h3,
