@@ -130,7 +130,7 @@
 
 @media screen and (max-width: 1199px) {
   .header-icons {
-    padding-right: var(--padding);
+    padding-right: calc(var(--padding) - var(--icon-padding));
   }
 }
 

@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 1199px) {
   .social-icon-effects,
-  .social-icon-text-effects {
+  .font-icon.social-icon-text-effects {
     display: none;
   }
 
