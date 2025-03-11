@@ -149,7 +149,7 @@
   .icon-sun,
   .icon-moon {
     background-color: var(--button-background-color);
-    background-color: none;
+    background-color: transparent;
   }
 
   .theme-toggle-icons::before,

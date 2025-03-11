@@ -1,7 +1,7 @@
 /* dark mode (default) */
 .theme {
   --skills-border-color: rgba(var(--tag-text-rgb), 0.3);
-  --skills-background-color: none;
+  --skills-background-color: transparent;
   --subtitle-background-color: rgba(254, 254, 251, 0.1);
   --gradient: linear-gradient(
     123deg,
