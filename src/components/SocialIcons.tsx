@@ -9,14 +9,18 @@ export function SocialIcons() {
         <li key={key}>
           <a
             aria-label={label}
-            className="font-icon-link glow-icon-clickable"
+            className="social-icon-link"
             href={href}
             rel="noreferrer"
             tabIndex={0}
             target="_blank"
           >
-            <span className="glow-icon">
-              <i className={`font-icon icon-${key}`}></i>
+            <span className="social-icon social-icon-effects"></span>
+            <span className="social-icon">
+              <i className={`font-icon icon-${key} social-icon-text`}></i>
+              <i
+                className={`font-icon icon-${key} social-icon-text-effects`}
+              ></i>
             </span>
           </a>
         </li>

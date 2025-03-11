@@ -4,16 +4,23 @@
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
+  height: var(--icon-size);
   justify-content: flex-start;
   position: relative;
+  text-decoration: none;
   transform-style: preserve-3d;
+  width: var(--icon-size);
 }
 
-.theme-toggle-icon.glow-icon {
+.theme-toggle-icons {
+  aspect-ratio: 1;
+  background-color: var(--button-background-color);
+  border-radius: var(--icon-height);
   display: flex;
+  position: relative;
 }
-.theme-toggle-icon::before,
-.theme-toggle-icon::after {
+.theme-toggle-icons::before,
+.theme-toggle-icons::after {
   border-radius: inherit;
   bottom: 0;
   content: '';
@@ -23,6 +30,14 @@
   top: 0;
   transform: scale(0.9);
   transition: box-shadow 0.3s linear;
+}
+.theme-toggle-icons::after {
+  background-color: var(--glow-color);
+  z-index: -1;
+}
+
+.theme-toggle-icon {
+  display: flex;
 }
 
 .theme-toggle .icon-sun {
@@ -57,7 +72,13 @@
 }
 
 @media screen and (max-width: 1199px) {
-  .glow-icon.theme-toggle-icon {
+  .theme-toggle-inset,
+  .theme-icon-effects,
+  .theme-icon-text-effects {
+    display: none;
+  }
+
+  .theme-toggle-icons {
     background-color: unset;
   }
 
@@ -79,11 +100,7 @@
     opacity: var(--opacity-light);
   }
 
-  .theme-toggle-inset {
-    display: none;
-  }
-
-  .glow-icon-clickable.theme-toggle {
+  .theme-toggle {
     border-radius: 50%;
     box-sizing: border-box;
     cursor: pointer;
@@ -91,82 +108,130 @@
     padding: var(--icon-padding);
     width: var(--icon-height);
   }
-  .theme-toggle .theme-toggle-icon {
+  .theme-toggle .theme-toggle-icons {
     border-radius: inherit;
     display: flex;
     height: var(--icon-size);
     width: var(--icon-size);
   }
 
-  .theme-toggle-icon.glow-icon::after {
+  .theme-toggle-icons::after {
     background-color: unset;
   }
 
-  .theme-toggle-icon.glow-icon::before {
+  .theme-toggle-icons::before {
     background-color: var(--button-background-color);
     opacity: 0;
     transform: none;
     transition: opacity 0.2s linear;
   }
-  .theme-toggle:hover .theme-toggle-icon.glow-icon::before {
+  .theme-toggle:hover .theme-toggle-icons::before {
     opacity: 1;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .theme-toggle-icon.glow-icon {
-    aspect-ratio: 2;
+  .theme-toggle {
+    height: var(--icon-height);
+    padding: var(--icon-padding);
+    width: unset;
   }
 
-  .glow-icon.icon-sun,
-  .glow-icon.icon-moon {
+  .theme-toggle-icons {
+    height: var(--icon-size);
+    width: calc(var(--icon-size) * 2);
+  }
+
+  .theme-toggle-icon {
+    height: var(--icon-size);
+    position: relative;
+    width: var(--icon-size);
+  }
+
+  .icon-sun,
+  .icon-moon {
     background-color: var(--button-background-color);
     background-color: none;
   }
 
-  .theme-toggle-icon::before,
-  .theme-toggle-icon::after {
+  .theme-toggle-icons::before,
+  .theme-toggle-icons::after {
     background-color: var(--glow-color);
   }
 
   .theme-toggle .icon-sun {
-    background-color: var(--sun-background-color);
+    background-color: var(--wenge);
     border-bottom-left-radius: var(--icon-size);
+    border-bottom-right-radius: 0;
     border-top-left-radius: var(--icon-size);
+    border-top-right-radius: 0;
   }
 
   .theme-toggle .icon-moon {
-    background-color: var(--moon-background-color);
+    background-color: var(--cadet-gray);
+    border-bottom-left-radius: 0;
     border-bottom-right-radius: var(--icon-size);
+    border-top-left-radius: 0;
     border-top-right-radius: var(--icon-size);
-  }
-
-  .theme-toggle:hover .theme-toggle-icon::before {
-    box-shadow: 0 0 5px var(--glow-shadow-color);
-    transform: scaleX(1.05) scaleY(1.1);
-  }
-  .theme-toggle:hover .theme-toggle-icon::after {
-    box-shadow: 0 0 12px var(--glow-shadow-color);
-    transform: scaleX(1.05) scaleY(1.1);
-  }
-
-  .theme-toggle:hover .theme-toggle-inset {
-    box-shadow: inset 0 0 5px var(--glow-shadow-color);
-  }
-
-  .theme-toggle:hover .icon-sun::before {
-    color: var(--sun-hover-color);
-    text-shadow: 0 0 5px var(--sun-shadow-color);
-  }
-  .theme-toggle:hover .icon-moon::before {
-    color: var(--moon-hover-color);
-    text-shadow: 0 0 5px var(--moon-shadow-color);
   }
 
   .theme-toggle .icon-sun::before {
     color: var(--sun-color);
   }
+
   .theme-toggle .icon-moon::before {
     color: var(--moon-color);
+  }
+
+  .theme-icon-effects {
+    position: absolute;
+  }
+
+  .theme-icon-effects.theme-toggle-icons::before {
+    box-shadow: 0 0 5px var(--glow-shadow-color);
+    transform: scaleX(1.05) scaleY(1.1);
+  }
+
+  .theme-icon-effects.theme-toggle-icons::after {
+    box-shadow: 0 0 12px var(--glow-shadow-color);
+    transform: scaleX(1.05) scaleY(1.1);
+  }
+
+  .theme-icon-text-effects.icon-sun::before {
+    color: var(--sun-hover-color);
+    text-shadow: 0 0 5px var(--sun-shadow-color);
+  }
+
+  .theme-icon-text-effects.icon-moon::before {
+    color: var(--moon-hover-color);
+    text-shadow: 0 0 5px var(--moon-shadow-color);
+  }
+
+  .theme-icon-effects {
+    height: var(--icon-size);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+    width: calc(var(--icon-size) * 2);
+  }
+  .theme-toggle:hover .theme-icon-effects {
+    opacity: 1;
+  }
+
+  .theme-toggle-inset {
+    box-shadow: inset 0 0 5px var(--glow-shadow-color);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+  }
+  .theme-toggle:hover .theme-toggle-inset {
+    opacity: 1;
+  }
+
+  .theme-icon-text-effects {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.3s var(--ease);
+  }
+  .theme-toggle:hover .theme-icon-text-effects {
+    opacity: 1;
   }
 }

@@ -20,7 +20,7 @@
   --sun-background-color: var(--inactive-icon-background-color);
   --moon-background-color: var(--active-icon-background-color);
   --sun-hover-color: var(--glow-color);
-  --moon-hover-color: var(--moon-background-color);
+  --moon-hover-color: transparent;
   --sun-glow-color: var(--glow-color);
   --moon-glow-color: transparent;
   --sun-shadow-color: var(--glow-shadow-color);
@@ -38,7 +38,7 @@ html[data-theme='light'],
   --moon-color: var(--inactive-icon-color);
   --sun-background-color: var(--active-icon-background-color);
   --moon-background-color: var(--inactive-icon-background-color);
-  --sun-hover-color: var(--sun-background-color);
+  --sun-hover-color: transparent;
   --moon-hover-color: var(--glow-color);
   --sun-glow-color: transparent;
   --moon-glow-color: var(--glow-color);
@@ -47,6 +47,8 @@ html[data-theme='light'],
 }
 
 .font-icon {
+  border-radius: inherit;
+  /* color: inherit; */
   display: flex;
   font-family: 'fontello';
   font-size: var(--icon-font-size);
@@ -65,60 +67,9 @@ html[data-theme='light'],
   width: var(--icon-size);
 }
 .font-icon::before {
+  color: inherit;
   height: inherit;
   line-height: inherit;
   text-align: inherit;
   width: inherit;
-}
-/* .font-icon-link {
-  display: flex;
-  height: var(--icon-size);
-  text-decoration: none;
-  width: var(--icon-size);
-} */
-
-.glow-icon-clickable {
-  display: flex;
-  height: var(--icon-size);
-  text-decoration: none;
-  width: var(--icon-size);
-}
-
-.glow-icon {
-  aspect-ratio: 1;
-  background-color: var(--button-background-color);
-  /* border-radius: 50%; */
-  border-radius: var(--icon-height);
-  /* height: var(--icon-size); */
-  position: relative;
-  /* transition: box-shadow 0.3s linear; */
-  /* width: var(--icon-size); */
-}
-.glow-icon .font-icon {
-  border-radius: inherit;
-  /* transition:
-    box-shadow 0.3s linear,
-    color 0.1s ease-in,
-    text-shadow 0.3s linear; */
-}
-.glow-icon .font-icon::before {
-  color: var(--text-color-emphasis-dark);
-}
-
-.glow-icon::before,
-.glow-icon::after {
-  border-radius: inherit;
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: scale(0.9);
-  transition: box-shadow 0.3s linear;
-}
-
-.glow-icon::after {
-  background-color: var(--glow-color);
-  z-index: -1;
 }
