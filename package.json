@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "g": "tsx src/helpers/generate",
     "draw": "tsx src/helpers/draw",
+    "setup": "playwright install",
     "test": "playwright test",
     "update": "playwright test --update-snapshots"
   },
