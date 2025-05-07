@@ -41,7 +41,7 @@
     "stylelint-order": "*",
     "stylelint-prettier": "*",
     "tinify": "1.7.1",
-    "tsx": "4.19.2",
+    "tsx": "4.19.4",
     "typescript": "*",
     "uglify-js": "3.19.3",
     "vite": "*",
