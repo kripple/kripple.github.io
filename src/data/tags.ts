@@ -1,6 +1,7 @@
 export const tagsList = [
   'Angular',
   'API Integrations',
+  'Available Offline',
   'AWS',
   'CI/CD Pipelines',
   'Client-Side State Management',
