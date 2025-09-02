@@ -20,7 +20,7 @@ export function ProjectImages({
           <span className={`${projectKey} project-color`}></span>
           <img
             alt={`screenshot of project: ${projectKey}`}
-            className="project-image"
+            className="project-image hide"
             decoding="async" // Allows the browser to decode the image off the main thread, preventing layout blocking
             fetchPriority={loadingStrategy === 'eager' ? 'high' : 'auto'}
             height={400}

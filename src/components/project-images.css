@@ -66,5 +66,4 @@ html:not(.noscript) .project-image.hide {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: -1;
 }
