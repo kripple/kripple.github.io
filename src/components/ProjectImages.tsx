@@ -12,7 +12,6 @@ export function ProjectImages({
   projectKey: ProjectKey;
 }) {
   const { src, compressedSrc } = urls[projectKey];
-  const label = `screenshot of project: ${projectKey.replaceAll('-', ' ')}`;
 
   return (
     <div className="project-images">
@@ -20,7 +19,7 @@ export function ProjectImages({
         <div className="project-images-frame-relative">
           <span className={`${projectKey} project-color`}></span>
           <img
-            alt={label}
+            alt={`screenshot of project: ${projectKey}`}
             className="project-image"
             decoding="async" // Allows the browser to decode the image off the main thread, preventing layout blocking
             fetchPriority={loadingStrategy === 'eager' ? 'high' : 'auto'}

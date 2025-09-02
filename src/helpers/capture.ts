@@ -8,7 +8,7 @@ const projects = {
   repos: 'https://kripple.github.io/repos',
   klinky: 'https://klinky.link',
   codebreaker: 'https://kripple.github.io/codebreaker',
-  'map-slicer': 'https://kripple.github.io/map-slicer',
+  mapSlicer: 'https://kripple.github.io/map-slicer',
 };
 
 const width = 1440;

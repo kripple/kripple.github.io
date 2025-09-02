@@ -4,16 +4,31 @@
 
 export type ProjectUrls = { src: string; compressedSrc: string };
 
+import codebreakerSrc from '/src/assets/project-images/codebreaker.webp';
+import codebreakerCompressedSrc from '/src/assets/project-images/codebreaker-tiny.webp';
+import klinkySrc from '/src/assets/project-images/klinky.webp';
+import klinkyCompressedSrc from '/src/assets/project-images/klinky-tiny.webp';
+import mapSlicerSrc from '/src/assets/project-images/mapSlicer.webp';
+import mapSlicerCompressedSrc from '/src/assets/project-images/mapSlicer-tiny.webp';
 import pokematchSrc from '/src/assets/project-images/pokematch.webp';
 import pokematchCompressedSrc from '/src/assets/project-images/pokematch-tiny.webp';
 import reposSrc from '/src/assets/project-images/repos.webp';
 import reposCompressedSrc from '/src/assets/project-images/repos-tiny.webp';
+
+const codebreaker: ProjectUrls = { src: codebreakerSrc, compressedSrc: codebreakerCompressedSrc };
+
+const klinky: ProjectUrls = { src: klinkySrc, compressedSrc: klinkyCompressedSrc };
+
+const mapSlicer: ProjectUrls = { src: mapSlicerSrc, compressedSrc: mapSlicerCompressedSrc };
 
 const pokematch: ProjectUrls = { src: pokematchSrc, compressedSrc: pokematchCompressedSrc };
 
 const repos: ProjectUrls = { src: reposSrc, compressedSrc: reposCompressedSrc };
 
 export const urls = {
+  'codebreaker': codebreaker,
+  'klinky': klinky,
+  'mapSlicer': mapSlicer,
   'pokematch': pokematch,
   'repos': repos,
 } as const;
