@@ -72,7 +72,12 @@ const isJsFile = /\.[mc]?js$/;
 const isCssFile = /\.css$/;
 const isHtmlFile = /\.html?$/;
 function warnNotInlined(filename: string) {
-  if (filename.endsWith('.avif') || filename.endsWith('.png')) return; // expected
+  if (
+    ['avif', 'png', 'jpeg', 'png', 'webp'].some((ext) =>
+      filename.endsWith(`.${ext}`),
+    )
+  )
+    return;
   console.debug(`NOTE: asset not inlined: ${filename}`);
 }
 
