@@ -21,7 +21,6 @@ export function ProjectImages({
             alt={`screenshot of project: ${projectKey}`}
             className="project-image hide"
             decoding="async" // Allows the browser to decode the image off the main thread, preventing layout blocking
-            fetchPriority={loadingStrategy === 'eager' ? 'high' : 'auto'}
             height={400}
             loading={loadingStrategy}
             src={compressedSrc}
