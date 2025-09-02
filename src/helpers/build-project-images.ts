@@ -72,9 +72,6 @@ async function buildProjectImages() {
       );
       await converted.toFile(regularOutputPath);
 
-      // Get dimensions of the regular image to use in filename
-      const regularImage = tinify.fromFile(regularOutputPath);
-
       // Generate compressed version with dimension in filename
       const compressedOutputPath = path.join(
         outputPath,
