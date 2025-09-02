@@ -2,6 +2,8 @@ node_modules
 secret*
 src/helpers/input
 src/helpers/output
+src/helpers/temp
 TODO*
 test-results
 playwright-report
+*.log

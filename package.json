@@ -9,11 +9,14 @@
     "postbuild": "cp docs/index.html docs/404.html && rm docs/assets/style-*.css",
     "lint": "eslint . && stylelint '**/*.css' && prettier --check .",
     "preview": "vite preview",
-    "g": "tsx src/helpers/generate",
     "draw": "tsx src/helpers/draw",
     "setup": "playwright install",
     "test": "playwright test",
-    "update": "playwright test --update-snapshots"
+    "update": "playwright test --update-snapshots",
+    "precapture": "rm -f src/helpers/temp/*",
+    "capture": "playwright test -c src/helpers/capture-config.ts --update-snapshots > playwright-capture.log",
+    "build-images": "tsx --no-deprecation src/helpers/build-project-images",
+    "update-images": "npm run capture && npm run build-images"
   },
   "devDependencies": {
     "@playwright/test": "1.50.1",

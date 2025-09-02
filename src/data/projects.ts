@@ -49,52 +49,6 @@ const toSrc = (key: ProjectKey) => `https://github.com/kripple/${key}`;
 const toHref = (key: ProjectKey) => `https://kripple.github.io/${key}`;
 
 const projects: { [key in ProjectKey]: Project } = {
-  cckb: {
-    title: 'Cricket Creek',
-    subtitle: 'Kitchens & Baths',
-    date: [Month.December, 2024],
-    blurb:
-      'Rebuilt cckb.net as a static site, eliminating annual hosting costs.',
-    githubUrl:
-      'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
-    websiteUrl: 'https://cckb.net',
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['React Router'],
-      tags['Cloudflare'],
-      tags.WordPress,
-    ],
-  },
-  'guess-the-word': {
-    title: 'Mysticabulary',
-    date: [Month.February, 2025],
-    blurb: 'An interactive word guessing game with a fixed number of guesses.',
-    githubUrl: toSrc('guess-the-word'),
-    websiteUrl: toHref('guess-the-word'),
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['Dictionary API'],
-      tags['Game Development'],
-    ],
-  },
-  'map-slicer': {
-    title: 'Map Slicer',
-    date: [Month.September, 2024],
-    blurb: 'Map Slicer lets you print large images across multiple pages.',
-    description:
-      'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
-    githubUrl: toSrc('map-slicer'),
-    websiteUrl: toHref('map-slicer'),
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['HTML Canvas'],
-      tags['React Context API'],
-      tags['Material UI'],
-    ],
-  },
   pokematch: {
     title: 'Pokématch',
     date: [Month.January, 2025],
@@ -122,16 +76,6 @@ const projects: { [key in ProjectKey]: Project } = {
       tags['Cloudflare'],
       tags['RTK Query'],
     ],
-  },
-  'web-colors': {
-    title: 'Web Colors',
-    date: [Month.November, 2024],
-    blurb: 'Web Colors lists CSS color names with their HEX and RGB values.',
-    description:
-      'Web Colors is a sleek, responsive web app that showcases all available CSS color names with their HEX and RGB values in a clean, visually appealing grid layout.',
-    githubUrl: toSrc('web-colors'),
-    websiteUrl: toHref('web-colors'),
-    tags: [tags.React, tags.TypeScript, tags['Material UI']],
   },
 } as const;
 

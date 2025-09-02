@@ -11,27 +11,25 @@ export function ProjectImages({
   loadingStrategy?: 'eager' | 'lazy';
   projectKey: ProjectKey;
 }) {
-  const theme = 'dark';
-  const screenSize = 'desktop';
-  const images = urls[projectKey];
-  const fallback = images[screenSize].dark || images[screenSize].light;
-  const { src, compressedSrc } = images[screenSize][theme] || fallback;
+  const { src, compressedSrc } = urls[projectKey];
+  const label = `screenshot of project: ${projectKey.replaceAll('-', ' ')}`;
 
   return (
-    <div className="project-images" key={theme}>
+    <div className="project-images">
       <div className="project-images-frame-absolute">
         <div className="project-images-frame-relative">
-          <span className={`${theme} ${projectKey} project-color`}></span>
+          <span className={`${projectKey} project-color`}></span>
           <img
-            alt={`screenshot of project: ${projectKey}`}
-            aria-label="Project screenshot"
+            alt={label}
             className="project-image"
+            decoding="async" // Allows the browser to decode the image off the main thread, preventing layout blocking
+            fetchPriority={loadingStrategy === 'eager' ? 'high' : 'auto'}
             height={400}
             loading={loadingStrategy}
             src={compressedSrc}
-            srcSet={`${compressedSrc}, ${src} 2x`}
+            srcSet={`${compressedSrc} 1x, ${src} 2x`}
             width={576}
-          ></img>
+          />
         </div>
       </div>
     </div>

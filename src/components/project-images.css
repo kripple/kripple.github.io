@@ -52,3 +52,19 @@ html:not(.noscript) .project-image {
 html:not(.noscript) .project-image.hide {
   opacity: 0;
 }
+
+.project {
+  --project-color: var(--contrast-color);
+}
+
+.project-color {
+  background-color: var(--project-color);
+  border-radius: inherit;
+  bottom: 0;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
