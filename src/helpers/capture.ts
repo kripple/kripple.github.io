@@ -20,6 +20,7 @@ Object.entries(projects).forEach(([projectKey, url]) => {
 
   // Skip if file already exists
   if (fs.existsSync(`${snapshotsPath}/${file}`)) {
+    test.skip(`capture - ${file} (already exists)`, () => {});
     return;
   }
 
