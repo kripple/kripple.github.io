@@ -27,7 +27,7 @@ export const skills = [
     skills: [
       {
         label: 'JavaScript Frameworks',
-        tags: [tags.React, tags.Angular, tags.Vue],
+        tags: [tags.React, tags.Angular, tags.Vue, tags['Next.js']],
       },
       {
         label: 'React Ecosystem',
@@ -37,8 +37,11 @@ export const skills = [
           tags['React Router'],
           tags['React Hooks'],
           tags['React Context API'],
-          tags['Material UI'],
         ],
+      },
+      {
+        label: 'UI Libraries',
+        tags: [tags['Material UI'], tags.daisyUI],
       },
     ],
   },

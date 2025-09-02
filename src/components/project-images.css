@@ -42,6 +42,7 @@
   transform-origin: top center;
   transition: var(--project-image-transition);
   width: 100%;
+  z-index: 10;
 }
 html:not(.noscript) .project-image {
   opacity: 1;
@@ -53,13 +54,22 @@ html:not(.noscript) .project-image.hide {
   opacity: 0;
 }
 
+html:not(.noscript) .project-image ~ .project-color {
+  inset: 0;
+  transition: inset 0.4s var(--ease);
+}
+html:not(.noscript) .project-image:not(.hide) ~ .project-color {
+  inset: 1px;
+}
+
 .project {
   --project-color: var(--contrast-color);
 }
 
 .project-color {
   background-color: var(--project-color);
-  border-radius: inherit;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   bottom: 0;
   left: 0;
   opacity: 0.8;

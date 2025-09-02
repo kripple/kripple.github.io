@@ -8,14 +8,14 @@ import '@/components/project-links.css';
 export function ProjectLinks({
   apiSrcUrl,
   apiUrl,
-  githubUrl,
+  sourceUrl,
   placeholder,
   tags,
   title,
 }: {
   apiSrcUrl: string | undefined;
   apiUrl: string | undefined;
-  githubUrl: string;
+  sourceUrl?: string;
   placeholder: boolean;
   tags: Tag[];
   title: string;
@@ -31,7 +31,7 @@ export function ProjectLinks({
           ariaLabel={`Link to source code: ${title}`}
           label="Source"
           placeholder={placeholder}
-          url={githubUrl}
+          url={sourceUrl}
         >
           <Icon icon="github" />
         </ProjectLink>

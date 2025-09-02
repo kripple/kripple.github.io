@@ -17,7 +17,6 @@ export function ProjectImages({
     <div className="project-images">
       <div className="project-images-frame-absolute">
         <div className="project-images-frame-relative">
-          <span className={`${projectKey} project-color`}></span>
           <img
             alt={`screenshot of project: ${projectKey}`}
             className="project-image hide"
@@ -29,6 +28,7 @@ export function ProjectImages({
             srcSet={`${compressedSrc} 1x, ${src} 2x`}
             width={576}
           />
+          <span className={`${projectKey} project-color`}></span>
         </div>
       </div>
     </div>

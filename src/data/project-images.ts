@@ -4,6 +4,8 @@
 
 export type ProjectUrls = { src: string; compressedSrc: string };
 
+import cckbSrc from '/src/assets/project-images/cckb.webp';
+import cckbCompressedSrc from '/src/assets/project-images/cckb-tiny.webp';
 import codebreakerSrc from '/src/assets/project-images/codebreaker.webp';
 import codebreakerCompressedSrc from '/src/assets/project-images/codebreaker-tiny.webp';
 import klinkySrc from '/src/assets/project-images/klinky.webp';
@@ -14,6 +16,10 @@ import pokematchSrc from '/src/assets/project-images/pokematch.webp';
 import pokematchCompressedSrc from '/src/assets/project-images/pokematch-tiny.webp';
 import reposSrc from '/src/assets/project-images/repos.webp';
 import reposCompressedSrc from '/src/assets/project-images/repos-tiny.webp';
+import tntLaserWorksSrc from '/src/assets/project-images/tntLaserWorks.webp';
+import tntLaserWorksCompressedSrc from '/src/assets/project-images/tntLaserWorks-tiny.webp';
+
+const cckb: ProjectUrls = { src: cckbSrc, compressedSrc: cckbCompressedSrc };
 
 const codebreaker: ProjectUrls = { src: codebreakerSrc, compressedSrc: codebreakerCompressedSrc };
 
@@ -25,12 +31,16 @@ const pokematch: ProjectUrls = { src: pokematchSrc, compressedSrc: pokematchComp
 
 const repos: ProjectUrls = { src: reposSrc, compressedSrc: reposCompressedSrc };
 
+const tntLaserWorks: ProjectUrls = { src: tntLaserWorksSrc, compressedSrc: tntLaserWorksCompressedSrc };
+
 export const urls = {
+  'cckb': cckb,
   'codebreaker': codebreaker,
   'klinky': klinky,
   'mapSlicer': mapSlicer,
   'pokematch': pokematch,
   'repos': repos,
+  'tntLaserWorks': tntLaserWorks,
 } as const;
 
 export type ProjectKey = keyof typeof urls;

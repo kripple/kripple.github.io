@@ -19,8 +19,8 @@ export function ProjectsSection() {
             subtitle,
             date,
             blurb,
-            websiteUrl,
-            githubUrl,
+            url,
+            sourceUrl,
             apiUrl,
             apiSrcUrl,
             tags,
@@ -36,7 +36,7 @@ export function ProjectsSection() {
               <a
                 aria-label={title}
                 className="project-card-link"
-                href={websiteUrl}
+                href={url}
                 rel="noreferrer"
                 tabIndex={0}
                 target="_blank"
@@ -61,8 +61,8 @@ export function ProjectsSection() {
                   <ProjectLinks
                     apiSrcUrl={apiSrcUrl}
                     apiUrl={apiUrl}
-                    githubUrl={githubUrl}
                     placeholder={true}
+                    sourceUrl={sourceUrl}
                     tags={tags}
                     title={title}
                   />
@@ -71,8 +71,8 @@ export function ProjectsSection() {
               <ProjectLinks
                 apiSrcUrl={apiSrcUrl}
                 apiUrl={apiUrl}
-                githubUrl={githubUrl}
                 placeholder={false}
+                sourceUrl={sourceUrl}
                 tags={tags}
                 title={title}
               />

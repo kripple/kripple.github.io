@@ -20,8 +20,9 @@ export function ProjectLink({
     </>
   );
 
-  if (!url) return null;
-  return placeholder ? (
+  return !url ? (
+    <div className={className}></div>
+  ) : placeholder ? (
     <div className={className}>{contents}</div>
   ) : (
     <a
