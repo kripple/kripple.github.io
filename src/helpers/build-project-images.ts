@@ -8,7 +8,7 @@ import { tinifyApiKey } from '@/helpers/secrets';
 
 tinify.key = tinifyApiKey;
 
-const inputPath = 'src/helpers/temp';
+const inputPath = 'src/helpers/snapshots';
 const outputPath = 'src/assets/project-images';
 const generatedFilePath = 'src/data/project-images.ts';
 const colorsFilePath = 'src/components/project-colors.css';

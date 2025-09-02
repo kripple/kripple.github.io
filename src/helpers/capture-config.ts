@@ -6,7 +6,7 @@ export default defineConfig({
   testDir: '.',
   testMatch: 'capture.ts',
 
-  snapshotPathTemplate: '{testDir}/temp/{arg}{ext}',
+  snapshotPathTemplate: '{testDir}/snapshots/{arg}{ext}',
 
   use: {
     baseURL: 'http://localhost:5173',
