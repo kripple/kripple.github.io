@@ -5,7 +5,7 @@ import { Vibrant } from 'node-vibrant/node';
 import tinify from 'tinify';
 
 import { projectImageMaxWidth } from '@/data/constants';
-import { projects } from '@/data/projects';
+import { projects as projectsData } from '@/data/projects';
 import { tinifyApiKey } from '@/helpers/secrets';
 
 tinify.key = tinifyApiKey;
@@ -27,8 +27,6 @@ const cssDisclaimer =
 
 const getFileName = (key: string) => `${key}-x2.${imageFormat}`;
 const getTinyFileName = (key: string) => `${key}-x1.${imageFormat}`;
-const getColor = (project: string) =>
-  projects.find(({ key }) => key === project)?.color;
 const chooseColor = async (fromPath: string) => {
   const palette = await Vibrant.from(fromPath).getPalette();
   return palette.Vibrant?.hex || palette.DarkVibrant?.hex;
@@ -58,7 +56,10 @@ async function buildProjectImages() {
     console.log(`📸 Processing ${projectName}...`);
 
     // Extract color from original image
-    const color = getColor(projectName) || (await chooseColor(fromPath));
+    const color =
+      projectName in projectsData
+        ? projectsData[projectName as keyof typeof projectsData]
+        : await chooseColor(fromPath);
 
     if (color) {
       colorSuggestions.push(
