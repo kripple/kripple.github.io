@@ -56,10 +56,11 @@ async function buildProjectImages() {
     console.log(`📸 Processing ${projectName}...`);
 
     // Extract color from original image
-    const color =
+    const projectColor =
       projectName in projectsData
-        ? projectsData[projectName as keyof typeof projectsData]
-        : await chooseColor(fromPath);
+        ? projectsData[projectName as keyof typeof projectsData].color
+        : undefined;
+    const color = projectColor || (await chooseColor(fromPath));
 
     if (color) {
       colorSuggestions.push(
