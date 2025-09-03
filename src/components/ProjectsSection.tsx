@@ -25,6 +25,7 @@ export function ProjectsSection() {
           const loadingStrategy = index === 0 || index === 1 ? 'eager' : 'lazy';
 
           const { src, compressedSrc } = urls[key as ProjectKey];
+          const showSourceLink = sourceUrl !== undefined;
 
           return (
             <div className="project-card" key={key}>
@@ -51,20 +52,24 @@ export function ProjectsSection() {
                     <span className="project-tag">{category}</span>
                   </div>
                   <p className="project-description">{blurb}</p>
-                  <span className="project-link-placeholder"></span>
+                  {showSourceLink ? (
+                    <span className="project-link-placeholder"></span>
+                  ) : null}
                 </div>
               </a>
-              <a
-                aria-label={`Link to source code: ${title}`}
-                className="project-link"
-                href={sourceUrl}
-                rel="noreferrer"
-                tabIndex={0}
-                target="_blank"
-              >
-                <Icon icon="github" />
-                <span className="project-link-label">Source</span>
-              </a>
+              {showSourceLink ? (
+                <a
+                  aria-label={`Link to source code: ${title}`}
+                  className="project-link"
+                  href={sourceUrl}
+                  rel="noreferrer"
+                  tabIndex={0}
+                  target="_blank"
+                >
+                  <Icon icon="github" />
+                  <span className="project-link-label">Source</span>
+                </a>
+              ) : null}
             </div>
           );
         })}
