@@ -13,6 +13,7 @@
 .nav-container {
   backdrop-filter: blur(10px);
   background-color: var(--menu-background-color);
+  box-sizing: content-box;
   color: var(--text-color-emphasis);
   display: flex;
   flex-direction: column;
