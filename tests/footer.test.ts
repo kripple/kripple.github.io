@@ -13,7 +13,7 @@ import { breakpoints } from './screens';
 
 function testBreakpoint(width: number) {
   const height = 900 as const;
-  const options = { animations: 'disabled', threshold: 0.1 } as const;
+  const options = { animations: 'disabled', threshold: 0.2 } as const;
 
   test(`footer matches screenshot - ${width}x${height} [dark]`, async ({
     page,

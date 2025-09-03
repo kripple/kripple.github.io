@@ -1,7 +1,12 @@
 .footer {
+  --height: 7.5rem;
+}
+
+.footer {
   color: var(--text-color-dark);
   font-size: var(--padding-half);
   font-weight: 300;
+  height: var(--height);
   padding: var(--scroll-margin) 0;
   text-align: center;
 }
@@ -12,6 +17,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .footer {
+    --height: unset;
+  }
+
   .footer,
   .footer .icon {
     color: var(--text-color);

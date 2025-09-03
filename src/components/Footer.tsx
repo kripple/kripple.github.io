@@ -10,7 +10,9 @@ export function Footer() {
       <div className="show-for-mobile">
         <SocialIcons />
       </div>
-      © {currentYear} {config.name}
+      <span>
+        © {currentYear} {config.name}
+      </span>
     </footer>
   );
 }
