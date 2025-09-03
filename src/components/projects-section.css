@@ -109,11 +109,12 @@ html:not(.noscript) .project-image.hide {
 }
 
 html:not(.noscript) .project-image ~ .project-color {
-  inset: 0;
-  transition: inset 0.4s var(--ease);
+  transform: scale(1);
+  transform-origin: center;
+  transition: var(--project-image-transition);
 }
 html:not(.noscript) .project-image:not(.hide) ~ .project-color {
-  inset: 1px;
+  transform: scale(0.9);
 }
 
 .project-content {
