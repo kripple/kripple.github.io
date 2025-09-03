@@ -74,7 +74,7 @@ const mapSlicer: Project = {
   title: 'Map Slicer',
   date: [Month.Sep, 2024],
   blurb:
-    'A web application that divides large images into printable sections for multi-page printing. Features configurable page sizes, tile dimensions, and margin settings for precise layout control.',
+    'Divides large images into printable sections for multi-page printing. Features configurable page sizes, tile dimensions, and margin settings for precise layout control. Built using React, TypeScript, HTML Canvas, and Material UI.',
   description:
     'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
   sourceUrl: 'https://github.com/kripple/map-slicer',
@@ -137,7 +137,7 @@ const klinky: Project = {
   title: 'klinky.link',
   date: [Month.Aug, 2025],
   blurb:
-    'A minimalist link shortener that requires no account creation and performs no user analytics or click tracking. Built to demonstrate full-stack application architecture and  API design.',
+    'A minimalist link shortener that requires no account creation and performs no user analytics or click tracking. Built with React, TypeScript, Node.js, PostgreSQL, and daisyUI to showcase full-stack application architecture and API design.',
   sourceUrl: 'https://github.com/kripple/klinky',
   url: 'https://klinky.link',
   tags: [
