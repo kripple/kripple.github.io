@@ -1,4 +1,4 @@
-export const breakpoints = [300, 400, 600, 1200] as const;
+export const breakpoints = [300, 400, 750, 1200] as const;
 
 export const screens = [
   {

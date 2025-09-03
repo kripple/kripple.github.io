@@ -5,14 +5,11 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  line-height: 1.6;
-}
-
 html,
 body,
 .body,
-.app {
+.app,
+#root {
   min-height: 100vh;
   position: relative;
   width: 100vw;

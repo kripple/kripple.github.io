@@ -19,7 +19,7 @@
   justify-content: space-between;
   user-select: none;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
 }
 
 .header-icons {
@@ -96,7 +96,7 @@
   content: none;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .header {
     grid-template-columns: 1fr min-content; /* ? there are still three columns */
   }

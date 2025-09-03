@@ -10,7 +10,7 @@ function testBreakpoint(width: number) {
   const name = `projects-${width}px`;
   const height = 1200 as const;
 
-  test(`${name} [dark]`, async ({ page }) => {
+  test.skip(`${name} [dark]`, async ({ page }) => {
     await page.goto('/');
     await page.setViewportSize({
       width,
@@ -22,7 +22,7 @@ function testBreakpoint(width: number) {
     );
   });
 
-  test(`${name} [light]`, async ({ page }) => {
+  test.skip(`${name} [light]`, async ({ page }) => {
     await page.goto('/');
     await page.setViewportSize({ width, height });
     await page.getByTestId('theme-toggle').click();

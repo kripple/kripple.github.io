@@ -22,7 +22,6 @@
   position: var(--position-nav);
   transition: height 0.2s linear;
   width: 100%;
-  z-index: 10;
 }
 
 .nav-link {

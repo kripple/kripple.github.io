@@ -16,7 +16,6 @@
 .app {
   display: flex;
   flex-direction: column;
-  max-width: 74rem;
 }
 
 .main {
@@ -80,6 +79,7 @@
     flex-direction: row;
     justify-content: center;
     margin: 0 var(--padding);
+    max-width: 74rem;
   }
   .header {
     max-height: 100vh;
