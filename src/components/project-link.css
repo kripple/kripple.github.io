@@ -1,7 +1,6 @@
 .project-link {
   align-items: center;
   border-radius: 1.75rem;
-  box-sizing: border-box;
   display: flex;
   font-size: 1rem;
   font-weight: 500;
@@ -17,9 +16,23 @@
   background-color: var(--text-color-overlay);
 }
 
+.project-link.placeholder {
+  transition: none;
+  user-select: none;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.project-link:not(.placeholder) {
+  bottom: 0;
+  justify-self: center;
+  margin: var(--content-padding);
+  position: absolute;
+  z-index: 50;
+}
+
 .project-link .icon {
   height: 1rem;
-  margin: 0;
   padding: 0;
   width: 1rem;
 }

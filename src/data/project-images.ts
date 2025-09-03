@@ -4,20 +4,20 @@
 
 export type ProjectUrls = { src: string; compressedSrc: string };
 
-import cckbSrc from '/src/assets/project-images/cckb.webp';
-import cckbCompressedSrc from '/src/assets/project-images/cckb-tiny.webp';
-import codebreakerSrc from '/src/assets/project-images/codebreaker.webp';
-import codebreakerCompressedSrc from '/src/assets/project-images/codebreaker-tiny.webp';
-import klinkySrc from '/src/assets/project-images/klinky.webp';
-import klinkyCompressedSrc from '/src/assets/project-images/klinky-tiny.webp';
-import mapSlicerSrc from '/src/assets/project-images/mapSlicer.webp';
-import mapSlicerCompressedSrc from '/src/assets/project-images/mapSlicer-tiny.webp';
-import pokematchSrc from '/src/assets/project-images/pokematch.webp';
-import pokematchCompressedSrc from '/src/assets/project-images/pokematch-tiny.webp';
-import reposSrc from '/src/assets/project-images/repos.webp';
-import reposCompressedSrc from '/src/assets/project-images/repos-tiny.webp';
-import tntLaserWorksSrc from '/src/assets/project-images/tntLaserWorks.webp';
-import tntLaserWorksCompressedSrc from '/src/assets/project-images/tntLaserWorks-tiny.webp';
+import cckbSrc from '/src/assets/project-images/cckb-x2.webp';
+import cckbCompressedSrc from '/src/assets/project-images/cckb-x1.webp';
+import codebreakerSrc from '/src/assets/project-images/codebreaker-x2.webp';
+import codebreakerCompressedSrc from '/src/assets/project-images/codebreaker-x1.webp';
+import klinkySrc from '/src/assets/project-images/klinky-x2.webp';
+import klinkyCompressedSrc from '/src/assets/project-images/klinky-x1.webp';
+import mapSlicerSrc from '/src/assets/project-images/mapSlicer-x2.webp';
+import mapSlicerCompressedSrc from '/src/assets/project-images/mapSlicer-x1.webp';
+import pokematchSrc from '/src/assets/project-images/pokematch-x2.webp';
+import pokematchCompressedSrc from '/src/assets/project-images/pokematch-x1.webp';
+import reposSrc from '/src/assets/project-images/repos-x2.webp';
+import reposCompressedSrc from '/src/assets/project-images/repos-x1.webp';
+import tntLaserWorksSrc from '/src/assets/project-images/tntLaserWorks-x2.webp';
+import tntLaserWorksCompressedSrc from '/src/assets/project-images/tntLaserWorks-x1.webp';
 
 const cckb: ProjectUrls = { src: cckbSrc, compressedSrc: cckbCompressedSrc };
 

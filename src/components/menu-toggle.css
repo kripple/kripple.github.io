@@ -1,6 +1,5 @@
 .menu-toggle {
   border-radius: 50%;
-  box-sizing: border-box;
   cursor: pointer;
   grid-area: menu-toggle;
   height: var(--icon-height);

@@ -1,37 +1,7 @@
-import type { ProjectKey } from '@/data/project-images';
 import type { Tag } from '@/data/tags';
 import { tags } from '@/data/tags';
+import { Month, type ProjectDate } from '@/types/dates';
 
-enum Month {
-  January,
-  February,
-  March,
-  April,
-  May,
-  June,
-  July,
-  August,
-  September,
-  October,
-  November,
-  December,
-}
-const machineReadableMonths = {
-  [Month.January]: '01',
-  [Month.February]: '02',
-  [Month.March]: '03',
-  [Month.April]: '04',
-  [Month.May]: '05',
-  [Month.June]: '06',
-  [Month.July]: '07',
-  [Month.August]: '08',
-  [Month.September]: '09',
-  [Month.October]: '10',
-  [Month.November]: '11',
-  [Month.December]: '12',
-} as const;
-
-type ProjectDate = [Month, number];
 type Project = {
   title: string;
   subtitle?: string;
@@ -43,146 +13,152 @@ type Project = {
   url: string;
   apiUrl?: string;
   apiSrcUrl?: string;
+  color?: string;
 };
 
-const projects: Record<string, Project> = {
-  cckb: {
-    title: 'Cricket Creek',
-    subtitle: 'Kitchens & Baths',
-    date: [Month.December, 2024],
-    blurb:
-      'Rebuilt cckb.net as a static site, eliminating annual hosting costs.',
-    sourceUrl:
-      'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
-    url: 'https://cckb.net',
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['React Router'],
-      tags.WordPress,
-      tags['Available Offline'],
-    ],
-  },
+const cckb: Project = {
+  title: 'Cricket Creek',
+  subtitle: 'Kitchens & Baths',
+  date: [Month.Dec, 2024],
+  blurb:
+    'Migrated a WordPress site to a modern static React application, eliminating ongoing hosting costs while improving performance and maintainability.',
+  sourceUrl:
+    'https://github.com/cricket-creek-kitchens-and-baths/cricket-creek-kitchens-and-baths.github.io',
+  url: 'https://cckb.net',
+  tags: [
+    tags.React,
+    tags.TypeScript,
+    tags['React Router'],
+    tags.WordPress,
+    tags['Available Offline'],
+  ],
+  color: '#019934',
+};
 
-  codebreaker: {
-    title: 'Code:Breaker',
-    date: [Month.June, 2025],
-    blurb:
-      'A daily-play code-breaking game based on the board game Mastermind.',
-    sourceUrl: 'https://github.com/kripple/codebreaker',
-    url: 'https://kripple.github.io/codebreaker',
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['Node.js'],
-      tags.PostgreSQL,
-      tags['Edge Functions'],
-    ],
-  },
+const codebreaker: Project = {
+  title: 'Code:Breaker',
+  date: [Month.Jun, 2025],
+  blurb:
+    'A daily-play code-breaking game based on the board game Mastermind. Players use deductive reasoning to solve a new code each day through a process of systematic elimination.',
+  sourceUrl: 'https://github.com/kripple/codebreaker',
+  url: 'https://kripple.github.io/codebreaker',
+  tags: [
+    tags.React,
+    tags.TypeScript,
+    tags['Node.js'],
+    tags.PostgreSQL,
+    tags['Edge Functions'],
+  ],
+};
 
-  mapSlicer: {
-    title: 'Map Slicer',
-    date: [Month.September, 2024],
-    blurb: 'Map Slicer lets you print large images across multiple pages.',
-    description:
-      'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
-    sourceUrl: 'https://github.com/kripple/map-slicer',
-    url: 'http://kripple.github.io/map-slicer',
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['HTML Canvas'],
-      tags['Material UI'],
-      tags['Available Offline'],
-    ],
-  },
+const guessTheWord: Project = {
+  title: 'Mysticabulary',
+  date: [Month.Feb, 2025],
+  blurb: 'An interactive word guessing game with a fixed number of guesses.',
+  sourceUrl: 'https://github.com/kripple/guess-the-word',
+  url: 'https://kripple.github.io/guess-the-word',
+  tags: [
+    tags.React,
+    tags.TypeScript,
+    tags['Dictionary API'],
+    tags['Game Development'],
+  ],
+};
 
-  pokematch: {
-    title: 'Pokématch',
-    date: [Month.January, 2025],
-    blurb: 'A memory game built with object-oriented programming techniques.',
-    sourceUrl: 'https://github.com/kripple/pokematch',
-    url: 'https://kripple.github.io/pokematch',
-    tags: [
-      tags.JavaScript,
-      tags['Game Development'],
-      tags.Pokémon,
-      tags['Available Offline'],
-    ],
-  },
+const mapSlicer: Project = {
+  title: 'Map Slicer',
+  date: [Month.Sep, 2024],
+  blurb:
+    'A web application that divides large images into printable sections for multi-page printing. Features configurable page sizes, tile dimensions, and margin settings for precise layout control.',
+  description:
+    'Map Slicer is a powerful tool that lets you print poster size images at home using a standard printer. With configurable settings for page size, margins, and DPI, it automatically selects the best layout (portrait or landscape) to minimize page usage. In just a few clicks, you can generate a ready-to-print PDF—whether for your next game, art project, or other creative pursuit.',
+  sourceUrl: 'https://github.com/kripple/map-slicer',
+  url: 'http://kripple.github.io/map-slicer',
+  tags: [
+    tags.React,
+    tags.TypeScript,
+    tags['HTML Canvas'],
+    tags['Material UI'],
+    tags['Available Offline'],
+  ],
+};
 
-  repos: {
-    title: 'Repo Gallery',
-    date: [Month.January, 2025],
-    blurb:
-      'A GitHub repository gallery that lists, sorts, and filters public repos.',
-    description:
-      'A gallery page that dynamically displays all publicly accessible GitHub repositories belonging to a specific user (kripple).',
-    sourceUrl: 'https://github.com/kripple/repos',
-    url: 'https://kripple.github.io/repos',
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags['Node.js'],
-      tags['RTK Query'],
-      tags['GitHub API'],
-    ],
-  },
+const pokematch: Project = {
+  title: 'Pokématch',
+  date: [Month.Jan, 2025],
+  blurb:
+    'A memory game built with object-oriented programming techniques. Can be installed as a Chrome app (or similar) for offline play.',
+  sourceUrl: 'https://github.com/kripple/pokematch',
+  url: 'https://kripple.github.io/pokematch',
+  tags: [
+    tags.JavaScript,
+    tags['Game Development'],
+    tags.Pokémon,
+    tags['Available Offline'],
+  ],
+};
 
-  tntLaserWorks: {
-    title: 'TNT Laser Works',
-    date: [Month.February, 2025],
-    blurb:
-      'Redesigned site to support and elevate the growing Sage Stones brand.',
-    url: 'https://tntlaserworks.com',
-    tags: [tags.JavaScript, tags.CSS, tags.Squarespace, tags.eCommerce],
-  },
+const repos: Project = {
+  title: 'Repo Gallery',
+  date: [Month.Jan, 2025],
+  blurb:
+    'A personal GitHub repository gallery that that lists, sorts, and filters my public repositories.',
+  description:
+    'A gallery page that dynamically displays all publicly accessible GitHub repositories belonging to a specific user (kripple).',
+  sourceUrl: 'https://github.com/kripple/repos',
+  url: 'https://kripple.github.io/repos',
+  tags: [
+    tags.React,
+    tags.TypeScript,
+    tags['Node.js'],
+    tags['RTK Query'],
+    tags['GitHub API'],
+  ],
+};
 
-  klinky: {
-    title: 'klinky.link',
-    date: [Month.August, 2025],
-    blurb:
-      'A simple link shortener that requires no account and performs no analytics.',
-    sourceUrl: 'https://github.com/kripple/klinky',
-    url: 'https://klinky.link',
-    tags: [
-      tags.React,
-      tags.TypeScript,
-      tags.daisyUI,
-      tags['Node.js'],
-      tags.PostgreSQL,
-      tags['Edge Functions'],
-    ],
-  },
+const tntLaserWorks: Project = {
+  title: 'TNT Laser Works',
+  date: [Month.Feb, 2025],
+  blurb:
+    'Redesigned online store to support and elevate the growing Sage Stones brand. TNT Laser Works are the home of Sage Stones, a strategic board game, and other custom laser-cut gaming accessories.',
+  url: 'https://tntlaserworks.com',
+  tags: [tags.JavaScript, tags.CSS, tags.Squarespace, tags.eCommerce],
+  color: '#fef366',
+};
+
+const klinky: Project = {
+  title: 'klinky.link',
+  date: [Month.Aug, 2025],
+  blurb:
+    'Link shortener that requires no account and performs no analytics. Built to demo full-stack application architechture.',
+  sourceUrl: 'https://github.com/kripple/klinky',
+  url: 'https://klinky.link',
+  tags: [
+    tags.React,
+    tags.TypeScript,
+    tags.daisyUI,
+    tags['Node.js'],
+    tags.PostgreSQL,
+    tags['Edge Functions'],
+  ],
+  color: '#422ad5',
+};
+
+export const featuredProjects = {
+  repos,
+  klinky,
+  tntLaserWorks,
+  mapSlicer,
 } as const;
 
-const toNumber = ([month, year]: ProjectDate) => year * 100 + month;
-const sorted = (Object.keys(projects) as ProjectKey[]).sort((keyA, keyB) => {
-  const optionA = -1;
-  const optionB = 1;
+export const additionalProjects = {
+  codebreaker,
+  cckb,
+  pokematch,
+  guessTheWord,
+} as const;
 
-  // sort by most recent
-  const dateA = toNumber(projects[keyA].date);
-  const dateB = toNumber(projects[keyB].date);
-  if (dateA > dateB) return optionA;
-  if (dateB < dateA) return optionB;
-
-  // then sort alphabetically
-  // github enforces (case-insensitive) unique repo names
-  return keyA < keyB ? optionA : optionB;
-});
-
-export const toDateTime = ([month, year]: ProjectDate) =>
-  `${year}-${machineReadableMonths[month]}`;
-
-export const toDateString = ([month, year]: ProjectDate) =>
-  `${Month[month]} ${year}`;
-
-type ProjectItem = Project & { key: ProjectKey };
-const projectItems = sorted.reduce((result, key) => {
-  const project = projects[key];
-  result.push({ ...project, key });
-  return result;
-}, [] as ProjectItem[]);
-
-export { projectItems as projects };
+export const projects = {
+  ...featuredProjects,
+  ...additionalProjects,
+} as const;

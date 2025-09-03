@@ -3,13 +3,13 @@
 /* To regenerate: npm run build-images */
 
 .project-color.cckb {
-  --project-color: #049c34;
+  --project-color: #019934;
 }
 .project-color.codebreaker {
   --project-color: #c00454;
 }
 .project-color.klinky {
-  --project-color: #442cd4;
+  --project-color: #422ad5;
 }
 .project-color.mapSlicer {
   --project-color: #249cd4;
@@ -21,5 +21,5 @@
   --project-color: #4474a8;
 }
 .project-color.tntLaserWorks {
-  --project-color: #faf263;
+  --project-color: #fef366;
 }

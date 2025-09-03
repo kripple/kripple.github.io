@@ -27,7 +27,6 @@
 
 .nav-link {
   align-items: center;
-  box-sizing: border-box;
   cursor: pointer;
   display: flex;
   flex-basis: 0;

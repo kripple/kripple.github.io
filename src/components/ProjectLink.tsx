@@ -10,7 +10,7 @@ export function ProjectLink({
   ariaLabel: string;
   children?: ReactNode;
   label: string;
-  placeholder: boolean;
+  placeholder?: boolean;
   url: string | undefined;
 }) {
   const className = 'project-link';
@@ -20,10 +20,8 @@ export function ProjectLink({
     </>
   );
 
-  return !url ? (
-    <div className={className}></div>
-  ) : placeholder ? (
-    <div className={className}>{contents}</div>
+  return !url ? null : placeholder ? (
+    <div className={`${className} placeholder`}>{contents}</div>
   ) : (
     <a
       aria-label={ariaLabel}

@@ -22,7 +22,6 @@
   align-items: center;
   border: 1px solid var(--text-color);
   border-radius: 0.5rem;
-  box-sizing: border-box;
   cursor: pointer;
   display: flex;
   height: var(--padding-x2);

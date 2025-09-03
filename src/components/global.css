@@ -5,26 +5,17 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  line-height: 1.6;
+}
+
 html,
 body,
 .body,
 .app {
-  margin: 0;
   min-height: 100vh;
-  padding: 0;
   position: relative;
   width: 100vw;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
 }
 
 a {
@@ -33,6 +24,10 @@ a {
 
 ul {
   list-style: none;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
