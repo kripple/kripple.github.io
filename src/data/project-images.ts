@@ -8,6 +8,8 @@ import cckbSrc from '/src/assets/project-images/cckb-x2.webp';
 import cckbCompressedSrc from '/src/assets/project-images/cckb-x1.webp';
 import codebreakerSrc from '/src/assets/project-images/codebreaker-x2.webp';
 import codebreakerCompressedSrc from '/src/assets/project-images/codebreaker-x1.webp';
+import guessTheWordSrc from '/src/assets/project-images/guessTheWord-x2.webp';
+import guessTheWordCompressedSrc from '/src/assets/project-images/guessTheWord-x1.webp';
 import klinkySrc from '/src/assets/project-images/klinky-x2.webp';
 import klinkyCompressedSrc from '/src/assets/project-images/klinky-x1.webp';
 import mapSlicerSrc from '/src/assets/project-images/mapSlicer-x2.webp';
@@ -23,6 +25,8 @@ const cckb: ProjectUrls = { src: cckbSrc, compressedSrc: cckbCompressedSrc };
 
 const codebreaker: ProjectUrls = { src: codebreakerSrc, compressedSrc: codebreakerCompressedSrc };
 
+const guessTheWord: ProjectUrls = { src: guessTheWordSrc, compressedSrc: guessTheWordCompressedSrc };
+
 const klinky: ProjectUrls = { src: klinkySrc, compressedSrc: klinkyCompressedSrc };
 
 const mapSlicer: ProjectUrls = { src: mapSlicerSrc, compressedSrc: mapSlicerCompressedSrc };
@@ -36,6 +40,7 @@ const tntLaserWorks: ProjectUrls = { src: tntLaserWorksSrc, compressedSrc: tntLa
 export const urls = {
   'cckb': cckb,
   'codebreaker': codebreaker,
+  'guessTheWord': guessTheWord,
   'klinky': klinky,
   'mapSlicer': mapSlicer,
   'pokematch': pokematch,

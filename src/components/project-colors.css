@@ -8,6 +8,9 @@
 .project-color.codebreaker {
   --project-color: #c00454;
 }
+.project-color.guessTheWord {
+  --project-color: #880088;
+}
 .project-color.klinky {
   --project-color: #422ad5;
 }

@@ -66,6 +66,7 @@ const guessTheWord: Project = {
     tags['Dictionary API'],
     tags['Game Development'],
   ],
+  color: '#880088',
   category: 'fullstack',
 };
 
