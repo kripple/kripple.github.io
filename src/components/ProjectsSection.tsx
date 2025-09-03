@@ -34,6 +34,9 @@ export function ProjectsSection() {
                     alt={`screenshot of project: ${key}`}
                     className="project-image hide"
                     decoding="async"
+                    fetchPriority={
+                      loadingStrategy === 'eager' ? 'high' : undefined
+                    }
                     height={projectImageMaxWidth / projectImageAspectRatio}
                     loading={loadingStrategy}
                     src={compressedSrc}
