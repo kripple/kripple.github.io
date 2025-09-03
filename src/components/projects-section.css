@@ -159,3 +159,7 @@ html:not(.noscript) .project-image:not(.hide) ~ .project-color {
   text-transform: capitalize;
   white-space: nowrap;
 }
+
+a.project-card-link:-webkit-any-link:focus-visible {
+  outline-offset: 3px;
+}
