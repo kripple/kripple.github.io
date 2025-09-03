@@ -1,5 +1,3 @@
-// import { CopyButton } from '@/components/CopyButton';
-
 import { socialLinks } from '@/data/config';
 import { ids } from '@/data/sections';
 
@@ -12,8 +10,13 @@ export function ContactSection() {
     <section className="section contact-section" id={ids.contact}>
       <div>
         <h3 className="section-title contact-section-title">Contact</h3>
+
+        <p className="paragraph">
+          {`I'm actively seeking my next full-time role and available to start immediately. If you know of opportunities that might be a good fit, I'd love to connect!`}
+        </p>
+
         <p className="paragraph add-punctuation">
-          {`I’m actively seeking my next full-time role and am available to start immediately. If you know of any opportunities that might be a good fit, I’d love to hear from you! I can be reached by email at `}
+          Email:{' '}
           <a
             aria-label={email.label}
             className="email-text-link"
@@ -25,26 +28,6 @@ export function ContactSection() {
             {email.value}
           </a>
         </p>
-
-        {/* <p className="paragraph">
-          {`Click "Email" to send an email using your default email client`}
-          <span className="copy-instructions">{`, or click "Copy" to copy the address`}</span>
-          .
-        </p>
-
-        <div className="button-set">
-          <a className="button-link" href={`mailto:${config.email}`} tabIndex={0}>
-            <span className="label">Email</span>
-          </a>
-
-          <CopyButton label="Copy" value={config.email} />
-        </div> */}
-
-        {/* <div>
-        <SocialIcon icon="github" />
-        <SocialIcon icon="linkedin" />
-        <SocialIcon icon="email" />
-      </div> */}
       </div>
     </section>
   );
