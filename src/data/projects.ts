@@ -14,6 +14,7 @@ type Project = {
   apiUrl?: string;
   apiSrcUrl?: string;
   color?: string;
+  category: 'fullstack' | 'frontend' | 'squarespace' | 'wordpress' | 'next.js';
 };
 
 const cckb: Project = {
@@ -33,6 +34,7 @@ const cckb: Project = {
     tags['Available Offline'],
   ],
   color: '#019934',
+  category: 'wordpress',
 };
 
 const codebreaker: Project = {
@@ -49,6 +51,7 @@ const codebreaker: Project = {
     tags.PostgreSQL,
     tags['Edge Functions'],
   ],
+  category: 'fullstack',
 };
 
 const guessTheWord: Project = {
@@ -63,6 +66,7 @@ const guessTheWord: Project = {
     tags['Dictionary API'],
     tags['Game Development'],
   ],
+  category: 'fullstack',
 };
 
 const mapSlicer: Project = {
@@ -81,6 +85,7 @@ const mapSlicer: Project = {
     tags['Material UI'],
     tags['Available Offline'],
   ],
+  category: 'frontend',
 };
 
 const pokematch: Project = {
@@ -96,15 +101,14 @@ const pokematch: Project = {
     tags.Pokémon,
     tags['Available Offline'],
   ],
+  category: 'frontend',
 };
 
 const repos: Project = {
   title: 'Repo Gallery',
   date: [Month.Jan, 2025],
   blurb:
-    'A personal GitHub repository gallery that that lists, sorts, and filters my public repositories.',
-  description:
-    'A gallery page that dynamically displays all publicly accessible GitHub repositories belonging to a specific user (kripple).',
+    'A dynamic portfolio showcase that fetches and displays my GitHub projects with real-time filtering and sorting capabilities. Built with React and TypeScript to demonstrate external API integration and interactive data presentation.',
   sourceUrl: 'https://github.com/kripple/repos',
   url: 'https://kripple.github.io/repos',
   tags: [
@@ -114,23 +118,25 @@ const repos: Project = {
     tags['RTK Query'],
     tags['GitHub API'],
   ],
+  category: 'fullstack',
 };
 
 const tntLaserWorks: Project = {
   title: 'TNT Laser Works',
   date: [Month.Feb, 2025],
   blurb:
-    'Redesigned online store to support and elevate the growing Sage Stones brand. TNT Laser Works are the home of Sage Stones, a strategic board game, and other custom laser-cut gaming accessories.',
+    'Complete e-commerce redesign for a family-owned tabletop gaming business looking to expand their reach. TNT Laser Works is the home of Sage Stones, a strategic board game played on a laser-engraved wooden game board.',
   url: 'https://tntlaserworks.com',
   tags: [tags.JavaScript, tags.CSS, tags.Squarespace, tags.eCommerce],
   color: '#fef366',
+  category: 'squarespace',
 };
 
 const klinky: Project = {
   title: 'klinky.link',
   date: [Month.Aug, 2025],
   blurb:
-    'Link shortener that requires no account and performs no analytics. Built to demo full-stack application architechture.',
+    'A minimalist link shortener that requires no account creation and performs no user analytics or click tracking. Built to demonstrate full-stack application architecture and  API design.',
   sourceUrl: 'https://github.com/kripple/klinky',
   url: 'https://klinky.link',
   tags: [
@@ -142,6 +148,7 @@ const klinky: Project = {
     tags['Edge Functions'],
   ],
   color: '#422ad5',
+  category: 'fullstack',
 };
 
 export const featuredProjects = {

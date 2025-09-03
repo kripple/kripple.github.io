@@ -8,7 +8,7 @@ import { projects } from '@/data/projects';
 const snapshotsPath = 'src/helpers/snapshots';
 const options = { animations: 'disabled' } as const;
 
-projects.forEach(({ key, url }) => {
+Object.entries(projects).forEach(([key, { url }]) => {
   const file = `${key}.png`;
 
   // Skip if file already exists

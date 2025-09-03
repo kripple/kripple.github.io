@@ -5,9 +5,8 @@ import {
   projectImageMaxWidth,
 } from '@/data/constants';
 import { type ProjectKey, urls } from '@/data/project-images';
-import { additionalProjects, featuredProjects } from '@/data/projects';
+import { featuredProjects } from '@/data/projects';
 import { ids } from '@/data/sections';
-import { toDateString, toDateTime } from '@/types/dates';
 
 import '@/components/projects-section.css';
 import '@/components/project-colors.css';
@@ -23,11 +22,9 @@ export function ProjectsSection() {
             console.warn(`missing project '${key}'`);
             return null;
           }
-          const { title, date, blurb, url, sourceUrl, tags } = project;
+          const { title, blurb, url, sourceUrl, category } = project;
           const loadingStrategy = index === 0 || index === 1 ? 'eager' : 'lazy';
 
-          const dateTime = toDateTime(date);
-          const dateString = toDateString(date);
           const { src, compressedSrc } = urls[key as ProjectKey];
 
           const sourceLinkProps = {
@@ -39,7 +36,7 @@ export function ProjectsSection() {
 
           return (
             <div className="project-card" key={key}>
-              <a className="project-card-link" href={url}>
+              <a className="project-card-link" href={url} tabIndex={0}>
                 <div className="project-image-container">
                   <img
                     alt={`screenshot of project: ${key}`}
@@ -56,23 +53,11 @@ export function ProjectsSection() {
                 <div className="project-content">
                   <div className="project-header">
                     <h3 className="project-title">{title}</h3>
-                    <time className="project-date" dateTime={dateTime}>
-                      {dateString}
-                    </time>
+                    <span className="project-tag">{category}</span>
                   </div>
                   <p className="project-description">{blurb}</p>
-                  <div className="project-tags">
-                    {tags.map((tag) => (
-                      <span className="project-tag" key={tag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  {/* we can't put an anchor inside another anchor */}
-                  <ProjectLink {...{ ...sourceLinkProps, placeholder: true }} />
                 </div>
               </a>
-              {/* so we'll put it on top instead */}
               <ProjectLink {...sourceLinkProps} />
             </div>
           );

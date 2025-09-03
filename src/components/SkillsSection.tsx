@@ -1,4 +1,3 @@
-// import { Icon } from '@/components/Icon';
 import { ids } from '@/data/sections';
 import { skills } from '@/data/skills';
 
@@ -18,12 +17,7 @@ export function SkillsSection() {
             {list.map(({ label, tags }) => {
               return (
                 <li className="skill-item-list" key={label}>
-                  <span className="skill-label">
-                    {label}
-                    {/* <button className="skill-button">
-                      <Icon icon="plus" />
-                    </button> */}
-                  </span>
+                  <span className="skill-label">{label}</span>
                   {tags.map((tag) => (
                     <span className="skill-item" key={tag}>
                       {tag}

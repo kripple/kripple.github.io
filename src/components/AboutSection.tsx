@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+// import { Fragment } from 'react';
 
 import { Photo } from '@/components/Photo';
 import { SkillsSection } from '@/components/SkillsSection';
@@ -8,13 +8,13 @@ import { ids } from '@/data/sections';
 import '@/components/about-section.css';
 
 export function AboutSection() {
-  const hobbies = [
-    ['🖥️', 'Writing Code'],
-    ['🌱', 'Tending House Plants'],
-    ['🍿', 'Watching Anime'],
-    ['🎲', 'Playing Tabletop Games'],
-    ['📚', 'Reading Books'],
-  ] as const;
+  // const hobbies = [
+  //   ['🖥️', 'Writing Code'],
+  //   ['🌱', 'Tending House Plants'],
+  //   ['🍿', 'Watching Anime'],
+  //   ['🎲', 'Playing Tabletop Games'],
+  //   ['📚', 'Reading Books'],
+  // ] as const;
 
   return (
     <section className="section about-section" id={ids.about}>
@@ -22,10 +22,10 @@ export function AboutSection() {
 
       <div className="about-section-content">
         <p className="paragraph">
-          {`I'm a fullstack software engineer with over ${config.yearsOfExperience} years of full-time experience. I specialize in frontend web development using React and TypeScript. While looking for my next full-time role, I'm staying active by strengthening my skills through freelance and personal projects.`}
+          {`I'm a fullstack software engineer with over ${config.yearsOfExperience} years of professional experience. I specialize in frontend web development using React and TypeScript. While looking for my next full-time role, I'm staying active by strengthening my skills through freelance and personal projects.`}
         </p>
 
-        <p className="paragraph">
+        {/* <p className="paragraph">
           I live and work in Northern Virginia and I often spend my free time{' '}
           {hobbies.map(([emoji, hobby], index) => (
             <Fragment key={index}>
@@ -38,7 +38,7 @@ export function AboutSection() {
             </Fragment>
           ))}
           .
-        </p>
+        </p> */}
 
         <Photo />
       </div>

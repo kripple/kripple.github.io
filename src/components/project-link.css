@@ -6,7 +6,7 @@
   font-weight: 500;
   gap: 5px;
   height: 1.75rem;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0 0.5rem;
   position: relative;
   text-decoration: none;
@@ -25,7 +25,7 @@
 
 .project-link:not(.placeholder) {
   bottom: 0;
-  justify-self: center;
+  /* justify-self: center; */
   margin: var(--content-padding);
   position: absolute;
   z-index: 50;

@@ -1,6 +1,6 @@
 .projects-section {
-  --card-width: 20rem;
-  --card-height: calc(var(--card-width) * var(--golden-ratio));
+  --card-width: 20.875rem;
+  --card-height: 25rem;
   --project-color: var(--contrast-color);
   --project-image-transition: transform 0.3s ease-in-out;
   --content-padding: 1rem;
@@ -10,16 +10,16 @@
   align-items: center;
 }
 
+.projects-section,
+.projects-section * {
+  flex-shrink: 0;
+}
+
 .projects-grid {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(2, var(--card-width));
   justify-items: center;
-}
-@media screen and (max-width: 1060px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, var(--card-width));
-  }
 }
 @media screen and (max-width: 720px) {
   .projects-grid {
@@ -34,6 +34,7 @@
   box-shadow:
     rgba(0, 0, 0, 0.16) 0px 3px 6px,
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  height: var(--card-height);
   position: relative;
   width: var(--card-width);
 }
@@ -43,16 +44,18 @@
   border-radius: inherit;
   display: flex;
   flex-direction: column;
+  height: 100%;
   overflow: hidden;
   position: relative;
   text-decoration: none;
+  width: 100%;
 }
 
 .project-image-container {
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   cursor: pointer;
-  height: 11.25rem;
+  height: calc(0.382 * var(--card-height));
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -109,26 +112,21 @@ html:not(.noscript) .project-image:not(.hide) ~ .project-color {
   background-color: inherit;
   display: flex;
   flex-direction: column;
-  height: 17rem;
+  height: 100%;
   padding: var(--content-padding);
   z-index: 30;
 }
 
 .project-header {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   gap: 1rem;
-  height: 2rem;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-  overflow-y: hidden;
+  margin-bottom: calc(var(--content-padding) / 2);
 }
 
 .project-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin: 0;
 }
 
 .project-date {
@@ -141,29 +139,23 @@ html:not(.noscript) .project-image:not(.hide) ~ .project-color {
 .project-description {
   font-size: 0.95rem;
   font-weight: 300;
-  height: 4.5rem;
-  margin-bottom: 0.5rem;
+  line-height: 1.5;
   opacity: 0.85;
-  overflow-y: hidden;
-}
-
-.project-tags {
-  align-items: start;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  height: 4rem;
-  margin: 0.625rem 0;
-  overflow-y: hidden;
 }
 
 .project-tag {
+  align-self: start;
   background-color: var(--tag-color);
   border-radius: 0.875rem;
+  box-sizing: content-box;
   color: var(--tag-text-color);
   flex-grow: 0;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  padding: 0.25rem 0.75rem;
+  height: 0.875rem;
+  letter-spacing: 0.5px;
+  line-height: 0.875rem;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
   white-space: nowrap;
 }
