@@ -69,6 +69,12 @@
   width: 100%;
 }
 
+/* Force pixel alignment */
+.project-image-container,
+.project-color {
+  transform: translate3d(0, 0, 0);
+}
+
 .project-image {
   background-color: var(--project-color);
   border-radius: inherit;
@@ -77,6 +83,8 @@
   position: absolute;
   right: 0;
   top: 0;
+  /* Force pixel alignment */
+  transform: scale(1.01);
   transform-origin: top center;
   transition: var(--project-image-transition);
   width: 100%;
@@ -106,15 +114,6 @@ html:not(.noscript) .project-image {
 }
 html:not(.noscript) .project-image.hide {
   opacity: 0;
-}
-
-html:not(.noscript) .project-image ~ .project-color {
-  transform: scale(1);
-  transform-origin: center;
-  transition: var(--project-image-transition);
-}
-html:not(.noscript) .project-image:not(.hide) ~ .project-color {
-  transform: scale(0.9);
 }
 
 .project-content {
