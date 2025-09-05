@@ -5,13 +5,13 @@ export default defineConfig({
   testDir: 'tests',
 
   // Run all tests in parallel.
-  fullyParallel: true,
+  fullyParallel: !process.env.GITHUB_ACTIONS,
 
   // Fail the build on CI if you accidentally left test.only in the source code.
   forbidOnly: !!process.env.GITHUB_ACTIONS,
 
-  // Retry on CI only.
-  retries: process.env.GITHUB_ACTIONS ? 2 : 0,
+  // Do not retry.
+  retries: 0,
 
   // Opt out of parallel tests on CI.
   workers: process.env.GITHUB_ACTIONS ? 1 : undefined,
