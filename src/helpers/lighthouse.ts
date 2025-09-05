@@ -15,39 +15,34 @@ const browser = await puppeteer.launch({
     '--no-sandbox',
     '--no-zygote',
     `--remote-debugging-port=${port}`,
-    '--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    '--lang=en-US,en',
   ],
 });
-const result = await lighthouse(url, { port });
+const result = await lighthouse(url, {
+  port,
+  skipAudits: ['robots-txt'],
+});
 if (!result) throw Error('failed to create lighthouse report');
 
-// Debug SEO specifically
-const seoCategory = result.lhr.categories.seo;
-if (seoCategory.score !== 1) {
-  console.log('SEO issues found:');
-  for (const auditRef of seoCategory.auditRefs) {
-    const audit = result.lhr.audits[auditRef.id];
-    if (audit.score !== 1 && audit.score !== null) {
-      console.log(`❌ ${audit.title}: ${audit.description}`);
-      if (audit.details) {
-        console.log('Details:', JSON.stringify(audit.details, null, 2));
+for (const categoryName in result.lhr.categories) {
+  const category = result.lhr.categories[categoryName];
+  if (!category.score)
+    throw Error(`missing score for '${categoryName}' category`);
+
+  if (category.score !== 1) {
+    console.log(`${categoryName.toUpperCase()} issues found:`);
+    for (const auditRef of category.auditRefs) {
+      const audit = result.lhr.audits[auditRef.id];
+      if (audit.score !== 1 && audit.score !== null) {
+        console.log(`❌ ${audit.title}: ${audit.description}`);
+        if (audit.details) {
+          console.log('Details:', JSON.stringify(audit.details, null, 2));
+        }
       }
     }
+    throw Error(
+      `failed ${categoryName} audit with a score of ${category.score * 100}`,
+    );
   }
-}
-
-for (const category in result.lhr.categories) {
-  const draft = result.lhr.categories[category].score;
-  if (!draft) throw Error(`missing score for '${category}' category`);
-
-  const perfectScore = 100 as const;
-  const score = draft * 100;
-
-  if (score < perfectScore) {
-    throw Error(`failed ${category} audit with a score of ${score}`);
-  }
-  console.info(`${category}: ${score}`);
 }
 
 await browser.close();
