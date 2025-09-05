@@ -44,6 +44,7 @@ function testBreakpoint(width: number, lightTheme?: boolean) {
     await expect(page).toHaveScreenshot(`menu-${width}px-${theme}.png`, {
       ...options,
       clip: { x: 0, y: header - 4, width, height: nav + 8 },
+      stylePath: 'tests/menu-test.css',
     });
   });
 }
