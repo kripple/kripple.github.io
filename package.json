@@ -15,7 +15,8 @@
     "update": "playwright test --update-snapshots",
     "capture": "playwright test -c src/helpers/capture-config.ts --update-snapshots > playwright-capture.log",
     "build-images": "tsx --no-deprecation src/helpers/build-project-images",
-    "update-images": "npm run capture && npm run build-images"
+    "update-images": "npm run capture && npm run build-images",
+    "lighthouse": "tsx src/utils/lighthouse"
   },
   "devDependencies": {
     "@playwright/test": "1.50.1",
@@ -32,10 +33,12 @@
     "eslint-plugin-react": "7.37.2",
     "eslint-plugin-react-hooks": "5.0.0",
     "eslint-plugin-react-refresh": "0.4.14",
+    "lighthouse": "^12.8.2",
     "node-vibrant": "4.0.3",
     "pathfit": "1.0.4",
     "playwright": "1.50.1",
     "prettier": "*",
+    "puppeteer": "^24.19.0",
     "react": "*",
     "react-dom": "*",
     "rollup-plugin-visualizer": "*",
