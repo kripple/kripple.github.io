@@ -5,7 +5,8 @@ on:
     branches:
       - main
     paths:
-      - 'docs/**'           
+      - 'docs/**'
+      - '.github/workflows/deploy.yml'
 
 permissions:
   contents: read
@@ -64,7 +65,7 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: pages-deployment
 
-  audit:
+  lighthouse:
     name: Lighthouse Audit
     needs: deploy
     runs-on: ubuntu-latest
@@ -75,6 +76,17 @@ jobs:
           node-version-file: '.node-version'
           cache: 'npm'
       - name: Install dependencies
-        run: npm install lighthouse puppeteer
+        run: npm ci
       - name: Run Lighthouse report
         run: npm run lighthouse
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: lighthouse
+    uses: cloudflare/pages-action@v1
+    with:
+      apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      projectName: kripple-github-io
+      directory: docs
+      wranglerVersion: '3'
