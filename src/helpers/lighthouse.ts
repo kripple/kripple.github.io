@@ -1,7 +1,8 @@
 import lighthouse from 'lighthouse';
 import puppeteer from 'puppeteer';
 
-const url = 'https://kripple.github.io' as const;
+const url =
+  process.env.LIGHTHOUSE_URL || ('https://kripple.github.io' as const);
 const port = 9222 as const;
 const browser = await puppeteer.launch({
   headless: true,
