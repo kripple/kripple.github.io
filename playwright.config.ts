@@ -17,12 +17,10 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   // Reporter to use
-  reporter: process.env.CI
-    ? [
-        ['github'],
-        ['html', { open: 'never', outputFolder: 'playwright-report' }],
-      ]
-    : 'list',
+  reporter: process.env.CI ? 'dot' : 'list',
+
+  // Stop the test run after the first failed test
+  maxFailures: process.env.CI ? 1 : undefined,
 
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
