@@ -16,7 +16,7 @@
     "capture": "playwright test -c src/helpers/capture-config.ts --update-snapshots > playwright-capture.log",
     "build-images": "NODE_OPTIONS='--no-deprecation' dotenvx run tsx src/helpers/build-project-images",
     "update-images": "npm run capture && npm run build-images",
-    "lighthouse": "tsx src/utils/lighthouse.ts"
+    "lighthouse": "tsx src/helpers/lighthouse.ts"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.49.0",
