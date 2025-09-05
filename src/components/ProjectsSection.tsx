@@ -1,4 +1,5 @@
 import { Icon } from '@/components/Icon';
+import { Link } from '@/components/Link';
 import {
   projectImageAspectRatio,
   projectImageMaxWidth,
@@ -29,7 +30,7 @@ export function ProjectsSection() {
 
           return (
             <div className="project-card" key={key}>
-              <a className="project-card-link" href={url} tabIndex={0}>
+              <Link className="project-card-link" href={url}>
                 <div className="project-image-container">
                   <img
                     alt={`screenshot of project: ${key}`}
@@ -56,19 +57,16 @@ export function ProjectsSection() {
                     <span className="project-link-placeholder"></span>
                   ) : null}
                 </div>
-              </a>
+              </Link>
               {showSourceLink ? (
-                <a
+                <Link
                   aria-label={`Link to source code: ${title}`}
                   className="project-link"
                   href={sourceUrl}
-                  rel="noreferrer"
-                  tabIndex={0}
-                  target="_blank"
                 >
                   <Icon icon="github" />
                   <span className="project-link-label">Source</span>
-                </a>
+                </Link>
               ) : null}
             </div>
           );

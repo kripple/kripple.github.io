@@ -50,12 +50,6 @@
   margin: 0 0 1rem 0;
 }
 
-.skip-to-content {
-  height: 0;
-  position: absolute;
-  width: 0;
-}
-
 /* single column layout */
 @media screen and (max-width: 1199px) {
   .section {

@@ -1,3 +1,4 @@
+import { Link } from '@/components/Link';
 import { sections } from '@/data/sections';
 
 import '@/components/header-nav.css';
@@ -8,16 +9,16 @@ export function HeaderNav() {
       <div className="nav-container" data-testid="menu">
         {Object.values(sections).map((section) => {
           return (
-            <a
+            <Link
               className="nav-link click-to-scroll"
               href={`#${section.id}`}
               id={section.navId}
               key={section.id}
-              tabIndex={0}
+              newTab={false}
             >
               <span className="nav-link-indicator"></span>
               <span className="nav-link-text">{section.id}</span>
-            </a>
+            </Link>
           );
         })}
       </div>

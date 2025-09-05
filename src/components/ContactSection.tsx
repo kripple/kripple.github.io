@@ -1,3 +1,4 @@
+import { Link } from '@/components/Link';
 import { socialLinks } from '@/data/config';
 import { ids } from '@/data/sections';
 
@@ -17,16 +18,13 @@ export function ContactSection() {
 
         <p className="paragraph add-punctuation">
           Email:{' '}
-          <a
+          <Link
             aria-label={email.label}
             className="email-text-link"
             href={email.href}
-            rel="noreferrer"
-            tabIndex={0}
-            target="_blank"
           >
             {email.value}
-          </a>
+          </Link>
         </p>
       </div>
     </section>

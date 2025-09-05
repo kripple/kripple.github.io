@@ -1,4 +1,5 @@
 import { HeaderNav } from '@/components/HeaderNav';
+import { Link } from '@/components/Link';
 import { MenuToggle } from '@/components/MenuToggle';
 import { SocialIcons } from '@/components/SocialIcons';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -12,13 +13,13 @@ export function Header() {
     <header className="header" id="header">
       <div className="header-title">
         <h1 className="name">
-          <a
+          <Link
             className="header-title-link click-to-scroll"
             href={`#${ids.home}`}
-            tabIndex={0}
+            newTab={false}
           >
             {config.name}
-          </a>
+          </Link>
         </h1>
         <h2 className="job-title">{config.jobTitle}</h2>
       </div>
