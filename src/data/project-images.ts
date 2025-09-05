@@ -21,31 +21,55 @@ import reposCompressedSrc from '/src/assets/project-images/repos-x1.webp';
 import tntLaserWorksSrc from '/src/assets/project-images/tntLaserWorks-x2.webp';
 import tntLaserWorksCompressedSrc from '/src/assets/project-images/tntLaserWorks-x1.webp';
 
-const cckb: ProjectUrls = { src: cckbSrc, compressedSrc: cckbCompressedSrc };
+const cckb: ProjectUrls = {
+  src: cckbSrc,
+  compressedSrc: cckbCompressedSrc,
+};
 
-const codebreaker: ProjectUrls = { src: codebreakerSrc, compressedSrc: codebreakerCompressedSrc };
+const codebreaker: ProjectUrls = {
+  src: codebreakerSrc,
+  compressedSrc: codebreakerCompressedSrc,
+};
 
-const guessTheWord: ProjectUrls = { src: guessTheWordSrc, compressedSrc: guessTheWordCompressedSrc };
+const guessTheWord: ProjectUrls = {
+  src: guessTheWordSrc,
+  compressedSrc: guessTheWordCompressedSrc,
+};
 
-const klinky: ProjectUrls = { src: klinkySrc, compressedSrc: klinkyCompressedSrc };
+const klinky: ProjectUrls = {
+  src: klinkySrc,
+  compressedSrc: klinkyCompressedSrc,
+};
 
-const mapSlicer: ProjectUrls = { src: mapSlicerSrc, compressedSrc: mapSlicerCompressedSrc };
+const mapSlicer: ProjectUrls = {
+  src: mapSlicerSrc,
+  compressedSrc: mapSlicerCompressedSrc,
+};
 
-const pokematch: ProjectUrls = { src: pokematchSrc, compressedSrc: pokematchCompressedSrc };
+const pokematch: ProjectUrls = {
+  src: pokematchSrc,
+  compressedSrc: pokematchCompressedSrc,
+};
 
-const repos: ProjectUrls = { src: reposSrc, compressedSrc: reposCompressedSrc };
+const repos: ProjectUrls = {
+  src: reposSrc,
+  compressedSrc: reposCompressedSrc,
+};
 
-const tntLaserWorks: ProjectUrls = { src: tntLaserWorksSrc, compressedSrc: tntLaserWorksCompressedSrc };
+const tntLaserWorks: ProjectUrls = {
+  src: tntLaserWorksSrc,
+  compressedSrc: tntLaserWorksCompressedSrc,
+};
 
 export const urls = {
-  'cckb': cckb,
-  'codebreaker': codebreaker,
-  'guessTheWord': guessTheWord,
-  'klinky': klinky,
-  'mapSlicer': mapSlicer,
-  'pokematch': pokematch,
-  'repos': repos,
-  'tntLaserWorks': tntLaserWorks,
+  cckb,
+  codebreaker,
+  guessTheWord,
+  klinky,
+  mapSlicer,
+  pokematch,
+  repos,
+  tntLaserWorks,
 } as const;
 
 export type ProjectKey = keyof typeof urls;

@@ -119,10 +119,13 @@ async function buildProjectImages() {
 
     // Generate project object
     projectObjects.push(
-      `const ${projectKey}: ProjectUrls = { src: ${projectKey}Src, compressedSrc: ${projectKey}CompressedSrc };`,
+      `const ${projectKey}: ProjectUrls = {
+  src: ${projectKey}Src,
+  compressedSrc: ${projectKey}CompressedSrc,
+};`,
     );
 
-    urlsObject.push(`  '${projectKey}': ${projectKey}`);
+    urlsObject.push(`  ${projectKey}`);
   }
 
   // Generate the complete TypeScript file
