@@ -6,9 +6,8 @@ import tinify from 'tinify';
 
 import { projectImageMaxWidth } from '@/data/constants';
 import { projects as projectsData } from '@/data/projects';
-import { tinifyApiKey } from '@/helpers/secrets';
 
-tinify.key = tinifyApiKey;
+tinify.key = process.env.TINIFY_API_KEY || '';
 
 const inputPath = 'src/helpers/snapshots';
 const outputPath = 'src/assets/project-images';

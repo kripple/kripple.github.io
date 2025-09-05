@@ -1,6 +1,6 @@
 node_modules
-secret*
 TODO*
 test-results
 playwright-report
 *.log
+.env
