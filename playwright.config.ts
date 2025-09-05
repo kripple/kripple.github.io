@@ -17,7 +17,12 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   // Reporter to use
-  reporter: 'line',
+  reporter: process.env.CI
+    ? [
+        ['github'],
+        ['html', { open: 'never', outputFolder: 'playwright-report' }],
+      ]
+    : 'list',
 
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
