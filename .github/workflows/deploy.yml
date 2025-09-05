@@ -72,6 +72,7 @@ jobs:
         with:
           node-version-file: '.node-version'
           cache: 'npm'
-      - run: |
-          npm ci
-          npm run lighthouse
+      - name: Install dependencies
+        run: npm install lighthouse puppeteer
+      - name: Run Lighthouse report
+        run: npm run lighthouse
