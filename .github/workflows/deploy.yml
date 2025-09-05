@@ -21,6 +21,7 @@ jobs:
           node-version-file: '.node-version'
           cache: 'npm'
       - name: Lint and Test
+        working-directory: ./
         run: |
           npm ci
           npx playwright install --with-deps

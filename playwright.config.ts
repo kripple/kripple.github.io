@@ -8,28 +8,20 @@ export default defineConfig({
   fullyParallel: true,
 
   // Fail the build on CI if you accidentally left test.only in the source code.
-  // forbidOnly: !!process.env.CI,
+  forbidOnly: !!process.env.CI,
 
   // Retry on CI only.
-  // retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 0,
 
   // Opt out of parallel tests on CI.
-  // workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : undefined,
 
   // Reporter to use
   reporter: 'line',
 
   use: {
-    // browserName: 'chromium',
-    // launchOptions: {
-    //   args: ['--ignore-certificate-errors'],
-    // },
-
-    // ignoreHTTPSErrors: true, // in case your certificate isn't properly signed
-    baseURL: 'http://localhost:5173',
-
     // Base URL to use in actions like `await page.goto('/')`.
-    // baseURL: `http://127.0.0.1:${port}`,
+    baseURL: 'http://localhost:5173',
 
     // Collect trace when retrying the failed test.
     trace: 'on-first-retry',
@@ -42,11 +34,11 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
+
   // Run your local dev server before starting the tests.
   webServer: {
     command: 'npm run start',
     url: 'http://localhost:5173',
-    reuseExistingServer: true,
-    // reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !process.env.CI,
   },
 });
