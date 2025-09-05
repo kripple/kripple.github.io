@@ -22,7 +22,7 @@ jobs:
           node-version-file: '.node-version'
           cache: 'npm'
       - name: Install dependencies
-        run: npm install tsx lighthouse puppeteer
+        run: npm ci
       - name: Run Lighthouse report
         run: npm run lighthouse
         env:
