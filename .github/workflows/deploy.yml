@@ -7,7 +7,6 @@ on:
       - main
     paths:
       - 'docs/**'
-      - '.github/workflows/deploy.yml'
 
 permissions:
   contents: read
