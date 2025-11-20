@@ -11,18 +11,21 @@ export function BlogSection() {
   return (
     <section className="section blog-section" id={ids.blog}>
       <div>
-        <h3 className="section-title blog-section-title">
-          Featured blog posts
-        </h3>
+        <h3 className="section-title blog-section-title">Blog</h3>
 
-        <div className="blog-card-grid">
+        <div className="blog-list">
           {featured.map(({ title, publishDate, tags }) => (
-            <div className="blog-card" key={title}>
-              {title}, {publishDate},{' '}
-              {tags.map((tag) => (
-                <div key={tag}>{tag}</div>
-              ))}
-            </div>
+            <article className="blog-item" key={title}>
+              <h4 className="blog-title">{title}</h4>
+              <time className="blog-date">{publishDate}</time>
+              <div className="blog-tags">
+                {tags.map((tag) => (
+                  <span className="blog-tag" key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
 

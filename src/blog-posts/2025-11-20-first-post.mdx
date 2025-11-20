@@ -1,34 +1,31 @@
-![Example Image](src/assets/landscape.avif)
+![Coming Soon](src/assets/wip.png)
 
-Vue 3 has been a game-changer for how I structure components. Here's what I've learned so far.
+I'm excited to announce that I'm building a personal blog. This space will be home to my thoughts on web development, technical explorations, and lessons learned along the way.
 
-## Getting Started
+## What to Expect
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The setup process was straightforward, and I had my first component running in under an hour.
+Right now, the blog is under construction. I'm setting up the infrastructure to publish posts about frontend development, React and Vue patterns, and whatever else captures my interest in the world of web technologies.
 
-## The Component API
+## Why Start Now
 
-The Composition API feels more intuitive than the Options API for complex logic. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Building a blog felt like a natural next step. It's a way to document my learning, share what I've picked up from my experience, and contribute to the broader development community. Plus, it's a good excuse to experiment with new tools and approaches on my own site.
 
-Here's a quick example:
+## Technical Notes
 
-```javascript
-import { ref, computed } from 'vue';
+I'm using MDX for the blog, which lets me write markdown with the power of React components. Here's how I set up the basic structure:
 
-export default {
-  setup() {
-    const count = ref(0);
-    const doubled = computed(() => count.value * 2);
+```typescript
+import BlogPost from '@/components/blog-post/my-blog-post.mdx'
 
-    return { count, doubled };
-  },
-};
+export function BlogSection() {
+  return (
+    <BlogPost />
+  )
+}
 ```
 
-## What's Next
+It's a nice balance between simplicity and flexibility for long-form content.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. I'm planning to dive deeper into state management and testing strategies.
+## Stay Tuned
 
-## Final Thoughts
-
-Overall, I'm impressed with Vue 3's developer experience. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+More posts coming soon. In the meantime, feel free to check out the rest of my site or reach out if you have questions or just want to chat about web development.

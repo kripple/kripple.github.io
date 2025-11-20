@@ -1,6 +1,6 @@
 export const meta = {
-  title: 'My First Steps with Vue 3',
-  publishDate: '2025-01-15',
-  readTime: '3 min read',
-  tags: ['vue', 'javascript', 'web-development'],
+  title: 'Blog Under Construction',
+  publishDate: '2025-11-20',
+  readTime: '2 min read',
+  tags: ['web-development', 'mdx'],
 } as const;
