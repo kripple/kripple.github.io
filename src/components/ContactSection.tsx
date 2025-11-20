@@ -15,7 +15,7 @@ export function ContactSection() {
         </h3>
 
         <p className="paragraph">
-          {`I'm a full-stack software engineer specializing in frontend development. I'm not seeking new opportunities at this time, but for all other inquiries, please use the contact information below:`}
+          {`I'm a full-stack software engineer specializing in frontend development.  I'm not actively looking for new opportunities right now, but I'd love to hear from you about anything else.`}
         </p>
 
         <p className="paragraph add-punctuation">
