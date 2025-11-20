@@ -3,8 +3,8 @@ import { Link } from '@/components/Link';
 import { MenuToggle } from '@/components/MenuToggle';
 import { SocialIcons } from '@/components/SocialIcons';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import { config } from '@/data/config';
-import { ids } from '@/data/sections';
+import { config } from '@/content/config';
+import { ids } from '@/content/sections';
 
 import '@/components/header.css';
 

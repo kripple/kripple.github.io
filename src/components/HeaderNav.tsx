@@ -1,5 +1,5 @@
 import { Link } from '@/components/Link';
-import { sections } from '@/data/sections';
+import { sections } from '@/content/sections';
 
 import '@/components/header-nav.css';
 

@@ -3,10 +3,10 @@ import { Link } from '@/components/Link';
 import {
   projectImageAspectRatio,
   projectImageMaxWidth,
-} from '@/data/constants';
-import { type ProjectKey, urls } from '@/data/project-images';
-import { featuredProjects } from '@/data/projects';
-import { ids } from '@/data/sections';
+} from '@/content/constants';
+import { type ProjectKey, urls } from '@/content/project-images';
+import { featuredProjects } from '@/content/projects';
+import { ids } from '@/content/sections';
 
 import '@/components/projects-section.css';
 import '@/components/project-colors.css';

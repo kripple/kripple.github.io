@@ -1,4 +1,4 @@
-import type { Tag } from '@/data/tags';
+import type { Tag } from '@/content/tags';
 
 import '@/components/project-tags.css';
 

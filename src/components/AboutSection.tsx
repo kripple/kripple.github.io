@@ -2,8 +2,8 @@
 
 import { Photo } from '@/components/Photo';
 import { SkillsSection } from '@/components/SkillsSection';
-import { config } from '@/data/config';
-import { ids } from '@/data/sections';
+import { config } from '@/content/config';
+import { ids } from '@/content/sections';
 
 import '@/components/about-section.css';
 

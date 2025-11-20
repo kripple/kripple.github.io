@@ -1,7 +1,7 @@
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Theme } from '@/components/Theme';
-import { sections } from '@/data/sections';
+import { sections } from '@/content/sections';
 
 import '@/components/global.css';
 import '@/components/app.css';

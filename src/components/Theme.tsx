@@ -1,4 +1,4 @@
-import { ids } from '@/data/sections';
+import { ids } from '@/content/sections';
 
 import '@/assets/fonts-latin.css';
 import '@/assets/icon-fonts.css';

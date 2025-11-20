@@ -1,5 +1,5 @@
-import { ids } from '@/data/sections';
-import { skills } from '@/data/skills';
+import { ids } from '@/content/sections';
+import { skills } from '@/content/skills';
 
 import '@/components/skills-section.css';
 

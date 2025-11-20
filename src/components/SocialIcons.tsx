@@ -1,5 +1,5 @@
 import { Link } from '@/components/Link';
-import { socialLinks } from '@/data/config';
+import { socialLinks } from '@/content/config';
 
 import '@/components/social-icons.css';
 

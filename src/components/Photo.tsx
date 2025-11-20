@@ -1,6 +1,6 @@
 import tinyPhoto from '@/assets/kelly-ripple-circle-compressed.avif';
 import photo from '@/assets/kelly-ripple-circle.avif';
-import { config } from '@/data/config';
+import { config } from '@/content/config';
 
 import '@/components/photo.css';
 

@@ -1,6 +1,6 @@
 import { Link } from '@/components/Link';
-import { socialLinks } from '@/data/config';
-import { ids } from '@/data/sections';
+import { socialLinks } from '@/content/config';
+import { ids } from '@/content/sections';
 
 import '@/components/contact-section.css';
 

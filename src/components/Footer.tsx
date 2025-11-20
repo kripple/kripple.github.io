@@ -1,5 +1,5 @@
 import { SocialIcons } from '@/components/SocialIcons';
-import { config } from '@/data/config';
+import { config } from '@/content/config';
 
 import '@/components/footer.css';
 

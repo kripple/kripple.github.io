@@ -2,8 +2,8 @@ import fs from 'fs';
 
 import { expect, test } from '@playwright/test';
 
-import { imageCaptureHeight, imageCaptureWidth } from '@/data/constants';
-import { projects } from '@/data/projects';
+import { imageCaptureHeight, imageCaptureWidth } from '@/content/constants';
+import { projects } from '@/content/projects';
 
 const snapshotsPath = 'src/helpers/snapshots';
 const options = { animations: 'disabled' } as const;

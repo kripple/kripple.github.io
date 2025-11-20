@@ -1,4 +1,4 @@
-import { ids } from '@/data/sections';
+import { ids } from '@/content/sections';
 
 import '@/components/theme-toggle.css';
 

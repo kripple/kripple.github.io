@@ -1,5 +1,5 @@
-import type { Tag } from '@/data/tags';
-import { tags } from '@/data/tags';
+import type { Tag } from '@/content/tags';
+import { tags } from '@/content/tags';
 import { Month, type ProjectDate } from '@/types/dates';
 
 type Project = {

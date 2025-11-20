@@ -4,14 +4,14 @@ import path from 'path';
 import { Vibrant } from 'node-vibrant/node';
 import tinify from 'tinify';
 
-import { projectImageMaxWidth } from '@/data/constants';
-import { projects as projectsData } from '@/data/projects';
+import { projectImageMaxWidth } from '@/content/constants';
+import { projects as projectsData } from '@/content/projects';
 
 tinify.key = process.env.TINIFY_API_KEY || '';
 
 const inputPath = 'src/helpers/snapshots';
 const outputPath = 'src/assets/project-images';
-const generatedFilePath = 'src/data/project-images.ts';
+const generatedFilePath = 'src/content/project-images.ts';
 const colorsFilePath = 'src/components/project-colors.css';
 const originalImageFormat = 'png' as const;
 const imageFormat: 'avif' | 'jpeg' | 'png' | 'webp' = 'webp';
