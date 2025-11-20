@@ -3,6 +3,7 @@ import * as childProcess from 'child_process';
 import dns from 'dns';
 import { resolve } from 'path';
 
+import mdx from '@mdx-js/rollup';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type PluginOption, defineConfig } from 'vite';
@@ -24,6 +25,7 @@ const gitBranch = childProcess
 const outDir = 'docs';
 const plugins: PluginOption[] = [
   react(),
+  mdx(),
   viteSsg({
     renderModulePath: resolve(__dirname, 'src/build/render.tsx'),
     viteOutputPath: resolve(__dirname, outDir),
