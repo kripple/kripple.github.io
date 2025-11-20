@@ -238,16 +238,16 @@ function addLinkStyles() {
   const prefix = 'nav-link';
   const portfolioLink = document.getElementById(`${prefix}-portfolio`);
   const portfolioSection = document.getElementById('portfolio');
-  const aboutLink = document.getElementById(`${prefix}-about`);
-  const aboutSection = document.getElementById('about');
+  const blogLink = document.getElementById(`${prefix}-blog`);
+  const blogSection = document.getElementById('blog');
   const contactLink = document.getElementById(`${prefix}-contact`);
   const contactSection = document.getElementById('contact');
   if (
     !portfolioSection ||
-    !aboutSection ||
+    !blogSection ||
     !contactSection ||
     !portfolioLink ||
-    !aboutLink ||
+    !blogLink ||
     !contactLink
   ) {
     console.info('missing elements');
@@ -263,10 +263,10 @@ function addLinkStyles() {
   function setLinksState() {
     if (
       !portfolioSection ||
-      !aboutSection ||
+      !blogSection ||
       !contactSection ||
       !portfolioLink ||
-      !aboutLink ||
+      !blogLink ||
       !contactLink
     ) {
       console.info('missing elements');
@@ -284,13 +284,13 @@ function addLinkStyles() {
     }
     if (scrollTop >= contactSection.offsetTop || isVisible(contactSection)) {
       contactLink.classList.add('active');
-      removeActiveClass([portfolioLink, aboutLink]);
-    } else if (scrollTop >= aboutSection.offsetTop) {
-      aboutLink.classList.add('active');
+      removeActiveClass([portfolioLink, blogLink]);
+    } else if (scrollTop >= blogSection.offsetTop) {
+      blogLink.classList.add('active');
       removeActiveClass([portfolioLink, contactLink]);
     } else {
       portfolioLink.classList.add('active');
-      removeActiveClass([aboutLink, contactLink]);
+      removeActiveClass([blogLink, contactLink]);
     }
   }
   const handler = throttle(setLinksState);
