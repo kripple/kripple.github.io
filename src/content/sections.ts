@@ -1,4 +1,5 @@
-import { AboutSection } from '@/components/AboutSection';
+// import { AboutSection } from '@/components/AboutSection';
+import { BlogSection } from '@/components/BlogSection';
 import { ContactSection } from '@/components/ContactSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 
@@ -10,6 +11,7 @@ export const ids = {
   contact: 'contact',
   projects: 'portfolio',
   skills: 'skills',
+  blog: 'blog',
 } as const;
 
 export const sections = {
@@ -18,11 +20,16 @@ export const sections = {
     id: ids.projects,
     navId: `nav-link-${ids.projects}`,
   },
-  [ids.about]: {
-    Component: AboutSection,
-    id: ids.about,
-    navId: `nav-link-${ids.about}`,
+  [ids.blog]: {
+    Component: BlogSection,
+    id: ids.blog,
+    navId: `nav-link-${ids.blog}`,
   },
+  // [ids.about]: {
+  //   Component: AboutSection,
+  //   id: ids.about,
+  //   navId: `nav-link-${ids.about}`,
+  // },
   [ids.contact]: {
     Component: ContactSection,
     id: ids.contact,
